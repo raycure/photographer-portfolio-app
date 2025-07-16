@@ -19,7 +19,7 @@ type CustomIconProps = {
 	style?: object;
 	size?: number;
 	active?: boolean;
-	setName:
+	collectionName:
 		| typeof FontAwesome
 		| typeof AntDesign
 		| typeof FontAwesome6
@@ -29,7 +29,7 @@ type CustomIconProps = {
 export default function CustomIcon({
 	name,
 	color = 'white',
-	setName: Icon,
+	collectionName: Icon,
 	style,
 	size = 28,
 	active = false,
