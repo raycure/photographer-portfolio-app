@@ -1,16 +1,16 @@
-import { StyleSheet } from 'react-native';
-
+import { Pressable, StyleSheet } from 'react-native';
 import { Text, View } from '@/src/components/Themed';
+import { useState } from 'react';
+import { useRouter } from 'expo-router';
 
 export default function TabOneScreen() {
+	const [passwordSecure, setPasswordSecure] = useState<boolean>(false);
+	const router = useRouter();
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>Tab One</Text>
-			<View
-				style={styles.separator}
-				lightColor='#eee'
-				darkColor='rgba(255,255,255,0.1)'
-			/>
+			<Pressable onPress={() => router.navigate('/(secure)')}>
+				<Text>login</Text>
+			</Pressable>
 		</View>
 	);
 }

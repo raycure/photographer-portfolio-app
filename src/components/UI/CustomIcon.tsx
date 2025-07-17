@@ -1,43 +1,34 @@
-import { FontAwesome } from '@expo/vector-icons';
-import { FontAwesome6 } from '@expo/vector-icons';
-import { AntDesign } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
-import type { ComponentProps } from 'react';
+import {
+	IconCollectionKey,
+	iconCollectionMap,
+	IconNameTypes,
+} from '@/src/constants/iconRegistry';
+import { ViewStyle } from 'react-native';
 
-type FontAwesomeIconName = ComponentProps<typeof FontAwesome>['name'];
-type FontAwesome6IconName = ComponentProps<typeof FontAwesome6>['name'];
-type AntDesignIconName = ComponentProps<typeof AntDesign>['name'];
-type IoniconsIconName = ComponentProps<typeof Ionicons>['name'];
+type IconComponentType = (typeof iconCollectionMap)[IconCollectionKey];
 
 type CustomIconProps = {
-	name:
-		| FontAwesomeIconName
-		| AntDesignIconName
-		| FontAwesome6IconName
-		| IoniconsIconName;
+	name: IconNameTypes;
 	color?: string;
-	style?: object;
+	style?: ViewStyle;
 	size?: number;
 	active?: boolean;
-	collectionName:
-		| typeof FontAwesome
-		| typeof AntDesign
-		| typeof FontAwesome6
-		| typeof Ionicons;
+	collectionKey: IconCollectionKey;
 };
 
 export default function CustomIcon({
 	name,
 	color = 'white',
-	collectionName: Icon,
+	collectionKey,
 	style,
 	size = 28,
 	active = false,
 	...props
 }: CustomIconProps) {
+	const Icon = iconCollectionMap[collectionKey];
 	return (
 		<Icon
-			name={name}
+			name={name as never}
 			color={color}
 			size={size}
 			style={[{ marginBottom: -3 }, style]}

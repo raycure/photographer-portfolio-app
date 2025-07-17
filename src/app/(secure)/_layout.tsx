@@ -3,9 +3,7 @@ import { Stack } from 'expo-router';
 import { useColorScheme } from '@/src/components/useColorScheme';
 import { useClientOnlyValue } from '@/src/components/useClientOnlyValue';
 
-export default function StackLayout() {
-	const colorScheme = useColorScheme();
-
+export default function SecureLayout() {
 	return (
 		<Stack
 			screenOptions={{
@@ -15,19 +13,13 @@ export default function StackLayout() {
 			<Stack.Screen
 				name='index'
 				options={{
-					title: 'Onboarding',
+					title: 'Login',
 				}}
 			/>
 			<Stack.Screen
-				name='menu'
+				name='register'
 				options={{
-					title: 'Menu',
-				}}
-			/>
-			<Stack.Screen
-				name='eventHistory'
-				options={{
-					title: 'EventHistory',
+					title: 'Register',
 				}}
 			/>
 		</Stack>

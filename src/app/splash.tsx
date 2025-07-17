@@ -1,7 +1,7 @@
 // import { SplashScreen } from 'expo-router';
 // import { useSession } from './ctx';
 
-export function SplashScreenController() {
+export default function SplashScreenController() {
 	// 	const { isLoading } = useSession();
 	// 	if (!isLoading) {
 	// 		SplashScreen.hideAsync();

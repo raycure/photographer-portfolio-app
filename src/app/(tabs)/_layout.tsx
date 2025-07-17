@@ -1,21 +1,28 @@
 import React from 'react';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
 
 import Colors from '@/src/constants/Colors';
 import { useColorScheme } from '@/src/components/useColorScheme';
 import { useClientOnlyValue } from '@/src/components/useClientOnlyValue';
 import CustomIcon from '@/src/components/UI/CustomIcon';
-import { AntDesign, Ionicons } from '@expo/vector-icons';
+import { IconCollectionKey } from '@/src/constants/iconRegistry';
 
 export default function TabLayout() {
 	const colorScheme = useColorScheme();
-	const tabsContent = [
+	const tabsContent: {
+		name: string;
+		title: string;
+		iconInfo: {
+			collectionKey: IconCollectionKey;
+			name: string;
+			activeName?: string;
+		};
+	}[] = [
 		{
 			name: 'index',
 			title: 'Home',
 			iconInfo: {
-				collectionName: Ionicons,
+				collectionKey: 'ion',
 				name: 'home-outline',
 				activeName: 'home',
 			},
@@ -24,7 +31,7 @@ export default function TabLayout() {
 			name: 'leaderboard',
 			title: 'Leaderboard',
 			iconInfo: {
-				collectionName: AntDesign,
+				collectionKey: 'ad',
 				name: 'staro',
 				activeName: 'star',
 			},
@@ -33,7 +40,7 @@ export default function TabLayout() {
 			name: 'profile',
 			title: 'Profile',
 			iconInfo: {
-				collectionName: FontAwesome,
+				collectionKey: 'fa',
 				name: 'user-o',
 				activeName: 'user',
 			},
@@ -47,15 +54,16 @@ export default function TabLayout() {
 				headerShown: useClientOnlyValue(false, false),
 			}}
 		>
-			{tabsContent.map((tab) => {
+			{tabsContent.map((tab, index) => {
 				return (
 					<Tabs.Screen
+						key={index}
 						name={tab.name}
 						options={{
 							title: tab.title,
 							tabBarIcon: ({ color, focused }) => (
 								<CustomIcon
-									collectionName={tab.iconInfo.collectionName}
+									collectionKey={tab.iconInfo.collectionKey}
 									name={focused ? tab.iconInfo.activeName : tab.iconInfo.name}
 									active={focused}
 									color={color}
