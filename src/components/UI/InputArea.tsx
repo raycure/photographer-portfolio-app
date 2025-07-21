@@ -9,8 +9,8 @@ import {
 	ViewStyle,
 } from 'react-native';
 import { Text, View } from '../Themed';
-import React, { useState } from 'react';
 import Colors from '@/src/constants/Colors';
+import { useState } from 'react';
 
 type InputAreaProps = {
 	inputType?: 'number' | 'string';

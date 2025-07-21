@@ -5,8 +5,6 @@ import {
 } from '@/src/constants/iconRegistry';
 import { ViewStyle } from 'react-native';
 
-type IconComponentType = (typeof iconCollectionMap)[IconCollectionKey];
-
 type CustomIconProps = {
 	name: IconNameTypes;
 	color?: string;
