@@ -11,6 +11,9 @@ export default function TabOneScreen() {
 			<Pressable onPress={() => router.navigate('/(secure)')}>
 				<Text>login</Text>
 			</Pressable>
+			<Pressable onPress={() => router.navigate('/(stack)')}>
+				<Text>login</Text>
+			</Pressable>
 		</View>
 	);
 }
