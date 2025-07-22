@@ -40,7 +40,7 @@ export default {
 		accentOrange: '#ffbe5b',
 		accentGreen200: '#8dedae',
 		accentGreen400: '#5dd586',
-		accentBlue: '#3b4a57',
+		accentBlue: '#344453',
 		primary100: '#34404c',
 		primary300: '#303942',
 		primary500: '#29343e',

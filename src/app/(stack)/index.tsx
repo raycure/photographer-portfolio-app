@@ -7,11 +7,10 @@ export default function TabOneScreen() {
 	return (
 		<View style={styles.container}>
 			<CustomButton
-				type='text'
+				type='general'
 				content='Click Me'
 				onPress={() => console.log('Text button pressed')}
-				backgroundColor='#eee'
-				textStyle={{ color: 'blue', fontWeight: 'bold' }}
+				textColor='white'
 			/>
 			<CustomButton
 				type='icon'
@@ -19,13 +18,45 @@ export default function TabOneScreen() {
 					<CustomIcon collectionKey='ad' name={'eyeo'} color={color} />
 				)}
 				onPress={() => alert('Icon button pressed')}
-				backgroundColor='transparent'
+				tintedBackground={{
+					color: '#ffffff',
+					opacity: 0.15,
+					type: 'circular',
+				}}
 			/>
 			<CustomButton
-				type='text'
+				type='icon'
+				icon={({ color }) => (
+					<CustomIcon collectionKey='ad' name={'eyeo'} color={color} />
+				)}
+				onPress={() => alert('Icon button pressed')}
+				tintedBackground={{
+					color: '#ffffff',
+					opacity: 0.15,
+					type: 'rectangular',
+				}}
+			/>
+			<CustomButton
+				type='icon'
+				icon={({ color }) => (
+					<CustomIcon collectionKey='ad' name={'eyeo'} color={color} />
+				)}
+				onPress={() => alert('Icon button pressed')}
+				tintedBackground={{
+					type: 'rectangular',
+					blur: { intensity: 50 },
+				}}
+			/>
+			<CustomButton
+				type='general'
+				textColor='white'
 				content='Gradient'
 				onPress={() => console.log('Gradient button pressed')}
-				gradientBackground={{ colors: ['#4c669f', '#3b5998'] }}
+				gradientBackground={{
+					orientation: 'diagonal-l',
+					colors: ['#4c669f', '#081b45ff'],
+				}}
+				disabled
 			/>
 			<CustomButton
 				type='icon'
@@ -35,19 +66,12 @@ export default function TabOneScreen() {
 				onPress={() => alert('Star pressed')}
 				gradientBackground={{ colors: ['#FF512F', '#DD2476'] }}
 				style={{ padding: 10 }}
-				tintedBackground={{
-					color: '#fff',
-					opacity: 0.15,
-					type: 'circular',
-					blurredShadow: true,
-				}}
 			/>
 			<CustomButton
-				type='text'
+				type='general'
 				content='Disabled'
 				onPress={undefined}
-				backgroundColor='#ccc'
-				textStyle={{ color: '#666' }}
+				disabled={true}
 			/>
 		</View>
 	);

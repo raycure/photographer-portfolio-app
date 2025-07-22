@@ -1,18 +1,5 @@
-import {
-	IconCollectionKey,
-	iconCollectionMap,
-	IconNameTypes,
-} from '@/src/constants/iconRegistry';
-import { ViewStyle } from 'react-native';
-
-type CustomIconProps = {
-	name: IconNameTypes;
-	color?: string;
-	style?: ViewStyle;
-	size?: number;
-	active?: boolean;
-	collectionKey: IconCollectionKey;
-};
+import { iconCollectionMap } from '@/src/constants/iconRegistry';
+import { CustomIconProps } from './UITypes';
 
 export default function CustomIcon({
 	name,

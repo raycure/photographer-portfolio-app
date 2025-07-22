@@ -1,11 +1,7 @@
 import { LinearGradient } from 'expo-linear-gradient';
-import { ColorValue } from 'react-native';
-export type gradientProps = {
-	colors: [ColorValue, ColorValue];
-	children?: React.ReactNode;
-	orientation?: 'vertical' | 'horizontal' | 'diagonal-l' | 'diagonal-r';
-};
-const getGradientPoints = (orientation: gradientProps['orientation']) => {
+import { GradientProps } from './UITypes';
+
+const getGradientPoints = (orientation: GradientProps['orientation']) => {
 	switch (orientation) {
 		case 'horizontal':
 			return { start: { x: 0, y: 0.5 }, end: { x: 1, y: 0.5 } };
@@ -21,11 +17,12 @@ const getGradientPoints = (orientation: gradientProps['orientation']) => {
 export default function GradientBackground({
 	colors,
 	orientation = 'vertical',
+	style,
 	children,
-}: gradientProps) {
+}: GradientProps) {
 	const { start, end } = getGradientPoints(orientation);
 	return (
-		<LinearGradient colors={colors} start={start} end={end}>
+		<LinearGradient style={style} colors={colors} start={start} end={end}>
 			{children}
 		</LinearGradient>
 	);

@@ -11,21 +11,7 @@ import {
 import { Text, View } from '../Themed';
 import Colors from '@/src/constants/Colors';
 import { useState } from 'react';
-
-type InputAreaProps = {
-	inputType?: 'number' | 'string';
-	placeholder?: string;
-	title?: string;
-	secure?: boolean;
-	leftElement?: (props: { color: string }) => React.ReactNode;
-	rightElement?: (props: { color: string }) => React.ReactNode;
-	containerStyle?: ViewStyle;
-	textStyle?: TextStyle;
-	textContentType?: TextInputProps['textContentType'];
-	onChange?:
-		| ((e: NativeSyntheticEvent<TextInputChangeEventData>) => void)
-		| undefined;
-} & TextInputProps;
+import { InputAreaProps } from './UITypes';
 
 export default function InputArea({
 	inputType = 'string',

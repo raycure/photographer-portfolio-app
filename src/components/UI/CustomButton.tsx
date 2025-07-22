@@ -1,65 +1,56 @@
-import {
-	ColorValue,
-	GestureResponderEvent,
-	Pressable,
-	StyleSheet,
-	Text,
-	TextStyle,
-	useColorScheme,
-	ViewStyle,
-} from 'react-native';
+import { Pressable, StyleSheet, Text, useColorScheme } from 'react-native';
 import { View } from '../Themed';
 import Colors from '@/src/constants/Colors';
 import { useState } from 'react';
-import GradientBackground, { gradientProps } from './GradientBackground';
-import TintedBackground, { TintedBackgroundProps } from './TintedBackground';
-type IconButtonProps = {
-	type: 'icon';
-	icon: (props: { color: string }) => React.ReactNode;
-	onPress: ((event: GestureResponderEvent) => void) | null | undefined;
-	backgroundColor?: ColorValue;
-	gradientBackground?: gradientProps;
-	style?: ViewStyle;
-	textStyle?: TextStyle;
-	tintedBackground?: TintedBackgroundProps;
-	content?: never; // no content for icon type
-};
+import GradientBackground from './GradientBackground';
+import { CustomButtonProps } from './UITypes';
+import TintedBackground from './TintedBackground';
+import { StyleProps } from 'react-native-reanimated';
 
-type TextButtonProps = {
-	type: 'text';
-	icon?: (props: { color: string }) => React.ReactNode;
-	content?: string;
-	onPress: ((event: GestureResponderEvent) => void) | null | undefined;
-	backgroundColor?: ColorValue;
-	gradientBackground?: gradientProps;
-	style?: ViewStyle;
-	textStyle?: TextStyle;
-	tintedBackground?: TintedBackgroundProps;
-};
-type CustomButtonProps = IconButtonProps | TextButtonProps;
 export default function CustomButton({
 	content,
 	icon,
-	type = 'text',
+	type = 'general',
 	onPress,
-	backgroundColor = 'white',
+	backgroundColor,
+	textColor = 'white',
 	gradientBackground,
 	style,
 	textStyle,
 	tintedBackground,
+	disabled,
 }: CustomButtonProps) {
-	const [active, setActive] = useState<'pressed' | 'hover' | 'inactive'>(
-		'pressed'
-	);
+	const [active, setActive] = useState<boolean>(false);
 	const colorScheme = useColorScheme();
+	const disabledButtonStyle: StyleProps = {
+		backgroundColor: Colors[colorScheme ?? 'dark'].gray400,
+	};
 	const innerGeneralButtonContent = (
-		<View style={[styles.innerContainer, style]}>
-			{content && <Text style={[styles.text, textStyle]}>{content}</Text>}
+		<View
+			style={[
+				gradientBackground
+					? { backgroundColor: 'transparent' }
+					: backgroundColor
+					? [{ backgroundColor: backgroundColor }, styles.innerContainer]
+					: disabled
+					? [disabledButtonStyle, styles.innerContainer]
+					: [
+							{ backgroundColor: Colors[colorScheme ?? 'dark'].accentBlue },
+							styles.innerContainer,
+					  ],
+				style,
+			]}
+		>
+			{content && (
+				<Text style={[styles.text, { color: textColor }, textStyle]}>
+					{content}
+				</Text>
+			)}
 			{icon && (
 				<View style={{ backgroundColor: 'transparent', marginRight: 6 }}>
 					{icon({
 						color:
-							active != 'inactive'
+							active == true
 								? Colors[colorScheme ?? 'dark'].tint
 								: Colors[colorScheme ?? 'dark'].gray400,
 					})}
@@ -72,24 +63,27 @@ export default function CustomButton({
 			{icon ? (
 				tintedBackground ? (
 					<TintedBackground
-						color={tintedBackground?.color}
-						opacity={tintedBackground?.opacity}
 						type={tintedBackground?.type}
-						blurredShadow={tintedBackground?.blurredShadow}
+						{...(tintedBackground?.blur !== undefined
+							? { blur: tintedBackground.blur }
+							: {
+									opacity: tintedBackground?.opacity,
+									color: tintedBackground?.color,
+							  })}
 					>
 						{icon({
 							color:
-								active != 'inactive'
-									? Colors[colorScheme ?? 'dark'].tint
-									: Colors[colorScheme ?? 'dark'].gray400,
+								active == true
+									? Colors[colorScheme ?? 'dark'].gray400
+									: Colors[colorScheme ?? 'dark'].tint,
 						})}
 					</TintedBackground>
 				) : (
 					icon({
 						color:
-							active != 'inactive'
-								? Colors[colorScheme ?? 'dark'].tint
-								: Colors[colorScheme ?? 'dark'].gray400,
+							active == true
+								? Colors[colorScheme ?? 'dark'].gray400
+								: Colors[colorScheme ?? 'dark'].tint,
 					})
 				)
 			) : null}
@@ -97,17 +91,31 @@ export default function CustomButton({
 	);
 	const buttonContent =
 		type == 'icon' ? innerIconButtonContent : innerGeneralButtonContent;
+
 	return (
 		<Pressable
-			onPress={onPress}
-			onHoverIn={() => setActive('hover')}
-			onHoverOut={() => setActive('inactive')}
-			onPressIn={() => setActive('pressed')}
-			onPressOut={() => setActive('inactive')}
-			style={[styles.outerContainer, { backgroundColor: backgroundColor }]}
+			onPress={!disabled ? onPress : () => {}}
+			onPressIn={() => setActive(true)}
+			onPressOut={() => setActive(false)}
+			style={[type == 'icon' && styles.outerContainer]}
 		>
 			{gradientBackground ? (
-				<GradientBackground colors={gradientBackground.colors}>
+				<GradientBackground
+					style={
+						type == 'icon'
+							? styles.gradientIconContainer
+							: styles.gradientContainer
+					}
+					colors={
+						!disabled
+							? gradientBackground.colors
+							: [
+									Colors[colorScheme ?? 'dark'].gray400,
+									Colors[colorScheme ?? 'dark'].gray500,
+							  ]
+					}
+					orientation={gradientBackground.orientation}
+				>
 					{buttonContent}
 				</GradientBackground>
 			) : (
@@ -117,8 +125,17 @@ export default function CustomButton({
 	);
 }
 const styles = StyleSheet.create({
-	outerContainer: {},
-	innerContainer: {},
-	iconButtonContainer: {},
-	text: {},
+	outerContainer: { width: 'auto', margin: 4 },
+	innerContainer: {
+		paddingInline: 30,
+		paddingBlock: 12,
+		borderRadius: 12,
+	},
+	text: { fontSize: 18 },
+	gradientIconContainer: {
+		paddingInline: 10,
+		paddingBlock: 6,
+		borderRadius: 8,
+	},
+	gradientContainer: { paddingInline: 30, paddingBlock: 12, borderRadius: 12 },
 });

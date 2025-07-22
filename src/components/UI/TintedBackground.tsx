@@ -1,31 +1,38 @@
-import Colors from '@/src/constants/Colors';
-import { ReactNode } from 'react';
-import { ColorValue, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useColorScheme } from '../useColorScheme.web';
+import { BlurView } from 'expo-blur';
+import { getColorWithOpacity } from '@/src/utils/color';
+import { TintedBackgroundProps } from './UITypes';
 
-export type TintedBackgroundProps = {
-	blurredShadow?: boolean;
-	type?: 'circular' | 'rectangular';
-	children?: ReactNode;
-	color?: ColorValue;
-	opacity?: number;
-};
 export default function TintedBackground({
-	blurredShadow = false,
+	blur = { intensity: 0, tint: 'dark' },
 	type = 'circular',
 	color = 'black',
 	opacity = 0.6,
 	children,
+	style,
 }: TintedBackgroundProps) {
 	const colorScheme = useColorScheme();
-	return (
-		<View
+	return blur?.intensity > 0 ? (
+		<BlurView
+			intensity={blur?.intensity}
 			style={[
-				{ backgroundColor: color, opacity: opacity },
 				type == 'circular'
 					? styles.circularContainer
 					: styles.rectangularContainer,
-				blurredShadow && styles.blurredShadow,
+				style,
+			]}
+		>
+			{children}
+		</BlurView>
+	) : (
+		<View
+			style={[
+				{ backgroundColor: getColorWithOpacity(color, opacity) },
+				type == 'circular'
+					? styles.circularContainer
+					: styles.rectangularContainer,
+				style,
 			]}
 		>
 			{children}
@@ -33,7 +40,10 @@ export default function TintedBackground({
 	);
 }
 const styles = StyleSheet.create({
-	circularContainer: {},
-	rectangularContainer: {},
-	blurredShadow: {},
+	circularContainer: {
+		borderRadius: 100,
+		padding: 8,
+		overflow: 'hidden',
+	},
+	rectangularContainer: { borderRadius: 8, padding: 8, overflow: 'hidden' },
 });
