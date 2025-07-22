@@ -1,13 +1,4 @@
-import {
-	NativeSyntheticEvent,
-	StyleSheet,
-	TextInput,
-	TextInputChangeEventData,
-	TextInputProps,
-	TextStyle,
-	useColorScheme,
-	ViewStyle,
-} from 'react-native';
+import { StyleSheet, TextInput, useColorScheme } from 'react-native';
 import { Text, View } from '../Themed';
 import Colors from '@/src/constants/Colors';
 import { useState } from 'react';
@@ -103,6 +94,7 @@ const styles = StyleSheet.create({
 	outerContainer: {
 		flexDirection: 'column',
 		marginBlock: 6,
+		backgroundColor: 'transparent',
 	},
 	innerContainer: {
 		flexDirection: 'row',

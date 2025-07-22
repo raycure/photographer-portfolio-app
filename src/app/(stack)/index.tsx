@@ -53,10 +53,9 @@ export default function TabOneScreen() {
 				content='Gradient'
 				onPress={() => console.log('Gradient button pressed')}
 				gradientBackground={{
-					orientation: 'diagonal-l',
+					orientation: 'horizontal',
 					colors: ['#4c669f', '#081b45ff'],
 				}}
-				disabled
 			/>
 			<CustomButton
 				type='icon'

@@ -70,6 +70,7 @@ export default function CustomButton({
 									opacity: tintedBackground?.opacity,
 									color: tintedBackground?.color,
 							  })}
+						style={style}
 					>
 						{icon({
 							color:
@@ -97,7 +98,11 @@ export default function CustomButton({
 			onPress={!disabled ? onPress : () => {}}
 			onPressIn={() => setActive(true)}
 			onPressOut={() => setActive(false)}
-			style={[type == 'icon' && styles.outerContainer]}
+			style={[
+				type == 'icon'
+					? styles.outerContainer
+					: type == 'stretched' && { alignSelf: 'stretch' },
+			]}
 		>
 			{gradientBackground ? (
 				<GradientBackground
@@ -125,17 +130,24 @@ export default function CustomButton({
 	);
 }
 const styles = StyleSheet.create({
-	outerContainer: { width: 'auto', margin: 4 },
+	outerContainer: { margin: 4 },
 	innerContainer: {
 		paddingInline: 30,
-		paddingBlock: 12,
+		paddingVertical: 12,
 		borderRadius: 12,
+		alignItems: 'center',
 	},
 	text: { fontSize: 18 },
 	gradientIconContainer: {
 		paddingInline: 10,
-		paddingBlock: 6,
+		paddingVertical: 6,
 		borderRadius: 8,
+		alignItems: 'center',
 	},
-	gradientContainer: { paddingInline: 30, paddingBlock: 12, borderRadius: 12 },
+	gradientContainer: {
+		paddingInline: 30,
+		paddingVertical: 12,
+		borderRadius: 12,
+		alignItems: 'center',
+	},
 });

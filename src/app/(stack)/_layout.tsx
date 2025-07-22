@@ -1,16 +1,13 @@
 import React from 'react';
 import { Stack } from 'expo-router';
-import { useColorScheme } from '@/src/components/useColorScheme';
-import { useClientOnlyValue } from '@/src/components/useClientOnlyValue';
+import CustomHeader from '@/src/components/UI/CustomHeader';
 
 export default function StackLayout() {
-	const colorScheme = useColorScheme();
-
 	return (
 		<Stack
-			screenOptions={{
-				headerShown: useClientOnlyValue(false, false),
-			}}
+			screenOptions={() => ({
+				header: () => <CustomHeader />,
+			})}
 		>
 			<Stack.Screen
 				name='index'

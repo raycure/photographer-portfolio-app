@@ -12,6 +12,8 @@ import 'react-native-reanimated';
 
 import { useColorScheme } from '@/src/components/useColorScheme';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Colors from '../constants/Colors';
+import { View } from '../components/Themed';
 
 export {
 	// Catch any errors thrown by the Layout component.
@@ -52,15 +54,19 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
 	const colorScheme = useColorScheme();
-
+	const bgColor = Colors[colorScheme ?? 'dark'].background;
 	return (
 		<ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DarkTheme}>
-			<Stack>
-				<Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-				<Stack.Screen name='(stack)' options={{ headerShown: false }} />
-				<Stack.Screen name='(secure)' options={{ headerShown: false }} />
-				<Stack.Screen name='modal' options={{ presentation: 'modal' }} />
-			</Stack>
+			<SafeAreaView
+				style={{ flex: 1, backgroundColor: bgColor }}
+				edges={['top']}
+			>
+				<Stack>
+					<Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+					<Stack.Screen name='(stack)' options={{ headerShown: false }} />
+					<Stack.Screen name='(secure)' options={{ headerShown: false }} />
+				</Stack>
+			</SafeAreaView>
 		</ThemeProvider>
 	);
 }

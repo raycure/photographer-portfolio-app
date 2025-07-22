@@ -13,13 +13,13 @@ export default function SecureLayout() {
 			<Stack.Screen
 				name='index'
 				options={{
-					title: 'Login',
+					title: 'Register',
 				}}
 			/>
 			<Stack.Screen
-				name='register'
+				name='login'
 				options={{
-					title: 'Register',
+					title: 'Login',
 				}}
 			/>
 		</Stack>

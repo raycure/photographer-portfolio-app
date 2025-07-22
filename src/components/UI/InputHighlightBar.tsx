@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
 	},
 	singularBar: {
 		width: '25%',
-		height: 7,
+		height: 6,
 		backgroundColor: 'white',
 		borderRadius: 6,
 	},
