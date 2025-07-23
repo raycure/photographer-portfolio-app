@@ -30,7 +30,7 @@ export default function InputHighlightBar({ level }: { level: string }) {
 						{
 							backgroundColor: bar.active
 								? activeColor
-								: Colors[colorScheme ?? 'dark'].gray400,
+								: Colors[colorScheme ?? 'dark'].gray500,
 						},
 					]}
 				/>

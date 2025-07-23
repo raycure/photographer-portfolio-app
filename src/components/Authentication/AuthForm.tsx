@@ -6,11 +6,11 @@ import { Text, View } from '../Themed';
 import CustomIcon from '../UI/CustomIcon';
 import InputHighlightBar from '../UI/InputHighlightBar';
 import CustomButton from '../UI/CustomButton';
-import { Link } from 'expo-router';
-import Colors from '@/src/constants/Colors';
 import { authFormInputData } from './AuthData';
 import { FormProps } from './Types';
 import LoginExternalServices from './LoginExternalServices';
+import InlineLinkText from './InlineLinkText';
+import Colors from '@/src/constants/Colors';
 
 export default function AuthForm({ elements, type }: FormProps) {
 	const [passwordSecure, setPasswordSecure] = useState<boolean>(true);
@@ -21,6 +21,7 @@ export default function AuthForm({ elements, type }: FormProps) {
 		password: '',
 	});
 	type AuthFormKeys = keyof typeof authFormData;
+	const colorScheme = useColorScheme();
 	const passwordEyeIcon = ({ color }: { color: any }) => (
 		<Pressable onPress={() => setPasswordSecure(!passwordSecure)}>
 			<CustomIcon
@@ -30,10 +31,24 @@ export default function AuthForm({ elements, type }: FormProps) {
 			/>
 		</Pressable>
 	);
-	const colorScheme = useColorScheme();
 	return (
 		<View style={styles.container}>
-			<View style={{ flex: 1 }}>
+			<View style={{ gap: 4 }}>
+				<Text
+					style={[{ color: Colors[colorScheme ?? 'dark'].tint }, styles.title]}
+				>
+					{type === 'register' ? 'Create an account' : 'Log in to your account'}
+				</Text>
+				<Text
+					style={[
+						{ color: Colors[colorScheme ?? 'dark'].gray300 },
+						styles.text,
+					]}
+				>
+					{type === 'register'
+						? 'Welcome! Please enter your details.'
+						: 'Welcome back! Please enter your details.'}
+				</Text>
 				{(Object.keys(authFormInputData) as AuthFormKeys[]).map(
 					(key, index) => {
 						const item = authFormInputData[key];
@@ -70,29 +85,16 @@ export default function AuthForm({ elements, type }: FormProps) {
 						);
 					}
 				)}
-				{type === 'register' && <InputHighlightBar level='high' />}
-
+				{type === 'register' && <InputHighlightBar level='low' />}
 				<CustomButton
 					onPress={() => {}}
 					type='stretched'
 					content={type === 'register' ? 'Sign Up' : 'Login'}
-					style={{ marginVertical: 30 }}
+					style={{ marginVertical: 28 }}
 				/>
 				{type === 'login' && <LoginExternalServices />}
 			</View>
-			<View style={{ flexDirection: 'row', gap: 4, margin: 20 }}>
-				<Text style={{ color: Colors[colorScheme ?? 'dark'].gray400 }}>
-					{type === 'register'
-						? 'Already have an account?'
-						: "Don't have an account?"}
-				</Text>
-				<Link
-					style={{ color: Colors[colorScheme ?? 'dark'].tint }}
-					href={type === 'register' ? '/(secure)/login' : '/(secure)'}
-				>
-					{type === 'register' ? 'Login' : 'Register'}
-				</Link>
-			</View>
+			<InlineLinkText type={type} />
 		</View>
 	);
 }
@@ -103,4 +105,6 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'space-between',
 	},
+	title: { fontSize: 26 },
+	text: { fontSize: 18 },
 });

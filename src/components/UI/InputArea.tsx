@@ -25,7 +25,7 @@ export default function InputArea({
 				<Text
 					style={{
 						fontWeight: 'bold',
-						color: Colors[colorScheme ?? 'dark'].tint,
+						color: Colors[colorScheme ?? 'dark'].gray200,
 						fontSize: 18,
 					}}
 				>
