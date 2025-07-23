@@ -11,6 +11,7 @@ import { FormProps } from './Types';
 import LoginExternalServices from './LoginExternalServices';
 import InlineLinkText from './InlineLinkText';
 import Colors from '@/src/constants/Colors';
+import ForgotPasswordButton from './ForgotPasswordButton';
 
 export default function AuthForm({ elements, type }: FormProps) {
 	const [passwordSecure, setPasswordSecure] = useState<boolean>(true);
@@ -85,12 +86,16 @@ export default function AuthForm({ elements, type }: FormProps) {
 						);
 					}
 				)}
-				{type === 'register' && <InputHighlightBar level='low' />}
+				{type === 'register' ? (
+					<InputHighlightBar level='low' />
+				) : (
+					<ForgotPasswordButton />
+				)}
 				<CustomButton
 					onPress={() => {}}
 					type='stretched'
 					content={type === 'register' ? 'Sign Up' : 'Login'}
-					style={{ marginVertical: 28 }}
+					style={{ marginVertical: 20 }}
 				/>
 				{type === 'login' && <LoginExternalServices />}
 			</View>
