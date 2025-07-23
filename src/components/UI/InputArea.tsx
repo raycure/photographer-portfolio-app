@@ -26,7 +26,7 @@ export default function InputArea({
 					style={{
 						fontWeight: 'bold',
 						color: Colors[colorScheme ?? 'dark'].tint,
-						fontSize: 20,
+						fontSize: 18,
 					}}
 				>
 					{title}
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
 		overflow: 'hidden',
 		marginBlock: 6,
 		paddingInline: 14,
-		paddingVertical: 6,
+		paddingVertical: 4,
 		borderWidth: 2,
 		width: '100%',
 	},

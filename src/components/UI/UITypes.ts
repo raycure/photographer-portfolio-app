@@ -11,7 +11,7 @@ import { IconCollectionKey, IconNameTypes } from '@/src/constants/iconRegistry';
 import { StyleProps } from 'react-native-reanimated';
 
 type CommonButtonBase = {
-	onPress?: ((event: GestureResponderEvent) => void) | null | undefined;
+	onPress?: (() => void) | null | undefined;
 	icon?: (props: { color: string }) => React.ReactNode;
 	backgroundColor?: ColorValue;
 	style?: ViewStyle;

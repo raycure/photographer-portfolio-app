@@ -8,8 +8,9 @@ import InputHighlightBar from '../UI/InputHighlightBar';
 import CustomButton from '../UI/CustomButton';
 import { Link } from 'expo-router';
 import Colors from '@/src/constants/Colors';
-import { authFormInputData } from './FormInputData';
+import { authFormInputData } from './AuthData';
 import { FormProps } from './Types';
+import LoginExternalServices from './LoginExternalServices';
 
 export default function AuthForm({ elements, type }: FormProps) {
 	const [passwordSecure, setPasswordSecure] = useState<boolean>(true);
@@ -75,8 +76,9 @@ export default function AuthForm({ elements, type }: FormProps) {
 					onPress={() => {}}
 					type='stretched'
 					content={type === 'register' ? 'Sign Up' : 'Login'}
-					style={{ marginVertical: 32 }}
+					style={{ marginVertical: 30 }}
 				/>
+				{type === 'login' && <LoginExternalServices />}
 			</View>
 			<View style={{ flexDirection: 'row', gap: 4, margin: 20 }}>
 				<Text style={{ color: Colors[colorScheme ?? 'dark'].gray400 }}>
