@@ -1,5 +1,5 @@
 import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
-import RegisterForm from '@/src/components/Authentication/RegisterForm';
+import AuthForm from '@/src/components/Authentication/AuthForm';
 
 export default function LoginScreen() {
 	return (
@@ -7,7 +7,10 @@ export default function LoginScreen() {
 			behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
 			style={{ flex: 1 }}
 		>
-			<RegisterForm />
+			<AuthForm
+				elements={['name', 'username', 'email', 'password']}
+				type='register'
+			/>
 		</KeyboardAvoidingView>
 	);
 }

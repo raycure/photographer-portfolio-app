@@ -95,6 +95,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'column',
 		marginBlock: 6,
 		backgroundColor: 'transparent',
+		width: '100%',
 	},
 	innerContainer: {
 		flexDirection: 'row',

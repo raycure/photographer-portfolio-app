@@ -1,4 +1,5 @@
 import { IconCollectionKey } from '@/src/constants/iconRegistry';
+import React from 'react';
 import { TextInputProps } from 'react-native';
 
 type InputItem = {
@@ -7,11 +8,19 @@ type InputItem = {
 		name: string;
 	};
 	placeholder: string;
-	name: 'name' | 'username' | 'password' | 'email';
 	title: string;
 	textContentType?: TextInputProps['textContentType'];
+	rightElement?: ({ color }: { color: any }) => React.ReactNode;
+	secureTextEntry?: boolean;
+	textStyle?: {
+		letterSpacing: number;
+	};
 };
-
-export type InputDataTypes = {
-	[key: string]: InputItem;
+type FormKeys = 'name' | 'username' | 'password' | 'email';
+export type FormProps = {
+	elements: FormKeys[];
+	type: 'register' | 'login';
+};
+export type AuthInputDataTypes = {
+	[key in FormKeys]: InputItem;
 };
