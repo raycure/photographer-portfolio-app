@@ -12,7 +12,7 @@ export default function TabOneScreen() {
 				<Text>login</Text>
 			</Pressable>
 			<Pressable onPress={() => router.navigate('/(stack)')}>
-				<Text>login</Text>
+				<Text>button</Text>
 			</Pressable>
 		</View>
 	);

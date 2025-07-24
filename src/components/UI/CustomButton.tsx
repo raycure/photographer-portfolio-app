@@ -16,6 +16,7 @@ export default function CustomButton({
 	textColor = 'white',
 	gradientBackground,
 	style,
+	outerContainerStyle,
 	textStyle,
 	tintedBackground,
 	disabled,
@@ -99,9 +100,12 @@ export default function CustomButton({
 			onPressIn={() => setActive(true)}
 			onPressOut={() => setActive(false)}
 			style={[
-				type == 'icon'
+				type === 'icon'
 					? styles.outerContainer
-					: type == 'stretched' && { alignSelf: 'stretch' },
+					: type === 'stretched'
+					? { alignSelf: 'stretch' }
+					: {},
+				outerContainerStyle,
 			]}
 		>
 			{gradientBackground ? (

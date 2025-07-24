@@ -11,10 +11,11 @@ import { IconCollectionKey, IconNameTypes } from '@/src/constants/iconRegistry';
 import { StyleProps } from 'react-native-reanimated';
 
 type CommonButtonBase = {
-	onPress?: (() => void) | null | undefined;
+	onPress?: (...args: any[]) => any | (() => void) | null | undefined;
 	icon?: (props: { color: string }) => React.ReactNode;
 	backgroundColor?: ColorValue;
 	style?: ViewStyle;
+	outerContainerStyle?: ViewStyle;
 	textStyle?: TextStyle;
 	disabled?: boolean;
 };
