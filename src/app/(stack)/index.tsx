@@ -58,19 +58,19 @@ export default function TabOneScreen() {
 						title: 'Hello!',
 						icon: <CustomIcon collectionKey='fa6' name='star' size={40} />,
 						content: 'This modal was triggered by a button.',
-						// list: [
-						// 	{ content: 'You can only submit once per challenge.' },
-						// 	{ content: 'Submissions are final once uploaded.' },
-						// 	{ content: 'Your photo will be rated by other users' },
-						// ],
+						list: [
+							{ content: 'You can only submit once per challenge.' },
+							{ content: 'Submissions are final once uploaded.' },
+							{ content: 'Your photo will be rated by other users' },
+						],
 						buttons: {
 							configuration: 'row',
 							list: [
-								{
-									type: 'stretched',
-									content: 'Got it',
-									onPress: () => useModalStore.getState().closeModal(),
-								},
+								// {
+								// 	type: 'stretched',
+								// 	content: 'Got it',
+								// 	onPress: () => useModalStore.getState().closeModal(),
+								// },
 								{
 									type: 'stretched',
 									content: 'Got it',

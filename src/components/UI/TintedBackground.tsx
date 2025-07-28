@@ -16,6 +16,7 @@ export default function TintedBackground({
 	return blur?.intensity > 0 ? (
 		<BlurView
 			intensity={blur?.intensity}
+			experimentalBlurMethod='dimezisBlurView'
 			style={[
 				type == 'circular'
 					? styles.circularContainer

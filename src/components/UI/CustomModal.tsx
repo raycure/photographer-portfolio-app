@@ -80,7 +80,10 @@ export default function CustomModal() {
 							key={index}
 							{...buttonProps}
 							outerContainerStyle={
-								buttons?.configuration !== 'column' ? { flex: 1 } : {}
+								buttons?.configuration !== 'column' &&
+								buttonProps.type === 'stretched'
+									? { flex: 1 }
+									: {}
 							}
 						/>
 					))}
