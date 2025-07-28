@@ -1,6 +1,6 @@
 import { useForm } from '@/src/hooks/useForm';
 import { useState } from 'react';
-import { Pressable, StyleSheet, useColorScheme } from 'react-native';
+import { Pressable, StyleSheet } from 'react-native';
 import InputArea from '../UI/InputArea';
 import { Text, View } from '../Themed';
 import CustomIcon from '../UI/CustomIcon';
@@ -10,10 +10,11 @@ import { authFormInputData } from './AuthData';
 import { FormProps } from './Types';
 import LoginExternalServices from './LoginExternalServices';
 import InlineLinkText from './InlineLinkText';
-import Colors from '@/src/constants/Colors';
 import ForgotPasswordButton from './ForgotPasswordButton';
+import { useColors } from '@/src/hooks/useColors';
 
 export default function AuthForm({ elements, type }: FormProps) {
+	const colors = useColors();
 	const [passwordSecure, setPasswordSecure] = useState<boolean>(true);
 	const { formData: authFormData, onInputChange } = useForm({
 		name: '',
@@ -22,7 +23,6 @@ export default function AuthForm({ elements, type }: FormProps) {
 		password: '',
 	});
 	type AuthFormKeys = keyof typeof authFormData;
-	const colorScheme = useColorScheme();
 	const passwordEyeIcon = ({ color }: { color: any }) => (
 		<Pressable onPress={() => setPasswordSecure(!passwordSecure)}>
 			<CustomIcon
@@ -35,17 +35,10 @@ export default function AuthForm({ elements, type }: FormProps) {
 	return (
 		<View style={styles.container}>
 			<View style={{ gap: 4 }}>
-				<Text
-					style={[{ color: Colors[colorScheme ?? 'dark'].tint }, styles.title]}
-				>
+				<Text style={[{ color: colors.tint }, styles.title]}>
 					{type === 'register' ? 'Create an account' : 'Log in to your account'}
 				</Text>
-				<Text
-					style={[
-						{ color: Colors[colorScheme ?? 'dark'].gray300 },
-						styles.text,
-					]}
-				>
+				<Text style={[{ color: colors.gray300 }, styles.text]}>
 					{type === 'register'
 						? 'Welcome! Please enter your details.'
 						: 'Welcome back! Please enter your details.'}

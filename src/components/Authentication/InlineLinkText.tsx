@@ -1,16 +1,16 @@
-import { Pressable, useColorScheme, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { Text } from '../Themed';
-import { Link, router } from 'expo-router';
-import Colors from '@/src/constants/Colors';
+import { router } from 'expo-router';
 import { FormProps } from './Types';
+import { useColors } from '@/src/hooks/useColors';
 type InlineLinkTextProps = {
 	type: FormProps['type'];
 };
 export default function InlineLinkText({ type }: InlineLinkTextProps) {
-	const colorScheme = useColorScheme();
+	const colors = useColors();
 	return (
 		<View style={{ flexDirection: 'row', gap: 4, margin: 20 }}>
-			<Text style={{ color: Colors[colorScheme ?? 'dark'].gray400 }}>
+			<Text style={{ color: colors.gray400 }}>
 				{type === 'register'
 					? 'Already have an account?'
 					: "Don't have an account?"}
@@ -24,7 +24,7 @@ export default function InlineLinkText({ type }: InlineLinkTextProps) {
 					}
 				}}
 			>
-				<Text style={{ color: Colors[colorScheme ?? 'dark'].tint }}>
+				<Text style={{ color: colors.tint }}>
 					{type === 'register' ? 'Login' : 'Register'}
 				</Text>
 			</Pressable>

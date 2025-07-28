@@ -1,13 +1,10 @@
 import { useRouter } from 'expo-router';
 import CustomButton from './CustomButton';
 import CustomIcon from './CustomIcon';
-import { useColorScheme } from 'react-native';
-import Colors from '@/src/constants/Colors';
 import { View } from '../Themed';
 
 export default function MyComponent() {
 	const router = useRouter();
-	const colorScheme = useColorScheme();
 	return (
 		<View
 			style={{

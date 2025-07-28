@@ -1,12 +1,13 @@
-import { StyleSheet, useColorScheme } from 'react-native';
+import { StyleSheet } from 'react-native';
 import LineSeperator from '../UI/LineSeperator';
 import { Text, View } from '../Themed';
 import CustomButton from '../UI/CustomButton';
 import CustomIcon from '../UI/CustomIcon';
 import { IconCollectionKey } from '@/src/constants/iconRegistry';
-import Colors from '@/src/constants/Colors';
+import { useColors } from '@/src/hooks/useColors';
 
 export default function LoginExternalServices() {
+	const colors = useColors();
 	const externalLoginServices: {
 		name: string;
 		icon: {
@@ -23,16 +24,12 @@ export default function LoginExternalServices() {
 			icon: { collectionKey: 'fa', name: 'apple' },
 		},
 	];
-	const colorScheme = useColorScheme();
 	const handleServicePick = (serviceName: string) => {};
 	return (
 		<View style={styles.outerContainer}>
 			<View style={styles.innerContainer}>
 				<LineSeperator />
-				<Text
-					darkColor={Colors[colorScheme ?? 'dark'].gray300}
-					lightColor={Colors[colorScheme ?? 'dark'].gray300}
-				>
+				<Text darkColor={colors.gray300} lightColor={colors.gray300}>
 					Or log in with
 				</Text>
 				<LineSeperator />

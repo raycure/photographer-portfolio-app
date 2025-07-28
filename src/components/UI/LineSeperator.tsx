@@ -1,10 +1,9 @@
 import { StyleProps } from 'react-native-reanimated';
 import { View } from '../Themed';
-import Colors from '@/src/constants/Colors';
-import { useColorScheme } from 'react-native';
+import { useColors } from '@/src/hooks/useColors';
 
 export default function LineSeperator({ style }: { style?: StyleProps }) {
-	const colorScheme = useColorScheme();
+	const colors = useColors();
 	return (
 		<View
 			style={[
@@ -15,8 +14,8 @@ export default function LineSeperator({ style }: { style?: StyleProps }) {
 				},
 				style,
 			]}
-			lightColor={Colors[colorScheme ?? 'dark'].gray400}
-			darkColor={Colors[colorScheme ?? 'dark'].gray400}
+			lightColor={colors.gray400}
+			darkColor={colors.gray400}
 		/>
 	);
 }

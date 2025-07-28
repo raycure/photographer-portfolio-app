@@ -8,10 +8,14 @@ export default function TabOneScreen() {
 	const router = useRouter();
 	return (
 		<View style={styles.container}>
-			<Pressable onPress={() => router.navigate('/(secure)')}>
+			<Pressable onPress={() => router.push('/(secure)')}>
 				<Text>login</Text>
 			</Pressable>
-			<Pressable onPress={() => router.navigate('/(stack)')}>
+			<Pressable
+				onPress={() => {
+					router.push('/(stack)');
+				}}
+			>
 				<Text>button</Text>
 			</Pressable>
 		</View>

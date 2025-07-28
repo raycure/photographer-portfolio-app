@@ -1,8 +1,8 @@
-import { Pressable, useColorScheme } from 'react-native';
+import { Pressable } from 'react-native';
 import CustomIcon from './CustomIcon';
 import { StyleProps } from 'react-native-reanimated';
 import { useState } from 'react';
-import Colors from '@/src/constants/Colors';
+import { useColors } from '@/src/hooks/useColors';
 
 export default function CloseButton({
 	onPress,
@@ -12,22 +12,19 @@ export default function CloseButton({
 	style?: StyleProps;
 }) {
 	const [pressed, setPressed] = useState(false);
-	const colorScheme = useColorScheme();
+	const colors = useColors();
 	return (
 		<Pressable
 			onPress={onPress}
 			onPressIn={() => setPressed(true)}
 			onPressOut={() => setPressed(false)}
-			style={[{ position: 'absolute', left: 16, top: 16 }, style]}
+			style={[{ position: 'absolute', left: 20, top: 20 }, style]}
 		>
 			<CustomIcon
-				color={
-					pressed
-						? Colors[colorScheme ?? 'dark'].gray300
-						: Colors[colorScheme ?? 'dark'].tint
-				}
+				color={pressed ? colors.gray400 : colors.primary200}
 				collectionKey='ad'
 				name='close'
+				size={26}
 			/>
 		</Pressable>
 	);

@@ -1,8 +1,8 @@
-import Colors from '@/src/constants/Colors';
-import { StyleSheet, Text, useColorScheme, View } from 'react-native';
+import { useColors } from '@/src/hooks/useColors';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function InputHighlightBar({ level }: { level: string }) {
-	const colorScheme = useColorScheme();
+	const colors = useColors();
 	const barContent = [
 		{
 			active: true,
@@ -16,10 +16,10 @@ export default function InputHighlightBar({ level }: { level: string }) {
 	];
 	const activeColor =
 		level == 'low'
-			? Colors[colorScheme ?? 'dark'].accentRed
+			? colors.accentRed
 			: level == 'medium'
-			? Colors[colorScheme ?? 'dark'].accentOrange
-			: Colors[colorScheme ?? 'dark'].accentGreen400;
+			? colors.accentOrange
+			: colors.accentGreen400;
 	return (
 		<View style={styles.outerContainer}>
 			{barContent.map((bar, index) => (
@@ -28,9 +28,7 @@ export default function InputHighlightBar({ level }: { level: string }) {
 					style={[
 						styles.singularBar,
 						{
-							backgroundColor: bar.active
-								? activeColor
-								: Colors[colorScheme ?? 'dark'].gray500,
+							backgroundColor: bar.active ? activeColor : colors.gray500,
 						},
 					]}
 				/>

@@ -20,3 +20,52 @@ export type ModalActions = {
 	closeModal: () => void;
 	resetModal: () => void;
 };
+
+type UserID = string;
+type ImageID = string;
+
+interface UserPreferences {
+	language?: string;
+}
+
+interface UserStats {
+	experiencePoints?: number;
+	attendedChallenges?: number;
+	wins?: number;
+	favorites: ImageID[];
+}
+
+interface UserQuotas {
+	leftAdQuota: number;
+	leftFreeImageQuota: number;
+}
+
+interface UserSocial {
+	socialMedia: string[];
+	followingAccounts: UserID[];
+	followerAccounts: UserID[];
+}
+
+interface UserPersonalInfo {
+	id?: UserID;
+	name?: string;
+	username?: string;
+	email?: string;
+	verified: boolean;
+	premium: boolean;
+}
+
+interface UserAuth {
+	authToken?: string;
+	refreshToken?: string;
+	tokenExpiry?: number;
+}
+
+export interface UserState {
+	personalInfo: UserPersonalInfo;
+	quotas: UserQuotas;
+	social: UserSocial;
+	preferences: UserPreferences;
+	stats: UserStats;
+	auth: UserAuth;
+}

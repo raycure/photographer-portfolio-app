@@ -1,8 +1,8 @@
-import { StyleSheet, TextInput, useColorScheme } from 'react-native';
+import { StyleSheet, TextInput } from 'react-native';
 import { Text, View } from '../Themed';
-import Colors from '@/src/constants/Colors';
 import { useState } from 'react';
 import { InputAreaProps } from './UITypes';
+import { useColors } from '@/src/hooks/useColors';
 
 export default function InputArea({
 	inputType = 'string',
@@ -17,7 +17,7 @@ export default function InputArea({
 	onChange,
 	...props
 }: InputAreaProps) {
-	const colorScheme = useColorScheme();
+	const colors = useColors();
 	const [active, setActive] = useState<boolean>(false);
 	return (
 		<View style={styles.outerContainer}>
@@ -25,7 +25,7 @@ export default function InputArea({
 				<Text
 					style={{
 						fontWeight: 'bold',
-						color: Colors[colorScheme ?? 'dark'].gray200,
+						color: colors.gray200,
 						fontSize: 18,
 					}}
 				>
@@ -35,20 +35,18 @@ export default function InputArea({
 			<View
 				style={[
 					{
-						backgroundColor: Colors[colorScheme ?? 'dark'].primary800,
-						borderColor: Colors[colorScheme ?? 'dark'].gray500,
+						backgroundColor: colors.primary800,
+						borderColor: colors.gray500,
 					},
 					styles.innerContainer,
-					active && { borderColor: Colors[colorScheme ?? 'dark'].tint },
+					active && { borderColor: colors.tint },
 					containerStyle,
 				]}
 			>
 				{leftElement && (
 					<View style={{ backgroundColor: 'transparent', marginRight: 6 }}>
 						{leftElement({
-							color: active
-								? Colors[colorScheme ?? 'dark'].tint
-								: Colors[colorScheme ?? 'dark'].gray400,
+							color: active ? colors.tint : colors.gray400,
 						})}
 					</View>
 				)}
@@ -56,16 +54,12 @@ export default function InputArea({
 					placeholder={placeholder}
 					keyboardType={inputType === 'number' ? 'numeric' : 'default'}
 					secureTextEntry={secure}
-					style={[
-						{ color: Colors[colorScheme ?? 'dark'].tint },
-						styles.inputArea,
-						textStyle,
-					]}
-					selectionColor={Colors[colorScheme ?? 'dark'].tint}
+					style={[{ color: colors.tint }, styles.inputArea, textStyle]}
+					selectionColor={colors.tint}
 					{...props}
 					onChange={onChange}
 					contextMenuHidden={true}
-					placeholderTextColor={Colors[colorScheme ?? 'dark'].gray400}
+					placeholderTextColor={colors.gray400}
 					textContentType={textContentType}
 					onFocus={() => setActive(true)}
 					onBlur={() => setActive(false)}
@@ -79,9 +73,7 @@ export default function InputArea({
 						}}
 					>
 						{rightElement({
-							color: active
-								? Colors[colorScheme ?? 'dark'].tint
-								: Colors[colorScheme ?? 'dark'].gray400,
+							color: active ? colors.tint : colors.gray400,
 						})}
 					</View>
 				)}

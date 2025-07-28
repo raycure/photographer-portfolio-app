@@ -1,13 +1,12 @@
 import React from 'react';
 import { Tabs } from 'expo-router';
-import Colors from '@/src/constants/Colors';
-import { useColorScheme } from '@/src/components/useColorScheme';
 import { useClientOnlyValue } from '@/src/components/useClientOnlyValue';
 import CustomIcon from '@/src/components/UI/CustomIcon';
 import { IconCollectionKey } from '@/src/constants/iconRegistry';
+import { useColors } from '@/src/hooks/useColors';
 
 export default function TabLayout() {
-	const colorScheme = useColorScheme();
+	const colors = useColors();
 	const tabsContent: {
 		name: string;
 		title: string;
@@ -49,7 +48,7 @@ export default function TabLayout() {
 	return (
 		<Tabs
 			screenOptions={{
-				tabBarActiveTintColor: Colors[colorScheme ?? 'dark'].tint,
+				tabBarActiveTintColor: colors.tint,
 				headerShown: useClientOnlyValue(false, false),
 			}}
 		>

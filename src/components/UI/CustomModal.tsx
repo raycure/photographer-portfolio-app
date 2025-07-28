@@ -1,12 +1,12 @@
 import { BlurView } from 'expo-blur';
-import { StyleSheet, useColorScheme } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Text, View } from '../Themed';
 import CloseButton from './CloseButton';
-import Colors from '@/src/constants/Colors';
 import CustomButton from './CustomButton';
 import { useModalStore } from '@/src/stores/ModalStore';
+import { useColors } from '@/src/hooks/useColors';
 export default function CustomModal() {
-	const colorScheme = useColorScheme();
+	const colors = useColors();
 	const {
 		visible,
 		title,
@@ -28,7 +28,8 @@ export default function CustomModal() {
 			<View
 				style={[
 					styles.outerContainer,
-					{ backgroundColor: Colors[colorScheme ?? 'dark'].primary300 },
+					{ backgroundColor: colors.primary500 },
+					list ? { paddingHorizontal: 30 } : { paddingHorizontal: 40 },
 				]}
 			>
 				<CloseButton
@@ -36,17 +37,8 @@ export default function CustomModal() {
 					onPress={closeModal}
 				/>
 				{icon && icon}
-				<Text
-					style={[styles.title, { color: Colors[colorScheme ?? 'dark'].tint }]}
-				>
-					{title}
-				</Text>
-				<Text
-					style={[
-						styles.text,
-						{ color: Colors[colorScheme ?? 'dark'].gray200 },
-					]}
-				>
+				<Text style={[styles.title, { color: colors.tint }]}>{title}</Text>
+				<Text style={[styles.text, { color: colors.primary100 }]}>
 					{content}
 				</Text>
 				{list && (
@@ -54,10 +46,7 @@ export default function CustomModal() {
 						{list?.map((listItem, index) => (
 							<Text
 								key={index}
-								style={[
-									styles.listItem,
-									{ color: Colors[colorScheme ?? 'dark'].gray200 },
-								]}
+								style={[styles.listItem, { color: colors.gray200 }]}
 							>
 								{listItem.icon ? listItem.icon : '●  '}
 								{listItem.content}
@@ -103,12 +92,11 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	outerContainer: {
-		paddingHorizontal: 28,
-		paddingBottom: 10,
+		paddingBottom: 16,
 		paddingTop: 46,
 		width: '85%',
-		minHeight: '30%',
-		borderRadius: 18,
+		minHeight: 200,
+		borderRadius: 30,
 		justifyContent: 'space-evenly',
 		alignItems: 'center',
 		gap: 12,

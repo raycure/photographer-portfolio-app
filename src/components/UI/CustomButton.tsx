@@ -1,11 +1,11 @@
-import { Pressable, StyleSheet, Text, useColorScheme } from 'react-native';
+import { Pressable, StyleSheet, Text } from 'react-native';
 import { View } from '../Themed';
-import Colors from '@/src/constants/Colors';
 import { useState } from 'react';
 import GradientBackground from './GradientBackground';
 import { CustomButtonProps } from './UITypes';
 import TintedBackground from './TintedBackground';
 import { StyleProps } from 'react-native-reanimated';
+import { useColors } from '@/src/hooks/useColors';
 
 export default function CustomButton({
 	content,
@@ -22,9 +22,9 @@ export default function CustomButton({
 	disabled,
 }: CustomButtonProps) {
 	const [active, setActive] = useState<boolean>(false);
-	const colorScheme = useColorScheme();
+	const colors = useColors();
 	const disabledButtonStyle: StyleProps = {
-		backgroundColor: Colors[colorScheme ?? 'dark'].gray400,
+		backgroundColor: colors.gray400,
 	};
 	const innerGeneralButtonContent = (
 		<View
@@ -35,10 +35,7 @@ export default function CustomButton({
 					? [{ backgroundColor: backgroundColor }, styles.innerContainer]
 					: disabled
 					? [disabledButtonStyle, styles.innerContainer]
-					: [
-							{ backgroundColor: Colors[colorScheme ?? 'dark'].accentBlue },
-							styles.innerContainer,
-					  ],
+					: [{ backgroundColor: colors.accentBlue }, styles.innerContainer],
 				style,
 			]}
 		>
@@ -50,10 +47,7 @@ export default function CustomButton({
 			{icon && (
 				<View style={{ backgroundColor: 'transparent', marginRight: 6 }}>
 					{icon({
-						color:
-							active == true
-								? Colors[colorScheme ?? 'dark'].tint
-								: Colors[colorScheme ?? 'dark'].gray400,
+						color: active == true ? colors.tint : colors.gray400,
 					})}
 				</View>
 			)}
@@ -74,18 +68,12 @@ export default function CustomButton({
 						style={style}
 					>
 						{icon({
-							color:
-								active == true
-									? Colors[colorScheme ?? 'dark'].gray400
-									: Colors[colorScheme ?? 'dark'].tint,
+							color: active == true ? colors.gray400 : colors.tint,
 						})}
 					</TintedBackground>
 				) : (
 					icon({
-						color:
-							active == true
-								? Colors[colorScheme ?? 'dark'].gray400
-								: Colors[colorScheme ?? 'dark'].tint,
+						color: active == true ? colors.gray400 : colors.tint,
 					})
 				)
 			) : null}
@@ -113,15 +101,12 @@ export default function CustomButton({
 					style={
 						type == 'icon'
 							? styles.gradientIconContainer
-							: styles.gradientContainer
+							: styles.innerContainer
 					}
 					colors={
 						!disabled
 							? gradientBackground.colors
-							: [
-									Colors[colorScheme ?? 'dark'].gray400,
-									Colors[colorScheme ?? 'dark'].gray500,
-							  ]
+							: [colors.gray400, colors.gray500]
 					}
 					orientation={gradientBackground.orientation}
 				>
@@ -136,22 +121,16 @@ export default function CustomButton({
 const styles = StyleSheet.create({
 	outerContainer: { margin: 4 },
 	innerContainer: {
-		paddingInline: 30,
+		paddingInline: 40,
 		paddingVertical: 12,
 		borderRadius: 12,
 		alignItems: 'center',
 	},
-	text: { fontSize: 18 },
+	text: { fontSize: 18, fontWeight: 'bold' },
 	gradientIconContainer: {
 		paddingInline: 10,
 		paddingVertical: 6,
 		borderRadius: 8,
-		alignItems: 'center',
-	},
-	gradientContainer: {
-		paddingInline: 30,
-		paddingVertical: 12,
-		borderRadius: 12,
 		alignItems: 'center',
 	},
 });

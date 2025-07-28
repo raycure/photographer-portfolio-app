@@ -1,7 +1,7 @@
-import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
+import { KeyboardAvoidingView, Platform } from 'react-native';
 import AuthForm from '@/src/components/Authentication/AuthForm';
 
-export default function LoginScreen() {
+export default function RegisterScreen() {
 	return (
 		<KeyboardAvoidingView
 			behavior={Platform.OS === 'ios' ? 'padding' : 'height'}

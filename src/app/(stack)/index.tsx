@@ -38,7 +38,7 @@ export default function TabOneScreen() {
 					type: 'rectangular',
 				}}
 			/>
-			<CustomButton
+			{/* <CustomButton
 				type='icon'
 				icon={({ color }) => (
 					<CustomIcon collectionKey='ad' name={'eyeo'} color={color} />
@@ -48,7 +48,7 @@ export default function TabOneScreen() {
 					type: 'rectangular',
 					blur: { intensity: 50 },
 				}}
-			/>
+			/> */}
 			<CustomButton
 				type='general'
 				textColor='white'
@@ -56,13 +56,13 @@ export default function TabOneScreen() {
 				onPress={() =>
 					openModal({
 						title: 'Hello!',
-						icon: <CustomIcon collectionKey='fa6' name='star' size={40} />,
+						//icon: <CustomIcon collectionKey='fa6' name='star' size={40} />,
 						content: 'This modal was triggered by a button.',
-						list: [
-							{ content: 'You can only submit once per challenge.' },
-							{ content: 'Submissions are final once uploaded.' },
-							{ content: 'Your photo will be rated by other users' },
-						],
+						// list: [
+						// 	{ content: 'You can only submit once per challenge.' },
+						// 	{ content: 'Submissions are final once uploaded.' },
+						// 	{ content: 'Your photo will be rated by other users' },
+						// ],
 						buttons: {
 							configuration: 'row',
 							list: [
@@ -72,7 +72,7 @@ export default function TabOneScreen() {
 								// 	onPress: () => useModalStore.getState().closeModal(),
 								// },
 								{
-									type: 'stretched',
+									type: 'general',
 									content: 'Got it',
 									onPress: () => useModalStore.getState().closeModal(),
 								},
