@@ -24,48 +24,59 @@ export type ModalActions = {
 type UserID = string;
 type ImageID = string;
 
-interface UserPreferences {
+type UserPreferences = {
 	language?: string;
-}
+};
 
-interface UserStats {
+type UserStats = {
 	experiencePoints?: number;
 	attendedChallenges?: number;
 	wins?: number;
 	favorites: ImageID[];
-}
+};
 
-interface UserQuotas {
+type UserQuotas = {
 	leftAdQuota: number;
 	leftFreeImageQuota: number;
-}
+};
 
-interface UserSocial {
+type UserSocial = {
 	socialMedia: string[];
 	followingAccounts: UserID[];
 	followerAccounts: UserID[];
-}
+};
 
-interface UserPersonalInfo {
+type UserPersonalInfo = {
 	id?: UserID;
 	name?: string;
 	username?: string;
 	email?: string;
 	verified: boolean;
 	premium: boolean;
-}
+};
 
-interface UserAuth {
+type UserAuth = {
 	authToken?: string;
 	refreshToken?: string;
-	tokenExpiry?: number;
-}
+};
 
-export interface UserState {
+export type UserState = {
 	personalInfo: UserPersonalInfo;
 	quotas: UserQuotas;
 	social: UserSocial;
 	preferences: UserPreferences;
 	stats: UserStats;
 	auth: UserAuth;
-}
+};
+
+export type UserActions = {
+	setUserData: (data: UserState) => void;
+	updateUserData: (data: Partial<UserState>) => void;
+	resetUserData: () => void;
+	setPersonalInfo: (info: Partial<UserState['personalInfo']>) => void;
+	setTokens: (auth: { authToken: string; refreshToken: string }) => void;
+	logout: () => void;
+	addFavorite: (id: string) => void;
+	removeFavorite: (id: string) => void;
+	decreaseQuota: (type: keyof UserState['quotas']) => void;
+};
