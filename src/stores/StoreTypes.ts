@@ -41,7 +41,7 @@ type UserQuotas = {
 };
 
 type UserSocial = {
-	socialMedia: string[];
+	socialMedia: { type: string; url: string }[];
 	followingAccounts: UserID[];
 	followerAccounts: UserID[];
 };
@@ -51,8 +51,8 @@ type UserPersonalInfo = {
 	name?: string;
 	username?: string;
 	email?: string;
-	verified: boolean;
-	premium: boolean;
+	verified?: boolean;
+	premium?: boolean;
 };
 
 type UserAuth = {

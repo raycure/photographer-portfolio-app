@@ -1,33 +1,75 @@
-import { Image, StyleSheet } from 'react-native';
+import { Image } from 'react-native';
 import { Text, View } from '../Themed';
 import CustomIcon from '../UI/CustomIcon';
+import CustomButton from '../UI/CustomButton';
+import FollowersButton from '../UI/FollowersButton';
+import { headerStyles } from './ProfileStyles';
+import { useColors } from '@/src/hooks/useColors';
+import { useRouter } from 'expo-router';
+import { useContext } from 'react';
+import UserContext from '@/src/context/UserContext';
+import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 
 export default function ProfileHeader() {
+	const router = useRouter();
+	const colors = useColors();
+	const data = useContext(UserContext);
+	const userInfoStore = useUserInfoStore();
+	const onMenuClick = () => {
+		router.push('/(stack)/menu');
+	};
+	const isPersonal = data.personalInfo.id === userInfoStore.personalInfo.id;
+	const buttonConfigs = {
+		personal: [],
+		other: [],
+		general: [],
+	};
+	const currentButtons = isPersonal
+		? [...buttonConfigs.general, ...buttonConfigs.personal]
+		: [...buttonConfigs.general, ...buttonConfigs.other];
 	return (
-		<View>
+		<View style={headerStyles.outerContainer}>
 			<View>
-				<CustomIcon collectionKey='fa6' name='star' />
+				{data.personalInfo.premium && (
+					<CustomIcon
+						style={headerStyles.premiumIcon}
+						collectionKey='fa6'
+						name='crown'
+						size={24}
+						color={colors.accentOrange}
+					/>
+				)}
 				<Image
-					style={styles.profilePicture}
+					style={headerStyles.profilePicture}
 					source={{
 						uri: 'https://reactnative.dev/img/tiny_logo.png',
 					}}
 				/>
 			</View>
-			<View>
-				<View>
-					<Text></Text>
-					<Text></Text>
+			<View style={headerStyles.infoContainer}>
+				<View style={headerStyles.spaceBetweenContainer}>
+					<Text style={headerStyles.title}>{data.personalInfo.name}</Text>
+					<CustomButton
+						type='icon'
+						icon={({ color }) => (
+							<CustomIcon
+								collectionKey='ion'
+								name='menu-outline'
+								color={color}
+								size={34}
+							/>
+						)}
+						onPress={onMenuClick}
+					/>
 				</View>
-				<View>
-					<Text></Text>
-					<Text></Text>
+				<View style={headerStyles.spaceBetweenContainer}>
+					<Text style={[headerStyles.text, { color: colors.gray200 }]}>
+						@{data.personalInfo.username}
+					</Text>
+					<FollowersButton />
 				</View>
 				<View></View>
 			</View>
 		</View>
 	);
 }
-const styles = StyleSheet.create({
-	profilePicture: { width: 50, height: 50 },
-});

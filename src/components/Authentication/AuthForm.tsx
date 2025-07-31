@@ -103,6 +103,6 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'space-between',
 	},
-	title: { fontSize: 26 },
+	title: { fontSize: 26, fontWeight: 'bold' },
 	text: { fontSize: 18 },
 });

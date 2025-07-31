@@ -27,6 +27,12 @@ export default function StackLayout() {
 					title: 'EventHistory',
 				}}
 			/>
+			<Stack.Screen
+				name='profilePublic'
+				options={{
+					title: 'ProfilePublic',
+				}}
+			/>
 		</Stack>
 	);
 }

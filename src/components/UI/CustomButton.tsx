@@ -88,11 +88,7 @@ export default function CustomButton({
 			onPressIn={() => setActive(true)}
 			onPressOut={() => setActive(false)}
 			style={[
-				type === 'icon'
-					? styles.outerContainer
-					: type === 'stretched'
-					? { alignSelf: 'stretch' }
-					: {},
+				type === 'stretched' ? { alignSelf: 'stretch' } : {},
 				outerContainerStyle,
 			]}
 		>
@@ -119,7 +115,6 @@ export default function CustomButton({
 	);
 }
 const styles = StyleSheet.create({
-	outerContainer: { margin: 4 },
 	innerContainer: {
 		paddingInline: 40,
 		paddingVertical: 12,

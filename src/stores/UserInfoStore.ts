@@ -2,39 +2,8 @@ import { create } from 'zustand';
 import { UserActions, UserState } from './StoreTypes';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-const initialState: UserState = {
-	personalInfo: {
-		id: undefined,
-		name: undefined,
-		username: undefined,
-		email: undefined,
-		verified: false,
-		premium: false,
-	},
-	quotas: {
-		leftAdQuota: 30,
-		leftFreeImageQuota: 6,
-	},
-	social: {
-		socialMedia: [],
-		followingAccounts: [],
-		followerAccounts: [],
-	},
-	preferences: {
-		language: undefined,
-	},
-	stats: {
-		experiencePoints: undefined,
-		attendedChallenges: undefined,
-		wins: undefined,
-		favorites: [],
-	},
-	auth: {
-		authToken: undefined,
-		refreshToken: undefined,
-	},
-};
+import { UserStoreInitialState } from './InitialStates';
+const initialState = UserStoreInitialState;
 export const useUserInfoStore = create<UserActions & UserState>()(
 	persist(
 		(set) => ({
