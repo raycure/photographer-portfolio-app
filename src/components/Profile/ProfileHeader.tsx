@@ -9,6 +9,7 @@ import { useRouter } from 'expo-router';
 import { useContext } from 'react';
 import UserContext from '@/src/context/UserContext';
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
+import ProfileActionsBar from './ProfileActionsBar';
 
 export default function ProfileHeader() {
 	const router = useRouter();
@@ -19,14 +20,6 @@ export default function ProfileHeader() {
 		router.push('/(stack)/menu');
 	};
 	const isPersonal = data.personalInfo.id === userInfoStore.personalInfo.id;
-	const buttonConfigs = {
-		personal: [],
-		other: [],
-		general: [],
-	};
-	const currentButtons = isPersonal
-		? [...buttonConfigs.general, ...buttonConfigs.personal]
-		: [...buttonConfigs.general, ...buttonConfigs.other];
 	return (
 		<View style={headerStyles.outerContainer}>
 			<View>
@@ -62,13 +55,13 @@ export default function ProfileHeader() {
 						onPress={onMenuClick}
 					/>
 				</View>
-				<View style={headerStyles.spaceBetweenContainer}>
+				<View style={[headerStyles.spaceBetweenContainer, { top: -4 }]}>
 					<Text style={[headerStyles.text, { color: colors.gray200 }]}>
 						@{data.personalInfo.username}
 					</Text>
 					<FollowersButton />
 				</View>
-				<View></View>
+				<ProfileActionsBar isPersonal={isPersonal} />
 			</View>
 		</View>
 	);

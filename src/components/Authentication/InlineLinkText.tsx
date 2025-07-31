@@ -1,7 +1,7 @@
 import { Pressable, View } from 'react-native';
 import { Text } from '../Themed';
 import { router } from 'expo-router';
-import { FormProps } from './Types';
+import { FormProps } from './AuthTypes';
 import { useColors } from '@/src/hooks/useColors';
 type InlineLinkTextProps = {
 	type: FormProps['type'];

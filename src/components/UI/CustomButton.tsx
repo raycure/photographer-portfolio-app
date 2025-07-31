@@ -67,15 +67,15 @@ export default function CustomButton({
 									opacity: tintedBackground?.opacity,
 									color: tintedBackground?.color,
 							  })}
-						style={style}
+						style={[{ alignItems: 'center' }, style]}
 					>
 						{icon({
-							color: active == true ? colors.gray400 : colors.tint,
+							color: active == true ? colors.gray300 : colors.tint,
 						})}
 					</TintedBackground>
 				) : (
 					icon({
-						color: active == true ? colors.gray400 : colors.tint,
+						color: active == true ? colors.gray300 : colors.tint,
 					})
 				)
 			) : null}

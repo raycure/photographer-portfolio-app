@@ -26,3 +26,15 @@ export const headerStyles = StyleSheet.create({
 	blockButton: {},
 	generalButton: {},
 });
+
+export const ProfileActionBarStyles = StyleSheet.create({
+	outerContainer: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+	},
+	buttonStyle: {
+		paddingBlock: 5,
+		paddingInline: 16,
+		minHeight: 'auto',
+	},
+});

@@ -1,14 +1,13 @@
 import {
 	ColorValue,
-	GestureResponderEvent,
 	NativeSyntheticEvent,
+	StyleProp,
 	TextInputChangeEventData,
 	TextInputProps,
 	TextStyle,
 	ViewStyle,
 } from 'react-native';
 import { IconCollectionKey, IconNameTypes } from '@/src/constants/iconRegistry';
-import { StyleProps } from 'react-native-reanimated';
 
 type CommonButtonBase = {
 	onPress?: (...args: any[]) => any | (() => void) | null | undefined;
@@ -59,7 +58,7 @@ export type GradientProps = {
 	colors: [ColorValue, ColorValue];
 	children?: React.ReactNode;
 	orientation?: 'vertical' | 'horizontal' | 'diagonal-l' | 'diagonal-r';
-	style?: ViewStyle | ViewStyle[];
+	style?: StyleProp<ViewStyle>;
 };
 
 export type InputAreaProps = {
@@ -80,7 +79,7 @@ export type InputAreaProps = {
 type BaseTintedBackgroundProps = {
 	type?: 'circular' | 'rectangular';
 	children?: React.ReactNode;
-	style?: StyleProps;
+	style?: StyleProp<ViewStyle>;
 };
 type WithBlur = {
 	blur: { intensity: number; tint?: 'dark' | 'light' };

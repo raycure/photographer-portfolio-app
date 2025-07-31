@@ -16,7 +16,7 @@ export default function CustomIcon({
 			name={name as never}
 			color={color}
 			size={size}
-			style={[{ marginBottom: -3 }, style]}
+			style={[style]}
 			{...props}
 		/>
 	);

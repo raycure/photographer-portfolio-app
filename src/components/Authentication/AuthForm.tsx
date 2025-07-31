@@ -7,7 +7,7 @@ import CustomIcon from '../UI/CustomIcon';
 import InputHighlightBar from '../UI/InputHighlightBar';
 import CustomButton from '../UI/CustomButton';
 import { authFormInputData } from './AuthData';
-import { FormProps } from './Types';
+import { FormProps } from './AuthTypes';
 import LoginExternalServices from './LoginExternalServices';
 import InlineLinkText from './InlineLinkText';
 import ForgotPasswordButton from './ForgotPasswordButton';

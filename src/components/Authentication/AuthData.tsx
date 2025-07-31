@@ -1,4 +1,4 @@
-import { AuthInputDataTypes } from './Types';
+import { AuthInputDataTypes } from './AuthTypes';
 
 export const authFormInputData: AuthInputDataTypes = {
 	name: {
