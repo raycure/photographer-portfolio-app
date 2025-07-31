@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text } from 'react-native';
+import { Pressable, Text } from 'react-native';
 import { View } from '../Themed';
 import { useState } from 'react';
 import GradientBackground from './GradientBackground';
@@ -6,6 +6,7 @@ import { CustomButtonProps } from './UITypes';
 import TintedBackground from './TintedBackground';
 import { StyleProps } from 'react-native-reanimated';
 import { useColors } from '@/src/hooks/useColors';
+import { CustomButtonStyles } from './UIStyles';
 
 export default function CustomButton({
 	content,
@@ -26,6 +27,7 @@ export default function CustomButton({
 	const disabledButtonStyle: StyleProps = {
 		backgroundColor: colors.gray400,
 	};
+	const styles = CustomButtonStyles;
 	const innerGeneralButtonContent = (
 		<View
 			style={[
@@ -114,18 +116,3 @@ export default function CustomButton({
 		</Pressable>
 	);
 }
-const styles = StyleSheet.create({
-	innerContainer: {
-		paddingInline: 40,
-		paddingVertical: 12,
-		borderRadius: 12,
-		alignItems: 'center',
-	},
-	text: { fontSize: 18, fontWeight: 'bold' },
-	gradientIconContainer: {
-		paddingInline: 10,
-		paddingVertical: 6,
-		borderRadius: 8,
-		alignItems: 'center',
-	},
-});

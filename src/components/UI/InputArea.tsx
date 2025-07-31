@@ -1,8 +1,9 @@
-import { StyleSheet, TextInput } from 'react-native';
+import { TextInput } from 'react-native';
 import { Text, View } from '../Themed';
 import { useState } from 'react';
 import { InputAreaProps } from './UITypes';
 import { useColors } from '@/src/hooks/useColors';
+import { InputAreaStyles } from './UIStyles';
 
 export default function InputArea({
 	inputType = 'string',
@@ -19,6 +20,7 @@ export default function InputArea({
 }: InputAreaProps) {
 	const colors = useColors();
 	const [active, setActive] = useState<boolean>(false);
+	const styles = InputAreaStyles;
 	return (
 		<View style={styles.outerContainer}>
 			{title && (
@@ -81,28 +83,3 @@ export default function InputArea({
 		</View>
 	);
 }
-
-const styles = StyleSheet.create({
-	outerContainer: {
-		flexDirection: 'column',
-		marginBlock: 6,
-		backgroundColor: 'transparent',
-		width: '100%',
-	},
-	innerContainer: {
-		flexDirection: 'row',
-		alignItems: 'center',
-		borderRadius: 10,
-		overflow: 'hidden',
-		marginBlock: 6,
-		paddingInline: 14,
-		paddingVertical: 4,
-		borderWidth: 2,
-		width: '100%',
-	},
-	inputArea: {
-		flex: 1,
-		paddingInline: 16,
-		fontSize: 18,
-	},
-});

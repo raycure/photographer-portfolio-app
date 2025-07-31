@@ -1,5 +1,6 @@
 import { useColors } from '@/src/hooks/useColors';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
+import { InputHighlightBarStyles } from './UIStyles';
 
 export default function InputHighlightBar({ level }: { level: string }) {
 	const colors = useColors();
@@ -20,6 +21,7 @@ export default function InputHighlightBar({ level }: { level: string }) {
 			: level == 'medium'
 			? colors.accentOrange
 			: colors.accentGreen400;
+	const styles = InputHighlightBarStyles;
 	return (
 		<View style={styles.outerContainer}>
 			{barContent.map((bar, index) => (
@@ -39,19 +41,3 @@ export default function InputHighlightBar({ level }: { level: string }) {
 		</View>
 	);
 }
-const styles = StyleSheet.create({
-	outerContainer: {
-		width: '100%',
-		flexDirection: 'row',
-		alignItems: 'baseline',
-		gap: 8,
-		top: -8,
-	},
-	singularBar: {
-		width: '25%',
-		height: 6,
-		backgroundColor: 'white',
-		borderRadius: 6,
-	},
-	highlightText: { textAlign: 'center', margin: 'auto', fontWeight: 'bold' },
-});

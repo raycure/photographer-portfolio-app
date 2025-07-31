@@ -1,9 +1,10 @@
-import { Pressable, StyleSheet } from 'react-native';
+import { Pressable } from 'react-native';
 import CustomIcon from './CustomIcon';
 import { Text } from '../Themed';
 import { useContext, useState } from 'react';
 import { useColors } from '@/src/hooks/useColors';
 import UserContext from '@/src/context/UserContext';
+import { FollowersButtonStyles } from './UIStyles';
 type FollowersButtonProps = {
 	size?: 'big' | 'medium' | 'small';
 };
@@ -15,6 +16,7 @@ export default function FollowersButton({
 	const user = useContext(UserContext);
 	const followers = user.social.followerAccounts;
 	const followersCount = followers.length;
+	const styles = FollowersButtonStyles;
 	return (
 		<Pressable
 			style={styles.container}
@@ -44,16 +46,3 @@ export default function FollowersButton({
 		</Pressable>
 	);
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flexDirection: 'row',
-		gap: 4,
-		justifyContent: 'center',
-		alignItems: 'center',
-	},
-	bigText: { fontSize: 24 },
-	mediumText: { fontSize: 20 },
-	smallText: { fontSize: 16 },
-	textGeneral: { fontWeight: 'bold' },
-});
