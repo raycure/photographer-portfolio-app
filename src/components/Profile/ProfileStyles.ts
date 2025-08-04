@@ -23,8 +23,7 @@ export const headerStyles = StyleSheet.create({
 	title: { fontWeight: 'bold', fontSize: 24 },
 	text: { fontSize: 16, fontStyle: 'italic' },
 	infoContainer: { flex: 1 },
-	blockButton: {},
-	generalButton: {},
+	levelText: { fontStyle: 'italic', fontSize: 16 },
 });
 
 export const ProfileActionBarStyles = StyleSheet.create({

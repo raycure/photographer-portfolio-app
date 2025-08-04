@@ -1,7 +1,7 @@
 export default {
 	light: {
 		text: '#fff',
-		background: '#22272fff',
+		background: '#212a33',
 		tint: '#fff',
 		accentRed: '#ff5e52',
 		accentOrange: '#ffbe5b',
@@ -37,7 +37,7 @@ export default {
 	},
 	dark: {
 		text: '#fff',
-		background: '#22272fff',
+		background: '#212a33',
 		tint: '#fff',
 		accentRed: '#ff5e52',
 		accentOrange: '#ffbe5b',

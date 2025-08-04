@@ -37,18 +37,18 @@ export default function InputArea({
 			<View
 				style={[
 					{
-						backgroundColor: colors.primary800,
-						borderColor: colors.gray500,
+						backgroundColor: colors.primary700,
+						borderColor: colors.gray600,
 					},
 					styles.innerContainer,
-					active && { borderColor: colors.tint },
+					active && { borderColor: colors.gray200 },
 					containerStyle,
 				]}
 			>
 				{leftElement && (
 					<View style={{ backgroundColor: 'transparent', marginRight: 6 }}>
 						{leftElement({
-							color: active ? colors.tint : colors.gray400,
+							color: active ? colors.tint : colors.gray500,
 						})}
 					</View>
 				)}
@@ -56,12 +56,12 @@ export default function InputArea({
 					placeholder={placeholder}
 					keyboardType={inputType === 'number' ? 'numeric' : 'default'}
 					secureTextEntry={secure}
-					style={[{ color: colors.tint }, styles.inputArea, textStyle]}
+					style={[{ color: colors.gray200 }, styles.inputArea, textStyle]}
 					selectionColor={colors.tint}
 					{...props}
 					onChange={onChange}
 					contextMenuHidden={true}
-					placeholderTextColor={colors.gray400}
+					placeholderTextColor={colors.gray500}
 					textContentType={textContentType}
 					onFocus={() => setActive(true)}
 					onBlur={() => setActive(false)}
@@ -75,7 +75,7 @@ export default function InputArea({
 						}}
 					>
 						{rightElement({
-							color: active ? colors.tint : colors.gray400,
+							color: active ? colors.tint : colors.gray500,
 						})}
 					</View>
 				)}

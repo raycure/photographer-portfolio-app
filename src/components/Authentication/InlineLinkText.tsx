@@ -10,7 +10,7 @@ export default function InlineLinkText({ type }: InlineLinkTextProps) {
 	const colors = useColors();
 	return (
 		<View style={{ flexDirection: 'row', gap: 4, margin: 20 }}>
-			<Text style={{ color: colors.gray400 }}>
+			<Text style={{ color: colors.gray500 }}>
 				{type === 'register'
 					? 'Already have an account?'
 					: "Don't have an account?"}

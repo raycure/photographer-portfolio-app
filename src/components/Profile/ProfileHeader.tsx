@@ -10,22 +10,25 @@ import { useContext } from 'react';
 import UserContext from '@/src/context/UserContext';
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import ProfileActionsBar from './ProfileActionsBar';
+import { getLevelInfo } from '@/src/utils/getLevel';
 
 export default function ProfileHeader() {
 	const router = useRouter();
 	const colors = useColors();
 	const data = useContext(UserContext);
 	const userInfoStore = useUserInfoStore();
+	const levelInfo = getLevelInfo();
 	const onMenuClick = () => {
 		router.push('/(stack)/menu');
 	};
 	const isPersonal = data.personalInfo.id === userInfoStore.personalInfo.id;
+	const styles = headerStyles;
 	return (
-		<View style={headerStyles.outerContainer}>
+		<View style={styles.outerContainer}>
 			<View>
 				{data.personalInfo.premium && (
 					<CustomIcon
-						style={headerStyles.premiumIcon}
+						style={styles.premiumIcon}
 						collectionKey='fa6'
 						name='crown'
 						size={24}
@@ -33,30 +36,34 @@ export default function ProfileHeader() {
 					/>
 				)}
 				<Image
-					style={headerStyles.profilePicture}
+					style={styles.profilePicture}
 					source={{
 						uri: 'https://reactnative.dev/img/tiny_logo.png',
 					}}
 				/>
 			</View>
-			<View style={headerStyles.infoContainer}>
-				<View style={headerStyles.spaceBetweenContainer}>
-					<Text style={headerStyles.title}>{data.personalInfo.name}</Text>
-					<CustomButton
-						type='icon'
-						icon={({ color }) => (
-							<CustomIcon
-								collectionKey='ion'
-								name='menu-outline'
-								color={color}
-								size={34}
-							/>
-						)}
-						onPress={onMenuClick}
-					/>
+			<View style={styles.infoContainer}>
+				<View style={styles.spaceBetweenContainer}>
+					<Text style={styles.title}>{data.personalInfo.name}</Text>
+					{isPersonal ? (
+						<CustomButton
+							type='icon'
+							icon={({ color }) => (
+								<CustomIcon
+									collectionKey='ion'
+									name='menu-outline'
+									color={color}
+									size={34}
+								/>
+							)}
+							onPress={onMenuClick}
+						/>
+					) : (
+						<Text style={styles.levelText}>Lv. {levelInfo.level}</Text>
+					)}
 				</View>
-				<View style={[headerStyles.spaceBetweenContainer, { top: -4 }]}>
-					<Text style={[headerStyles.text, { color: colors.gray200 }]}>
+				<View style={[styles.spaceBetweenContainer, { top: -4 }]}>
+					<Text style={[styles.text, { color: colors.gray200 }]}>
 						@{data.personalInfo.username}
 					</Text>
 					<FollowersButton />
