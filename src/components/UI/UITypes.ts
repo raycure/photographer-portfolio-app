@@ -45,14 +45,21 @@ type TextButtonProps = {
 	(GradientButton | TintedButton | NotSpecialButton);
 export type CustomButtonProps = IconButtonProps | TextButtonProps;
 
-export type CustomIconProps = {
+type SVGIconProps = {
+	svg: React.ReactNode;
+	style?: ViewStyle;
+	size?: number;
+};
+
+export type RegistredIconProps = {
 	name: IconNameTypes;
 	color?: string;
 	style?: ViewStyle;
 	size?: number;
-	active?: boolean;
 	collectionKey: IconCollectionKey;
 };
+
+export type CustomIconProps = SVGIconProps | RegistredIconProps;
 
 export type GradientProps = {
 	colors: [ColorValue, ColorValue];

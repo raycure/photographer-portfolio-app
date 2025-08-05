@@ -23,8 +23,8 @@ export const UserStoreInitialState: UserState = {
 	},
 	stats: {
 		experiencePoints: undefined,
-		attendedChallenges: undefined,
-		wins: undefined,
+		attendedChallenges: [],
+		wins: [],
 		favorites: [],
 	},
 	auth: {

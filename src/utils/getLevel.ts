@@ -1,22 +1,27 @@
 import { useUserInfoStore } from '../stores/UserInfoStore';
 
 export const getLevelInfo = () => {
-	let totalExp = useUserInfoStore.getState().stats.experiencePoints ?? 0;
+	const totalExp = useUserInfoStore.getState().stats.experiencePoints ?? 0;
 	let exp = totalExp;
 	let level = 1;
-	let requiredExp = 4;
+	let baseRequirement = 4;
+	let increment = 3;
 
-	while (exp >= requiredExp) {
+	while (true) {
+		let requiredExp = baseRequirement + (level - 1) * increment;
+		if (exp < requiredExp) break;
+
 		exp -= requiredExp;
 		level++;
-		requiredExp = Math.floor(requiredExp * 1.2);
 	}
+
+	let requiredExpForNextLevel = baseRequirement + (level - 1) * increment;
 
 	return {
 		level,
 		remainingExp: exp,
-		requiredExpForNextLevel: requiredExp,
+		requiredExpForNextLevel,
 		totalExp,
-		progressToNextLevel: Math.min(1, exp / requiredExp),
+		progressToNextLevel: exp / requiredExpForNextLevel,
 	};
 };

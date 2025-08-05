@@ -2,8 +2,7 @@ import { useColors } from '@/src/hooks/useColors';
 import { View } from '../Themed';
 import CustomButton from '../UI/CustomButton';
 import CustomIcon from '../UI/CustomIcon';
-import { actionButtonConfigs } from './ProfileConfig';
-import { StyleSheet } from 'react-native';
+import { useActionButtonConfigs } from './ProfileConfig';
 import { ProfileActionBarStyles } from './ProfileStyles';
 export default function ProfileActionsBar({
 	isPersonal,
@@ -11,6 +10,7 @@ export default function ProfileActionsBar({
 	isPersonal: boolean;
 }) {
 	const colors = useColors();
+	const actionButtonConfigs = useActionButtonConfigs();
 	const currentButtons = isPersonal
 		? [...actionButtonConfigs.general, ...actionButtonConfigs.personal]
 		: [...actionButtonConfigs.general, ...actionButtonConfigs.other];
@@ -49,7 +49,7 @@ const handleProfileAction = (key: string) => {
 	const actionMap: Record<string, () => void> = {
 		share: () => {},
 		link: () => {},
-		bookmarks: () => {},
+		bookmark: () => {},
 		edit: () => {},
 		follow: () => {},
 		block: () => {},

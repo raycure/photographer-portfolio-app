@@ -26,7 +26,7 @@ export default function FollowersButton({
 			<CustomIcon
 				collectionKey='oct'
 				name='person'
-				size={size === 'big' ? 24 : size === 'medium' ? 22 : 16}
+				size={size === 'big' ? 24 : size === 'medium' ? 20 : 16}
 				color={!pressed ? colors.gray100 : colors.gray300}
 			/>
 			<Text

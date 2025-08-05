@@ -23,6 +23,7 @@ export type ModalActions = {
 
 type UserID = string;
 type ImageID = string;
+type ChallengeID = string;
 
 type UserPreferences = {
 	language?: string;
@@ -30,8 +31,8 @@ type UserPreferences = {
 
 type UserStats = {
 	experiencePoints?: number;
-	attendedChallenges?: number;
-	wins?: number;
+	attendedChallenges?: ChallengeID[];
+	wins?: ChallengeID[];
 	favorites: ImageID[];
 };
 

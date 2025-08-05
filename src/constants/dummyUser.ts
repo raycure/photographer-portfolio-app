@@ -23,9 +23,9 @@ export const dummyUser = {
 		language: 'en',
 	},
 	stats: {
-		experiencePoints: 1250,
-		attendedChallenges: 14,
-		wins: 3,
+		experiencePoints: 53,
+		attendedChallenges: ['', '', '', '', '', '', '', '', '', '', '', ''],
+		wins: ['', '', ''],
 		favorites: ['challenge_101', 'challenge_205', 'challenge_333'],
 	},
 	auth: {

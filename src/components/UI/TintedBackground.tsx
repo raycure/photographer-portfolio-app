@@ -7,7 +7,7 @@ import { TintedBackgroundStyles } from './UIStyles';
 export default function TintedBackground({
 	blur = { intensity: 0, tint: 'dark' },
 	type = 'circular',
-	color = 'black',
+	color = '#000000',
 	opacity = 0.6,
 	children,
 	style,

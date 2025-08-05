@@ -117,7 +117,7 @@ export const ModalWrapperStyles = StyleSheet.create({
 
 export const TintedBackgroundStyles = StyleSheet.create({
 	circularContainer: {
-		borderRadius: 100,
+		borderRadius: 500,
 	},
 	rectangularContainer: {
 		borderRadius: 8,
@@ -125,8 +125,7 @@ export const TintedBackgroundStyles = StyleSheet.create({
 	container: {
 		padding: 8,
 		overflow: 'hidden',
-		minWidth: 40,
-		minHeight: 40,
-		flexShrink: 1,
+		alignItems: 'center',
+		justifyContent: 'center',
 	},
 });

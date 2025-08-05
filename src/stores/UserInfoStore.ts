@@ -3,11 +3,13 @@ import { UserActions, UserState } from './StoreTypes';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { UserStoreInitialState } from './InitialStates';
+import { dummyUser } from '../constants/dummyUser';
 const initialState = UserStoreInitialState;
 export const useUserInfoStore = create<UserActions & UserState>()(
 	persist(
 		(set) => ({
-			...initialState,
+			//...initialState,
+			...dummyUser,
 			setUserData: (data) => set(() => ({ ...data })),
 			updateUserData: (data) =>
 				set((state) => ({
