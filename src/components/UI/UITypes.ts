@@ -8,6 +8,7 @@ import {
 	ViewStyle,
 } from 'react-native';
 import { IconCollectionKey, IconNameTypes } from '@/src/constants/iconRegistry';
+import { StyleProps } from 'react-native-reanimated';
 
 type CommonButtonBase = {
 	onPress?: (...args: any[]) => any | (() => void) | null | undefined;
@@ -100,3 +101,9 @@ type WithOpacity = {
 };
 export type TintedBackgroundProps = BaseTintedBackgroundProps &
 	(WithBlur | WithOpacity);
+
+export type LineSeperatorProps = {
+	style?: StyleProps;
+	color?: ColorValue;
+	fixOrientation?: boolean;
+};
