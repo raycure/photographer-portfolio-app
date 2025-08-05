@@ -1,6 +1,7 @@
 import React from 'react';
 import { Stack } from 'expo-router';
 import CustomHeader from '@/src/components/UI/CustomHeader';
+import { Text } from 'react-native';
 
 export default function StackLayout() {
 	return (
@@ -19,6 +20,7 @@ export default function StackLayout() {
 				name='menu'
 				options={{
 					title: 'Menu',
+					header: () => <CustomHeader rightElement={<Text>test</Text>} />,
 				}}
 			/>
 			<Stack.Screen

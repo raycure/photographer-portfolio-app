@@ -2,16 +2,23 @@ import { useRouter } from 'expo-router';
 import CustomButton from './CustomButton';
 import CustomIcon from './CustomIcon';
 import { View } from '../Themed';
+import { ReactNode } from 'react';
 
-export default function MyComponent() {
+export default function CustomHeader({
+	rightElement,
+}: {
+	rightElement?: ReactNode;
+}) {
 	const router = useRouter();
 	return (
 		<View
 			style={{
 				width: '100%',
 				height: 35,
-				justifyContent: 'center',
-				alignItems: 'flex-start',
+				flexDirection: 'row',
+				justifyContent: 'space-between',
+				alignItems: 'center',
+				paddingHorizontal: 10,
 			}}
 		>
 			<CustomButton
@@ -25,10 +32,8 @@ export default function MyComponent() {
 					/>
 				)}
 				onPress={() => router.back()}
-				outerContainerStyle={{
-					marginLeft: 10,
-				}}
 			/>
+			{rightElement && rightElement}
 		</View>
 	);
 }
