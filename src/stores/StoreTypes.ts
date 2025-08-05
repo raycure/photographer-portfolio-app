@@ -25,15 +25,25 @@ type UserID = string;
 type ImageID = string;
 type ChallengeID = string;
 
+type ChallengeInfo = {
+	challengeId: ChallengeID;
+	imageId: ImageID;
+	rank: number;
+	likes: number;
+};
+export type Wins = ChallengeInfo & {
+	saved: boolean;
+};
+
 type UserPreferences = {
 	language?: string;
 };
 
 type UserStats = {
 	experiencePoints?: number;
-	attendedChallenges?: ChallengeID[];
-	wins?: ChallengeID[];
-	favorites: ImageID[];
+	attendedChallenges?: ChallengeInfo[];
+	wins?: Wins[];
+	favorites: ChallengeInfo[];
 };
 
 type UserQuotas = {
@@ -77,7 +87,7 @@ export type UserActions = {
 	setPersonalInfo: (info: Partial<UserState['personalInfo']>) => void;
 	setTokens: (auth: { authToken: string; refreshToken: string }) => void;
 	logout: () => void;
-	addFavorite: (id: string) => void;
-	removeFavorite: (id: string) => void;
+	addFavorite: (challenge: ChallengeInfo) => void;
+	removeFavorite: (challengeId: ChallengeID) => void;
 	decreaseQuota: (type: keyof UserState['quotas']) => void;
 };

@@ -20,7 +20,7 @@ export default function ProfileLayout() {
 				<ProfileHeader />
 				<ProfileStatistics />
 			</View>
-			<LineSeperator color={colors.primary300} />
+			<LineSeperator color={colors.primary300} style={{ marginBottom: 1 }} />
 			<GalleryGrid />
 		</View>
 	);

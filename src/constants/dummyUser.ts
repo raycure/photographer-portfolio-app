@@ -24,12 +24,95 @@ export const dummyUser = {
 	},
 	stats: {
 		experiencePoints: 53,
-		attendedChallenges: ['', '', '', '', '', '', '', '', '', '', '', ''],
-		wins: ['', '', ''],
-		favorites: ['challenge_101', 'challenge_205', 'challenge_333'],
+		attendedChallenges: [
+			{
+				challengeId: 'challenge_23',
+				imageId: 'image_333',
+				rank: 3,
+				likes: 263,
+			},
+			{
+				challengeId: 'challenge_12',
+				imageId: 'image_365',
+				rank: 4,
+				likes: 263,
+			},
+			{
+				challengeId: 'challenge_21',
+				imageId: 'image_386',
+				rank: 76,
+				likes: 263,
+			},
+			{
+				challengeId: 'challenge_54',
+				imageId: 'image_943',
+				rank: 2,
+				likes: 263,
+			},
+			{
+				challengeId: 'challenge_25',
+				imageId: 'image_233',
+				rank: 64,
+				likes: 263,
+			},
+			{
+				challengeId: 'challenge_73',
+				imageId: 'image_265',
+				rank: 24,
+				likes: 263,
+			},
+			{
+				challengeId: 'challenge_28',
+				imageId: 'image_286',
+				rank: 9,
+				likes: 263,
+			},
+			{
+				challengeId: 'challenge_56',
+				imageId: 'image_243',
+				rank: 12,
+				likes: 263,
+			},
+		],
+		wins: [
+			{
+				challengeId: 'challenge_54',
+				imageId: 'image_943',
+				rank: 2,
+				likes: 263,
+				saved: true,
+			},
+			{
+				challengeId: 'challenge_23',
+				imageId: 'image_333',
+				rank: 3,
+				likes: 263,
+				saved: false,
+			},
+		],
+		favorites: [
+			{
+				challengeId: 'challenge_73',
+				imageId: 'image_265',
+				rank: 24,
+				likes: 263,
+			},
+			{
+				challengeId: 'challenge_28',
+				imageId: 'image_286',
+				rank: 9,
+				likes: 263,
+			},
+			{
+				challengeId: 'challenge_56',
+				imageId: 'image_243',
+				rank: 12,
+				likes: 263,
+			},
+		],
 	},
 	auth: {
-		authToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...',
-		refreshToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ8...',
+		authToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9',
+		refreshToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ8',
 	},
 };

@@ -21,11 +21,11 @@ export default function MyComponent() {
 						collectionKey='ion'
 						name='chevron-back-outline'
 						color={color}
-						size={30}
+						size={35}
 					/>
 				)}
 				onPress={() => router.back()}
-				style={{
+				outerContainerStyle={{
 					marginLeft: 10,
 				}}
 			/>

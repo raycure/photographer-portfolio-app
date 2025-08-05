@@ -8,7 +8,7 @@ const initialState = UserStoreInitialState;
 export const useUserInfoStore = create<UserActions & UserState>()(
 	persist(
 		(set) => ({
-			//...initialState,
+			...initialState,
 			...dummyUser,
 			setUserData: (data) => set(() => ({ ...data })),
 			updateUserData: (data) =>
@@ -33,18 +33,21 @@ export const useUserInfoStore = create<UserActions & UserState>()(
 					},
 				})),
 			logout: () => set(() => initialState),
-			addFavorite: (id) =>
+			addFavorite: (challenge) =>
 				set((state) => ({
 					stats: {
 						...state.stats,
-						favorites: [...state.stats.favorites, id],
+						favorites: [...state.stats.favorites, challenge],
 					},
 				})),
-			removeFavorite: (id) =>
+
+			removeFavorite: (challengeId) =>
 				set((state) => ({
 					stats: {
 						...state.stats,
-						favorites: state.stats.favorites.filter((f) => f !== id),
+						favorites: state.stats.favorites.filter(
+							(fav) => fav.challengeId !== challengeId
+						),
 					},
 				})),
 			decreaseQuota: (type) =>
