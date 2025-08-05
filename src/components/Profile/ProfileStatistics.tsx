@@ -7,6 +7,7 @@ import TintedBackground from '../UI/TintedBackground';
 import FillingBar from '../UI/FillingBar';
 import { getLevelInfo } from '@/src/utils/getLevel';
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
+import { ProfileStatisticsStyles } from './ProfileStyles';
 
 const windowWidth = Dimensions.get('window').width;
 export default function ProfileStatistics() {
@@ -28,6 +29,7 @@ export default function ProfileStatistics() {
 			title2: `${userInfoStore.stats.attendedChallenges?.length} katılım`,
 		},
 	];
+	const styles = ProfileStatisticsStyles;
 	return (
 		<View style={styles.outerContainer}>
 			<View
@@ -82,41 +84,3 @@ export default function ProfileStatistics() {
 		</View>
 	);
 }
-const styles = StyleSheet.create({
-	outerContainer: {
-		height: windowWidth / 2 - 40,
-		flexDirection: 'row',
-		gap: 10,
-	},
-	innerContainer: {
-		flex: 1,
-		gap: 14,
-	},
-	blockContainer: {
-		borderRadius: 18,
-	},
-	bigBlockContainer: {
-		paddingBlock: 16,
-		paddingHorizontal: 12,
-		justifyContent: 'space-between',
-		alignItems: 'center',
-		flexDirection: 'column',
-		flex: 0.9,
-	},
-	sideBlockContainers: {
-		alignItems: 'center',
-		flexDirection: 'row',
-		padding: 8,
-		flex: 1.1,
-		gap: 6,
-	},
-	levelInfoContainer: {
-		justifyContent: 'space-between',
-		flexDirection: 'row',
-		alignItems: 'baseline',
-	},
-	levelMainText: { fontSize: 20, fontWeight: 'bold' },
-	title1: { fontWeight: 'bold', fontSize: 20 },
-	title2: { fontWeight: 'bold', fontSize: 18, maxWidth: 100 },
-	title3: { fontStyle: 'italic' },
-});

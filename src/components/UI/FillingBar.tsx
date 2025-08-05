@@ -1,5 +1,6 @@
 import { ColorValue, StyleSheet, View } from 'react-native';
 import { useColors } from '@/src/hooks/useColors';
+import { FillingBarStyles } from './UIStyles';
 type FillingBarProps = {
 	percentage: number;
 	backgroundColor?: ColorValue;
@@ -13,6 +14,7 @@ export default function FillingBar({
 	thickness = 10,
 }: FillingBarProps) {
 	const colors = useColors();
+	const styles = FillingBarStyles;
 	return (
 		<View
 			style={[
@@ -33,10 +35,3 @@ export default function FillingBar({
 		</View>
 	);
 }
-const styles = StyleSheet.create({
-	backgroundBar: {
-		alignSelf: 'stretch',
-		borderRadius: 100,
-	},
-	activeBar: { zIndex: 1, borderRadius: 100 },
-});

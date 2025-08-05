@@ -129,3 +129,11 @@ export const TintedBackgroundStyles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 });
+
+export const FillingBarStyles = StyleSheet.create({
+	backgroundBar: {
+		alignSelf: 'stretch',
+		borderRadius: 100,
+	},
+	activeBar: { zIndex: 1, borderRadius: 100 },
+});

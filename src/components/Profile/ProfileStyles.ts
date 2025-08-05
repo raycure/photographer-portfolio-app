@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-
+import { Dimensions, StyleSheet } from 'react-native';
+const windowWidth = Dimensions.get('window').width;
 export const headerStyles = StyleSheet.create({
 	outerContainer: {
 		flexDirection: 'row',
@@ -36,4 +36,58 @@ export const ProfileActionBarStyles = StyleSheet.create({
 		paddingInline: 16,
 		minHeight: 'auto',
 	},
+});
+
+export const GalleryGridItemStyles = StyleSheet.create({
+	outerContainer: {
+		width: (windowWidth - 2) / 3,
+		height: ((windowWidth - 2) * 4) / 9,
+	},
+	addButton: {
+		justifyContent: 'center',
+		alignItems: 'center',
+		borderRadius: 6,
+		borderWidth: 4,
+		borderStyle: 'dashed',
+		borderColor: 'white',
+	},
+});
+
+export const ProfileStatisticsStyles = StyleSheet.create({
+	outerContainer: {
+		height: windowWidth / 2 - 40,
+		flexDirection: 'row',
+		gap: 10,
+	},
+	innerContainer: {
+		flex: 1,
+		gap: 14,
+	},
+	blockContainer: {
+		borderRadius: 18,
+	},
+	bigBlockContainer: {
+		paddingBlock: 16,
+		paddingHorizontal: 12,
+		justifyContent: 'space-between',
+		alignItems: 'center',
+		flexDirection: 'column',
+		flex: 0.9,
+	},
+	sideBlockContainers: {
+		alignItems: 'center',
+		flexDirection: 'row',
+		padding: 8,
+		flex: 1.1,
+		gap: 6,
+	},
+	levelInfoContainer: {
+		justifyContent: 'space-between',
+		flexDirection: 'row',
+		alignItems: 'baseline',
+	},
+	levelMainText: { fontSize: 20, fontWeight: 'bold' },
+	title1: { fontWeight: 'bold', fontSize: 20 },
+	title2: { fontWeight: 'bold', fontSize: 18, maxWidth: 100 },
+	title3: { fontStyle: 'italic' },
 });
