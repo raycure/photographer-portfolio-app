@@ -37,6 +37,8 @@ export const CustomButtonStyles = StyleSheet.create({
 		borderRadius: 8,
 		alignItems: 'center',
 	},
+	iconWrapper: { backgroundColor: 'transparent', marginRight: 6 },
+	stretched: { alignSelf: 'stretch' },
 });
 
 export const InputAreaStyles = StyleSheet.create({
@@ -62,6 +64,13 @@ export const InputAreaStyles = StyleSheet.create({
 		paddingInline: 16,
 		fontSize: 18,
 	},
+	rightElementWrapper: {
+		position: 'absolute',
+		right: 12,
+		backgroundColor: 'transparent',
+	},
+	leftElementWrapper: { backgroundColor: 'transparent', marginRight: 6 },
+	title: { fontWeight: 'bold', fontSize: 18 },
 });
 
 export const FollowersButtonStyles = StyleSheet.create({
@@ -137,3 +146,34 @@ export const FillingBarStyles = StyleSheet.create({
 	},
 	activeBar: { zIndex: 1, borderRadius: 100 },
 });
+
+export const CloseButtonStyles = StyleSheet.create({
+	outerContainer: { position: 'absolute', left: 20, top: 20 },
+});
+
+export const CustomHeaderStyles = StyleSheet.create({
+	outerContainer: {
+		width: '100%',
+		height: 35,
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+		paddingLeft: 12,
+		paddingRight: 20,
+	},
+});
+
+export const LineSeperatorStyles = StyleSheet.create({
+	mainOrientation: {
+		marginVertical: 8,
+		height: 1,
+		alignSelf: 'stretch',
+	},
+	turnedOrientation: { marginVertical: 8, width: 1, flexGrow: 1 },
+});
+
+export const LogoutButtonStyles = StyleSheet.create({
+	text: { fontSize: 18 },
+});
+
+export const Styles = StyleSheet.create({});

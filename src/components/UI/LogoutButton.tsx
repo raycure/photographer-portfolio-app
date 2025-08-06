@@ -2,6 +2,7 @@ import { Pressable, StyleSheet, TextStyle, ViewStyle } from 'react-native';
 import { Text } from '../Themed';
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import { useColors } from '@/src/hooks/useColors';
+import { LogoutButtonStyles } from './UIStyles';
 type LogoutButtonProps = { style?: ViewStyle; textStyle?: TextStyle };
 export default function LogoutButton({ style, textStyle }: LogoutButtonProps) {
 	const userInfoStore = useUserInfoStore();
@@ -9,9 +10,9 @@ export default function LogoutButton({ style, textStyle }: LogoutButtonProps) {
 	const onLogoutPressed = () => {
 		userInfoStore.logout();
 	};
-
+	const styles = LogoutButtonStyles;
 	return (
-		<Pressable style={[styles.outerContainer, style]} onPress={onLogoutPressed}>
+		<Pressable style={style} onPress={onLogoutPressed}>
 			<Text
 				lightColor={colors.primary100}
 				darkColor={colors.primary100}
@@ -22,7 +23,3 @@ export default function LogoutButton({ style, textStyle }: LogoutButtonProps) {
 		</Pressable>
 	);
 }
-const styles = StyleSheet.create({
-	outerContainer: {},
-	text: { fontSize: 18 },
-});

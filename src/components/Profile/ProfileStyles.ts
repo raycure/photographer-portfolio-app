@@ -24,6 +24,7 @@ export const headerStyles = StyleSheet.create({
 	text: { fontSize: 16, fontStyle: 'italic' },
 	infoContainer: { flex: 1 },
 	levelText: { fontStyle: 'italic', fontSize: 16 },
+	lowerContainer: { top: -4 },
 });
 
 export const ProfileActionBarStyles = StyleSheet.create({
@@ -51,6 +52,7 @@ export const GalleryGridItemStyles = StyleSheet.create({
 		borderStyle: 'dashed',
 		borderColor: 'white',
 	},
+	image: { resizeMode: 'cover', flex: 1 },
 });
 
 export const ProfileStatisticsStyles = StyleSheet.create({
@@ -90,4 +92,20 @@ export const ProfileStatisticsStyles = StyleSheet.create({
 	title1: { fontWeight: 'bold', fontSize: 20 },
 	title2: { fontWeight: 'bold', fontSize: 18, maxWidth: 100 },
 	title3: { fontStyle: 'italic' },
+});
+
+export const GalleryGridStyles = StyleSheet.create({
+	outerContainer: { flex: 1, alignSelf: 'stretch' },
+	columnStyle: { gap: 1 },
+});
+
+export const ProfileLayoutStyles = StyleSheet.create({
+	outerContainer: { flex: 1, alignItems: 'center' },
+	innerContainer: {
+		paddingHorizontal: 18,
+		paddingBottom: 4,
+		alignSelf: 'stretch',
+		gap: 12,
+	},
+	lineSeperator: { marginBottom: 1 },
 });

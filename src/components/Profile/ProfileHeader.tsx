@@ -62,7 +62,7 @@ export default function ProfileHeader() {
 						<Text style={styles.levelText}>Lv. {levelInfo.level}</Text>
 					)}
 				</View>
-				<View style={[styles.spaceBetweenContainer, { top: -4 }]}>
+				<View style={[styles.spaceBetweenContainer, styles.lowerContainer]}>
 					<Text style={[styles.text, { color: colors.gray200 }]}>
 						@{data.personalInfo.username}
 					</Text>

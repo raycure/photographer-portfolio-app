@@ -3,6 +3,7 @@ import CustomButton from './CustomButton';
 import CustomIcon from './CustomIcon';
 import { View } from '../Themed';
 import { ReactNode } from 'react';
+import { CustomHeaderStyles } from './UIStyles';
 
 export default function CustomHeader({
 	rightElement,
@@ -10,18 +11,9 @@ export default function CustomHeader({
 	rightElement?: ReactNode;
 }) {
 	const router = useRouter();
+	const styles = CustomHeaderStyles;
 	return (
-		<View
-			style={{
-				width: '100%',
-				height: 35,
-				flexDirection: 'row',
-				justifyContent: 'space-between',
-				alignItems: 'center',
-				paddingLeft: 12,
-				paddingRight: 20,
-			}}
-		>
+		<View style={styles.outerContainer}>
 			<CustomButton
 				type='icon'
 				icon={({ color }) => (

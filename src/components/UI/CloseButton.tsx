@@ -3,6 +3,7 @@ import CustomIcon from './CustomIcon';
 import { StyleProps } from 'react-native-reanimated';
 import { useState } from 'react';
 import { useColors } from '@/src/hooks/useColors';
+import { CloseButtonStyles } from './UIStyles';
 
 export default function CloseButton({
 	onPress,
@@ -13,12 +14,13 @@ export default function CloseButton({
 }) {
 	const [pressed, setPressed] = useState(false);
 	const colors = useColors();
+	const styles = CloseButtonStyles;
 	return (
 		<Pressable
 			onPress={onPress}
 			onPressIn={() => setPressed(true)}
 			onPressOut={() => setPressed(false)}
-			style={[{ position: 'absolute', left: 20, top: 20 }, style]}
+			style={[styles.outerContainer, style]}
 		>
 			<CustomIcon
 				color={pressed ? colors.gray400 : colors.primary200}

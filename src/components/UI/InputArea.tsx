@@ -24,15 +24,7 @@ export default function InputArea({
 	return (
 		<View style={styles.outerContainer}>
 			{title && (
-				<Text
-					style={{
-						fontWeight: 'bold',
-						color: colors.gray200,
-						fontSize: 18,
-					}}
-				>
-					{title}
-				</Text>
+				<Text style={[styles.title, { color: colors.gray200 }]}>{title}</Text>
 			)}
 			<View
 				style={[
@@ -46,7 +38,7 @@ export default function InputArea({
 				]}
 			>
 				{leftElement && (
-					<View style={{ backgroundColor: 'transparent', marginRight: 6 }}>
+					<View style={styles.leftElementWrapper}>
 						{leftElement({
 							color: active ? colors.tint : colors.gray500,
 						})}
@@ -67,13 +59,7 @@ export default function InputArea({
 					onBlur={() => setActive(false)}
 				/>
 				{rightElement && (
-					<View
-						style={{
-							position: 'absolute',
-							right: 12,
-							backgroundColor: 'transparent',
-						}}
-					>
+					<View style={styles.rightElementWrapper}>
 						{rightElement({
 							color: active ? colors.tint : colors.gray500,
 						})}

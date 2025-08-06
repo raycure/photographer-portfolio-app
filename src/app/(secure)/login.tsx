@@ -1,13 +1,14 @@
 import AuthForm from '@/src/components/Authentication/AuthForm';
-import { KeyboardAvoidingView, Platform } from 'react-native';
+import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
 
 export default function LoginScreen() {
 	return (
 		<KeyboardAvoidingView
 			behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-			style={{ flex: 1 }}
+			style={styles.maxSize}
 		>
 			<AuthForm elements={['email', 'password']} type='login' />
 		</KeyboardAvoidingView>
 	);
 }
+const styles = StyleSheet.create({ maxSize: { flex: 1 } });

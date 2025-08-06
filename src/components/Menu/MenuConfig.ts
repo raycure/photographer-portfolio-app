@@ -20,7 +20,7 @@ export const MenuBlocksConfig: () => Record<string, MenuItemConfig[]> = () => {
 		],
 		Settings: [
 			{
-				title: 'Get premium',
+				title: 'Get premium ✨',
 				icon: {
 					collectionKey: 'fa6',
 					name: 'crown',

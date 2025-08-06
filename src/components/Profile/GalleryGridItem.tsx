@@ -37,7 +37,7 @@ export default function GalleryGridItem({ data }: { data: Wins | 'add' }) {
 						return image.imageId === data?.imageId;
 					})?.link,
 				}}
-				style={{ resizeMode: 'cover', flex: 1 }}
+				style={styles.image}
 			/>
 		</Pressable>
 	);

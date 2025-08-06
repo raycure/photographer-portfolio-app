@@ -47,7 +47,7 @@ export default function CustomButton({
 				</Text>
 			)}
 			{icon && (
-				<View style={{ backgroundColor: 'transparent', marginRight: 6 }}>
+				<View style={styles.iconWrapper}>
 					{icon({
 						color: active == true ? colors.tint : colors.gray400,
 					})}
@@ -90,7 +90,7 @@ export default function CustomButton({
 			onPressIn={() => setActive(true)}
 			onPressOut={() => setActive(false)}
 			style={[
-				type === 'stretched' ? { alignSelf: 'stretch' } : {},
+				type === 'stretched' ? styles.stretched : undefined,
 				outerContainerStyle,
 			]}
 		>

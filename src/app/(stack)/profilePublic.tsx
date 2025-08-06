@@ -1,4 +1,3 @@
-import { StyleSheet } from 'react-native';
 import UserContext from '@/src/context/UserContext';
 import ProfileLayout from '@/src/components/Profile/ProfileLayout';
 import { useLocalSearchParams } from 'expo-router';
@@ -12,5 +11,3 @@ export default function ProfilePublicScreen() {
 		</UserContext.Provider>
 	);
 }
-
-const styles = StyleSheet.create({});

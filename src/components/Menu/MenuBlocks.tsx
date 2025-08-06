@@ -12,7 +12,7 @@ export default function MenuBlocks() {
 		<View>
 			{Object.entries(data).map(([sectionTitle, items]) => (
 				<View style={styles.innerContainer} key={sectionTitle}>
-					<Text style={[{ color: colors.primary100 }, styles.title]}>
+					<Text style={[{ color: colors.gray300 }, styles.title]}>
 						{sectionTitle}
 					</Text>
 					{items.map((item, index) => (

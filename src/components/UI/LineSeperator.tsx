@@ -1,6 +1,7 @@
 import { View } from '../Themed';
 import { useColors } from '@/src/hooks/useColors';
 import { LineSeperatorProps } from './UITypes';
+import { LineSeperatorStyles } from './UIStyles';
 
 export default function LineSeperator({
 	style,
@@ -8,19 +9,14 @@ export default function LineSeperator({
 	fixOrientation = false,
 }: LineSeperatorProps) {
 	const colors = useColors();
+	const styles = LineSeperatorStyles;
 	return (
 		<View
 			lightColor={colors.gray100}
 			darkColor={colors.gray100}
 			style={[
-				!fixOrientation
-					? {
-							marginVertical: 8,
-							height: 1,
-							alignSelf: 'stretch',
-					  }
-					: { marginVertical: 8, width: 1, flexGrow: 1 },
-				color ? { backgroundColor: color } : {},
+				!fixOrientation ? styles.mainOrientation : styles.turnedOrientation,
+				color ? { backgroundColor: color } : undefined,
 				style,
 			]}
 		/>

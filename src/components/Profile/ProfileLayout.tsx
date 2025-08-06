@@ -4,23 +4,18 @@ import LineSeperator from '../UI/LineSeperator';
 import GalleryGrid from './GalleryGrid';
 import ProfileHeader from './ProfileHeader';
 import ProfileStatistics from './ProfileStatistics';
+import { ProfileLayoutStyles } from './ProfileStyles';
 
 export default function ProfileLayout() {
 	const colors = useColors();
+	const styles = ProfileLayoutStyles;
 	return (
-		<View style={{ flex: 1, alignItems: 'center' }}>
-			<View
-				style={{
-					paddingHorizontal: 18,
-					paddingBottom: 4,
-					alignSelf: 'stretch',
-					gap: 12,
-				}}
-			>
+		<View style={styles.outerContainer}>
+			<View style={styles.innerContainer}>
 				<ProfileHeader />
 				<ProfileStatistics />
 			</View>
-			<LineSeperator color={colors.primary300} style={{ marginBottom: 1 }} />
+			<LineSeperator color={colors.primary300} style={styles.lineSeperator} />
 			<GalleryGrid />
 		</View>
 	);
