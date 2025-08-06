@@ -12,6 +12,7 @@ import LoginExternalServices from './LoginExternalServices';
 import InlineLinkText from './InlineLinkText';
 import ForgotPasswordButton from './ForgotPasswordButton';
 import { useColors } from '@/src/hooks/useColors';
+import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 
 export default function AuthForm({ elements, type }: FormProps) {
 	const colors = useColors();
@@ -23,6 +24,7 @@ export default function AuthForm({ elements, type }: FormProps) {
 		password: '',
 	});
 	type AuthFormKeys = keyof typeof authFormData;
+	const userInfoStore = useUserInfoStore();
 	const passwordEyeIcon = ({ color }: { color: any }) => (
 		<Pressable onPress={() => setPasswordSecure(!passwordSecure)}>
 			<CustomIcon
@@ -32,6 +34,10 @@ export default function AuthForm({ elements, type }: FormProps) {
 			/>
 		</Pressable>
 	);
+	const onRegisterPressed = () => {};
+	const onLoginPressed = () => {
+		userInfoStore.setUserData({});
+	};
 	return (
 		<View style={styles.container}>
 			<View style={{ gap: 4 }}>
@@ -85,7 +91,7 @@ export default function AuthForm({ elements, type }: FormProps) {
 					<ForgotPasswordButton />
 				)}
 				<CustomButton
-					onPress={() => {}}
+					onPress={type === 'register' ? onRegisterPressed : onLoginPressed}
 					type='stretched'
 					content={type === 'register' ? 'Sign Up' : 'Login'}
 					style={{ marginVertical: 20 }}

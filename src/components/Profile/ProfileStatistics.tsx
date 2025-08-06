@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { Text } from '../Themed';
 import { useColors } from '@/src/hooks/useColors';
 import CustomIcon from '../UI/CustomIcon';
@@ -9,7 +9,6 @@ import { getLevelInfo } from '@/src/utils/getLevel';
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import { ProfileStatisticsStyles } from './ProfileStyles';
 
-const windowWidth = Dimensions.get('window').width;
 export default function ProfileStatistics() {
 	const colors = useColors();
 	const levelInfo = getLevelInfo();

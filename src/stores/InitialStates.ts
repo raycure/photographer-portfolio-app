@@ -19,10 +19,10 @@ export const UserStoreInitialState: UserState = {
 		followerAccounts: [],
 	},
 	preferences: {
-		language: undefined,
+		language: 'english',
 	},
 	stats: {
-		experiencePoints: undefined,
+		experiencePoints: 0,
 		attendedChallenges: [],
 		wins: [],
 		favorites: [],

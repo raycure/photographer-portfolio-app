@@ -18,7 +18,8 @@ export default function CustomHeader({
 				flexDirection: 'row',
 				justifyContent: 'space-between',
 				alignItems: 'center',
-				paddingHorizontal: 10,
+				paddingLeft: 12,
+				paddingRight: 20,
 			}}
 		>
 			<CustomButton

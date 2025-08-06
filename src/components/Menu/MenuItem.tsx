@@ -1,0 +1,54 @@
+import { Pressable } from 'react-native';
+import { Text, View } from '../Themed';
+import TintedBackground from '../UI/TintedBackground';
+import CustomIcon from '../UI/CustomIcon';
+import { useColors } from '@/src/hooks/useColors';
+import { useState } from 'react';
+import { MenuItemStyles } from './MenuStyles';
+import { MenuItemProps } from './MenuTypes';
+
+export default function MenuItem({
+	icon,
+	tintColor,
+	title,
+	rightContent,
+	titleColor,
+	onPress,
+}: MenuItemProps) {
+	const colors = useColors();
+	const [pressed, setPressed] = useState(false);
+	const styles = MenuItemStyles;
+	return (
+		<Pressable
+			onPressIn={() => setPressed(true)}
+			onPressOut={() => setPressed(false)}
+			onPress={onPress}
+			style={[styles.outerContainer]}
+		>
+			<View style={styles.innerContainer}>
+				<TintedBackground
+					style={styles.tintedBackground}
+					color={tintColor ? tintColor : colors.primary300}
+				>
+					<CustomIcon {...icon} />
+				</TintedBackground>
+				<Text style={[styles.title, titleColor && { color: titleColor }]}>
+					{title}
+				</Text>
+			</View>
+			{rightContent?.button && (
+				<View style={styles.innerContainer}>
+					<Text style={[{ color: colors.primary200 }, styles.sideTitle]}>
+						{rightContent?.title}
+					</Text>
+					<CustomIcon
+						color={colors.primary200}
+						collectionKey='ion'
+						name='chevron-forward'
+						size={26}
+					/>
+				</View>
+			)}
+		</Pressable>
+	);
+}

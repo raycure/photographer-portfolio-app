@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stack } from 'expo-router';
 import CustomHeader from '@/src/components/UI/CustomHeader';
-import { Text } from 'react-native';
+import LogoutButton from '@/src/components/UI/LogoutButton';
 
 export default function StackLayout() {
 	return (
@@ -20,7 +20,7 @@ export default function StackLayout() {
 				name='menu'
 				options={{
 					title: 'Menu',
-					header: () => <CustomHeader rightElement={<Text>test</Text>} />,
+					header: () => <CustomHeader rightElement={<LogoutButton />} />,
 				}}
 			/>
 			<Stack.Screen

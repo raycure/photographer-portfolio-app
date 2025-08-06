@@ -63,7 +63,6 @@ export default function TabLayout() {
 								<CustomIcon
 									collectionKey={tab.iconInfo.collectionKey}
 									name={focused ? tab.iconInfo.activeName : tab.iconInfo.name}
-									active={focused}
 									color={color}
 								/>
 							),
