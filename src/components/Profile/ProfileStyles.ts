@@ -51,6 +51,9 @@ export const GalleryGridItemStyles = StyleSheet.create({
 		borderWidth: 4,
 		borderStyle: 'dashed',
 		borderColor: 'white',
+		width: (windowWidth - 2) / 3 - 6,
+		height: ((windowWidth - 2) * 4) / 9 - 6,
+		margin: 'auto',
 	},
 	image: { resizeMode: 'cover', flex: 1 },
 });
@@ -96,7 +99,7 @@ export const ProfileStatisticsStyles = StyleSheet.create({
 
 export const GalleryGridStyles = StyleSheet.create({
 	outerContainer: { flex: 1, alignSelf: 'stretch' },
-	columnStyle: { gap: 1 },
+	columnStyle: { gap: 1, justifyContent: 'space-between' },
 });
 
 export const ProfileLayoutStyles = StyleSheet.create({

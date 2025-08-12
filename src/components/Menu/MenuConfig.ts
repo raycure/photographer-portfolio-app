@@ -17,6 +17,12 @@ export const MenuBlocksConfig: () => Record<string, MenuItemConfig[]> = () => {
 				rightContent: { button: true, title: '' },
 				onPress: () => console.log('test'),
 			},
+			{
+				title: 'Theme',
+				icon: { collectionKey: 'fe', name: 'sun' },
+				rightContent: { button: true, title: '' },
+				onPress: () => console.log('test'),
+			},
 		],
 		Settings: [
 			{

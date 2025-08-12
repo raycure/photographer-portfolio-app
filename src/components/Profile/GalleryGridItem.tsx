@@ -1,11 +1,15 @@
-import { Wins } from '@/src/stores/StoreTypes';
+import { AttendedChallenges } from '@/src/stores/StoreTypes';
 import { Image, Pressable } from 'react-native';
 import CustomIcon from '../UI/CustomIcon';
 import { images } from '@/src/constants/dummyImages';
 import { useColors } from '@/src/hooks/useColors';
 import { GalleryGridItemStyles } from './ProfileStyles';
 
-export default function GalleryGridItem({ data }: { data: Wins | 'add' }) {
+export default function GalleryGridItem({
+	data,
+}: {
+	data: AttendedChallenges | 'add';
+}) {
 	const colors = useColors();
 	const onAddButtonPress = () => {};
 	const onPhotoPress = () => {};
@@ -14,11 +18,7 @@ export default function GalleryGridItem({ data }: { data: Wins | 'add' }) {
 		return (
 			<Pressable
 				onPress={onAddButtonPress}
-				style={[
-					styles.outerContainer,
-					styles.addButton,
-					{ borderColor: colors.primary100 },
-				]}
+				style={[styles.addButton, { borderColor: colors.primary100 }]}
 			>
 				<CustomIcon
 					collectionKey='ad'

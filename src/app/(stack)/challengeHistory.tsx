@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { View } from '@/src/components/Themed';
 
-export default function EventHistoryScreen() {
+export default function ChallengeHistoryScreen() {
 	return <View></View>;
 }
 

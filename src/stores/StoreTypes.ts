@@ -27,22 +27,20 @@ type ChallengeID = string;
 
 type ChallengeInfo = {
 	challengeId: ChallengeID;
-	imageId: ImageID;
+	imageId?: ImageID;
 	rank: number;
 	likes: number;
 };
-export type Wins = ChallengeInfo & {
-	saved: boolean;
-};
+export type AttendedChallenges = ChallengeInfo & { saved: boolean };
 
 type UserPreferences = {
 	language?: string;
+	darkTheme?: boolean;
 };
 
 type UserStats = {
 	experiencePoints?: number;
-	attendedChallenges?: ChallengeInfo[];
-	wins?: Wins[];
+	attendedChallenges?: AttendedChallenges[];
 	favorites: ChallengeInfo[];
 };
 

@@ -1,6 +1,6 @@
 export const dummyUser = {
 	personalInfo: {
-		id: 'user_12345',
+		id: 'user_001',
 		name: 'Jane Doe',
 		username: 'jane_doe32',
 		email: 'jane.doe@example.com',
@@ -17,77 +17,76 @@ export const dummyUser = {
 			{ type: 'twitter', url: 'https://twitter.com/janedoe' },
 		],
 		followingAccounts: ['user_54321', 'user_67890'],
-		followerAccounts: ['user_11111', 'user_22222', 'user_33333'],
+		followerAccounts: [
+			'user_11111',
+			'user_22222',
+			'user_33333',
+			'user_33322',
+			'user_33643',
+		],
 	},
 	preferences: {
 		language: 'en',
+		darkTheme: true,
 	},
 	stats: {
-		experiencePoints: 53,
+		experiencePoints: 32,
 		attendedChallenges: [
 			{
 				challengeId: 'challenge_23',
 				imageId: 'image_333',
 				rank: 3,
 				likes: 263,
+				saved: false,
 			},
 			{
 				challengeId: 'challenge_12',
 				imageId: 'image_365',
 				rank: 4,
 				likes: 263,
+				saved: true,
 			},
 			{
 				challengeId: 'challenge_21',
 				imageId: 'image_386',
 				rank: 76,
 				likes: 263,
+				saved: false,
 			},
 			{
 				challengeId: 'challenge_54',
 				imageId: 'image_943',
 				rank: 2,
 				likes: 263,
+				saved: false,
 			},
 			{
 				challengeId: 'challenge_25',
 				imageId: 'image_233',
 				rank: 64,
 				likes: 263,
+				saved: false,
 			},
 			{
 				challengeId: 'challenge_73',
 				imageId: 'image_265',
 				rank: 24,
 				likes: 263,
+				saved: false,
 			},
 			{
 				challengeId: 'challenge_28',
 				imageId: 'image_286',
 				rank: 9,
 				likes: 263,
+				saved: true,
 			},
 			{
 				challengeId: 'challenge_56',
 				imageId: 'image_243',
 				rank: 12,
 				likes: 263,
-			},
-		],
-		wins: [
-			{
-				challengeId: 'challenge_54',
-				imageId: 'image_943',
-				rank: 2,
-				likes: 263,
 				saved: true,
-			},
-			{
-				challengeId: 'challenge_23',
-				imageId: 'image_333',
-				rank: 3,
-				likes: 263,
-				saved: false,
 			},
 		],
 		favorites: [

@@ -12,20 +12,22 @@ import { ProfileStatisticsStyles } from './ProfileStyles';
 export default function ProfileStatistics() {
 	const colors = useColors();
 	const levelInfo = getLevelInfo();
-	const userInfoStore = useUserInfoStore();
-
+	const attendedChallenges = useUserInfoStore().stats.attendedChallenges;
+	const wins = attendedChallenges?.filter((challenge) => {
+		return challenge.rank <= 3;
+	});
 	const rightSideBlocksConfig = [
 		{
 			icon: <TrophySVG width={32} height={32} />,
 			iconWrapperColor: colors.iconBackgroundOrange,
 			title3: 'Zaferler',
-			title2: `${userInfoStore.stats.wins?.length} yarışma`,
+			title2: `${wins?.length} yarışma`,
 		},
 		{
 			icon: <CameraSVG width={36} height={36} />,
 			iconWrapperColor: colors.iconBackgroundBlue,
 			title3: 'Yarışmalar',
-			title2: `${userInfoStore.stats.attendedChallenges?.length} katılım`,
+			title2: `${attendedChallenges?.length} katılım`,
 		},
 	];
 	const styles = ProfileStatisticsStyles;

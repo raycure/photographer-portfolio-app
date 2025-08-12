@@ -24,9 +24,9 @@ export default function StackLayout() {
 				}}
 			/>
 			<Stack.Screen
-				name='eventHistory'
+				name='challengeHistory'
 				options={{
-					title: 'EventHistory',
+					title: 'ChallengeHistory',
 				}}
 			/>
 			<Stack.Screen

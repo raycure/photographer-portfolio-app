@@ -20,11 +20,11 @@ export const UserStoreInitialState: UserState = {
 	},
 	preferences: {
 		language: 'english',
+		darkTheme: true,
 	},
 	stats: {
 		experiencePoints: 0,
 		attendedChallenges: [],
-		wins: [],
 		favorites: [],
 	},
 	auth: {
