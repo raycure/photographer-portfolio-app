@@ -12,7 +12,7 @@ import { StyleProps } from 'react-native-reanimated';
 
 type CommonButtonBase = {
 	onPress?: (...args: any[]) => any | (() => void) | null | undefined;
-	icon?: (props: { color: string }) => React.ReactNode;
+	icon?: ((props: { color: string }) => React.ReactNode) | React.ReactNode;
 	backgroundColor?: ColorValue;
 	style?: ViewStyle;
 	outerContainerStyle?: ViewStyle;
@@ -33,7 +33,7 @@ type NotSpecialButton = {
 };
 type IconButtonProps = {
 	type: 'icon';
-	icon: (props: { color: string }) => React.ReactNode;
+	icon: ((props: { color: string }) => React.ReactNode) | React.ReactNode;
 	content?: never;
 	textColor?: never;
 } & CommonButtonBase &
@@ -106,4 +106,12 @@ export type LineSeperatorProps = {
 	style?: StyleProps;
 	color?: ColorValue;
 	fixOrientation?: boolean;
+};
+
+export type SubtitleTitlePairProps = {
+	title: string;
+	subtitle: string;
+	size?: 'big' | 'medium' | 'small';
+	titleStyle?: TextStyle;
+	subtitleStyle?: TextStyle;
 };

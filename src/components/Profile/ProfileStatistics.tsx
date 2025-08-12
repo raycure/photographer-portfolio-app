@@ -8,6 +8,7 @@ import FillingBar from '../UI/FillingBar';
 import { getLevelInfo } from '@/src/utils/getLevel';
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import { ProfileStatisticsStyles } from './ProfileStyles';
+import SubtitleTitlePair from '../UI/SubtitleTitlePair';
 
 export default function ProfileStatistics() {
 	const colors = useColors();
@@ -67,18 +68,13 @@ export default function ProfileStatistics() {
 						<TintedBackground type='circular' color={block.iconWrapperColor}>
 							<CustomIcon size={40} svg={block.icon} />
 						</TintedBackground>
-						<View>
-							<Text style={[{ color: colors.primary100 }, styles.title3]}>
-								{block.title3}
-							</Text>
-							<Text
-								numberOfLines={1}
-								adjustsFontSizeToFit
-								style={styles.title2}
-							>
-								{block.title2}
-							</Text>
-						</View>
+						<SubtitleTitlePair
+							title={block.title2}
+							subtitle={block.title3}
+							size='small'
+							titleStyle={styles.title2}
+							subtitleStyle={styles.title3}
+						/>
 					</View>
 				))}
 			</View>

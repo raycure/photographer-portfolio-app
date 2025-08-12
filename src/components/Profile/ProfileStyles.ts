@@ -93,7 +93,7 @@ export const ProfileStatisticsStyles = StyleSheet.create({
 	},
 	levelMainText: { fontSize: 20, fontWeight: 'bold' },
 	title1: { fontWeight: 'bold', fontSize: 20 },
-	title2: { fontWeight: 'bold', fontSize: 18, maxWidth: 100 },
+	title2: { fontWeight: 'bold', maxWidth: 100 },
 	title3: { fontStyle: 'italic' },
 });
 

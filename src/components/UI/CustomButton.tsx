@@ -46,11 +46,14 @@ export default function CustomButton({
 					{content}
 				</Text>
 			)}
+
 			{icon && (
 				<View style={styles.iconWrapper}>
-					{icon({
-						color: active == true ? colors.tint : colors.gray400,
-					})}
+					{typeof icon === 'function'
+						? icon({
+								color: active === true ? colors.tint : colors.gray400,
+						  })
+						: icon}
 				</View>
 			)}
 		</View>
@@ -69,14 +72,18 @@ export default function CustomButton({
 							  })}
 						style={[{ alignItems: 'center' }, style]}
 					>
-						{icon({
-							color: active == true ? colors.gray300 : colors.tint,
-						})}
+						{typeof icon === 'function'
+							? icon({
+									color: active === true ? colors.gray300 : colors.tint,
+							  })
+							: icon}
 					</TintedBackground>
-				) : (
+				) : typeof icon === 'function' ? (
 					icon({
-						color: active == true ? colors.gray300 : colors.tint,
+						color: active === true ? colors.gray300 : colors.tint,
 					})
+				) : (
+					icon
 				)
 			) : null}
 		</View>

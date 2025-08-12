@@ -176,4 +176,12 @@ export const LogoutButtonStyles = StyleSheet.create({
 	text: { fontSize: 18 },
 });
 
-export const Styles = StyleSheet.create({});
+export const SubtitleTitlePairStyles = StyleSheet.create({
+	outerContainer: {},
+	subtitleBig: { fontSize: 22 },
+	subtitleMedium: { fontSize: 18 },
+	subtitleSmall: { fontSize: 14 },
+	titleBig: { fontSize: 26 },
+	titleMedium: { fontSize: 22 },
+	titleSmall: { fontSize: 18 },
+});
