@@ -1,15 +1,15 @@
 import { Pressable, View } from 'react-native';
 import { Text } from '../Themed';
 import { router } from 'expo-router';
-import { FormProps } from './AuthTypes';
+import { InlineLinkTextProps } from './AuthTypes';
 import { useColors } from '@/src/hooks/useColors';
-type InlineLinkTextProps = {
-	type: FormProps['type'];
-};
+import { InlineLinkTextStyles } from './AuthStyles';
+
 export default function InlineLinkText({ type }: InlineLinkTextProps) {
 	const colors = useColors();
+	const styles = InlineLinkTextStyles;
 	return (
-		<View style={{ flexDirection: 'row', gap: 4, margin: 20 }}>
+		<View style={styles.outerContainer}>
 			<Text style={{ color: colors.gray500 }}>
 				{type === 'register'
 					? 'Already have an account?'

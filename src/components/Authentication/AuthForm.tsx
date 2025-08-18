@@ -13,6 +13,7 @@ import InlineLinkText from './InlineLinkText';
 import ForgotPasswordButton from './ForgotPasswordButton';
 import { useColors } from '@/src/hooks/useColors';
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
+import { AuthFormStyles } from './AuthStyles';
 
 export default function AuthForm({ elements, type }: FormProps) {
 	const colors = useColors();
@@ -38,6 +39,7 @@ export default function AuthForm({ elements, type }: FormProps) {
 	const onLoginPressed = () => {
 		userInfoStore.setUserData();
 	};
+	const styles = AuthFormStyles;
 	return (
 		<View style={styles.container}>
 			<View style={{ gap: 4 }}>
@@ -71,13 +73,10 @@ export default function AuthForm({ elements, type }: FormProps) {
 								)}
 								secureTextEntry={key === 'password' ? passwordSecure : false}
 								textStyle={
-									key === 'password'
-										? {
-												letterSpacing:
-													passwordSecure && authFormData.password.length > 0
-														? 4
-														: 0,
-										  }
+									key === 'password' &&
+									passwordSecure &&
+									authFormData.password.length > 0
+										? styles.passwordSecure
 										: undefined
 								}
 								rightElement={key === 'password' ? passwordEyeIcon : undefined}
@@ -94,7 +93,7 @@ export default function AuthForm({ elements, type }: FormProps) {
 					onPress={type === 'register' ? onRegisterPressed : onLoginPressed}
 					type='stretched'
 					content={type === 'register' ? 'Sign Up' : 'Login'}
-					style={{ marginVertical: 20 }}
+					style={styles.customButton}
 				/>
 				{type === 'login' && <LoginExternalServices />}
 			</View>
@@ -102,13 +101,3 @@ export default function AuthForm({ elements, type }: FormProps) {
 		</View>
 	);
 }
-const styles = StyleSheet.create({
-	container: {
-		padding: 18,
-		flex: 1,
-		alignItems: 'center',
-		justifyContent: 'space-between',
-	},
-	title: { fontSize: 26, fontWeight: 'bold' },
-	text: { fontSize: 18 },
-});

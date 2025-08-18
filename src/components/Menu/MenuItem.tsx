@@ -29,6 +29,7 @@ export default function MenuItem({
 				<TintedBackground
 					style={styles.tintedBackground}
 					color={tintColor ? tintColor : colors.primary300}
+					opacity={0.4}
 				>
 					<CustomIcon {...icon} />
 				</TintedBackground>

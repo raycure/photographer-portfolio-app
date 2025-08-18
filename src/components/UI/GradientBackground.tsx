@@ -6,7 +6,7 @@ const getGradientPoints = (orientation: GradientProps['orientation']) => {
 		case 'horizontal':
 			return { start: { x: 0, y: 0.5 }, end: { x: 1, y: 0.5 } };
 		case 'diagonal-l':
-			return { start: { x: 0, y: 0 }, end: { x: 1, y: 1 } };
+			return { start: { x: 0, y: 1 }, end: { x: 1, y: 0 } };
 		case 'diagonal-r':
 			return { start: { x: 1, y: 0 }, end: { x: 0, y: 1 } };
 		case 'vertical':

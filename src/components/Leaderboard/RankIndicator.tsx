@@ -10,6 +10,7 @@ export default function RankIndicator({
 	directionUp = true,
 	row = true,
 	rank,
+	tint,
 }: RankIndicatorProps) {
 	const colors = useColors();
 	const styles = RankIndicatorStyles;
@@ -35,7 +36,6 @@ export default function RankIndicator({
 					styles.number,
 					{ color: colors.gray200 },
 					row ? undefined : styles.numberColumn,
-					directionUp ? { color: colors.accentGreen400 } : undefined,
 				]}
 			>
 				{rank}
@@ -43,7 +43,7 @@ export default function RankIndicator({
 			{row ? (
 				<TintedBackground
 					opacity={0.3}
-					color={colors.primary200}
+					color={tint ? tint : colors.primary200}
 					style={styles.tintedBackgound}
 				>
 					{innerContent}

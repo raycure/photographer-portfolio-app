@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
+import { ColorValue, StyleProp, ViewStyle } from 'react-native';
 
 export type LeaderboardToggleProps = {
 	levelToggle: boolean;
@@ -18,6 +18,7 @@ export type RankIndicatorProps = {
 	directionUp?: boolean;
 	row?: boolean;
 	rank: number;
+	tint?: ColorValue;
 };
 
-export type LeaderboardPhotoProps = { size?: PhotoSize };
+export type LeaderboardPhotoProps = { size?: PhotoSize; source?: string };

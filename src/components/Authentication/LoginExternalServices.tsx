@@ -1,13 +1,14 @@
-import { StyleSheet } from 'react-native';
 import LineSeperator from '../UI/LineSeperator';
 import { Text, View } from '../Themed';
 import CustomButton from '../UI/CustomButton';
 import CustomIcon from '../UI/CustomIcon';
 import { IconCollectionKey } from '@/src/constants/iconRegistry';
 import { useColors } from '@/src/hooks/useColors';
+import { LoginExternalServicesStyles } from './AuthStyles';
 
 export default function LoginExternalServices() {
 	const colors = useColors();
+	const styles = LoginExternalServicesStyles;
 	const externalLoginServices: {
 		name: string;
 		icon: {
@@ -54,15 +55,3 @@ export default function LoginExternalServices() {
 		</View>
 	);
 }
-
-const styles = StyleSheet.create({
-	innerContainer: {
-		flexDirection: 'row',
-		alignItems: 'center',
-		gap: 12,
-		justifyContent: 'center',
-	},
-	outerContainer: {
-		gap: 12,
-	},
-});

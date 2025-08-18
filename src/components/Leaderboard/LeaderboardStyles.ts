@@ -33,7 +33,7 @@ export const LeaderboardWinnersBlockStyles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	textContainer: { alignItems: 'center' },
-	sideContainers: { zIndex: 0, top: 52 },
+	sideContainers: { zIndex: 0, marginTop: 90 },
 	rightContainer: { left: -44 },
 	leftContainer: { right: -44 },
 	crownIcon: { bottom: -6 },
@@ -62,7 +62,7 @@ export const LeaderboardPhotoStyles = StyleSheet.create({
 });
 
 export const RankIndicatorStyles = StyleSheet.create({
-	outerContainerRow: { flexDirection: 'row', gap: 18, alignItems: 'center' },
+	outerContainerRow: { flexDirection: 'row', gap: 16, alignItems: 'center' },
 	outerContainerColumn: { alignItems: 'center', marginBottom: 6 },
 	tintedBackgound: { padding: 5 },
 	number: { fontWeight: 'bold', fontSize: 20 },
@@ -70,4 +70,27 @@ export const RankIndicatorStyles = StyleSheet.create({
 	iconUpRow: { top: -1 },
 	iconDownRow: { transform: [{ rotateX: '180deg' }], top: 2 },
 	iconDown: { transform: [{ rotateX: '180deg' }] },
+});
+
+export const LeaderboardPersonalButtonStyles = StyleSheet.create({
+	buttonWrapper: {
+		borderRadius: 14,
+		overflow: 'hidden',
+	},
+	buttonPressed: { opacity: 0.7 },
+	outerContainer: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		paddingHorizontal: 16,
+		paddingVertical: 10,
+		justifyContent: 'space-between',
+	},
+	textContainer: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		gap: 12,
+	},
+	username: { fontSize: 16, color: 'white', fontWeight: 'bold' },
+	likes: { fontSize: 18, fontWeight: 'bold' },
+	text: { fontSize: 18, fontWeight: 'bold', color: 'white' },
 });

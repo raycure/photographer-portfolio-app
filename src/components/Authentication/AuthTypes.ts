@@ -24,3 +24,7 @@ export type FormProps = {
 export type AuthInputDataTypes = {
 	[key in FormKeys]: InputItem;
 };
+
+export type InlineLinkTextProps = {
+	type: FormProps['type'];
+};

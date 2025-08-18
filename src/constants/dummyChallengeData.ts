@@ -12,7 +12,7 @@ export const dummyChallengeData = {
 			userId: 'user_001',
 			username: 'naturelover',
 			name: 'Alice Johnson',
-			likes: 120,
+			likes: 13,
 			imageId: 'image_333',
 		},
 		{

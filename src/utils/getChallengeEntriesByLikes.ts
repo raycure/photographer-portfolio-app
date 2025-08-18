@@ -10,6 +10,7 @@ type Entry = {
 type ChallengeEntriesResult = {
 	topThree: Entry[];
 	others: Entry[];
+	allEntries: Entry[];
 };
 
 export function getChallengeEntriesByLikes(
@@ -20,5 +21,6 @@ export function getChallengeEntriesByLikes(
 	return {
 		topThree: sorted.slice(0, 3),
 		others: sorted.slice(3),
+		allEntries: sorted,
 	};
 }
