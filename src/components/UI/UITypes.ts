@@ -48,14 +48,14 @@ export type CustomButtonProps = IconButtonProps | TextButtonProps;
 
 type SVGIconProps = {
 	svg: React.ReactNode;
-	style?: ViewStyle;
+	style?: StyleProp<ViewStyle>;
 	size?: number;
 };
 
 export type RegistredIconProps = {
 	name: IconNameTypes;
 	color?: string;
-	style?: ViewStyle;
+	style?: StyleProp<ViewStyle>;
 	size?: number;
 	collectionKey: IconCollectionKey;
 };

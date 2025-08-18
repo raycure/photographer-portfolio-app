@@ -136,6 +136,7 @@ export const TintedBackgroundStyles = StyleSheet.create({
 		overflow: 'hidden',
 		alignItems: 'center',
 		justifyContent: 'center',
+		alignSelf: 'center',
 	},
 });
 

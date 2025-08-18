@@ -36,7 +36,7 @@ export default function AuthForm({ elements, type }: FormProps) {
 	);
 	const onRegisterPressed = () => {};
 	const onLoginPressed = () => {
-		userInfoStore.setUserData({});
+		userInfoStore.setUserData();
 	};
 	return (
 		<View style={styles.container}>
