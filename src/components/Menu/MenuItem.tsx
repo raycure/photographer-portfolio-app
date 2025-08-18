@@ -3,7 +3,6 @@ import { Text, View } from '../Themed';
 import TintedBackground from '../UI/TintedBackground';
 import CustomIcon from '../UI/CustomIcon';
 import { useColors } from '@/src/hooks/useColors';
-import { useState } from 'react';
 import { MenuItemStyles } from './MenuStyles';
 import { MenuItemProps } from './MenuTypes';
 
@@ -16,15 +15,9 @@ export default function MenuItem({
 	onPress,
 }: MenuItemProps) {
 	const colors = useColors();
-	const [pressed, setPressed] = useState(false);
 	const styles = MenuItemStyles;
 	return (
-		<Pressable
-			onPressIn={() => setPressed(true)}
-			onPressOut={() => setPressed(false)}
-			onPress={onPress}
-			style={[styles.outerContainer]}
-		>
+		<Pressable onPress={onPress} style={({ pressed }) => styles.outerContainer}>
 			<View style={styles.innerContainer}>
 				<TintedBackground
 					style={styles.tintedBackground}

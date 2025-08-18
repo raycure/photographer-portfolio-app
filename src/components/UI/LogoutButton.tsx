@@ -12,7 +12,7 @@ export default function LogoutButton({ style, textStyle }: LogoutButtonProps) {
 	};
 	const styles = LogoutButtonStyles;
 	return (
-		<Pressable style={style} onPress={onLogoutPressed}>
+		<Pressable style={({ pressed }) => style} onPress={onLogoutPressed}>
 			<Text
 				lightColor={colors.primary100}
 				darkColor={colors.primary100}

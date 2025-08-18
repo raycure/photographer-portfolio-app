@@ -18,7 +18,10 @@ export default function GalleryGridItem({
 		return (
 			<Pressable
 				onPress={onAddButtonPress}
-				style={[styles.addButton, { borderColor: colors.primary100 }]}
+				style={({ pressed }) => [
+					styles.addButton,
+					{ borderColor: colors.primary100 },
+				]}
 			>
 				<CustomIcon
 					collectionKey='ad'
@@ -30,7 +33,10 @@ export default function GalleryGridItem({
 		);
 	}
 	return (
-		<Pressable onPress={onPhotoPress} style={styles.outerContainer}>
+		<Pressable
+			onPress={onPhotoPress}
+			style={({ pressed }) => styles.outerContainer}
+		>
 			<Image
 				source={{
 					uri: images.find((image) => {
