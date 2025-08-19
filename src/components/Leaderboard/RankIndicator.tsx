@@ -7,7 +7,7 @@ import { RankIndicatorStyles } from './LeaderboardStyles';
 import { RankIndicatorProps } from './LeaderboardTypes';
 
 export default function RankIndicator({
-	directionUp = true,
+	arrowDirection = 'neutral',
 	row = true,
 	rank,
 	tint,
@@ -16,17 +16,17 @@ export default function RankIndicator({
 	const styles = RankIndicatorStyles;
 	const innerContent = (
 		<CustomIcon
-			name='triangle'
-			collectionKey='ion'
+			name={arrowDirection !== 'neutral' ? 'triangle' : 'minus'}
+			collectionKey={arrowDirection !== 'neutral' ? 'ion' : 'fa6'}
 			style={[
-				directionUp
+				arrowDirection === 'up'
 					? styles.iconUpRow
-					: row
+					: arrowDirection !== 'neutral' && row
 					? styles.iconDownRow
 					: styles.iconDown,
 			]}
 			size={row ? 13 : 15}
-			color={directionUp ? colors.accentGreen400 : colors.gray200}
+			color={arrowDirection === 'up' ? colors.accentGreen400 : colors.gray200}
 		/>
 	);
 	return (
