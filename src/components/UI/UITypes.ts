@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { IconCollectionKey, IconNameTypes } from '@/src/constants/iconRegistry';
 import { StyleProps } from 'react-native-reanimated';
-
+export type GenericSizes = 'big' | 'medium' | 'small';
 type CommonButtonBase = {
 	onPress?: (...args: any[]) => any | (() => void) | null | undefined;
 	icon?: ((props: { color: string }) => React.ReactNode) | React.ReactNode;
@@ -84,6 +84,9 @@ export type InputAreaProps = {
 		| undefined;
 } & TextInputProps;
 
+export type FollowersButtonProps = {
+	size?: GenericSizes;
+};
 type BaseTintedBackgroundProps = {
 	type?: 'circular' | 'rectangular';
 	children?: React.ReactNode;
@@ -111,7 +114,7 @@ export type LineSeperatorProps = {
 export type SubtitleTitlePairProps = {
 	title: string;
 	subtitle: string;
-	size?: 'big' | 'medium' | 'small';
+	size?: GenericSizes;
 	titleStyle?: TextStyle;
 	subtitleStyle?: TextStyle;
 };

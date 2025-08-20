@@ -1,7 +1,7 @@
 import CustomButton from '../UI/CustomButton';
 import CustomIcon from '../UI/CustomIcon';
 
-export default function ChallengeHistoryInfoButton() {
+export default function ChallengeHistoryHeaderButton() {
 	const onInfoButtonPressed = () => {};
 	return (
 		<CustomButton

@@ -1,13 +1,14 @@
 import { ArrowDirection } from '@/src/utils/getArrowDirection';
 import { ReactNode } from 'react';
 import { ColorValue, StyleProp, ViewStyle } from 'react-native';
+import { GenericSizes } from '../UI/UITypes';
 
 export type LeaderboardToggleProps = {
 	levelToggle: boolean;
 	setLevelToggle: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-type PhotoSize = 'small' | 'medium' | 'big' | undefined;
+type PhotoSize = GenericSizes | undefined;
 
 export type LeaderboardWinerConfig = {
 	style: StyleProp<ViewStyle> | StyleProp<ViewStyle>[];

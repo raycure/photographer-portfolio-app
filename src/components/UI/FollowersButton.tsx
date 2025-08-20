@@ -5,23 +5,28 @@ import { useContext, useState } from 'react';
 import { useColors } from '@/src/hooks/useColors';
 import UserContext from '@/src/context/UserContext';
 import { FollowersButtonStyles } from './UIStyles';
-type FollowersButtonProps = {
-	size?: 'big' | 'medium' | 'small';
-};
+import { useRouter } from 'expo-router';
+import { FollowersButtonProps } from './UITypes';
+
 export default function FollowersButton({
 	size = 'medium',
 }: FollowersButtonProps) {
 	const [pressed, setPressed] = useState<boolean>(false);
 	const colors = useColors();
 	const user = useContext(UserContext);
+	const router = useRouter();
 	const followers = user.social.followerAccounts;
 	const followersCount = followers.length;
 	const styles = FollowersButtonStyles;
+	const onFollowersButtonPress = () => {
+		router.push('/(stack)/connections');
+	};
 	return (
 		<Pressable
 			style={styles.container}
 			onPressIn={() => setPressed(true)}
 			onPressOut={() => setPressed(false)}
+			onPress={onFollowersButtonPress}
 		>
 			<CustomIcon
 				collectionKey='oct'
