@@ -1,0 +1,82 @@
+import { ChallengeHistory } from './dataTypes';
+
+export const dummyChallengeHistory: ChallengeHistory[] = [
+	{
+		challengeId: 'challeng_001',
+		challengeDates: { start: '2025-08-01', end: '2025-08-31' },
+		challengeTheme: 'Nature Photography',
+		challengeDescription:
+			'Capture the beauty of nature in its purest form. Whether it’s a serene forest, a blooming flower, or a breathtaking sunset, show us your most inspiring nature shot.',
+		prizeInfo: '',
+		photoRatio: '5:4',
+		entries: 63,
+		winners: [
+			{
+				entryId: 'entry_005',
+				userId: 'user_005',
+				username: 'wildadventure',
+				name: 'Emily Brown',
+				likes: 130,
+				imageId: 'image_233',
+				rank: [1, 5], // [newRank, oldRank]
+			},
+			{
+				entryId: 'entry_006',
+				userId: 'user_006',
+				username: 'oceanspirit',
+				name: 'Daniel Wilson',
+				likes: 110,
+				imageId: 'image_233',
+				rank: [2, 6],
+			},
+			{
+				entryId: 'entry_013',
+				userId: 'user_013',
+				username: 'wildflowers',
+				name: 'Mia Lewis',
+				likes: 112,
+				imageId: 'image_233',
+				rank: [3, 13],
+			},
+		],
+	},
+	{
+		challengeId: 'challenge_002',
+		challengeDates: { start: '2025-07-01', end: '2025-07-03' },
+		challengeTheme: 'Waterfall',
+		challengeDescription:
+			'Capture the beauty of nature in its purest form. Whether it’s a serene forest, a blooming flower, or a breathtaking sunset, show us your most inspiring nature shot.',
+		prizeInfo: '',
+		photoRatio: '5:4',
+		entries: 95,
+		winners: [
+			{
+				entryId: 'entry_005',
+				userId: 'user_005',
+				username: 'wildadventure',
+				name: 'Emily Brown',
+				likes: 130,
+				imageId: 'image_233',
+				rank: [1, 5], // [newRank, oldRank]
+			},
+			{
+				entryId: 'entry_006',
+				userId: 'user_006',
+				username: 'oceanspirit',
+				name: 'Daniel Wilson',
+				likes: 110,
+				imageId: 'image_233',
+				rank: [2, 6],
+			},
+			{
+				entryId: 'entry_013',
+				userId: 'user_013',
+				username: 'wildflowers',
+				name: 'Mia Lewis',
+				likes: 112,
+				imageId: 'image_233',
+				rank: [3, 13],
+			},
+		],
+	},
+];

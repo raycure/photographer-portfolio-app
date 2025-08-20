@@ -1,26 +1,5 @@
-type ChallengeDates = {
-	start: string;
-	end: string;
-};
+import { Challenge } from './dataTypes';
 
-type Entry = {
-	entryId: string;
-	userId: string;
-	username: string;
-	name: string;
-	likes: number;
-	rank: [number, number]; // [newRank, oldRank]
-};
-
-type Challenge = {
-	challengeId: string;
-	challengeDates: ChallengeDates;
-	challengeTheme: string;
-	challengeDescription: string;
-	prizeInfo: string;
-	photoRatio: string;
-	entries: Entry[];
-};
 export const dummyChallengeData: Challenge = {
 	challengeId: 'challenge_001',
 	challengeDates: { start: '2025-08-01', end: '2025-08-31' },
@@ -43,7 +22,7 @@ export const dummyChallengeData: Challenge = {
 			userId: 'user_006',
 			username: 'oceanspirit',
 			name: 'Daniel Wilson',
-			likes: 110,
+			likes: 115,
 			rank: [2, 6],
 		},
 		{

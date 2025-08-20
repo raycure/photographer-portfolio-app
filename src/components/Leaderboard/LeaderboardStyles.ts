@@ -18,7 +18,7 @@ export const LeaderboardHeaderStyles = StyleSheet.create({
 });
 
 export const LeaderboardLayoutStyles = StyleSheet.create({
-	outerContainer: { flex: 1, padding: 16, gap: 4 },
+	outerContainer: { flex: 1, padding: 16, paddingBottom: 0, gap: 8 },
 });
 
 export const LeaderboardWinnersBlockStyles = StyleSheet.create({
@@ -77,6 +77,7 @@ export const LeaderboardPersonalButtonStyles = StyleSheet.create({
 	buttonWrapper: {
 		borderRadius: 14,
 		overflow: 'hidden',
+		marginBlock: 6,
 	},
 	buttonPressed: { opacity: 0.7 },
 	outerContainer: {

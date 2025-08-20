@@ -6,6 +6,7 @@ import CustomIcon from '../UI/CustomIcon';
 import { useColors } from '@/src/hooks/useColors';
 import { LeaderboardHeaderStyles } from './LeaderboardStyles';
 import { LeaderboardToggleProps } from './LeaderboardTypes';
+import { useRouter } from 'expo-router';
 
 export default function LeaderboardHeader({
 	levelToggle,
@@ -13,7 +14,8 @@ export default function LeaderboardHeader({
 }: LeaderboardToggleProps) {
 	const title = dummyChallengeData.challengeTheme;
 	const colors = useColors();
-	const onHistoryPress = () => {};
+	const router = useRouter();
+
 	const onLeaderboardToggle = () => {
 		setLevelToggle(!levelToggle);
 	};
@@ -27,7 +29,7 @@ export default function LeaderboardHeader({
 			/>
 			<View style={styles.buttonsContainer}>
 				<CustomButton
-					onPress={onHistoryPress}
+					onPress={() => router.push('/(stack)/challengeHistory')}
 					type='icon'
 					icon={({ color }) => (
 						<CustomIcon

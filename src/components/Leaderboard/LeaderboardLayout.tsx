@@ -1,8 +1,6 @@
 import { View } from '../Themed';
 import LeaderboardHeader from './LeaderboardHeader';
-import LeaderboardWinnersBlock from './LeaderboardWinnersBlock';
 import LeaderboardList from './LeaderboardList';
-import LeaderboardPersonalButton from './LeaderboardPersonalButton';
 import { useState } from 'react';
 import { LeaderboardLayoutStyles } from './LeaderboardStyles';
 
@@ -15,8 +13,6 @@ export default function LeaderboardLayout() {
 				levelToggle={levelToggle}
 				setLevelToggle={setLevelToggle}
 			/>
-			<LeaderboardWinnersBlock />
-			<LeaderboardPersonalButton />
 			<LeaderboardList />
 		</View>
 	);

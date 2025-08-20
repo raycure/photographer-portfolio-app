@@ -1,5 +1,3 @@
-import { ImageSourcePropType } from 'react-native';
-
 export const images: { imageId: string; link: string }[] = [
 	{
 		imageId: 'image_333',

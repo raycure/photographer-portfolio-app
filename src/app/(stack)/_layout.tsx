@@ -2,6 +2,7 @@ import React from 'react';
 import { Stack } from 'expo-router';
 import CustomHeader from '@/src/components/UI/CustomHeader';
 import LogoutButton from '@/src/components/UI/LogoutButton';
+import ChallengeHistoryInfoButton from '@/src/components/ChallengeHistory/ChallengeHistoryInfoButton';
 
 export default function StackLayout() {
 	return (
@@ -27,6 +28,9 @@ export default function StackLayout() {
 				name='challengeHistory'
 				options={{
 					title: 'ChallengeHistory',
+					header: () => (
+						<CustomHeader rightElement={<ChallengeHistoryInfoButton />} />
+					),
 				}}
 			/>
 			<Stack.Screen

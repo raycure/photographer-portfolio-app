@@ -1,8 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { View } from '@/src/components/Themed';
+import ChallengeHistoryLayout from '@/src/components/ChallengeHistory/ChallengeHistoryLayout';
 
 export default function ChallengeHistoryScreen() {
-	return <View></View>;
+	return <ChallengeHistoryLayout />;
 }
-
-const styles = StyleSheet.create({});

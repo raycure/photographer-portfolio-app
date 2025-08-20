@@ -1,6 +1,8 @@
 import { dummyChallengeData } from '@/src/constants/dummyChallengeData';
 import LeaderboardListItem from './LeaderboardListItem';
 import { FlatList } from 'react-native';
+import LeaderboardWinnersBlock from './LeaderboardWinnersBlock';
+import LeaderboardPersonalButton from './LeaderboardPersonalButton';
 
 export default function LeaderboardList() {
 	const entries = dummyChallengeData.entries.slice(3);
@@ -10,6 +12,12 @@ export default function LeaderboardList() {
 			renderItem={({ item }) => <LeaderboardListItem entry={item} />}
 			keyExtractor={(item) => item.entryId}
 			showsVerticalScrollIndicator={false}
+			ListHeaderComponent={
+				<>
+					<LeaderboardWinnersBlock />
+					<LeaderboardPersonalButton />
+				</>
+			}
 		/>
 	);
 }
