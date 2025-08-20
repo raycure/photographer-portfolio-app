@@ -18,7 +18,7 @@ export default function ChallengeHistoryBlockHeader({
 		<View style={styles.outerContainer}>
 			<SubtitleTitlePair subtitle='Theme' title={theme} size='small' />
 			<View style={styles.sideContainer}>
-				<Text style={[styles.date, { color: colors.primary300 }]}>
+				<Text style={[styles.date, { color: colors.primary200 }]}>
 					{days} days
 				</Text>
 				<View style={styles.usersContainer}>

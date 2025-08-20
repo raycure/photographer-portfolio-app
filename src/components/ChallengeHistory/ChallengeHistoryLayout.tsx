@@ -14,7 +14,6 @@ export default function ChallengeHistoryLayout() {
 				data={challengeHistoryData}
 				renderItem={({ item }) => <ChallengeHistoryBlock data={item} />}
 				keyExtractor={(item) => item.challengeId}
-				style={styles.list}
 				contentContainerStyle={styles.columnStyle}
 			/>
 		</View>

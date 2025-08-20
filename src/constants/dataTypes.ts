@@ -2,7 +2,15 @@ type ChallengeDates = {
 	start: string;
 	end: string;
 };
-
+export type Entry = {
+	entryId: string;
+	userId: string;
+	username: string;
+	name: string;
+	likes: number;
+	imageId?: string;
+	rank: [number, number]; // [newRank, oldRank]
+};
 export type ChallengeHistory = {
 	challengeId: string;
 	challengeDates: ChallengeDates;
@@ -11,24 +19,7 @@ export type ChallengeHistory = {
 	prizeInfo: string;
 	photoRatio: string;
 	entries: number;
-	winners: {
-		entryId: string;
-		userId: string;
-		username: string;
-		name: string;
-		likes: number;
-		imageId: string;
-		rank: number[];
-	}[];
-};
-
-type Entry = {
-	entryId: string;
-	userId: string;
-	username: string;
-	name: string;
-	likes: number;
-	rank: [number, number]; // [newRank, oldRank]
+	winners: Entry[];
 };
 
 export type Challenge = {

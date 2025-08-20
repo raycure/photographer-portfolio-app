@@ -140,9 +140,9 @@ export const dummyChallengeData: Challenge = {
 	],
 };
 export const dummyChallengeImages = {
-	entry_005: 'image_233',
+	entry_005: 'image_365',
 	entry_006: 'image_265',
-	entry_013: 'image_233',
+	entry_013: 'image_365',
 	entry_004: 'image_943',
 	entry_014: 'image_265',
 	entry_002: 'image_365',

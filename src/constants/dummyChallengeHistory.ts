@@ -17,7 +17,7 @@ export const dummyChallengeHistory: ChallengeHistory[] = [
 				username: 'wildadventure',
 				name: 'Emily Brown',
 				likes: 130,
-				imageId: 'image_233',
+				imageId: 'image_365',
 				rank: [1, 5], // [newRank, oldRank]
 			},
 			{
@@ -26,7 +26,7 @@ export const dummyChallengeHistory: ChallengeHistory[] = [
 				username: 'oceanspirit',
 				name: 'Daniel Wilson',
 				likes: 110,
-				imageId: 'image_233',
+				imageId: 'image_365',
 				rank: [2, 6],
 			},
 			{
@@ -35,7 +35,7 @@ export const dummyChallengeHistory: ChallengeHistory[] = [
 				username: 'wildflowers',
 				name: 'Mia Lewis',
 				likes: 112,
-				imageId: 'image_233',
+				imageId: 'image_365',
 				rank: [3, 13],
 			},
 		],
@@ -56,7 +56,7 @@ export const dummyChallengeHistory: ChallengeHistory[] = [
 				username: 'wildadventure',
 				name: 'Emily Brown',
 				likes: 130,
-				imageId: 'image_233',
+				imageId: 'image_365',
 				rank: [1, 5], // [newRank, oldRank]
 			},
 			{
@@ -65,7 +65,7 @@ export const dummyChallengeHistory: ChallengeHistory[] = [
 				username: 'oceanspirit',
 				name: 'Daniel Wilson',
 				likes: 110,
-				imageId: 'image_233',
+				imageId: 'image_365',
 				rank: [2, 6],
 			},
 			{
@@ -74,7 +74,7 @@ export const dummyChallengeHistory: ChallengeHistory[] = [
 				username: 'wildflowers',
 				name: 'Mia Lewis',
 				likes: 112,
-				imageId: 'image_233',
+				imageId: 'image_365',
 				rank: [3, 13],
 			},
 		],
