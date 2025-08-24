@@ -1,13 +1,14 @@
 import { StyleSheet } from 'react-native';
 
-export const MenuBlocksStyles = StyleSheet.create({
+export const SettingsBlocksStyles = StyleSheet.create({
+	outerContainer: { flex: 1, padding: 16 },
 	innerContainer: {
 		marginBlock: 8,
 	},
 	title: { fontSize: 26, fontWeight: 'bold' },
 });
 
-export const MenuItemStyles = StyleSheet.create({
+export const SettingsItemStyles = StyleSheet.create({
 	outerContainer: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',

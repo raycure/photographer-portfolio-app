@@ -18,8 +18,8 @@ export default function ProfileHeader() {
 	const data = useContext(UserContext);
 	const userInfoStore = useUserInfoStore();
 	const levelInfo = getLevelInfo();
-	const onMenuClick = () => {
-		router.push('/(stack)/menu');
+	const onSettingsClick = () => {
+		router.push('/(tabs)/settings');
 	};
 	const isPersonal = data.personalInfo.id === userInfoStore.personalInfo.id;
 	const styles = headerStyles;
@@ -31,7 +31,7 @@ export default function ProfileHeader() {
 						style={styles.premiumIcon}
 						collectionKey='fa6'
 						name='crown'
-						size={24}
+						size={18}
 						color={colors.accentOrange}
 					/>
 				)}
@@ -43,32 +43,13 @@ export default function ProfileHeader() {
 				/>
 			</View>
 			<View style={styles.infoContainer}>
-				<View style={styles.spaceBetweenContainer}>
-					<Text style={styles.title}>{data.personalInfo.name}</Text>
-					{isPersonal ? (
-						<CustomButton
-							type='icon'
-							icon={({ color }) => (
-								<CustomIcon
-									collectionKey='ion'
-									name='menu-outline'
-									color={color}
-									size={34}
-								/>
-							)}
-							onPress={onMenuClick}
-						/>
-					) : (
-						<Text style={styles.levelText}>Lv. {levelInfo.level}</Text>
-					)}
-				</View>
-				<View style={[styles.spaceBetweenContainer, styles.lowerContainer]}>
+				<Text style={styles.title}>{data.personalInfo.name}</Text>
+				<View style={styles.lowerContainer}>
 					<Text style={[styles.text, { color: colors.gray200 }]}>
 						@{data.personalInfo.username}
 					</Text>
 					<FollowersButton />
 				</View>
-				<ProfileActionsBar isPersonal={isPersonal} />
 			</View>
 		</View>
 	);

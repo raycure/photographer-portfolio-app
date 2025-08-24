@@ -1,22 +1,22 @@
 import { Text, View } from '../Themed';
-import MenuItem from './MenuItem';
-import { MenuBlocksConfig } from './MenuConfig';
-import { MenuBlocksStyles } from './MenuStyles';
+import SettingsItem from './SettingsItem';
+import { SettingsBlocksConfig } from './SettingsConfig';
+import { SettingsBlocksStyles } from './SettingsStyles';
 import { useColors } from '@/src/hooks/useColors';
 
-export default function MenuBlocks() {
-	const data = MenuBlocksConfig();
+export default function SettingsLayout() {
+	const data = SettingsBlocksConfig();
 	const colors = useColors();
-	const styles = MenuBlocksStyles;
+	const styles = SettingsBlocksStyles;
 	return (
-		<View>
+		<View style={styles.outerContainer}>
 			{Object.entries(data).map(([sectionTitle, items]) => (
 				<View style={styles.innerContainer} key={sectionTitle}>
 					<Text style={[{ color: colors.gray300 }, styles.title]}>
 						{sectionTitle}
 					</Text>
 					{items.map((item, index) => (
-						<MenuItem
+						<SettingsItem
 							key={item.title + index}
 							title={item.title}
 							icon={item.icon}

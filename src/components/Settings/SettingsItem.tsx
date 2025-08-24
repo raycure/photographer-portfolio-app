@@ -3,19 +3,19 @@ import { Text, View } from '../Themed';
 import TintedBackground from '../UI/TintedBackground';
 import CustomIcon from '../UI/CustomIcon';
 import { useColors } from '@/src/hooks/useColors';
-import { MenuItemStyles } from './MenuStyles';
-import { MenuItemProps } from './MenuTypes';
+import { SettingsItemStyles } from './SettingsStyles';
+import { SettingsItemProps } from './SettingsTypes';
 
-export default function MenuItem({
+export default function SettingsItem({
 	icon,
 	tintColor,
 	title,
 	rightContent,
 	titleColor,
 	onPress,
-}: MenuItemProps) {
+}: SettingsItemProps) {
 	const colors = useColors();
-	const styles = MenuItemStyles;
+	const styles = SettingsItemStyles;
 	return (
 		<Pressable onPress={onPress} style={({ pressed }) => styles.outerContainer}>
 			<View style={styles.innerContainer}>

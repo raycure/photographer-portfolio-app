@@ -19,7 +19,10 @@ export default function FollowersButton({
 	const followersCount = followers.length;
 	const styles = FollowersButtonStyles;
 	const onFollowersButtonPress = () => {
-		router.push('/(stack)/connections');
+		router.push({
+			pathname: '/(stack)/connections',
+			params: { userId: user.personalInfo.id },
+		});
 	};
 	return (
 		<Pressable
@@ -31,7 +34,7 @@ export default function FollowersButton({
 			<CustomIcon
 				collectionKey='oct'
 				name='person'
-				size={size === 'big' ? 24 : size === 'medium' ? 20 : 16}
+				size={size === 'big' ? 24 : size === 'medium' ? 18 : 16}
 				color={!pressed ? colors.gray100 : colors.gray300}
 			/>
 			<Text

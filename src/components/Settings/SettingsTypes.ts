@@ -1,7 +1,7 @@
 import { ColorValue } from 'react-native';
 import { CustomIconProps } from '../UI/UITypes';
 
-export type MenuItemConfig = {
+export type SettingsItemConfig = {
 	title: string;
 	icon: CustomIconProps;
 	onPress: () => void;
@@ -13,7 +13,7 @@ export type MenuItemConfig = {
 	tintColor?: string;
 };
 
-export type MenuItemProps = {
+export type SettingsItemProps = {
 	icon: CustomIconProps;
 	tintColor?: ColorValue;
 	title: string;

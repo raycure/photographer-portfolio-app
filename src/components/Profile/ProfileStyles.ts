@@ -8,23 +8,23 @@ export const headerStyles = StyleSheet.create({
 		gap: 10,
 	},
 	profilePicture: {
-		width: 95,
-		height: 95,
-		borderRadius: 95 / 2,
+		width: 75,
+		height: 75,
+		borderRadius: 75 / 2,
 		overflow: 'hidden',
 		margin: 2,
 	},
-	spaceBetweenContainer: {
-		justifyContent: 'space-between',
-		flexDirection: 'row',
-		alignItems: 'center',
-	},
-	premiumIcon: { position: 'absolute', top: 0, left: 0, zIndex: 1 },
+	premiumIcon: { position: 'absolute', top: 2, left: 2, zIndex: 1 },
 	title: { fontWeight: 'bold', fontSize: 24 },
 	text: { fontSize: 16, fontStyle: 'italic' },
 	infoContainer: { flex: 1 },
 	levelText: { fontStyle: 'italic', fontSize: 16 },
-	lowerContainer: { top: -4 },
+	lowerContainer: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		top: -4,
+		gap: 18,
+	},
 });
 
 export const ProfileActionBarStyles = StyleSheet.create({
@@ -47,12 +47,9 @@ export const GalleryGridItemStyles = StyleSheet.create({
 	addButton: {
 		justifyContent: 'center',
 		alignItems: 'center',
-		borderRadius: 6,
-		borderWidth: 4,
-		borderStyle: 'dashed',
 		borderColor: 'white',
-		width: (windowWidth - 2) / 3 - 6,
-		height: ((windowWidth - 2) * 4) / 9 - 6,
+		width: (windowWidth - 2) / 3,
+		height: ((windowWidth - 2) * 4) / 9,
 		margin: 'auto',
 	},
 	image: { resizeMode: 'cover', flex: 1 },
@@ -60,21 +57,18 @@ export const GalleryGridItemStyles = StyleSheet.create({
 
 export const ProfileStatisticsStyles = StyleSheet.create({
 	outerContainer: {
-		height: windowWidth / 2 - 40,
 		flexDirection: 'row',
-		gap: 10,
+		gap: 8,
 	},
 	innerContainer: {
 		flex: 1,
-		gap: 14,
+		gap: 8,
 	},
 	blockContainer: {
 		borderRadius: 18,
 	},
 	bigBlockContainer: {
-		paddingBlock: 16,
-		paddingHorizontal: 12,
-		justifyContent: 'space-between',
+		padding: 12,
 		alignItems: 'center',
 		flexDirection: 'column',
 		flex: 0.9,
@@ -82,7 +76,7 @@ export const ProfileStatisticsStyles = StyleSheet.create({
 	sideBlockContainers: {
 		alignItems: 'center',
 		flexDirection: 'row',
-		padding: 8,
+		paddingHorizontal: 8,
 		flex: 1.1,
 		gap: 6,
 	},
@@ -91,9 +85,8 @@ export const ProfileStatisticsStyles = StyleSheet.create({
 		flexDirection: 'row',
 		alignItems: 'baseline',
 	},
-	levelMainText: { fontSize: 20, fontWeight: 'bold' },
-	title1: { fontWeight: 'bold', fontSize: 20 },
-	title2: { fontWeight: 'bold', maxWidth: 100 },
+	title1: { fontSize: 18 },
+	title2: { maxWidth: 100 },
 	title3: { fontStyle: 'italic' },
 });
 
@@ -108,7 +101,7 @@ export const ProfileLayoutStyles = StyleSheet.create({
 		paddingHorizontal: 18,
 		paddingBottom: 4,
 		alignSelf: 'stretch',
-		gap: 12,
+		gap: 2,
 	},
 	lineSeperator: { marginBottom: 1 },
 });

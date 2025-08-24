@@ -20,7 +20,9 @@ export default function GalleryGridItem({
 				onPress={onAddButtonPress}
 				style={({ pressed }) => [
 					styles.addButton,
-					{ borderColor: colors.primary100 },
+					{
+						backgroundColor: colors.primary500,
+					},
 				]}
 			>
 				<CustomIcon

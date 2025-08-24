@@ -81,7 +81,7 @@ export const FollowersButtonStyles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	bigText: { fontSize: 24 },
-	mediumText: { fontSize: 20 },
+	mediumText: { fontSize: 18 },
 	smallText: { fontSize: 16 },
 	textGeneral: { fontWeight: 'bold' },
 });
@@ -181,8 +181,8 @@ export const SubtitleTitlePairStyles = StyleSheet.create({
 	outerContainer: {},
 	subtitleBig: { fontSize: 22 },
 	subtitleMedium: { fontSize: 18 },
-	subtitleSmall: { fontSize: 16 },
+	subtitleSmall: { fontSize: 14 },
 	titleBig: { fontSize: 26 },
 	titleMedium: { fontSize: 22 },
-	titleSmall: { fontSize: 20 },
+	titleSmall: { fontSize: 16 },
 });

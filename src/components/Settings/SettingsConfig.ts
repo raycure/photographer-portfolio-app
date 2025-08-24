@@ -1,7 +1,10 @@
 import { useColors } from '@/src/hooks/useColors';
-import { MenuItemConfig } from './MenuTypes';
+import { SettingsItemConfig } from './SettingsTypes';
 
-export const MenuBlocksConfig: () => Record<string, MenuItemConfig[]> = () => {
+export const SettingsBlocksConfig: () => Record<
+	string,
+	SettingsItemConfig[]
+> = () => {
 	const colors = useColors();
 	return {
 		'Content & Preferences': [

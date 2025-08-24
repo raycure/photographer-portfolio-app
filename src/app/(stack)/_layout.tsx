@@ -3,6 +3,7 @@ import { Stack } from 'expo-router';
 import CustomHeader from '@/src/components/UI/CustomHeader';
 import LogoutButton from '@/src/components/UI/LogoutButton';
 import ChallengeHistoryButton from '@/src/components/ChallengeHistory/ChallengeHistoryHeaderButton';
+import { ConnectionsHeader } from '@/src/components/Connections/ConnectionsHeader';
 
 export default function StackLayout() {
 	return (
@@ -15,13 +16,6 @@ export default function StackLayout() {
 				name='index'
 				options={{
 					title: 'Onboarding',
-				}}
-			/>
-			<Stack.Screen
-				name='menu'
-				options={{
-					title: 'Menu',
-					header: () => <CustomHeader rightElement={<LogoutButton />} />,
 				}}
 			/>
 			<Stack.Screen
@@ -43,6 +37,7 @@ export default function StackLayout() {
 				name='connections'
 				options={{
 					title: 'Connections',
+					header: () => <CustomHeader rightElement={<ConnectionsHeader />} />,
 				}}
 			/>
 		</Stack>

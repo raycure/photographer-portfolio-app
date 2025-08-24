@@ -19,13 +19,13 @@ export default function ProfileStatistics() {
 	});
 	const rightSideBlocksConfig = [
 		{
-			icon: <TrophySVG width={32} height={32} />,
+			icon: <TrophySVG width={26} height={26} />,
 			iconWrapperColor: colors.iconBackgroundOrange,
 			title3: 'Zaferler',
 			title2: `${wins?.length} yarışma`,
 		},
 		{
-			icon: <CameraSVG width={36} height={36} />,
+			icon: <CameraSVG width={28} height={28} />,
 			iconWrapperColor: colors.iconBackgroundBlue,
 			title3: 'Yarışmalar',
 			title2: `${attendedChallenges?.length} katılım`,
@@ -36,23 +36,30 @@ export default function ProfileStatistics() {
 		<View style={styles.outerContainer}>
 			<View
 				style={[
-					{ backgroundColor: colors.primary400 },
+					{ backgroundColor: colors.primary500 },
 					styles.blockContainer,
 					styles.bigBlockContainer,
 				]}
 			>
-				<TintedBackground type='circular' color={colors.iconBackgroundYellow}>
-					<CustomIcon svg={<StarSVG width={44} height={44} />} />
+				<TintedBackground
+					opacity={0.5}
+					type='circular'
+					color={colors.iconBackgroundYellow}
+				>
+					<CustomIcon svg={<StarSVG width={34} height={34} />} />
 				</TintedBackground>
 				<Text style={styles.title1}>Level</Text>
 				<View style={{ alignSelf: 'stretch' }}>
 					<View style={styles.levelInfoContainer}>
-						<Text style={styles.levelMainText}>{levelInfo.level}</Text>
+						<Text style={styles.title1}>{levelInfo.level}</Text>
 						<Text style={[{ color: colors.primary100 }, styles.title3]}>
 							{levelInfo.remainingExp}/{levelInfo.requiredExpForNextLevel} exp
 						</Text>
 					</View>
-					<FillingBar percentage={levelInfo.progressToNextLevel} />
+					<FillingBar
+						thickness={8}
+						percentage={levelInfo.progressToNextLevel}
+					/>
 				</View>
 			</View>
 			<View style={styles.innerContainer}>
@@ -60,13 +67,17 @@ export default function ProfileStatistics() {
 					<View
 						key={index}
 						style={[
-							{ backgroundColor: colors.primary400 },
+							{ backgroundColor: colors.primary500 },
 							styles.blockContainer,
 							styles.sideBlockContainers,
 						]}
 					>
-						<TintedBackground type='circular' color={block.iconWrapperColor}>
-							<CustomIcon size={40} svg={block.icon} />
+						<TintedBackground
+							opacity={0.5}
+							type='circular'
+							color={block.iconWrapperColor}
+						>
+							<CustomIcon size={28} svg={block.icon} />
 						</TintedBackground>
 						<SubtitleTitlePair
 							title={block.title2}

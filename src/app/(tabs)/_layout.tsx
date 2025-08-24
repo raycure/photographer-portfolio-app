@@ -17,21 +17,30 @@ export default function TabLayout() {
 		};
 	}[] = [
 		{
-			name: 'index',
-			title: 'Home',
-			iconInfo: {
-				collectionKey: 'ion',
-				name: 'home-outline',
-				activeName: 'home',
-			},
-		},
-		{
 			name: 'leaderboard',
 			title: 'Leaderboard',
 			iconInfo: {
 				collectionKey: 'ad',
 				name: 'staro',
 				activeName: 'star',
+			},
+		},
+		{
+			name: 'notifications',
+			title: 'Notifications',
+			iconInfo: {
+				collectionKey: 'fa',
+				name: 'user-o',
+				activeName: 'user',
+			},
+		},
+		{
+			name: 'index',
+			title: 'Home',
+			iconInfo: {
+				collectionKey: 'ion',
+				name: 'home-outline',
+				activeName: 'home',
 			},
 		},
 		{
@@ -43,10 +52,20 @@ export default function TabLayout() {
 				activeName: 'user',
 			},
 		},
+		{
+			name: 'settings',
+			title: 'Settings',
+			iconInfo: {
+				collectionKey: 'fa',
+				name: 'user-o',
+				activeName: 'user',
+			},
+		},
 	];
 
 	return (
 		<Tabs
+			initialRouteName='index'
 			screenOptions={{
 				tabBarActiveTintColor: colors.tint,
 				headerShown: useClientOnlyValue(false, false),
