@@ -199,8 +199,8 @@ export const CircularPhotoStyles = StyleSheet.create({
 		borderWidth: 4,
 	},
 	imageSmall: {
-		width: 80,
-		height: 80,
+		width: 70,
+		height: 70,
 		borderWidth: 2,
 	},
 	image: {

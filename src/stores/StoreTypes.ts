@@ -55,13 +55,14 @@ type UserSocial = {
 	followerAccounts: UserID[];
 };
 
-type UserPersonalInfo = {
-	id?: UserID;
-	name?: string;
-	username?: string;
-	email?: string;
-	verified?: boolean;
-	premium?: boolean;
+export type UserPersonalInfo = {
+	id: UserID;
+	name: string;
+	username: string;
+	email: string;
+	imageId: string;
+	verified: boolean;
+	premium: boolean;
 };
 
 type UserAuth = {

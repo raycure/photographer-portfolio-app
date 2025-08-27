@@ -1,9 +1,12 @@
-export const dummyUser = {
+import { UserState } from '../stores/StoreTypes';
+
+export const dummyUser: UserState = {
 	personalInfo: {
 		id: 'user_006',
 		name: 'Jane Doe',
 		username: 'jane_doe32',
 		email: 'jane.doe@example.com',
+		imageId: 'image_943',
 		verified: true,
 		premium: true,
 	},
@@ -16,13 +19,13 @@ export const dummyUser = {
 			{ type: 'instagram', url: 'https://instagram.com/janedoe' },
 			{ type: 'twitter', url: 'https://twitter.com/janedoe' },
 		],
-		followingAccounts: ['user_54321', 'user_67890'],
+		followingAccounts: ['user_002', 'user_003', 'user_004'],
 		followerAccounts: [
-			'user_11111',
-			'user_22222',
-			'user_33333',
-			'user_33322',
-			'user_33643',
+			'user_001',
+			'user_002',
+			'user_003',
+			'user_004',
+			'user_005',
 		],
 	},
 	preferences: {

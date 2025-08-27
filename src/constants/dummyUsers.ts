@@ -1,10 +1,13 @@
-export const dummyUsers = [
+import { UserState } from '../stores/StoreTypes';
+
+export const dummyUsers: UserState[] = [
 	{
 		personalInfo: {
 			id: 'user_001',
 			name: 'Alice Johnson',
 			username: 'naturelover',
 			email: 'alice.johnson@example.com',
+			imageId: 'image_943',
 			verified: true,
 			premium: false,
 		},
@@ -26,8 +29,49 @@ export const dummyUsers = [
 		},
 		stats: {
 			experiencePoints: 150,
-			attendedChallenges: ['challenge_01', 'challenge_03'],
-			favorites: ['entry_010'],
+			attendedChallenges: [
+				{
+					challengeId: 'challenge_23',
+					imageId: 'image_333',
+					rank: 3,
+					likes: 263,
+					saved: false,
+				},
+				{
+					challengeId: 'challenge_12',
+					imageId: 'image_365',
+					rank: 4,
+					likes: 263,
+					saved: true,
+				},
+				{
+					challengeId: 'challenge_21',
+					imageId: 'image_386',
+					rank: 76,
+					likes: 263,
+					saved: false,
+				},
+			],
+			favorites: [
+				{
+					challengeId: 'challenge_23',
+					imageId: 'image_333',
+					rank: 3,
+					likes: 263,
+				},
+				{
+					challengeId: 'challenge_12',
+					imageId: 'image_365',
+					rank: 4,
+					likes: 263,
+				},
+				{
+					challengeId: 'challenge_21',
+					imageId: 'image_386',
+					rank: 76,
+					likes: 263,
+				},
+			],
 		},
 		auth: {
 			authToken: 'token_001',
@@ -40,6 +84,7 @@ export const dummyUsers = [
 			name: 'Bob Smith',
 			username: 'cityexplorer',
 			email: 'bob.smith@example.com',
+			imageId: 'image_943',
 			verified: false,
 			premium: true,
 		},
@@ -60,8 +105,49 @@ export const dummyUsers = [
 		},
 		stats: {
 			experiencePoints: 230,
-			attendedChallenges: ['challenge_02'],
-			favorites: ['entry_005', 'entry_008'],
+			attendedChallenges: [
+				{
+					challengeId: 'challenge_23',
+					imageId: 'image_333',
+					rank: 3,
+					likes: 263,
+					saved: false,
+				},
+				{
+					challengeId: 'challenge_12',
+					imageId: 'image_365',
+					rank: 4,
+					likes: 263,
+					saved: true,
+				},
+				{
+					challengeId: 'challenge_21',
+					imageId: 'image_386',
+					rank: 76,
+					likes: 263,
+					saved: false,
+				},
+			],
+			favorites: [
+				{
+					challengeId: 'challenge_23',
+					imageId: 'image_333',
+					rank: 3,
+					likes: 263,
+				},
+				{
+					challengeId: 'challenge_12',
+					imageId: 'image_365',
+					rank: 4,
+					likes: 263,
+				},
+				{
+					challengeId: 'challenge_21',
+					imageId: 'image_386',
+					rank: 76,
+					likes: 263,
+				},
+			],
 		},
 		auth: {
 			authToken: 'token_002',
@@ -74,6 +160,7 @@ export const dummyUsers = [
 			name: 'Clara Lee',
 			username: 'foodiequeen',
 			email: 'clara.lee@example.com',
+			imageId: 'image_943',
 			verified: true,
 			premium: true,
 		},
@@ -94,8 +181,49 @@ export const dummyUsers = [
 		},
 		stats: {
 			experiencePoints: 480,
-			attendedChallenges: ['challenge_05', 'challenge_06'],
-			favorites: [],
+			attendedChallenges: [
+				{
+					challengeId: 'challenge_23',
+					imageId: 'image_333',
+					rank: 3,
+					likes: 263,
+					saved: false,
+				},
+				{
+					challengeId: 'challenge_12',
+					imageId: 'image_365',
+					rank: 4,
+					likes: 263,
+					saved: true,
+				},
+				{
+					challengeId: 'challenge_21',
+					imageId: 'image_386',
+					rank: 76,
+					likes: 263,
+					saved: false,
+				},
+			],
+			favorites: [
+				{
+					challengeId: 'challenge_23',
+					imageId: 'image_333',
+					rank: 3,
+					likes: 263,
+				},
+				{
+					challengeId: 'challenge_12',
+					imageId: 'image_365',
+					rank: 4,
+					likes: 263,
+				},
+				{
+					challengeId: 'challenge_21',
+					imageId: 'image_386',
+					rank: 76,
+					likes: 263,
+				},
+			],
 		},
 		auth: {
 			authToken: 'token_003',
@@ -108,6 +236,7 @@ export const dummyUsers = [
 			name: 'David Kim',
 			username: 'techguru',
 			email: 'david.kim@example.com',
+			imageId: 'image_265',
 			verified: true,
 			premium: false,
 		},
@@ -121,7 +250,7 @@ export const dummyUsers = [
 				{ type: 'twitter', url: 'https://twitter.com/techguru' },
 			],
 			followingAccounts: ['user_003'],
-			followerAccounts: ['user_002', 'user_008'],
+			followerAccounts: ['user_002', 'user_003'],
 		},
 		preferences: {
 			language: 'ko',
@@ -129,8 +258,49 @@ export const dummyUsers = [
 		},
 		stats: {
 			experiencePoints: 90,
-			attendedChallenges: ['challenge_04'],
-			favorites: ['entry_002'],
+			attendedChallenges: [
+				{
+					challengeId: 'challenge_23',
+					imageId: 'image_333',
+					rank: 3,
+					likes: 263,
+					saved: false,
+				},
+				{
+					challengeId: 'challenge_12',
+					imageId: 'image_365',
+					rank: 4,
+					likes: 263,
+					saved: true,
+				},
+				{
+					challengeId: 'challenge_21',
+					imageId: 'image_386',
+					rank: 76,
+					likes: 263,
+					saved: false,
+				},
+			],
+			favorites: [
+				{
+					challengeId: 'challenge_23',
+					imageId: 'image_333',
+					rank: 3,
+					likes: 263,
+				},
+				{
+					challengeId: 'challenge_12',
+					imageId: 'image_365',
+					rank: 4,
+					likes: 263,
+				},
+				{
+					challengeId: 'challenge_21',
+					imageId: 'image_386',
+					rank: 76,
+					likes: 263,
+				},
+			],
 		},
 		auth: {
 			authToken: 'token_004',
@@ -143,6 +313,7 @@ export const dummyUsers = [
 			name: 'Emily Brown',
 			username: 'wildadventure',
 			email: 'emily.brown@example.com',
+			imageId: 'image_265',
 			verified: false,
 			premium: false,
 		},
@@ -163,8 +334,49 @@ export const dummyUsers = [
 		},
 		stats: {
 			experiencePoints: 310,
-			attendedChallenges: ['challenge_07'],
-			favorites: [],
+			attendedChallenges: [
+				{
+					challengeId: 'challenge_23',
+					imageId: 'image_333',
+					rank: 3,
+					likes: 263,
+					saved: false,
+				},
+				{
+					challengeId: 'challenge_12',
+					imageId: 'image_365',
+					rank: 4,
+					likes: 263,
+					saved: true,
+				},
+				{
+					challengeId: 'challenge_21',
+					imageId: 'image_386',
+					rank: 76,
+					likes: 263,
+					saved: false,
+				},
+			],
+			favorites: [
+				{
+					challengeId: 'challenge_23',
+					imageId: 'image_333',
+					rank: 3,
+					likes: 263,
+				},
+				{
+					challengeId: 'challenge_12',
+					imageId: 'image_365',
+					rank: 4,
+					likes: 263,
+				},
+				{
+					challengeId: 'challenge_21',
+					imageId: 'image_386',
+					rank: 76,
+					likes: 263,
+				},
+			],
 		},
 		auth: {
 			authToken: 'token_005',
@@ -177,6 +389,7 @@ export const dummyUsers = [
 			name: 'Jane Doe',
 			username: 'jane_doe32',
 			email: 'jane.doe@example.com',
+			imageId: 'image_943',
 			verified: true,
 			premium: true,
 		},
@@ -189,14 +402,8 @@ export const dummyUsers = [
 				{ type: 'instagram', url: 'https://instagram.com/janedoe' },
 				{ type: 'twitter', url: 'https://twitter.com/janedoe' },
 			],
-			followingAccounts: ['user_54321', 'user_67890'],
-			followerAccounts: [
-				'user_11111',
-				'user_22222',
-				'user_33333',
-				'user_33322',
-				'user_33643',
-			],
+			followingAccounts: ['user_002', 'user_003', 'user_004'],
+			followerAccounts: ['user_001', 'user_003', 'user_004', 'user_005'],
 		},
 		preferences: {
 			language: 'en',
@@ -264,21 +471,21 @@ export const dummyUsers = [
 			],
 			favorites: [
 				{
-					challengeId: 'challenge_73',
-					imageId: 'image_265',
-					rank: 24,
+					challengeId: 'challenge_23',
+					imageId: 'image_333',
+					rank: 3,
 					likes: 263,
 				},
 				{
-					challengeId: 'challenge_28',
-					imageId: 'image_286',
-					rank: 9,
+					challengeId: 'challenge_12',
+					imageId: 'image_365',
+					rank: 4,
 					likes: 263,
 				},
 				{
-					challengeId: 'challenge_56',
-					imageId: 'image_243',
-					rank: 12,
+					challengeId: 'challenge_21',
+					imageId: 'image_386',
+					rank: 76,
 					likes: 263,
 				},
 			],

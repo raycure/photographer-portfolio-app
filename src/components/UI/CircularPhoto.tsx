@@ -9,8 +9,7 @@ export default function CircularPhoto({ size, source }: CircularPhotoProps) {
 	return (
 		<Image
 			source={{
-				uri: 'https://reactnative.dev/img/tiny_logo.png',
-				// Picture submitted by user to the challenge, not the profile pic
+				uri: source, //	uri: source ? source : 'https://reactnative.dev/img/tiny_logo.png',
 			}}
 			style={[
 				size === 'big'
