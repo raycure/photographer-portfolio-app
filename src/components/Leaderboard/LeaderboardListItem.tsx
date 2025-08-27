@@ -1,5 +1,5 @@
 import { Pressable, View } from 'react-native';
-import LeaderboardPhoto from './LeaderboardPhoto';
+import CircularPhoto from '../UI/CircularPhoto';
 import RankIndicator from './RankIndicator';
 import { Text } from '../Themed';
 import { useColors } from '@/src/hooks/useColors';
@@ -15,7 +15,7 @@ export default function LeaderboardListItem({
 	return (
 		<View style={[styles.row, styles.outerContainer]}>
 			<Pressable>
-				<LeaderboardPhoto size='small' />
+				<CircularPhoto size='small' />
 			</Pressable>
 			<View
 				style={[

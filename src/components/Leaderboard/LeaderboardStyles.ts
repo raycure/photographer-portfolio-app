@@ -1,5 +1,5 @@
-import { Dimensions, StyleSheet } from 'react-native';
-const windowWidth = Dimensions.get('window').width;
+import { StyleSheet } from 'react-native';
+
 export const LeaderboardHeaderStyles = StyleSheet.create({
 	outerContainer: {
 		alignSelf: 'stretch',
@@ -38,28 +38,6 @@ export const LeaderboardWinnersBlockStyles = StyleSheet.create({
 	crownIcon: { bottom: -6 },
 	username: { fontSize: 14, fontStyle: 'italic' },
 	likes: { fontSize: 22, fontWeight: 'bold' },
-});
-
-export const LeaderboardPhotoStyles = StyleSheet.create({
-	imageBig: {
-		width: (windowWidth * 4) / 9,
-		height: (windowWidth * 4) / 9,
-		borderWidth: 5,
-	},
-	imageMedium: {
-		width: (windowWidth * 3) / 9,
-		height: (windowWidth * 3) / 9,
-		borderWidth: 4,
-	},
-	imageSmall: {
-		width: 80,
-		height: 80,
-		borderWidth: 2,
-	},
-	image: {
-		borderRadius: 1000,
-		overflow: 'hidden',
-	},
 });
 
 export const RankIndicatorStyles = StyleSheet.create({

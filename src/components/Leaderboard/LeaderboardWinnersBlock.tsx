@@ -1,6 +1,6 @@
 import { Text, View } from 'react-native';
 import RankIndicator from './RankIndicator';
-import LeaderboardPhoto from './LeaderboardPhoto';
+import CircularPhoto from '../UI/CircularPhoto';
 import { LeaderboardWinnersConfig } from './LeaderboardConfig';
 import { LeaderboardWinnersBlockStyles } from './LeaderboardStyles';
 import { dummyChallengeData } from '@/src/constants/dummyChallengeData';
@@ -28,7 +28,7 @@ export default function LeaderboardWinnersBlock() {
 								row={false}
 							/>
 						)}
-						<LeaderboardPhoto size={element.photoSize} />
+						<CircularPhoto size={element.photoSize} />
 						<View style={styles.textContainer}>
 							<Text style={[styles.username, { color: colors.gray100 }]}>
 								@{user.username}

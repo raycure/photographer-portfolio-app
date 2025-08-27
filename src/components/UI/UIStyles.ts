@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-
+import { Dimensions, StyleSheet } from 'react-native';
+const windowWidth = Dimensions.get('window').width;
 export const CustomNotifyModalStyles = StyleSheet.create({
 	buttonContainer: {
 		backgroundColor: 'transparent',
@@ -185,4 +185,26 @@ export const SubtitleTitlePairStyles = StyleSheet.create({
 	titleBig: { fontSize: 26 },
 	titleMedium: { fontSize: 22 },
 	titleSmall: { fontSize: 16 },
+});
+
+export const CircularPhotoStyles = StyleSheet.create({
+	imageBig: {
+		width: (windowWidth * 4) / 9,
+		height: (windowWidth * 4) / 9,
+		borderWidth: 5,
+	},
+	imageMedium: {
+		width: (windowWidth * 3) / 9,
+		height: (windowWidth * 3) / 9,
+		borderWidth: 4,
+	},
+	imageSmall: {
+		width: 80,
+		height: 80,
+		borderWidth: 2,
+	},
+	image: {
+		borderRadius: 1000,
+		overflow: 'hidden',
+	},
 });

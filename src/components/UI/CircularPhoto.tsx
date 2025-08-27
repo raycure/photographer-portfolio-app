@@ -1,14 +1,11 @@
 import { useColors } from '@/src/hooks/useColors';
 import { Image } from 'react-native';
-import { LeaderboardPhotoStyles } from './LeaderboardStyles';
-import { LeaderboardPhotoProps } from './LeaderboardTypes';
+import { CircularPhotoStyles } from './UIStyles';
+import { CircularPhotoProps } from './UITypes';
 
-export default function LeaderboardPhoto({
-	size,
-	source,
-}: LeaderboardPhotoProps) {
+export default function CircularPhoto({ size, source }: CircularPhotoProps) {
 	const colors = useColors();
-	const styles = LeaderboardPhotoStyles;
+	const styles = CircularPhotoStyles;
 	return (
 		<Image
 			source={{

@@ -118,3 +118,5 @@ export type SubtitleTitlePairProps = {
 	titleStyle?: TextStyle;
 	subtitleStyle?: TextStyle;
 };
+export type PhotoSize = GenericSizes | undefined;
+export type CircularPhotoProps = { size?: PhotoSize; source?: string };
