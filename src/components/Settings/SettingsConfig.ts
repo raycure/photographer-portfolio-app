@@ -33,7 +33,6 @@ export const SettingsBlocksConfig: () => Record<
 				icon: {
 					collectionKey: 'fa6',
 					name: 'crown',
-					size: 28,
 					color: colors.accentOrange,
 				},
 				onPress: () => console.log('test'),

@@ -22,9 +22,9 @@ export default function SettingsItem({
 				<TintedBackground
 					style={styles.tintedBackground}
 					color={tintColor ? tintColor : colors.primary300}
-					opacity={0.4}
+					opacity={0.35}
 				>
-					<CustomIcon {...icon} />
+					<CustomIcon size={24} {...icon} />
 				</TintedBackground>
 				<Text style={[styles.title, titleColor && { color: titleColor }]}>
 					{title}

@@ -1,5 +1,5 @@
-import { View } from '@/src/components/Themed';
+import NotificationsLayout from '@/src/components/Notifications/NotificationsLayout';
 
 export default function NotificationsScreen() {
-	return <View></View>;
+	return <NotificationsLayout />;
 }

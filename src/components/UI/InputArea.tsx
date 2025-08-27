@@ -29,8 +29,7 @@ export default function InputArea({
 			<View
 				style={[
 					{
-						backgroundColor: colors.primary700,
-						borderColor: colors.gray600,
+						borderColor: colors.primary400,
 					},
 					styles.innerContainer,
 					active && { borderColor: colors.gray200 },
@@ -40,7 +39,7 @@ export default function InputArea({
 				{leftElement && (
 					<View style={styles.leftElementWrapper}>
 						{leftElement({
-							color: active ? colors.tint : colors.gray500,
+							color: active ? colors.tint : colors.primary300,
 						})}
 					</View>
 				)}
@@ -53,7 +52,7 @@ export default function InputArea({
 					{...props}
 					onChange={onChange}
 					contextMenuHidden={true}
-					placeholderTextColor={colors.gray500}
+					placeholderTextColor={colors.primary300}
 					textContentType={textContentType}
 					onFocus={() => setActive(true)}
 					onBlur={() => setActive(false)}

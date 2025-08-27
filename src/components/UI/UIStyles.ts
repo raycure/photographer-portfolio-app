@@ -53,7 +53,7 @@ export const InputAreaStyles = StyleSheet.create({
 		alignItems: 'center',
 		borderRadius: 10,
 		overflow: 'hidden',
-		marginBlock: 6,
+		marginBlock: 4,
 		paddingInline: 14,
 		paddingVertical: 4,
 		borderWidth: 2,
@@ -70,7 +70,7 @@ export const InputAreaStyles = StyleSheet.create({
 		backgroundColor: 'transparent',
 	},
 	leftElementWrapper: { backgroundColor: 'transparent', marginRight: 6 },
-	title: { fontWeight: 'bold', fontSize: 18 },
+	title: { fontWeight: '500', fontSize: 18 },
 });
 
 export const FollowersButtonStyles = StyleSheet.create({

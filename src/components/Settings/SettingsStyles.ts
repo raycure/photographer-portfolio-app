@@ -5,7 +5,7 @@ export const SettingsBlocksStyles = StyleSheet.create({
 	innerContainer: {
 		marginBlock: 8,
 	},
-	title: { fontSize: 26, fontWeight: 'bold' },
+	title: { fontSize: 24, fontWeight: '500' },
 });
 
 export const SettingsItemStyles = StyleSheet.create({
@@ -22,13 +22,13 @@ export const SettingsItemStyles = StyleSheet.create({
 		height: '100%',
 	},
 	title: {
-		fontSize: 22,
+		fontSize: 20,
 	},
 	sideTitle: {
-		fontSize: 18,
+		fontSize: 16,
 	},
 	tintedBackground: {
-		width: 50,
-		height: 50,
+		width: 46,
+		height: 46,
 	},
 });

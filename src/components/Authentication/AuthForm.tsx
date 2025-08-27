@@ -42,60 +42,64 @@ export default function AuthForm({ elements, type }: FormProps) {
 	const styles = AuthFormStyles;
 	return (
 		<View style={styles.container}>
-			<View style={{ gap: 4 }}>
+			<View>
 				<Text style={[{ color: colors.tint }, styles.title]}>
 					{type === 'register' ? 'Create an account' : 'Log in to your account'}
 				</Text>
-				<Text style={[{ color: colors.gray300 }, styles.text]}>
+				<Text style={[{ color: colors.primary150 }, styles.text]}>
 					{type === 'register'
 						? 'Welcome! Please enter your details.'
 						: 'Welcome back! Please enter your details.'}
 				</Text>
-				{(Object.keys(authFormInputData) as AuthFormKeys[]).map(
-					(key, index) => {
-						const item = authFormInputData[key];
-						if (!elements.includes(key)) return null;
-						return (
-							<InputArea
-								key={index}
-								title={item.title}
-								value={authFormData[key]}
-								placeholder={item.placeholder}
-								textContentType={item.textContentType}
-								onChangeText={(text) => onInputChange(text, key)}
-								leftElement={({ color }) => (
-									<CustomIcon
-										collectionKey={item.leftIcon.collectionKey}
-										name={item.leftIcon.name}
-										color={color}
-										size={22}
-									/>
-								)}
-								secureTextEntry={key === 'password' ? passwordSecure : false}
-								textStyle={
-									key === 'password' &&
-									passwordSecure &&
-									authFormData.password.length > 0
-										? styles.passwordSecure
-										: undefined
-								}
-								rightElement={key === 'password' ? passwordEyeIcon : undefined}
-							/>
-						);
-					}
-				)}
-				{type === 'register' ? (
-					<InputHighlightBar level='low' />
-				) : (
-					<ForgotPasswordButton />
-				)}
-				<CustomButton
-					onPress={type === 'register' ? onRegisterPressed : onLoginPressed}
-					type='stretched'
-					content={type === 'register' ? 'Sign Up' : 'Login'}
-					style={styles.customButton}
-				/>
-				{type === 'login' && <LoginExternalServices />}
+				<View style={styles.innerContainer}>
+					{(Object.keys(authFormInputData) as AuthFormKeys[]).map(
+						(key, index) => {
+							const item = authFormInputData[key];
+							if (!elements.includes(key)) return null;
+							return (
+								<InputArea
+									key={index}
+									title={item.title}
+									value={authFormData[key]}
+									placeholder={item.placeholder}
+									textContentType={item.textContentType}
+									onChangeText={(text) => onInputChange(text, key)}
+									leftElement={({ color }) => (
+										<CustomIcon
+											collectionKey={item.leftIcon.collectionKey}
+											name={item.leftIcon.name}
+											color={color}
+											size={22}
+										/>
+									)}
+									secureTextEntry={key === 'password' ? passwordSecure : false}
+									textStyle={
+										key === 'password' &&
+										passwordSecure &&
+										authFormData.password.length > 0
+											? styles.passwordSecure
+											: undefined
+									}
+									rightElement={
+										key === 'password' ? passwordEyeIcon : undefined
+									}
+								/>
+							);
+						}
+					)}
+					{type === 'register' ? (
+						<InputHighlightBar level='low' />
+					) : (
+						<ForgotPasswordButton />
+					)}
+					<CustomButton
+						onPress={type === 'register' ? onRegisterPressed : onLoginPressed}
+						type='stretched'
+						content={type === 'register' ? 'Sign Up' : 'Login'}
+						style={styles.customButton}
+					/>
+					{type === 'login' && <LoginExternalServices />}
+				</View>
 			</View>
 			<InlineLinkText type={type} />
 		</View>
