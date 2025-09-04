@@ -62,6 +62,22 @@ export const useUserInfoStore = create<UserActions & UserState>()(
 						},
 					};
 				}),
+			followUser: (id) =>
+				set((state) => ({
+					social: {
+						...state.social,
+						followingAccounts: [...state.social.followingAccounts, id],
+					},
+				})),
+			unfollowUser: (id) =>
+				set((state) => ({
+					social: {
+						...state.social,
+						followingAccounts: state.social.followingAccounts.filter(
+							(followedId) => followedId !== id
+						),
+					},
+				})),
 		}),
 		{
 			name: 'storage',

@@ -21,12 +21,15 @@ export type ModalActions = {
 	resetModal: () => void;
 };
 
-type UserID = string;
+export type UserID = string;
 type ImageID = string;
 type ChallengeID = string;
+export type EntryID = string;
 
 type ChallengeInfo = {
 	challengeId: ChallengeID;
+	entryId?: EntryID;
+	userId?: UserID;
 	imageId?: ImageID;
 	rank: number;
 	likes: number;
@@ -89,4 +92,6 @@ export type UserActions = {
 	addFavorite: (challenge: ChallengeInfo) => void;
 	removeFavorite: (challengeId: ChallengeID) => void;
 	decreaseQuota: (type: keyof UserState['quotas']) => void;
+	followUser: (id: UserID) => void;
+	unfollowUser: (id: UserID) => void;
 };

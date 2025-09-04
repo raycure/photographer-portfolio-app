@@ -37,6 +37,8 @@ export const dummyUser: UserState = {
 		attendedChallenges: [
 			{
 				challengeId: 'challenge_23',
+				entryId: 'entry_006',
+				userId: 'user_006',
 				imageId: 'image_333',
 				rank: 3,
 				likes: 263,
@@ -44,6 +46,8 @@ export const dummyUser: UserState = {
 			},
 			{
 				challengeId: 'challenge_12',
+				entryId: 'entry_007',
+				userId: 'user_006',
 				imageId: 'image_365',
 				rank: 4,
 				likes: 263,
@@ -51,6 +55,8 @@ export const dummyUser: UserState = {
 			},
 			{
 				challengeId: 'challenge_21',
+				entryId: 'entry_008',
+				userId: 'user_006',
 				imageId: 'image_386',
 				rank: 76,
 				likes: 263,
@@ -58,6 +64,8 @@ export const dummyUser: UserState = {
 			},
 			{
 				challengeId: 'challenge_54',
+				entryId: 'entry_009',
+				userId: 'user_006',
 				imageId: 'image_943',
 				rank: 2,
 				likes: 263,
@@ -65,6 +73,8 @@ export const dummyUser: UserState = {
 			},
 			{
 				challengeId: 'challenge_25',
+				entryId: 'entry_010',
+				userId: 'user_006',
 				imageId: 'image_233',
 				rank: 64,
 				likes: 263,
@@ -72,6 +82,8 @@ export const dummyUser: UserState = {
 			},
 			{
 				challengeId: 'challenge_73',
+				entryId: 'entry_011',
+				userId: 'user_006',
 				imageId: 'image_265',
 				rank: 24,
 				likes: 263,
@@ -79,6 +91,8 @@ export const dummyUser: UserState = {
 			},
 			{
 				challengeId: 'challenge_28',
+				entryId: 'entry_012',
+				userId: 'user_006',
 				imageId: 'image_286',
 				rank: 9,
 				likes: 263,
@@ -86,6 +100,8 @@ export const dummyUser: UserState = {
 			},
 			{
 				challengeId: 'challenge_56',
+				entryId: 'entry_013',
+				userId: 'user_006',
 				imageId: 'image_243',
 				rank: 12,
 				likes: 263,

@@ -12,7 +12,7 @@ import 'react-native-reanimated';
 import { useColorScheme } from '@/src/components/useColorScheme';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Colors from '../constants/Colors';
-import CustomNotifyModal from '../components/UI/CustomNotifyModal';
+import CustomModal from '../components/Modal/CustomModal';
 
 export {
 	// Catch any errors thrown by the Layout component.
@@ -55,7 +55,7 @@ function RootLayoutNav() {
 	const bgColor = Colors[colorScheme ?? 'dark'].background;
 	return (
 		<ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DarkTheme}>
-			<CustomNotifyModal />
+			<CustomModal />
 			<SafeAreaView
 				style={{ flex: 1, backgroundColor: bgColor }}
 				edges={['top']}

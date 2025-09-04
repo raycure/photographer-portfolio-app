@@ -4,6 +4,7 @@ import CustomIcon from '../UI/CustomIcon';
 import { images } from '@/src/constants/dummyImages';
 import { useColors } from '@/src/hooks/useColors';
 import { GalleryGridItemStyles } from './ProfileStyles';
+import { useRouter } from 'expo-router';
 
 export default function GalleryGridItem({
 	data,
@@ -11,8 +12,9 @@ export default function GalleryGridItem({
 	data: AttendedChallenges | 'add';
 }) {
 	const colors = useColors();
+	const router = useRouter();
+
 	const onAddButtonPress = () => {};
-	const onPhotoPress = () => {};
 	const styles = GalleryGridItemStyles;
 	if (data === 'add') {
 		return (
@@ -34,16 +36,23 @@ export default function GalleryGridItem({
 			</Pressable>
 		);
 	}
+	const imageLink = images.find((image) => {
+		return image.imageId === data?.imageId;
+	})?.link;
+	const onImagePress = () => {
+		router.push({
+			pathname: '/(stack)/imageInfo',
+			params: { entryId: data.entryId },
+		});
+	};
 	return (
 		<Pressable
-			onPress={onPhotoPress}
+			onPress={onImagePress}
 			style={({ pressed }) => styles.outerContainer}
 		>
 			<Image
 				source={{
-					uri: images.find((image) => {
-						return image.imageId === data?.imageId;
-					})?.link,
+					uri: imageLink,
 				}}
 				style={styles.image}
 			/>

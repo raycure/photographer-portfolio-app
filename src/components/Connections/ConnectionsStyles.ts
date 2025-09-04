@@ -39,7 +39,7 @@ export const ConnectionsListItemStyles = StyleSheet.create({
 		alignItems: 'center',
 		paddingLeft: 8,
 		paddingRight: 12,
-		paddingVertical: 2,
+		paddingVertical: 4,
 		gap: 8,
 	},
 	textContainer: { flex: 1, gap: 4 },

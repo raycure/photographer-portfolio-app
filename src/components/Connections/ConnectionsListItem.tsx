@@ -20,6 +20,13 @@ export default function ConnectionsListItem({
 	const image = images.find((image) => {
 		return image.imageId === userpresonalInfo.imageId;
 	})?.link;
+	const onButtonPress = () => {
+		if (following) {
+			userInfoStore.unfollowUser(userpresonalInfo.id);
+		} else {
+			userInfoStore.followUser(userpresonalInfo.id);
+		}
+	};
 	return (
 		<View style={styles.outerContainer}>
 			<CircularPhoto source={image} size='small' />
@@ -35,6 +42,7 @@ export default function ConnectionsListItem({
 				type='general'
 				textStyle={styles.customButtonText}
 				style={styles.customButton}
+				onPress={onButtonPress}
 				content={following ? 'Following' : 'Follow'}
 				backgroundColor={following ? colors.primary400 : colors.accentBlue}
 			/>

@@ -32,13 +32,17 @@ export const dummyUsers: UserState[] = [
 			attendedChallenges: [
 				{
 					challengeId: 'challenge_23',
+					entryId: 'entry_001',
 					imageId: 'image_333',
+					userId: 'user_001',
 					rank: 3,
 					likes: 263,
 					saved: false,
 				},
 				{
 					challengeId: 'challenge_12',
+					entryId: 'entry_001',
+					userId: 'user_001',
 					imageId: 'image_365',
 					rank: 4,
 					likes: 263,
@@ -46,32 +50,15 @@ export const dummyUsers: UserState[] = [
 				},
 				{
 					challengeId: 'challenge_21',
+					entryId: 'entry_001',
+					userId: 'user_001',
 					imageId: 'image_386',
 					rank: 76,
 					likes: 263,
 					saved: false,
 				},
 			],
-			favorites: [
-				{
-					challengeId: 'challenge_23',
-					imageId: 'image_333',
-					rank: 3,
-					likes: 263,
-				},
-				{
-					challengeId: 'challenge_12',
-					imageId: 'image_365',
-					rank: 4,
-					likes: 263,
-				},
-				{
-					challengeId: 'challenge_21',
-					imageId: 'image_386',
-					rank: 76,
-					likes: 263,
-				},
-			],
+			favorites: [],
 		},
 		auth: {
 			authToken: 'token_001',
@@ -108,46 +95,15 @@ export const dummyUsers: UserState[] = [
 			attendedChallenges: [
 				{
 					challengeId: 'challenge_23',
+					entryId: 'entry_002',
+					userId: 'user_002',
 					imageId: 'image_333',
 					rank: 3,
 					likes: 263,
 					saved: false,
 				},
-				{
-					challengeId: 'challenge_12',
-					imageId: 'image_365',
-					rank: 4,
-					likes: 263,
-					saved: true,
-				},
-				{
-					challengeId: 'challenge_21',
-					imageId: 'image_386',
-					rank: 76,
-					likes: 263,
-					saved: false,
-				},
 			],
-			favorites: [
-				{
-					challengeId: 'challenge_23',
-					imageId: 'image_333',
-					rank: 3,
-					likes: 263,
-				},
-				{
-					challengeId: 'challenge_12',
-					imageId: 'image_365',
-					rank: 4,
-					likes: 263,
-				},
-				{
-					challengeId: 'challenge_21',
-					imageId: 'image_386',
-					rank: 76,
-					likes: 263,
-				},
-			],
+			favorites: [],
 		},
 		auth: {
 			authToken: 'token_002',
@@ -184,46 +140,25 @@ export const dummyUsers: UserState[] = [
 			attendedChallenges: [
 				{
 					challengeId: 'challenge_23',
+					entryId: 'entry_003',
+					userId: 'user_003',
 					imageId: 'image_333',
 					rank: 3,
 					likes: 263,
 					saved: false,
 				},
-				{
-					challengeId: 'challenge_12',
-					imageId: 'image_365',
-					rank: 4,
-					likes: 263,
-					saved: true,
-				},
+
 				{
 					challengeId: 'challenge_21',
+					entryId: 'entry_003',
+					userId: 'user_003',
 					imageId: 'image_386',
 					rank: 76,
 					likes: 263,
 					saved: false,
 				},
 			],
-			favorites: [
-				{
-					challengeId: 'challenge_23',
-					imageId: 'image_333',
-					rank: 3,
-					likes: 263,
-				},
-				{
-					challengeId: 'challenge_12',
-					imageId: 'image_365',
-					rank: 4,
-					likes: 263,
-				},
-				{
-					challengeId: 'challenge_21',
-					imageId: 'image_386',
-					rank: 76,
-					likes: 263,
-				},
-			],
+			favorites: [],
 		},
 		auth: {
 			authToken: 'token_003',
@@ -261,46 +196,15 @@ export const dummyUsers: UserState[] = [
 			attendedChallenges: [
 				{
 					challengeId: 'challenge_23',
+					entryId: 'entry_004',
+					userId: 'user_004',
 					imageId: 'image_333',
 					rank: 3,
 					likes: 263,
 					saved: false,
 				},
-				{
-					challengeId: 'challenge_12',
-					imageId: 'image_365',
-					rank: 4,
-					likes: 263,
-					saved: true,
-				},
-				{
-					challengeId: 'challenge_21',
-					imageId: 'image_386',
-					rank: 76,
-					likes: 263,
-					saved: false,
-				},
 			],
-			favorites: [
-				{
-					challengeId: 'challenge_23',
-					imageId: 'image_333',
-					rank: 3,
-					likes: 263,
-				},
-				{
-					challengeId: 'challenge_12',
-					imageId: 'image_365',
-					rank: 4,
-					likes: 263,
-				},
-				{
-					challengeId: 'challenge_21',
-					imageId: 'image_386',
-					rank: 76,
-					likes: 263,
-				},
-			],
+			favorites: [],
 		},
 		auth: {
 			authToken: 'token_004',
@@ -337,46 +241,15 @@ export const dummyUsers: UserState[] = [
 			attendedChallenges: [
 				{
 					challengeId: 'challenge_23',
+					entryId: 'entry_005',
+					userId: 'user_005',
 					imageId: 'image_333',
 					rank: 3,
 					likes: 263,
 					saved: false,
 				},
-				{
-					challengeId: 'challenge_12',
-					imageId: 'image_365',
-					rank: 4,
-					likes: 263,
-					saved: true,
-				},
-				{
-					challengeId: 'challenge_21',
-					imageId: 'image_386',
-					rank: 76,
-					likes: 263,
-					saved: false,
-				},
 			],
-			favorites: [
-				{
-					challengeId: 'challenge_23',
-					imageId: 'image_333',
-					rank: 3,
-					likes: 263,
-				},
-				{
-					challengeId: 'challenge_12',
-					imageId: 'image_365',
-					rank: 4,
-					likes: 263,
-				},
-				{
-					challengeId: 'challenge_21',
-					imageId: 'image_386',
-					rank: 76,
-					likes: 263,
-				},
-			],
+			favorites: [],
 		},
 		auth: {
 			authToken: 'token_005',
@@ -414,6 +287,8 @@ export const dummyUsers: UserState[] = [
 			attendedChallenges: [
 				{
 					challengeId: 'challenge_23',
+					entryId: 'entry_006',
+					userId: 'user_006',
 					imageId: 'image_333',
 					rank: 3,
 					likes: 263,
@@ -421,6 +296,8 @@ export const dummyUsers: UserState[] = [
 				},
 				{
 					challengeId: 'challenge_12',
+					entryId: 'entry_007',
+					userId: 'user_006',
 					imageId: 'image_365',
 					rank: 4,
 					likes: 263,
@@ -428,6 +305,8 @@ export const dummyUsers: UserState[] = [
 				},
 				{
 					challengeId: 'challenge_21',
+					entryId: 'entry_008',
+					userId: 'user_006',
 					imageId: 'image_386',
 					rank: 76,
 					likes: 263,
@@ -435,6 +314,8 @@ export const dummyUsers: UserState[] = [
 				},
 				{
 					challengeId: 'challenge_54',
+					entryId: 'entry_009',
+					userId: 'user_006',
 					imageId: 'image_943',
 					rank: 2,
 					likes: 263,
@@ -442,6 +323,8 @@ export const dummyUsers: UserState[] = [
 				},
 				{
 					challengeId: 'challenge_25',
+					entryId: 'entry_010',
+					userId: 'user_006',
 					imageId: 'image_233',
 					rank: 64,
 					likes: 263,
@@ -449,6 +332,8 @@ export const dummyUsers: UserState[] = [
 				},
 				{
 					challengeId: 'challenge_73',
+					entryId: 'entry_011',
+					userId: 'user_006',
 					imageId: 'image_265',
 					rank: 24,
 					likes: 263,
@@ -456,6 +341,8 @@ export const dummyUsers: UserState[] = [
 				},
 				{
 					challengeId: 'challenge_28',
+					entryId: 'entry_012',
+					userId: 'user_006',
 					imageId: 'image_286',
 					rank: 9,
 					likes: 263,
@@ -463,6 +350,8 @@ export const dummyUsers: UserState[] = [
 				},
 				{
 					challengeId: 'challenge_56',
+					entryId: 'entry_013',
+					userId: 'user_006',
 					imageId: 'image_243',
 					rank: 12,
 					likes: 263,

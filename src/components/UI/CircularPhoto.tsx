@@ -16,7 +16,11 @@ export default function CircularPhoto({ size, source }: CircularPhotoProps) {
 					? styles.imageBig
 					: size === 'medium'
 					? styles.imageMedium
-					: styles.imageSmall,
+					: size === 'small'
+					? styles.imageSmall
+					: size === 'xl'
+					? styles.imageXL
+					: styles.imageXS,
 				styles.image,
 				{ borderColor: colors.primary600 },
 			]}

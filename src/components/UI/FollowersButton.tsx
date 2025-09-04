@@ -7,14 +7,22 @@ import UserContext from '@/src/context/UserContext';
 import { FollowersButtonStyles } from './UIStyles';
 import { useRouter } from 'expo-router';
 import { FollowersButtonProps } from './UITypes';
+import { dummyUsers } from '@/src/constants/dummyUsers';
 
 export default function FollowersButton({
 	size = 'medium',
+	userId,
 }: FollowersButtonProps) {
 	const [pressed, setPressed] = useState<boolean>(false);
 	const colors = useColors();
-	const user = useContext(UserContext);
+	const userContext = useContext(UserContext);
 	const router = useRouter();
+	const user = userId
+		? dummyUsers.find((user) => user.personalInfo.id === userId)
+		: userContext;
+	if (!user) {
+		return null; // todo fallback
+	}
 	const followers = user.social.followerAccounts;
 	const followersCount = followers.length;
 	const styles = FollowersButtonStyles;
