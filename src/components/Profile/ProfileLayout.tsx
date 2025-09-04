@@ -5,6 +5,7 @@ import GalleryGrid from './GalleryGrid';
 import ProfileHeader from './ProfileHeader';
 import ProfileStatistics from './ProfileStatistics';
 import { ProfileLayoutStyles } from './ProfileStyles';
+import FloatingActionsContainer from './FloatingActionsContainer';
 
 export default function ProfileLayout() {
 	const colors = useColors();
@@ -17,6 +18,7 @@ export default function ProfileLayout() {
 			</View>
 			<LineSeperator color={colors.primary300} style={styles.lineSeperator} />
 			<GalleryGrid />
+			<FloatingActionsContainer />
 		</View>
 	);
 }

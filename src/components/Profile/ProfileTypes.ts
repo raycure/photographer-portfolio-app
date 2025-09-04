@@ -1,5 +1,5 @@
-import { ColorValue, ViewStyle } from 'react-native';
-import { CustomIconProps, RegistredIconProps } from '../UI/UITypes';
+import { ViewStyle } from 'react-native';
+import { RegistredIconProps } from '../UI/UITypes';
 
 export type ActionButtonConfig = {
 	key: string;
