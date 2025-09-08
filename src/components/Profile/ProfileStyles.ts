@@ -27,18 +27,6 @@ export const headerStyles = StyleSheet.create({
 	},
 });
 
-export const ProfileActionBarStyles = StyleSheet.create({
-	outerContainer: {
-		flexDirection: 'row',
-		justifyContent: 'space-between',
-	},
-	buttonStyle: {
-		paddingBlock: 5,
-		paddingInline: 16,
-		minHeight: 'auto',
-	},
-});
-
 export const GalleryGridItemStyles = StyleSheet.create({
 	outerContainer: {
 		width: (windowWidth - 2) / 3,
@@ -104,4 +92,28 @@ export const ProfileLayoutStyles = StyleSheet.create({
 		gap: 2,
 	},
 	lineSeperator: { marginBottom: 1 },
+});
+export const FloatingButtonStyles = StyleSheet.create({
+	outerContainer: {
+		justifyContent: 'center',
+		alignItems: 'center',
+		borderRadius: 300,
+		backgroundColor: 'black',
+	},
+	big: { width: 58, height: 58 },
+	medium: { width: 50, height: 50 },
+	small: { width: 44, height: 44 },
+	pressed: { opacity: 0.7 },
+});
+
+export const FloatingActionsContainerStyles = StyleSheet.create({
+	outerContainer: {
+		flexDirection: 'column-reverse',
+		alignItems: 'center',
+		position: 'absolute',
+		gap: 6,
+		right: 0,
+		bottom: 0,
+		padding: 8,
+	},
 });

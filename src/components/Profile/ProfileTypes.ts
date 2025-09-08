@@ -1,5 +1,9 @@
 import { ViewStyle } from 'react-native';
-import { RegistredIconProps } from '../UI/UITypes';
+import {
+	CustomIconProps,
+	GenericSizes,
+	RegistredIconProps,
+} from '../UI/UITypes';
 
 export type ActionButtonConfig = {
 	key: string;
@@ -8,4 +12,11 @@ export type ActionButtonConfig = {
 	name: string;
 	size?: number;
 	backgroundColor?: string;
+};
+
+export type FloatingButtonProps = {
+	onPress?: () => void;
+	size?: GenericSizes;
+	icon: CustomIconProps;
+	style?: ViewStyle;
 };

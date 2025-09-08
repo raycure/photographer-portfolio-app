@@ -1,47 +1,63 @@
-import { useColors } from '@/src/hooks/useColors';
-import { ActionButtonConfig } from './ProfileTypes';
-export const useActionButtonConfigs = (): {
-	[key: string]: ActionButtonConfig[];
-} => {
-	const colors = useColors();
+import { CustomIconProps } from '../UI/UITypes';
 
-	return {
-		personal: [
-			{
-				key: 'bookmark',
-				collectionKey: 'fa',
-				name: 'bookmark-o',
+export const FloatingActionsConfig: {
+	[key: string]: {
+		key: string;
+		icon: CustomIconProps;
+		onPress: () => void;
+	}[];
+} = {
+	personal: [
+		{
+			key: 'bookmark',
+			icon: { collectionKey: 'fa', name: 'bookmark-o', size: 28 },
+			onPress: () => console.log('test'),
+		},
+		{
+			key: 'edit',
+			icon: {
+				collectionKey: 'oct',
+				name: 'pencil',
+				size: 26,
 			},
-			{
-				key: 'edit',
-				collectionKey: 'fa',
-				name: 'edit',
+			onPress: () => console.log('test'),
+		},
+	],
+	other: [
+		{
+			key: 'block',
+			icon: {
+				collectionKey: 'fa6',
+				name: 'exclamation',
+				size: 26,
 			},
-		],
-		other: [
-			{
-				key: 'follow',
+			onPress: () => console.log('test'),
+		},
+		{
+			key: 'follow',
+			icon: {
 				collectionKey: 'fe',
 				name: 'user-plus',
+				size: 26,
+				style: { right: -2 },
 			},
-			{
-				key: 'block',
-				collectionKey: 'fa6',
-				name: 'ban',
-				backgroundColor: colors.accentRed,
+			onPress: () => console.log('test'),
+		},
+	],
+	general: [
+		{
+			key: 'share',
+			icon: {
+				collectionKey: 'ion',
+				name: 'share-social-outline',
+				style: { left: -2 },
 			},
-		],
-		general: [
-			{
-				key: 'share',
-				collectionKey: 'oct',
-				name: 'share-android',
-			},
-			{
-				key: 'link',
-				collectionKey: 'oct',
-				name: 'link',
-			},
-		],
-	};
+			onPress: () => console.log('test'),
+		},
+		{
+			key: 'link',
+			icon: { collectionKey: 'oct', name: 'link', size: 26 },
+			onPress: () => console.log('test'),
+		},
+	],
 };
