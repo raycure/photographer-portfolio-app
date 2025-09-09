@@ -1,3 +1,4 @@
+import { ColorValue } from 'react-native';
 import Svg, { Circle, Ellipse, G, Path, SvgProps } from 'react-native-svg';
 
 export const StarSVG = (props: SvgProps) => (
@@ -150,12 +151,18 @@ export const HomeSVG = (props: SvgProps) => (
 	</Svg>
 );
 
-export const HomeOSVG = (props: SvgProps) => (
+export const HomeOSVG = ({
+	props,
+	color,
+}: {
+	props?: SvgProps;
+	color: ColorValue;
+}) => (
 	<Svg className='icon line' viewBox='0 0 24 24' {...props}>
 		<Path
 			d='m21 12-9-9-9 9'
 			fill='none'
-			stroke='#000'
+			stroke={color}
 			strokeLinecap='round'
 			strokeLinejoin='round'
 			strokeWidth={1.5}
@@ -164,7 +171,7 @@ export const HomeOSVG = (props: SvgProps) => (
 			d='M19 10v10.3a.77.77 0 0 1-.83.7H14.3v-6.9H9.7V21H5.83a.77.77 0 0 1-.83-.7V10'
 			data-name='primary'
 			fill='none'
-			stroke='#000'
+			stroke={color}
 			strokeLinecap='round'
 			strokeLinejoin='round'
 			strokeWidth={1.5}
@@ -172,12 +179,18 @@ export const HomeOSVG = (props: SvgProps) => (
 	</Svg>
 );
 
-export const SettingsOSVG = (props: SvgProps) => (
+export const SettingsOSVG = ({
+	props,
+	color,
+}: {
+	props?: SvgProps;
+	color: ColorValue;
+}) => (
 	<Svg viewBox='0 0 24 24' {...props}>
 		<G fill='none' fillRule='evenodd'>
 			<Path d='M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z' />
 			<Path
-				fill='#000'
+				fill={color}
 				d='M10.75 2.567a2.5 2.5 0 0 1 2.332-.089l.168.089L19.544 6.2a2.5 2.5 0 0 1 1.244 1.987l.006.178v7.268a2.5 2.5 0 0 1-1.099 2.07l-.15.095-6.295 3.634a2.5 2.5 0 0 1-2.332.089l-.168-.09L4.456 17.8a2.5 2.5 0 0 1-1.244-1.987l-.006-.178V8.366a2.5 2.5 0 0 1 1.1-2.07l.15-.095 6.294-3.634Zm1.5 1.732a.5.5 0 0 0-.42-.037l-.08.037-6.294 3.634a.5.5 0 0 0-.242.345l-.008.088v7.268a.5.5 0 0 0 .178.382l.072.05 6.294 3.635a.5.5 0 0 0 .42.037l.08-.037 6.294-3.634a.5.5 0 0 0 .243-.345l.007-.088V8.366a.5.5 0 0 0-.177-.382l-.073-.051-6.294-3.634ZM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm0 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z'
 			/>
 		</G>
@@ -196,9 +209,15 @@ export const SettingsSVG = (props: SvgProps) => (
 	</Svg>
 );
 
-export const UserOSVG = (props: SvgProps) => (
+export const UserOSVG = ({
+	props,
+	color,
+}: {
+	props?: SvgProps;
+	color: ColorValue;
+}) => (
 	<Svg fill='none' viewBox='0 0 24 24' {...props}>
-		<G stroke='#000' strokeWidth={1.5}>
+		<G stroke={color} strokeWidth={1.5}>
 			<Path
 				strokeLinecap='round'
 				strokeLinejoin='round'
@@ -225,11 +244,17 @@ export const BellSVG = (props: SvgProps) => (
 	</Svg>
 );
 
-export const BellOSVG = (props: SvgProps) => (
+export const BellOSVG = ({
+	props,
+	color,
+}: {
+	props?: SvgProps;
+	color: ColorValue;
+}) => (
 	<Svg viewBox='0 0 632 692' fill='none' {...props}>
 		<Path
 			d='M50.5571 570.87H387.723C385.379 616.071 356.25 644.866 316.071 644.866C275.557 644.866 246.763 616.071 244.084 570.87H191.853C194.531 635.156 245.089 691.74 316.071 691.74C386.719 691.74 437.276 635.156 439.954 570.87H581.25C613.054 570.87 631.809 554.464 631.809 530.357C631.809 496.874 597.99 466.74 568.861 436.941C546.763 413.839 540.736 366.294 538.393 327.79C535.714 195.87 501.897 110.49 412.5 78.3472C401.45 34.8214 365.29 0 316.071 0C266.517 0 230.691 34.8214 219.307 78.3472C130.246 110.49 96.0928 195.87 93.75 327.79C91.0714 366.294 85.3786 413.839 62.9457 436.941C34.1514 466.74 0 496.874 0 530.357C0 554.464 19.0843 570.87 50.5571 570.87ZM65.29 520.311V516.294C71.3171 506.25 91.0714 486.83 108.817 467.076C132.589 440.29 143.973 397.433 146.986 331.807C149.664 185.826 193.191 138.95 250.78 123.549C259.151 121.54 263.504 117.187 263.839 108.816C265.179 73.66 284.933 49.2186 316.071 49.2186C346.874 49.2186 366.964 73.66 367.969 108.816C368.303 117.187 372.99 121.54 381.361 123.549C438.616 138.95 482.143 185.826 485.156 331.807C487.834 397.433 499.219 440.29 523.326 467.076C540.736 486.83 560.826 506.25 566.853 516.294V520.311H65.29Z'
-			fill='#000000'
+			fill={color}
 		/>
 	</Svg>
 );
@@ -246,44 +271,46 @@ export const BellNSVG = (props: SvgProps) => (
 	</Svg>
 );
 
-export const LeaderboardSVG = (props: SvgProps) => (
-	<Svg viewBox='0 0 650 645' fill='none' {...props}>
+export const LeaderboardOSVG = ({
+	props,
+	color,
+}: {
+	props?: SvgProps;
+	color: ColorValue;
+}) => (
+	<Svg viewBox='0 0 650 645' stroke={color} fill='none' {...props}>
 		<Path
 			d='M425 620H225V340C225 328.953 233.954 320 245 320H405C416.047 320 425 328.953 425 340V620Z'
-			stroke='black'
-			strokeWidth={50}
+			strokeWidth={38}
 			strokeLinecap='round'
 			strokeLinejoin='round'
 		/>
 		<Path
 			d='M605 620H425V523.333C425 512.287 433.953 503.333 445 503.333H605C616.047 503.333 625 512.287 625 523.333V600C625 611.047 616.047 620 605 620Z'
-			stroke='black'
-			strokeWidth={50}
+			strokeWidth={38}
 			strokeLinecap='round'
 			strokeLinejoin='round'
 		/>
 		<Path
 			d='M225 620V456.667C225 445.62 216.046 436.667 205 436.667H45C33.9543 436.667 25 445.62 25 456.667V600C25 611.047 33.9543 620 45 620H225Z'
-			stroke='black'
-			strokeWidth={50}
+			strokeWidth={38}
 			strokeLinecap='round'
 			strokeLinejoin='round'
 		/>
 		<Path
 			d='M285.187 90.4416L315.49 26.1866C319.38 17.9376 330.62 17.9376 334.51 26.1866L364.813 90.4416L432.583 100.809C441.28 102.139 444.743 113.326 438.45 119.743L389.42 169.723L400.99 240.333C402.477 249.401 393.383 256.317 385.603 252.033L325 218.677L264.397 252.033C256.617 256.317 247.523 249.401 249.009 240.333L260.58 169.723L211.55 119.743C205.255 113.326 208.721 102.139 217.416 100.809L285.187 90.4416Z'
-			stroke='black'
-			strokeWidth={40}
+			strokeWidth={35}
+			fill={color}
 			strokeLinecap='round'
 			strokeLinejoin='round'
 		/>
 	</Svg>
 );
-export const LeaderboardOSVG = (props: SvgProps) => (
-	<Svg viewBox='0 0 650 642' fill='none' {...props}>
+export const LeaderboardSVG = (props: SvgProps) => (
+	<Svg viewBox='0 0 650 642' stroke='black' fill='none' {...props}>
 		<Path
 			d='M406 617H244V337C244 325.953 251.253 317 260.2 317H389.8C398.748 317 406 325.953 406 337V617Z'
 			fill='black'
-			stroke='black'
 			strokeWidth={50}
 			strokeLinecap='round'
 			strokeLinejoin='round'
@@ -291,7 +318,6 @@ export const LeaderboardOSVG = (props: SvgProps) => (
 		<Path
 			d='M610.7 617H482V520.057C482 508.979 488.402 500 496.3 500H610.7C618.598 500 625 508.979 625 520.057V596.943C625 608.021 618.598 617 610.7 617Z'
 			fill='black'
-			stroke='black'
 			strokeWidth={50}
 			strokeLinecap='round'
 			strokeLinejoin='round'
@@ -299,7 +325,6 @@ export const LeaderboardOSVG = (props: SvgProps) => (
 		<Path
 			d='M168 617V453.964C168 442.937 161.598 434 153.7 434H39.3C31.4023 434 25 442.937 25 453.964V597.036C25 608.063 31.4023 617 39.3 617H168Z'
 			fill='black'
-			stroke='black'
 			strokeWidth={50}
 			strokeLinecap='round'
 			strokeLinejoin='round'
@@ -307,7 +332,6 @@ export const LeaderboardOSVG = (props: SvgProps) => (
 		<Path
 			d='M285.187 87.4417L315.49 23.1867C319.38 14.9377 330.62 14.9377 334.51 23.1867L364.813 87.4417L432.583 97.8091C441.28 99.1394 444.743 110.326 438.45 116.743L389.42 166.723L400.99 237.333C402.477 246.401 393.383 253.317 385.603 249.033L325 215.677L264.397 249.033C256.617 253.317 247.523 246.401 249.009 237.333L260.58 166.723L211.55 116.743C205.255 110.326 208.721 99.1394 217.416 97.8091L285.187 87.4417Z'
 			fill='black'
-			stroke='black'
 			strokeWidth={33}
 			strokeLinecap='round'
 			strokeLinejoin='round'

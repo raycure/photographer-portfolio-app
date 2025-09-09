@@ -2,64 +2,59 @@ import React from 'react';
 import { Tabs } from 'expo-router';
 import { useClientOnlyValue } from '@/src/components/useClientOnlyValue';
 import CustomIcon from '@/src/components/UI/CustomIcon';
-import { IconCollectionKey } from '@/src/constants/iconRegistry';
 import { useColors } from '@/src/hooks/useColors';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { CustomIconProps } from '@/src/components/UI/UITypes';
+import {
+	BellOSVG,
+	BellSVG,
+	HomeOSVG,
+	HomeSVG,
+	LeaderboardOSVG,
+	LeaderboardSVG,
+	SettingsOSVG,
+	SettingsSVG,
+	UserOSVG,
+	UserSVG,
+} from '@/src/constants/svgs';
 
 export default function TabLayout() {
 	const colors = useColors();
 	const tabsContent: {
 		name: string;
 		title: string;
-		iconInfo: {
-			collectionKey: IconCollectionKey;
-			name: string;
-			activeName?: string;
-		};
+		icon: CustomIconProps;
+		focusedIcon: CustomIconProps;
 	}[] = [
 		{
 			name: 'leaderboard',
 			title: 'Leaderboard',
-			iconInfo: {
-				collectionKey: 'ad',
-				name: 'staro',
-				activeName: 'star',
-			},
+			icon: { svg: <LeaderboardOSVG color={colors.tint} /> },
+			focusedIcon: { svg: <LeaderboardSVG /> },
 		},
 		{
 			name: 'notifications',
 			title: 'Notifications',
-			iconInfo: {
-				collectionKey: 'fa',
-				name: 'user-o',
-				activeName: 'user',
-			},
+			icon: { svg: <BellOSVG color={colors.tint} /> },
+			focusedIcon: { svg: <BellSVG /> },
 		},
 		{
 			name: 'index',
 			title: 'Home',
-			iconInfo: {
-				collectionKey: 'ion',
-				name: 'home-outline',
-				activeName: 'home',
-			},
+			icon: { svg: <HomeOSVG color={colors.tint} /> },
+			focusedIcon: { svg: <HomeSVG /> },
 		},
 		{
 			name: 'profile',
 			title: 'Profile',
-			iconInfo: {
-				collectionKey: 'fa',
-				name: 'user-o',
-				activeName: 'user',
-			},
+			icon: { svg: <UserOSVG color={colors.tint} /> },
+			focusedIcon: { svg: <UserSVG /> },
 		},
 		{
 			name: 'settings',
 			title: 'Settings',
-			iconInfo: {
-				collectionKey: 'fa',
-				name: 'user-o',
-				activeName: 'user',
-			},
+			icon: { svg: <SettingsOSVG color={colors.tint} /> },
+			focusedIcon: { svg: <SettingsSVG /> },
 		},
 	];
 
@@ -69,6 +64,16 @@ export default function TabLayout() {
 			screenOptions={{
 				tabBarActiveTintColor: colors.tint,
 				headerShown: useClientOnlyValue(false, false),
+				tabBarButton: ({ onPress, children, style, accessibilityState }) => (
+					<Pressable
+						onPress={onPress}
+						android_ripple={undefined}
+						style={style}
+						accessibilityState={accessibilityState}
+					>
+						{children}
+					</Pressable>
+				),
 			}}
 		>
 			{tabsContent.map((tab, index) => {
@@ -78,13 +83,23 @@ export default function TabLayout() {
 						name={tab.name}
 						options={{
 							title: tab.title,
-							tabBarIcon: ({ color, focused }) => (
-								<CustomIcon
-									collectionKey={tab.iconInfo.collectionKey}
-									name={focused ? tab.iconInfo.activeName : tab.iconInfo.name}
-									color={color}
-								/>
-							),
+							tabBarShowLabel: false,
+							tabBarIcon: ({ color, focused }) => {
+								const iconProps = focused ? tab.focusedIcon : tab.icon;
+								return (
+									<View
+										style={[
+											styles.unfocusedButton,
+											focused && {
+												backgroundColor: colors.tint,
+												...styles.focusedButton,
+											},
+										]}
+									>
+										<CustomIcon size={30} {...iconProps} color={color} />
+									</View>
+								);
+							},
 						}}
 					/>
 				);
@@ -92,3 +107,15 @@ export default function TabLayout() {
 		</Tabs>
 	);
 }
+const styles = StyleSheet.create({
+	focusedButton: {
+		width: 54,
+		height: 54,
+		borderRadius: 30,
+		bottom: 10,
+	},
+	unfocusedButton: {
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+});
