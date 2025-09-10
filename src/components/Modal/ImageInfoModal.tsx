@@ -8,9 +8,9 @@ import { dummyChallengeData } from '@/src/constants/dummyChallengeData';
 import { dummyChallengeHistory } from '@/src/constants/dummyChallengeHistory';
 import { useLocalSearchParams } from 'expo-router';
 import ProfileInfo from '../Home/ProfileInfo';
+import getAspectRatio from '@/src/utils/getAspectRatio';
 const windowWidth = Dimensions.get('window').width;
 export default function ImageInfoModal() {
-	const [aspectRatio, setAspectRatio] = useState<number>(1);
 	const { entryId } = useLocalSearchParams();
 	const data =
 		dummyChallengeData.entries.find((entry) => {
@@ -23,15 +23,7 @@ export default function ImageInfoModal() {
 	const imageLink = images.find(
 		(image) => image.imageId === data?.imageId
 	)?.link;
-
-	useEffect(() => {
-		if (imageLink) {
-			Image.getSize(imageLink, (w, h) => {
-				setAspectRatio(w / h);
-			});
-		}
-	}, [imageLink]);
-
+	const aspectRatio = getAspectRatio(imageLink);
 	return (
 		<BlurView
 			style={styles.outerContainer}

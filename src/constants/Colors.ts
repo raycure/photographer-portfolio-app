@@ -1,8 +1,8 @@
 export default {
 	light: {
-		text: '#fff',
+		text: '#ffffff',
 		background: '#212a33',
-		tint: '#fff',
+		tint: '#ffffff',
 		accentRed: '#ff5e52',
 		accentOrange: '#ffbe5b',
 		accentYellow: '#e7c902',
@@ -39,9 +39,9 @@ export default {
 		// tabIconSelected: '#2f95dc',
 	},
 	dark: {
-		text: '#fff',
+		text: '#ffffff',
 		background: '#212a33',
-		tint: '#fff',
+		tint: '#ffffff',
 		accentRed: '#ff5e52',
 		accentOrange: '#ffbe5b',
 		accentYellow: '#e7c902',

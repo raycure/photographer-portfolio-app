@@ -3,7 +3,7 @@ import { Tabs } from 'expo-router';
 import { useClientOnlyValue } from '@/src/components/useClientOnlyValue';
 import CustomIcon from '@/src/components/UI/CustomIcon';
 import { useColors } from '@/src/hooks/useColors';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 import { CustomIconProps } from '@/src/components/UI/UITypes';
 import {
 	BellOSVG,

@@ -22,8 +22,8 @@ export type ModalActions = {
 };
 
 export type UserID = string;
-type ImageID = string;
-type ChallengeID = string;
+export type ImageID = string;
+export type ChallengeID = string;
 export type EntryID = string;
 
 type ChallengeInfo = {
