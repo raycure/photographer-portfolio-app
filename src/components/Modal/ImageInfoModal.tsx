@@ -1,14 +1,11 @@
-import { useEffect, useState } from 'react';
 import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
-import CircularPhoto from '../UI/CircularPhoto';
-import { dummyUsers } from '@/src/constants/dummyUsers';
 import { images } from '@/src/constants/dummyImages';
 import { BlurView } from 'expo-blur';
 import { dummyChallengeData } from '@/src/constants/dummyChallengeData';
 import { dummyChallengeHistory } from '@/src/constants/dummyChallengeHistory';
 import { useLocalSearchParams } from 'expo-router';
 import ProfileInfo from '../Home/ProfileInfo';
-import getAspectRatio from '@/src/utils/getAspectRatio';
+import useAspectRatio from '@/src/utils/useAspectRatio';
 const windowWidth = Dimensions.get('window').width;
 export default function ImageInfoModal() {
 	const { entryId } = useLocalSearchParams();
@@ -23,7 +20,7 @@ export default function ImageInfoModal() {
 	const imageLink = images.find(
 		(image) => image.imageId === data?.imageId
 	)?.link;
-	const aspectRatio = getAspectRatio(imageLink);
+	const aspectRatio = useAspectRatio(imageLink);
 	return (
 		<BlurView
 			style={styles.outerContainer}

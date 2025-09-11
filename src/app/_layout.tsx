@@ -13,7 +13,6 @@ import { useColorScheme } from '@/src/components/useColorScheme';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Colors from '../constants/Colors';
 import CustomModal from '../components/Modal/CustomModal';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 export {
 	// Catch any errors thrown by the Layout component.
@@ -56,19 +55,17 @@ function RootLayoutNav() {
 	const bgColor = Colors[colorScheme ?? 'dark'].background;
 	return (
 		<ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DarkTheme}>
-			<GestureHandlerRootView>
-				<CustomModal />
-				<SafeAreaView
-					style={{ flex: 1, backgroundColor: bgColor }}
-					edges={['top']}
-				>
-					<Stack initialRouteName='(tabs)'>
-						<Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-						<Stack.Screen name='(stack)' options={{ headerShown: false }} />
-						<Stack.Screen name='(secure)' options={{ headerShown: false }} />
-					</Stack>
-				</SafeAreaView>
-			</GestureHandlerRootView>
+			<CustomModal />
+			<SafeAreaView
+				style={{ flex: 1, backgroundColor: bgColor }}
+				edges={['top']}
+			>
+				<Stack initialRouteName='(tabs)'>
+					<Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+					<Stack.Screen name='(stack)' options={{ headerShown: false }} />
+					<Stack.Screen name='(secure)' options={{ headerShown: false }} />
+				</Stack>
+			</SafeAreaView>
 		</ThemeProvider>
 	);
 }

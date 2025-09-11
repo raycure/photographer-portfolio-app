@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { View } from '../Themed';
 import HomeSwiper from './HomeSwiper';
-import HomeCard from './HomeCard';
 
 export default function HomeLayout() {
 	return (

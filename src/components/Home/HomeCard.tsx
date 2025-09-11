@@ -1,6 +1,6 @@
 import { images } from '@/src/constants/dummyImages';
 import { ImageID, UserID } from '@/src/stores/StoreTypes';
-import getAspectRatio from '@/src/utils/getAspectRatio';
+import useAspectRatio from '@/src/utils/useAspectRatio';
 import { Image, StyleSheet, View } from 'react-native';
 import ProfileInfo from './ProfileInfo';
 
@@ -14,7 +14,7 @@ export default function HomeCard({
 	const imageLink = images.find((image) => {
 		return image.imageId === imageId;
 	})?.link;
-	const aspectRatio = getAspectRatio(imageLink);
+	const aspectRatio = useAspectRatio(imageLink);
 	return (
 		<View>
 			<Image

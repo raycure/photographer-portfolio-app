@@ -1,4 +1,4 @@
-import { Animated, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import HomeCard from './HomeCard';
 import SwiperButtons from './SwiperButtons';
 import { dummyChallengeData } from '@/src/constants/dummyChallengeData';
@@ -19,12 +19,12 @@ export default function HomeSwiper() {
 	};
 	return (
 		<View style={styles.outerContainer}>
-			<Animated.View style={[styles.card, styles.activeCard]}>
+			<View style={[styles.card, styles.activeCard]}>
 				<HomeCard userId={activeCard.userId} imageId={activeCard.imageId} />
-			</Animated.View>
-			<Animated.View style={[styles.card, styles.nextCard]}>
+			</View>
+			<View style={[styles.card, styles.nextCard]}>
 				<HomeCard userId={nextCard.userId} imageId={nextCard.imageId} />
-			</Animated.View>
+			</View>
 			<View style={styles.buttonsContainer}>
 				<SwiperButtons onPress={onDislikePress} likeButton={false} />
 				<SwiperButtons onPress={onLikePress} />
