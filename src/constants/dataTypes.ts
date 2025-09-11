@@ -1,3 +1,5 @@
+import { UserID } from '../stores/StoreTypes';
+
 type ChallengeDates = {
 	start: string;
 	end: string;
@@ -7,8 +9,8 @@ export type Entry = {
 	userId: string;
 	username: string;
 	name: string;
-	likes: number;
-	imageId?: string;
+	likes: UserID[];
+	imageId: string;
 	rank: [number, number]; // [newRank, oldRank]
 };
 export type ChallengeHistory = {

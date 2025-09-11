@@ -2,6 +2,7 @@ import { ArrowDirection } from '@/src/utils/getArrowDirection';
 import { ReactNode } from 'react';
 import { ColorValue, StyleProp, ViewStyle } from 'react-native';
 import { PhotoSize } from '../UI/UITypes';
+import { Entry } from '@/src/constants/dataTypes';
 
 export type LeaderboardToggleProps = {
 	levelToggle: boolean;
@@ -21,14 +22,6 @@ export type RankIndicatorProps = {
 	tint?: ColorValue;
 };
 
-type Entry = {
-	entryId: string;
-	userId: string;
-	username: string;
-	name: string;
-	likes: number;
-	rank: [number, number]; // [newRank, oldRank]
-};
 export type LeaderboardListItemProps = { entry: Entry };
 
 export type LeaderboardPersonalButtonWrapper = { children: React.ReactNode };

@@ -48,7 +48,7 @@ export default function LeaderboardPersonalButton() {
 			<View style={styles.textContainer}>
 				<Text style={styles.username}>@{entry.username}</Text>
 				<Text style={[styles.likes, { color: colors.accentGreen200 }]}>
-					{entry.likes}
+					{entry.likes.length}
 				</Text>
 			</View>
 			<RankIndicator

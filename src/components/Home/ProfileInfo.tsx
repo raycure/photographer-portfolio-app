@@ -37,9 +37,16 @@ export default function ProfileInfo({
 		</>
 	);
 	return blur ? (
-		<BlurView style={styles.outerContainer}>{innerContent}</BlurView>
+		<BlurView
+			tint='dark'
+			experimentalBlurMethod='dimezisBlurView'
+			intensity={1}
+			style={[styles.outerContainer, style]}
+		>
+			{innerContent}
+		</BlurView>
 	) : (
-		<View style={styles.outerContainer}>{innerContent}</View>
+		<View style={[styles.outerContainer, style]}>{innerContent}</View>
 	);
 }
 const styles = StyleSheet.create({

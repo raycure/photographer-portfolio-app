@@ -30,7 +30,7 @@ export default function LeaderboardListItem({
 							{getTruncatedText(entry.name, 16)}
 						</Text>
 						<Text style={[styles.title, { color: colors.accentGreen200 }]}>
-							{entry.likes}
+							{entry.likes.length}
 						</Text>
 					</View>
 					<Text style={[styles.subtitle, { color: colors.primary200 }]}>

@@ -2,14 +2,23 @@ import { Pressable, StyleSheet } from 'react-native';
 import CustomIcon from '../UI/CustomIcon';
 import { getColorWithOpacity } from '@/src/utils/color';
 import { useColors } from '@/src/hooks/useColors';
-export default function SwiperButtons({ likeButton = true }) {
+export default function SwiperButtons({
+	likeButton = true,
+	onPress,
+}: {
+	likeButton?: boolean;
+	onPress: () => void;
+}) {
 	const colors = useColors();
 	const color = likeButton ? colors.accentRed : colors.tint;
 	const backgroundColor = likeButton
 		? getColorWithOpacity(color, 0.2)
 		: getColorWithOpacity(color, 0.2);
 	return (
-		<Pressable style={[styles.outerContainer, { backgroundColor }]}>
+		<Pressable
+			onPress={onPress}
+			style={[styles.outerContainer, { backgroundColor }]}
+		>
 			<CustomIcon
 				collectionKey={'oct'}
 				color={color}

@@ -2,11 +2,11 @@ import { UserState } from './StoreTypes';
 
 export const UserStoreInitialState: UserState = {
 	personalInfo: {
-		id: '',
-		name: '',
-		username: '',
-		email: '',
-		imageId: '',
+		id: undefined,
+		name: undefined,
+		username: undefined,
+		email: undefined,
+		imageId: undefined,
 		verified: false,
 		premium: false,
 	},

@@ -34,7 +34,7 @@ export default function LeaderboardWinnersBlock() {
 								@{user.username}
 							</Text>
 							<Text style={[styles.likes, { color: colors.accentGreen400 }]}>
-								{user.likes}
+								{user.likes.length}
 							</Text>
 						</View>
 					</View>

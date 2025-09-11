@@ -32,7 +32,7 @@ type ChallengeInfo = {
 	userId?: UserID;
 	imageId?: ImageID;
 	rank: number;
-	likes: number;
+	likes: UserID[];
 };
 export type AttendedChallenges = ChallengeInfo & { saved: boolean };
 
@@ -59,11 +59,11 @@ type UserSocial = {
 };
 
 export type UserPersonalInfo = {
-	id: UserID;
-	name: string;
-	username: string;
-	email: string;
-	imageId: string;
+	id?: UserID;
+	name?: string;
+	username?: string;
+	email?: string;
+	imageId?: string;
 	verified: boolean;
 	premium: boolean;
 };
@@ -94,4 +94,22 @@ export type UserActions = {
 	decreaseQuota: (type: keyof UserState['quotas']) => void;
 	followUser: (id: UserID) => void;
 	unfollowUser: (id: UserID) => void;
+};
+
+type ModalKeys = 'challengeExplanation';
+
+type ChallengeInteractions = {
+	challengeId?: string;
+	challengeDates: { start?: string; end?: string };
+	likedEntries: string[];
+	dislikedEntries: string[];
+};
+export type InteractionState = {
+	modalsInteracted: Record<ModalKeys, boolean>;
+	challengeInteractions: ChallengeInteractions;
+};
+export type InteractionActions = {
+	setModalSeen: (modal: ModalKeys) => void;
+	addLike: (entryId: string) => void;
+	addDislike: (entryId: string) => void;
 };
