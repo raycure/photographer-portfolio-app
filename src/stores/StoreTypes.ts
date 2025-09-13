@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { CustomButtonProps } from '../components/UI/UITypes';
 
 type ModalListItem = {
@@ -13,6 +14,7 @@ export type ModalState = {
 	icon?: React.ReactNode;
 	buttons?: { configuration?: 'row' | 'column'; list: CustomButtonProps[] };
 	list?: ModalListItem[];
+	extra?: ReactNode;
 };
 
 export type ModalActions = {
@@ -95,6 +97,7 @@ export type UserActions = {
 	decreaseQuota: (type: keyof UserState['quotas']) => void;
 	followUser: (id: UserID) => void;
 	unfollowUser: (id: UserID) => void;
+	changeTheme: () => void;
 };
 
 type ModalKeys = 'challengeExplanation';

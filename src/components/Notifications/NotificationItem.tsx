@@ -41,7 +41,7 @@ export default function NotificationItem({
 			style={[
 				styles.outerContainer,
 				{ borderColor: colors.primary700 },
-				!seen && { backgroundColor: colors.primary500 },
+				!seen && { backgroundColor: colors.primary600 },
 			]}
 		>
 			{imageLink ? (

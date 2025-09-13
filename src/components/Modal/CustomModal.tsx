@@ -16,6 +16,7 @@ export default function CustomModal() {
 		icon,
 		buttons,
 		list,
+		extra,
 		closeModal,
 	} = useModalStore();
 	if (!visible) return null;
@@ -56,6 +57,7 @@ export default function CustomModal() {
 						))}
 					</View>
 				)}
+				{extra && extra}
 				{buttons && (
 					<View
 						style={[

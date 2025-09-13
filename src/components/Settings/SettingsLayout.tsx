@@ -16,15 +16,7 @@ export default function SettingsLayout() {
 						{sectionTitle}
 					</Text>
 					{items.map((item, index) => (
-						<SettingsItem
-							key={item.title + index}
-							title={item.title}
-							icon={item.icon}
-							rightContent={item.rightContent && item.rightContent}
-							onPress={item.onPress}
-							tintColor={item.tintColor && item.tintColor}
-							titleColor={item.titleColor && item.titleColor}
-						/>
+						<SettingsItem key={item.title + index} {...item} />
 					))}
 				</View>
 			))}

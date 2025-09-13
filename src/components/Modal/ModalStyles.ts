@@ -24,6 +24,7 @@ export const CustomModalStyles = StyleSheet.create({
 	outerContainer: {
 		paddingBottom: 16,
 		paddingTop: 46,
+		paddingHorizontal: 16,
 		width: '85%',
 		minHeight: 200,
 		borderRadius: 30,

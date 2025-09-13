@@ -129,10 +129,6 @@ export const LineSeperatorStyles = StyleSheet.create({
 	turnedOrientation: { marginVertical: 8, width: 1, flexGrow: 1 },
 });
 
-export const LogoutButtonStyles = StyleSheet.create({
-	text: { fontSize: 18 },
-});
-
 export const SubtitleTitlePairStyles = StyleSheet.create({
 	outerContainer: {},
 	subtitleBig: { fontSize: 22 },

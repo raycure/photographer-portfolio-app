@@ -9,6 +9,7 @@ const initialState: ModalState = {
 	icon: undefined,
 	buttons: { configuration: 'row', list: [] },
 	list: undefined,
+	extra: undefined,
 };
 
 export const useModalStore = create<ModalState & ModalActions>((set) => ({

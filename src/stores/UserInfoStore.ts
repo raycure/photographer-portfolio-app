@@ -78,6 +78,13 @@ export const useUserInfoStore = create<UserActions & UserState>()(
 						),
 					},
 				})),
+			changeTheme: () =>
+				set((state) => ({
+					preferences: {
+						...state.preferences,
+						darkTheme: !state.preferences.darkTheme,
+					},
+				})),
 		}),
 		{
 			name: 'storage',

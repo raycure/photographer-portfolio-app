@@ -7,7 +7,7 @@ export type SettingsItemConfig = {
 	onPress: () => void;
 	rightContent?: {
 		button: boolean;
-		title: string;
+		title?: string;
 	};
 	titleColor?: string;
 	tintColor?: string;

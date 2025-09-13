@@ -32,9 +32,11 @@ export default function SettingsItem({
 			</View>
 			{rightContent?.button && (
 				<View style={styles.innerContainer}>
-					<Text style={[{ color: colors.primary200 }, styles.sideTitle]}>
-						{rightContent?.title}
-					</Text>
+					{rightContent.title && (
+						<Text style={[{ color: colors.primary200 }, styles.sideTitle]}>
+							{rightContent.title}
+						</Text>
+					)}
 					<CustomIcon
 						color={colors.primary200}
 						collectionKey='ion'
