@@ -6,11 +6,16 @@ import { headerStyles } from './ProfileStyles';
 import { useColors } from '@/src/hooks/useColors';
 import { useContext } from 'react';
 import UserContext from '@/src/context/UserContext';
+import CircularPhoto from '../UI/CircularPhoto';
+import { images } from '@/src/constants/dummyImages';
 
 export default function ProfileHeader() {
 	const colors = useColors();
 	const data = useContext(UserContext);
 	const styles = headerStyles;
+	const imageLink = images.find(
+		(image) => image.imageId === data.personalInfo.imageId
+	)?.link;
 	return (
 		<View style={styles.outerContainer}>
 			<View>
@@ -23,12 +28,7 @@ export default function ProfileHeader() {
 						color={colors.accentOrange}
 					/>
 				)}
-				<Image
-					style={styles.profilePicture}
-					source={{
-						uri: 'https://reactnative.dev/img/tiny_logo.png',
-					}}
-				/>
+				<CircularPhoto source={imageLink} size='medium' />
 			</View>
 			<View style={styles.infoContainer}>
 				<Text style={styles.title}>{data.personalInfo.name}</Text>
