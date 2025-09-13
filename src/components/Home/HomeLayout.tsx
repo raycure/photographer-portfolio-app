@@ -1,11 +1,23 @@
-import { StyleSheet } from 'react-native';
+import { Pressable, StyleSheet, Text } from 'react-native';
 import { View } from '../Themed';
-import HomeSwiper from './HomeSwiper';
+import { useRouter } from 'expo-router';
+//import HomeSwiper from './HomeSwiper';
 
 export default function HomeLayout() {
+	const router = useRouter();
 	return (
 		<View style={styles.outerContainer}>
-			<HomeSwiper />
+			{/* <HomeSwiper /> */}
+			<Pressable onPress={() => router.push('/(secure)')}>
+				<Text>login</Text>
+			</Pressable>
+			<Pressable
+				onPress={() => {
+					router.push('/(stack)');
+				}}
+			>
+				<Text>button</Text>
+			</Pressable>
 		</View>
 	);
 }

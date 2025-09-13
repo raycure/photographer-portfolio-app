@@ -5,7 +5,7 @@ import { dummyChallengeData } from '@/src/constants/dummyChallengeData';
 import { dummyChallengeHistory } from '@/src/constants/dummyChallengeHistory';
 import { useLocalSearchParams } from 'expo-router';
 import ProfileInfo from '../Home/ProfileInfo';
-import useAspectRatio from '@/src/utils/useAspectRatio';
+import useAspectRatio from '@/src/hooks/useAspectRatio';
 const windowWidth = Dimensions.get('window').width;
 export default function ImageInfoModal() {
 	const { entryId } = useLocalSearchParams();

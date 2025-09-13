@@ -25,6 +25,7 @@ export type UserID = string;
 export type ImageID = string;
 export type ChallengeID = string;
 export type EntryID = string;
+export type NotificationID = string;
 
 type ChallengeInfo = {
 	challengeId: ChallengeID;

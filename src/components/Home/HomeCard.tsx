@@ -1,6 +1,6 @@
 import { images } from '@/src/constants/dummyImages';
 import { ImageID, UserID } from '@/src/stores/StoreTypes';
-import useAspectRatio from '@/src/utils/useAspectRatio';
+import useAspectRatio from '@/src/hooks/useAspectRatio';
 import { Image, StyleSheet, View } from 'react-native';
 import ProfileInfo from './ProfileInfo';
 
