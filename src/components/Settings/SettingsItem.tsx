@@ -5,6 +5,7 @@ import CustomIcon from '../UI/CustomIcon';
 import { useColors } from '@/src/hooks/useColors';
 import { SettingsItemStyles } from './SettingsStyles';
 import { SettingsItemProps } from './SettingsTypes';
+import ThemeSwitch from './ThemeSwitch';
 
 export default function SettingsItem({
 	icon,
@@ -16,6 +17,9 @@ export default function SettingsItem({
 }: SettingsItemProps) {
 	const colors = useColors();
 	const styles = SettingsItemStyles;
+	const hasButton = rightContent?.button;
+	const hasSwitch = rightContent?.switch;
+	const hasTitle = rightContent?.title;
 	return (
 		<Pressable onPress={onPress} style={({ pressed }) => styles.outerContainer}>
 			<View style={styles.innerContainer}>
@@ -30,19 +34,22 @@ export default function SettingsItem({
 					{title}
 				</Text>
 			</View>
-			{rightContent?.button && (
+			{(hasButton || hasSwitch) && (
 				<View style={styles.innerContainer}>
-					{rightContent.title && (
+					{hasTitle && (
 						<Text style={[{ color: colors.primary200 }, styles.sideTitle]}>
-							{rightContent.title}
+							{hasTitle}
 						</Text>
 					)}
-					<CustomIcon
-						color={colors.primary200}
-						collectionKey='ion'
-						name='chevron-forward'
-						size={26}
-					/>
+					{hasButton && (
+						<CustomIcon
+							color={colors.primary200}
+							collectionKey='ion'
+							name='chevron-forward'
+							size={26}
+						/>
+					)}
+					{hasSwitch && <ThemeSwitch />}
 				</View>
 			)}
 		</Pressable>

@@ -24,9 +24,9 @@ export const SettingsBlocksConfig: () => Record<
 				onPress: () => console.log('test'),
 			},
 			{
-				title: 'Theme',
+				title: 'Dark Theme',
 				icon: { collectionKey: 'fe', name: 'sun' },
-				rightContent: { button: false, title: '' },
+				rightContent: { button: false, switch: true, title: '' },
 				onPress: () => userInfoStore.changeTheme(),
 			},
 		],

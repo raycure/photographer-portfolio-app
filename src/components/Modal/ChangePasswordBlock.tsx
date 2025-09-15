@@ -3,6 +3,7 @@ import InputArea from '../UI/InputArea';
 import CustomIcon from '../UI/CustomIcon';
 import { useState } from 'react';
 import { useForm } from '@/src/hooks/useForm';
+import { useColors } from '@/src/hooks/useColors';
 
 export default function ChangePasswordBlock() {
 	const [passwordSecure, setPasswordSecure] = useState<boolean>(true);
@@ -10,6 +11,7 @@ export default function ChangePasswordBlock() {
 		oldPassword: '',
 		newPassword: '',
 	});
+	const color = useColors();
 	return (
 		<View>
 			<InputArea
@@ -18,6 +20,7 @@ export default function ChangePasswordBlock() {
 				placeholder='Your old password'
 				textContentType='password'
 				onChangeText={(text) => onInputChange(text, 'oldPassword')}
+				containerStyle={{ backgroundColor: color.primary600 }}
 				rightElement={({ color }: { color: any }) => (
 					<Pressable onPress={() => setPasswordSecure(!passwordSecure)}>
 						<CustomIcon
@@ -33,6 +36,7 @@ export default function ChangePasswordBlock() {
 				value={changePasswordData.newPassword}
 				placeholder='Your new password'
 				textContentType='password'
+				containerStyle={{ backgroundColor: color.primary600 }}
 				onChangeText={(text) => onInputChange(text, 'newPassword')}
 				rightElement={({ color }: { color: any }) => (
 					<Pressable onPress={() => setPasswordSecure(!passwordSecure)}>

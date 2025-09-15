@@ -7,6 +7,7 @@ export type SettingsItemConfig = {
 	onPress: () => void;
 	rightContent?: {
 		button: boolean;
+		switch?: boolean;
 		title?: string;
 	};
 	titleColor?: string;
@@ -17,7 +18,7 @@ export type SettingsItemProps = {
 	icon: CustomIconProps;
 	tintColor?: ColorValue;
 	title: string;
-	rightContent?: { button?: boolean; title?: string };
+	rightContent?: { button?: boolean; switch?: boolean; title?: string };
 	titleColor?: ColorValue;
 	onPress: (...args: any[]) => any | (() => void) | null | undefined;
 };

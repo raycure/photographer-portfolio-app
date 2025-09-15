@@ -11,9 +11,10 @@ export default function FloatingActionsContainer() {
 	const userInfoStore = useUserInfoStore();
 	const data = useContext(UserContext);
 	const isPersonal = data.personalInfo.id === userInfoStore.personalInfo.id;
+	const floatingActionsConfig = FloatingActionsConfig();
 	const currentButtons = isPersonal
-		? [...FloatingActionsConfig.general, ...FloatingActionsConfig.personal]
-		: [...FloatingActionsConfig.general, ...FloatingActionsConfig.other];
+		? [...floatingActionsConfig.general, ...floatingActionsConfig.personal]
+		: [...floatingActionsConfig.general, ...floatingActionsConfig.other];
 	const styles = FloatingActionsContainerStyles;
 	return (
 		<View style={styles.outerContainer}>

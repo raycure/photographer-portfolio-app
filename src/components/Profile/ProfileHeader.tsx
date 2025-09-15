@@ -1,4 +1,3 @@
-import { Image } from 'react-native';
 import { Text, View } from '../Themed';
 import CustomIcon from '../UI/CustomIcon';
 import FollowersButton from '../UI/FollowersButton';

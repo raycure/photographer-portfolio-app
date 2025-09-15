@@ -18,6 +18,9 @@ export const dummyUser: UserState = {
 		socialMedia: [
 			{ type: 'instagram', url: 'https://instagram.com/janedoe' },
 			{ type: 'twitter', url: 'https://twitter.com/janedoe' },
+			{ type: 'youtube', url: 'https://twitter.com/janedoe' },
+			{ type: 'discord', url: 'https://twitter.com/janedoe' },
+			{ type: 'linkedin', url: 'https://twitter.com/janedoe' },
 		],
 		followingAccounts: ['user_002', 'user_003', 'user_004'],
 		followerAccounts: [

@@ -29,7 +29,7 @@ export default function CustomModal() {
 			experimentalBlurMethod='dimezisBlurView'
 		>
 			<View
-				style={[styles.outerContainer, { backgroundColor: colors.primary500 }]}
+				style={[styles.outerContainer, { backgroundColor: colors.primary600 }]}
 			>
 				<CloseButton
 					style={!closeButtonActive ? { display: 'none' } : undefined}

@@ -37,7 +37,7 @@ export default function CustomButton({
 					? [{ backgroundColor: backgroundColor }, styles.innerContainer]
 					: disabled
 					? [disabledButtonStyle, styles.innerContainer]
-					: [{ backgroundColor: colors.accentBlue }, styles.innerContainer],
+					: [{ backgroundColor: colors.primary400 }, styles.innerContainer],
 				style,
 			]}
 		>
