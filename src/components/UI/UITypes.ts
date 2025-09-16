@@ -10,6 +10,7 @@ import {
 import { IconCollectionKey, IconNameTypes } from '@/src/constants/iconRegistry';
 import { StyleProps } from 'react-native-reanimated';
 import { UserID } from '@/src/stores/StoreTypes';
+import { Social } from '@/src/constants/socialMediaList';
 export type GenericSizes = 'big' | 'medium' | 'small';
 export type ExtraSizes = 'xl' | 'xs';
 type CommonButtonBase = {
@@ -17,7 +18,7 @@ type CommonButtonBase = {
 	icon?: ((props: { color: string }) => React.ReactNode) | React.ReactNode;
 	backgroundColor?: ColorValue;
 	style?: ViewStyle;
-	outerContainerStyle?: ViewStyle;
+	outerContainerStyle?: ViewStyle | ViewStyle[];
 	textStyle?: TextStyle;
 	disabled?: boolean;
 };
@@ -109,7 +110,7 @@ export type TintedBackgroundProps = BaseTintedBackgroundProps &
 	(WithBlur | WithOpacity);
 
 export type LineSeperatorProps = {
-	style?: StyleProps;
+	style?: ViewStyle;
 	color?: ColorValue;
 	fixOrientation?: boolean;
 };
@@ -123,3 +124,13 @@ export type SubtitleTitlePairProps = {
 };
 export type PhotoSize = GenericSizes | ExtraSizes | undefined;
 export type CircularPhotoProps = { size?: PhotoSize; source?: string };
+
+export type DropdownMenuProps<T> = {
+	backgroundColor?: string;
+	borderColor?: string;
+	setSelectedOption: React.Dispatch<React.SetStateAction<Social | undefined>>;
+	selectedOption?: string;
+	list: T[];
+	getOptionLabel: (item: T) => string;
+	getOptionValue: (item: T) => string;
+};

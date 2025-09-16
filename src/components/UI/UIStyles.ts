@@ -4,11 +4,11 @@ const windowWidth = Dimensions.get('window').width;
 export const CustomButtonStyles = StyleSheet.create({
 	innerContainer: {
 		paddingInline: 40,
-		paddingVertical: 12,
-		borderRadius: 12,
+		paddingVertical: 8,
+		borderRadius: 10,
 		alignItems: 'center',
 	},
-	text: { fontSize: 18, fontWeight: 'bold' },
+	text: { fontSize: 18, fontWeight: '600' },
 	gradientIconContainer: {
 		paddingInline: 10,
 		paddingVertical: 6,
@@ -33,7 +33,6 @@ export const InputAreaStyles = StyleSheet.create({
 		overflow: 'hidden',
 		marginBlock: 4,
 		paddingInline: 14,
-		paddingVertical: 4,
 		borderWidth: 2,
 		width: '100%',
 	},
@@ -157,5 +156,36 @@ export const CircularPhotoStyles = StyleSheet.create({
 	image: {
 		borderRadius: 1000,
 		overflow: 'hidden',
+	},
+});
+
+export const DropdownMenuStyles = StyleSheet.create({
+	outerContainer: {
+		width: 130,
+	},
+	input: {
+		paddingHorizontal: 12,
+		paddingVertical: 8,
+		borderRadius: 8,
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'space-between',
+	},
+	inputText: {
+		fontSize: 16,
+		fontWeight: '500',
+	},
+	dropdown: {
+		position: 'absolute',
+		zIndex: 20,
+		top: 44,
+		width: '100%',
+		borderRadius: 8,
+		overflow: 'hidden',
+	},
+	option: {
+		paddingHorizontal: 12,
+		paddingVertical: 8,
+		borderBottomWidth: 1,
 	},
 });

@@ -16,11 +16,51 @@ export const dummyUser: UserState = {
 	},
 	social: {
 		socialMedia: [
-			{ type: 'instagram', url: 'https://instagram.com/janedoe' },
-			{ type: 'twitter', url: 'https://twitter.com/janedoe' },
-			{ type: 'youtube', url: 'https://twitter.com/janedoe' },
-			{ type: 'discord', url: 'https://twitter.com/janedoe' },
-			{ type: 'linkedin', url: 'https://twitter.com/janedoe' },
+			{
+				social: 'instagram',
+				url: 'https://instagram.com/janedoe',
+				username: 'test3',
+			},
+			{
+				social: 'twitter',
+				url: 'https://twitter.com/janedoe',
+				username: 'test33',
+			},
+			{
+				social: 'youtube',
+				url: 'https://twitter.com/janedoe',
+				username: 'test31',
+			},
+			{
+				social: 'discord',
+				url: 'https://twitter.com/janedoe',
+				username: 'test36',
+			},
+			{
+				social: 'linkedin',
+				url: 'https://twitter.com/janedoe',
+				username: 'test38',
+			},
+			{
+				social: 'facebook',
+				url: 'https://twitter.com/janedoe',
+				username: 'test38',
+			},
+			{
+				social: 'pinterest',
+				url: 'https://twitter.com/janedoe',
+				username: 'test38',
+			},
+			{
+				social: 'spotify',
+				url: 'https://twitter.com/janedoe',
+				username: 'test38',
+			},
+			{
+				social: 'tiktok',
+				url: 'https://twitter.com/janedoe',
+				username: 'test38',
+			},
 		],
 		followingAccounts: ['user_002', 'user_003', 'user_004'],
 		followerAccounts: [
@@ -32,7 +72,7 @@ export const dummyUser: UserState = {
 		],
 	},
 	preferences: {
-		language: 'en',
+		language: 'english',
 		darkTheme: true,
 	},
 	stats: {

@@ -1,7 +1,7 @@
 import { Pressable, View } from 'react-native';
 import CustomIcon from '../UI/CustomIcon';
 
-export default function LinkedAccountsPersonalBlock() {
+export default function LinkedAccountsBlock() {
 	return (
 		<View>
 			<Pressable>

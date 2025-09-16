@@ -1,10 +1,10 @@
 import { useModalStore } from '@/src/stores/ModalStore';
 import { CustomIconProps } from '../UI/UITypes';
-import LinkedAccountsOtherBlock from '../Modal/LinkedAccountsOtherBlock';
+import LinkedAccountsBlock from '../Modal/LinkedAccountsBlock';
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import UserContext from '@/src/context/UserContext';
 import { useContext } from 'react';
-import LinkedAccountsPersonalBlock from '../Modal/LinkedAccountsPersonalBlock';
+import { useRouter } from 'expo-router';
 type FloatingAction = {
 	key: string;
 	icon: CustomIconProps;
@@ -17,6 +17,7 @@ export const FloatingActionsConfig: () => Record<
 	const openModal = useModalStore((state) => state.openModal);
 	const userInfoStore = useUserInfoStore();
 	const data = useContext(UserContext);
+	const router = useRouter();
 	const isPersonal = data.personalInfo.id === userInfoStore.personalInfo.id;
 	return {
 		personal: [
@@ -70,23 +71,12 @@ export const FloatingActionsConfig: () => Record<
 				key: 'link',
 				icon: { collectionKey: 'oct', name: 'link', size: 26 },
 				onPress: () =>
-					openModal({
-						title: 'Associated Accounts',
-						extra: isPersonal ? (
-							<LinkedAccountsPersonalBlock />
-						) : (
-							<LinkedAccountsOtherBlock />
-						),
-						buttons: {
-							list: [
-								{
-									type: 'general',
-									content: 'Save',
-									onPress: () => useModalStore.getState().closeModal(),
-								},
-							],
-						},
-					}),
+					isPersonal
+						? router.push('/(stack)/linkedAccounts')
+						: openModal({
+								title: 'Associated Accounts',
+								extra: <LinkedAccountsBlock />,
+						  }),
 			},
 		],
 	};

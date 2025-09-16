@@ -85,6 +85,22 @@ export const useUserInfoStore = create<UserActions & UserState>()(
 						darkTheme: !state.preferences.darkTheme,
 					},
 				})),
+			addSocialAccount: (account) =>
+				set((state) => ({
+					social: {
+						...state.social,
+						socialMedia: [...state.social.socialMedia, account],
+					},
+				})),
+			deleteSocialAccount: (account) =>
+				set((state) => ({
+					social: {
+						...state.social,
+						socialMedia: state.social.socialMedia.filter(
+							(oldSocial) => oldSocial.social !== account.social
+						),
+					},
+				})),
 		}),
 		{
 			name: 'storage',

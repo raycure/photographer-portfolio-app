@@ -17,14 +17,22 @@ export const dummyUsers: UserState[] = [
 		},
 		social: {
 			socialMedia: [
-				{ type: 'instagram', url: 'https://instagram.com/naturelover' },
-				{ type: 'twitter', url: 'https://twitter.com/naturelover' },
+				{
+					social: 'instagram',
+					url: 'https://instagram.com/naturelover',
+					username: 'gsfjeh',
+				},
+				{
+					social: 'twitter',
+					url: 'https://twitter.com/naturelover',
+					username: 'gsfjeh',
+				},
 			],
 			followingAccounts: ['user_002', 'user_003'],
 			followerAccounts: ['user_005', 'user_006'],
 		},
 		preferences: {
-			language: 'en',
+			language: 'english',
 			darkTheme: true,
 		},
 		stats: {
@@ -111,7 +119,11 @@ export const dummyUsers: UserState[] = [
 		},
 		social: {
 			socialMedia: [
-				{ type: 'facebook', url: 'https://facebook.com/cityexplorer' },
+				{
+					social: 'facebook',
+					url: 'https://facebook.com/cityexplorer',
+					username: 'gsfjeh',
+				},
 			],
 			followingAccounts: ['user_001', 'user_004'],
 			followerAccounts: ['user_007'],
@@ -166,13 +178,17 @@ export const dummyUsers: UserState[] = [
 		},
 		social: {
 			socialMedia: [
-				{ type: 'instagram', url: 'https://instagram.com/foodiequeen' },
+				{
+					social: 'instagram',
+					url: 'https://instagram.com/foodiequeen',
+					username: 'gsfjeh',
+				},
 			],
 			followingAccounts: ['user_005', 'user_006'],
 			followerAccounts: ['user_001', 'user_004'],
 		},
 		preferences: {
-			language: 'en',
+			language: 'english',
 			darkTheme: false,
 		},
 		stats: {
@@ -241,8 +257,16 @@ export const dummyUsers: UserState[] = [
 		},
 		social: {
 			socialMedia: [
-				{ type: 'linkedin', url: 'https://linkedin.com/in/techguru' },
-				{ type: 'twitter', url: 'https://twitter.com/techguru' },
+				{
+					social: 'linkedin',
+					url: 'https://linkedin.com/in/techguru',
+					username: 'gsfjeh',
+				},
+				{
+					social: 'twitter',
+					url: 'https://twitter.com/techguru',
+					username: 'gsfjeh',
+				},
 			],
 			followingAccounts: ['user_003'],
 			followerAccounts: ['user_002', 'user_003'],
@@ -297,7 +321,11 @@ export const dummyUsers: UserState[] = [
 		},
 		social: {
 			socialMedia: [
-				{ type: 'instagram', url: 'https://instagram.com/wildadventure' },
+				{
+					social: 'instagram',
+					url: 'https://instagram.com/wildadventure',
+					username: 'gsfjeh',
+				},
 			],
 			followingAccounts: ['user_006'],
 			followerAccounts: ['user_001'],
@@ -352,14 +380,22 @@ export const dummyUsers: UserState[] = [
 		},
 		social: {
 			socialMedia: [
-				{ type: 'instagram', url: 'https://instagram.com/janedoe' },
-				{ type: 'twitter', url: 'https://twitter.com/janedoe' },
+				{
+					social: 'instagram',
+					url: 'https://instagram.com/janedoe',
+					username: 'gsfjeh',
+				},
+				{
+					social: 'twitter',
+					url: 'https://twitter.com/janedoe',
+					username: 'gsfjeh',
+				},
 			],
 			followingAccounts: ['user_002', 'user_003', 'user_004'],
 			followerAccounts: ['user_001', 'user_003', 'user_004', 'user_005'],
 		},
 		preferences: {
-			language: 'en',
+			language: 'english',
 			darkTheme: true,
 		},
 		stats: {

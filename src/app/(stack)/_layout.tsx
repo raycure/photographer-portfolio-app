@@ -3,6 +3,7 @@ import { Stack } from 'expo-router';
 import CustomHeader from '@/src/components/UI/CustomHeader';
 import ChallengeHistoryButton from '@/src/components/ChallengeHistory/ChallengeHistoryHeaderButton';
 import { ConnectionsHeader } from '@/src/components/Connections/ConnectionsHeader';
+import LinkedAccountsHeader from '@/src/components/LinkedAccounts/LinkedAccountsHeader';
 
 export default function StackLayout() {
 	return (
@@ -43,9 +44,18 @@ export default function StackLayout() {
 				name='imageInfo'
 				options={{
 					title: 'Image Info',
-					//headerShown: false,
+					headerShown: false,
 					presentation: 'transparentModal',
 					contentStyle: { backgroundColor: 'transparent' },
+				}}
+			/>
+			<Stack.Screen
+				name='linkedAccounts'
+				options={{
+					title: 'Linked Accounts',
+					header: () => (
+						<CustomHeader rightElement={<LinkedAccountsHeader />} />
+					),
 				}}
 			/>
 		</Stack>

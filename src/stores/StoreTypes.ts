@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { CustomButtonProps } from '../components/UI/UITypes';
+import { Social } from '../constants/socialMediaList';
 
 type ModalListItem = {
 	icon?: React.ReactNode;
@@ -56,7 +57,7 @@ type UserQuotas = {
 };
 
 type UserSocial = {
-	socialMedia: { type: string; url: string }[];
+	socialMedia: { social: Social; url: string; username: string }[];
 	followingAccounts: UserID[];
 	followerAccounts: UserID[];
 };
@@ -98,6 +99,12 @@ export type UserActions = {
 	followUser: (id: UserID) => void;
 	unfollowUser: (id: UserID) => void;
 	changeTheme: () => void;
+	addSocialAccount: (account: {
+		social: Social;
+		url: string;
+		username: string;
+	}) => void;
+	deleteSocialAccount: (account: { social: Social }) => void;
 };
 
 type ModalKeys = 'challengeExplanation';
