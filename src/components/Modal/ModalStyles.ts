@@ -26,7 +26,7 @@ export const CustomModalStyles = StyleSheet.create({
 		paddingTop: 46,
 		paddingHorizontal: 20,
 		width: '85%',
-		minHeight: 200,
+		minHeight: 220,
 		borderRadius: 30,
 		justifyContent: 'space-evenly',
 		alignItems: 'center',
@@ -41,6 +41,29 @@ export const CustomModalStyles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
+	columnButtonContainer: {
+		flexDirection: 'column',
+		alignItems: 'center',
+		paddingHorizontal: 20,
+	},
+	stretchedButton: { flex: 1 },
 });
 
 export const ModalWrapperStyles = StyleSheet.create({});
+
+export const LinkAccountBlockStyles = StyleSheet.create({
+	innerContainer: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		gap: 12,
+		marginBottom: 6,
+	},
+	buttonContainer: {
+		justifyContent: 'center',
+		flexDirection: 'row',
+		gap: 12,
+		bottom: -20,
+	},
+	usernameInput: { width: 0, flexGrow: 1 },
+	text: { fontSize: 16 },
+});

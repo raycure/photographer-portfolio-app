@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import InputArea from '../UI/InputArea';
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import { Social, socialMediaList } from '@/src/constants/socialMediaList';
@@ -8,6 +8,7 @@ import { useForm } from '@/src/hooks/useForm';
 import CustomButton from '../UI/CustomButton';
 import { useModalStore } from '@/src/stores/ModalStore';
 import { isValidUrl } from '@/src/utils/isValidUrl';
+import { LinkAccountBlockStyles } from './ModalStyles';
 
 export default function LinkAccountBlock() {
 	const [selectedSocial, setSelectedSocial] = useState<Social | undefined>();
@@ -24,7 +25,7 @@ export default function LinkAccountBlock() {
 	const socialTitle = socialMediaList.find(
 		(account) => selectedSocial === account.social
 	)?.title;
-
+	const styles = LinkAccountBlockStyles;
 	return (
 		<View>
 			<View style={styles.innerContainer}>
@@ -83,19 +84,3 @@ export default function LinkAccountBlock() {
 		</View>
 	);
 }
-const styles = StyleSheet.create({
-	innerContainer: {
-		flexDirection: 'row',
-		alignItems: 'center',
-		gap: 12,
-		marginBottom: 6,
-	},
-	buttonContainer: {
-		justifyContent: 'center',
-		flexDirection: 'row',
-		gap: 12,
-		bottom: -20,
-	},
-	usernameInput: { width: 0, flexGrow: 1 },
-	text: { fontSize: 16 },
-});

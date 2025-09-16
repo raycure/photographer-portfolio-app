@@ -67,17 +67,29 @@ export const FloatingActionsConfig: () => Record<
 				},
 				onPress: () => console.log('test'),
 			},
-			{
-				key: 'link',
-				icon: { collectionKey: 'oct', name: 'link', size: 26 },
-				onPress: () =>
-					isPersonal
-						? router.push('/(stack)/linkedAccounts')
-						: openModal({
-								title: 'Associated Accounts',
-								extra: <LinkedAccountsBlock />,
-						  }),
-			},
+			...(isPersonal || data.social.socialMedia.length > 0
+				? [
+						{
+							key: 'link',
+							icon: {
+								collectionKey: 'oct',
+								name: 'link',
+								size: 26,
+							} as CustomIconProps,
+							onPress: () =>
+								isPersonal
+									? router.push('/(stack)/linkedAccounts')
+									: openModal({
+											title: 'Associated Accounts',
+											extra: (
+												<LinkedAccountsBlock
+													userId={data.personalInfo.id ?? ''}
+												/>
+											),
+									  }),
+						},
+				  ]
+				: []),
 		],
 	};
 };

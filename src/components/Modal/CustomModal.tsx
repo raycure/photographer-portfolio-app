@@ -58,15 +58,12 @@ export default function CustomModal() {
 					</View>
 				)}
 				{extra && extra}
-				{buttons && (
+				{buttons?.list && buttons?.list.length > 0 && (
 					<View
 						style={[
 							styles.buttonContainer,
-							buttons?.configuration === 'column' && {
-								flexDirection: 'column',
-								alignItems: 'center',
-								paddingHorizontal: 20,
-							},
+							buttons?.configuration === 'column' &&
+								styles.columnButtonContainer,
 						]}
 					>
 						{buttons.list?.map((buttonProps, index) => (
@@ -76,7 +73,7 @@ export default function CustomModal() {
 								outerContainerStyle={
 									buttons?.configuration !== 'column' &&
 									buttonProps.type === 'stretched'
-										? { flex: 1 }
+										? styles.stretchedButton
 										: {}
 								}
 							/>
