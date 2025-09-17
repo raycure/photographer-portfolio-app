@@ -1,5 +1,5 @@
 import { UserID } from '@/src/stores/StoreTypes';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import DropdownMenu from '../UI/DropdownMenu';
 import { useEffect, useState } from 'react';
 import InputArea from '../UI/InputArea';
@@ -9,6 +9,7 @@ import { useModalStore } from '@/src/stores/ModalStore';
 import CustomButton from '../UI/CustomButton';
 import { ReportReason } from './ModalTypes';
 import { reportReasons } from '@/src/constants/reportReasons';
+import { ReportAccountStyles } from './ModalStyles';
 
 export default function ReportAccount({ userId }: { userId: UserID }) {
 	const [selectedOption, setSelectedOption] = useState<
@@ -30,6 +31,7 @@ export default function ReportAccount({ userId }: { userId: UserID }) {
 	}, [selectedOption]);
 
 	const colors = useColors();
+	const styles = ReportAccountStyles;
 	return (
 		<View>
 			<DropdownMenu<ReportReason>
@@ -69,6 +71,3 @@ export default function ReportAccount({ userId }: { userId: UserID }) {
 		</View>
 	);
 }
-const styles = StyleSheet.create({
-	buttonContainer: { flexDirection: 'row', justifyContent: 'center', gap: 16 },
-});

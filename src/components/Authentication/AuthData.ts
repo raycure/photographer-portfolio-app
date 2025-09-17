@@ -12,8 +12,8 @@ export const authFormInputData: AuthInputDataTypes = {
 	},
 	username: {
 		leftIcon: {
-			collectionKey: 'fa6',
-			name: 'user-group',
+			collectionKey: 'fe',
+			name: 'at-sign',
 		},
 		placeholder: 'Enter your username',
 		title: 'Username',

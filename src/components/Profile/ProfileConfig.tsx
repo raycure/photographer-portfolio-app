@@ -34,7 +34,7 @@ export const FloatingActionsConfig: () => Record<
 					name: 'pencil',
 					size: 26,
 				},
-				onPress: () => router.push('/(stack)/editAccount'),
+				onPress: () => router.push('/(stack)/editProfile'),
 			},
 		],
 		other: [

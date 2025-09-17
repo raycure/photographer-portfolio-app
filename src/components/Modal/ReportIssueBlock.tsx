@@ -1,6 +1,5 @@
 import { View } from 'react-native';
 import InputArea from '../UI/InputArea';
-import CustomIcon from '../UI/CustomIcon';
 import { useState } from 'react';
 import { useColors } from '@/src/hooks/useColors';
 type Issue = {

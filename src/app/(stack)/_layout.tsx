@@ -59,9 +59,9 @@ export default function StackLayout() {
 				}}
 			/>
 			<Stack.Screen
-				name='editAccount'
+				name='editProfile'
 				options={{
-					title: 'Edit Account',
+					title: 'Edit Profile',
 				}}
 			/>
 		</Stack>

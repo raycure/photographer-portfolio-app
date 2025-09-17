@@ -72,3 +72,7 @@ export const LinkedAccountsBlockStyles = StyleSheet.create({
 	lineSeperator: { marginVertical: 0 },
 	outerContainer: { width: '100%' },
 });
+
+export const ReportAccountStyles = StyleSheet.create({
+	buttonContainer: { flexDirection: 'row', justifyContent: 'center', gap: 16 },
+});
