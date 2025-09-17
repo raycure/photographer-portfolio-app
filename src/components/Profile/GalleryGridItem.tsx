@@ -1,10 +1,11 @@
 import { AttendedChallenges } from '@/src/stores/StoreTypes';
-import { Image, Pressable } from 'react-native';
+import { Pressable } from 'react-native';
 import CustomIcon from '../UI/CustomIcon';
 import { images } from '@/src/constants/dummyImages';
 import { useColors } from '@/src/hooks/useColors';
 import { GalleryGridItemStyles } from './ProfileStyles';
 import { useRouter } from 'expo-router';
+import { Image } from 'expo-image';
 
 export default function GalleryGridItem({
 	data,
@@ -40,7 +41,7 @@ export default function GalleryGridItem({
 		return image.imageId === data?.imageId;
 	})?.link;
 	const onImagePress = () => {
-		router.push({
+		router.navigate({
 			pathname: '/(stack)/imageInfo',
 			params: { entryId: data.entryId },
 		});
@@ -55,6 +56,7 @@ export default function GalleryGridItem({
 					uri: imageLink,
 				}}
 				style={styles.image}
+				contentFit='cover'
 			/>
 		</Pressable>
 	);

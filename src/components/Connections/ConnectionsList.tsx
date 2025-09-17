@@ -11,7 +11,7 @@ export default function ConnectionsList({ data }: { data?: UserState[] }) {
 			renderItem={({ item }) => (
 				<ConnectionsListItem userpresonalInfo={item.personalInfo} />
 			)}
-			keyExtractor={(item) => item.personalInfo.username}
+			keyExtractor={(item) => item.personalInfo.username!}
 			ListFooterComponent={<View style={styles.listFooter} />}
 		/>
 	);

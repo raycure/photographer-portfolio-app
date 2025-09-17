@@ -15,16 +15,16 @@ export default function ConnectionsListItem({
 	const colors = useColors();
 	const userInfoStore = useUserInfoStore();
 	const followingIds = userInfoStore.social.followingAccounts;
-	const following = followingIds.includes(userpresonalInfo.id);
+	const following = followingIds.includes(userpresonalInfo.id!);
 	const styles = ConnectionsListItemStyles;
 	const image = images.find((image) => {
 		return image.imageId === userpresonalInfo.imageId;
 	})?.link;
 	const onButtonPress = () => {
 		if (following) {
-			userInfoStore.unfollowUser(userpresonalInfo.id);
+			userInfoStore.unfollowUser(userpresonalInfo.id!);
 		} else {
-			userInfoStore.followUser(userpresonalInfo.id);
+			userInfoStore.followUser(userpresonalInfo.id!);
 		}
 	};
 	return (

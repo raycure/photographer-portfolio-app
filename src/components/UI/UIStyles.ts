@@ -157,6 +157,7 @@ export const CircularPhotoStyles = StyleSheet.create({
 		borderRadius: 1000,
 		overflow: 'hidden',
 	},
+	fakeUser: { alignItems: 'center', justifyContent: 'center' },
 });
 
 export const DropdownMenuStyles = StyleSheet.create({

@@ -1,29 +1,61 @@
 import { useColors } from '@/src/hooks/useColors';
-import { Image } from 'react-native';
+import { Dimensions, Image, View } from 'react-native';
 import { CircularPhotoStyles } from './UIStyles';
 import { CircularPhotoProps } from './UITypes';
-
+import CustomIcon from './CustomIcon';
+const windowWidth = Dimensions.get('screen').width;
 export default function CircularPhoto({ size, source }: CircularPhotoProps) {
 	const colors = useColors();
 	const styles = CircularPhotoStyles;
+	const sizeBasedStyle =
+		size === 'big'
+			? styles.imageBig
+			: size === 'medium'
+			? styles.imageMedium
+			: size === 'small'
+			? styles.imageSmall
+			: size === 'xl'
+			? styles.imageXL
+			: styles.imageXS;
+
+	const isValidSource = typeof source === 'string' && source.trim().length > 0;
+	if (isValidSource) {
+		return (
+			<Image
+				source={{ uri: source }}
+				style={[
+					sizeBasedStyle,
+					styles.image,
+					{ borderColor: colors.primary600 },
+				]}
+			/>
+		);
+	}
 	return (
-		<Image
-			source={{
-				uri: source, //	uri: source ? source : 'https://reactnative.dev/img/tiny_logo.png',
-			}}
+		<View
 			style={[
-				size === 'big'
-					? styles.imageBig
-					: size === 'medium'
-					? styles.imageMedium
-					: size === 'small'
-					? styles.imageSmall
-					: size === 'xl'
-					? styles.imageXL
-					: styles.imageXS,
+				sizeBasedStyle,
 				styles.image,
-				{ borderColor: colors.primary600 },
+				styles.fakeUser,
+				{ borderColor: colors.primary600, backgroundColor: colors.gray600 },
 			]}
-		/>
+		>
+			<CustomIcon
+				size={
+					size === 'big'
+						? (windowWidth * 3) / 9
+						: size === 'medium'
+						? 68
+						: size === 'small'
+						? 58
+						: size === 'xl'
+						? (windowWidth * 4) / 9
+						: 48
+				}
+				name='user-circle'
+				collectionKey='fa'
+				color={colors.gray300}
+			/>
+		</View>
 	);
 }

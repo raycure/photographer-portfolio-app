@@ -11,6 +11,7 @@ import { IconCollectionKey, IconNameTypes } from '@/src/constants/iconRegistry';
 import { StyleProps } from 'react-native-reanimated';
 import { UserID } from '@/src/stores/StoreTypes';
 import { Social } from '@/src/constants/socialMediaList';
+import { ReactNode } from 'react';
 export type GenericSizes = 'big' | 'medium' | 'small';
 export type ExtraSizes = 'xl' | 'xs';
 type CommonButtonBase = {
@@ -124,3 +125,4 @@ export type SubtitleTitlePairProps = {
 };
 export type PhotoSize = GenericSizes | ExtraSizes | undefined;
 export type CircularPhotoProps = { size?: PhotoSize; source?: string };
+export type InputAreaParentProps = { children: ReactNode; title: string };

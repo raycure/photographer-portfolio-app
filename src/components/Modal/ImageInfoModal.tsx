@@ -22,7 +22,7 @@ export default function ImageInfoModal() {
 	)?.link;
 	const aspectRatio = useAspectRatio(imageLink);
 	return (
-		<BlurView
+		<View
 			style={styles.outerContainer}
 			//tint='dark'
 			//experimentalBlurMethod='dimezisBlurView'
@@ -38,16 +38,17 @@ export default function ImageInfoModal() {
 				<ProfileInfo userId={data?.userId} />
 				<Text>a</Text>
 			</View>
-		</BlurView>
+		</View>
 	);
 }
 const styles = StyleSheet.create({
 	outerContainer: {
-		flex: 1,
+		// flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center',
 		gap: 16,
 		padding: 16,
+		backgroundColor: 'transparent',
 	},
 	innerContainer: {
 		flexDirection: 'row',

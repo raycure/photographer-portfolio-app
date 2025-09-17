@@ -6,7 +6,26 @@ import { UserID } from '@/src/stores/StoreTypes';
 import FollowersButton from '../UI/FollowersButton';
 import { BlurView } from 'expo-blur';
 import { useColors } from '@/src/hooks/useColors';
+import { PropsWithChildren } from 'react';
 
+const ParentView = ({
+	blur,
+	style,
+	children,
+}: PropsWithChildren<{ blur: boolean; style?: ViewStyle }>) => {
+	if (blur)
+		return (
+			<BlurView
+				tint='dark'
+				experimentalBlurMethod='none'
+				intensity={50}
+				style={[styles.outerContainer, style]}
+			>
+				{children}
+			</BlurView>
+		);
+	return <View style={[styles.outerContainer, style]}>{children}</View>;
+};
 export default function ProfileInfo({
 	userId,
 	blur = false,
@@ -21,32 +40,21 @@ export default function ProfileInfo({
 		return user.personalInfo.id === userId;
 	});
 	const profilePic = images.find((image) => {
-		return image.imageId === user?.personalInfo.imageId;
+		return image.imageId === user?.personalInfo?.imageId;
 	})?.link;
-	const innerContent = (
-		<>
+
+	return (
+		<ParentView blur={blur} style={style}>
 			<CircularPhoto size='xs' source={profilePic} />
 			<View style={styles.innerConatiner}>
 				<Text style={[styles.title, { color: colors.tint }]}>
-					{user?.personalInfo.name}
+					{user?.personalInfo?.name}
 				</Text>
 				<View style={styles.buttonContainer}>
-					<FollowersButton size='small' userId={user?.personalInfo.id} />
+					<FollowersButton size='small' userId={user?.personalInfo?.id} />
 				</View>
 			</View>
-		</>
-	);
-	return blur ? (
-		<BlurView
-			tint='dark'
-			experimentalBlurMethod='dimezisBlurView'
-			intensity={1}
-			style={[styles.outerContainer, style]}
-		>
-			{innerContent}
-		</BlurView>
-	) : (
-		<View style={[styles.outerContainer, style]}>{innerContent}</View>
+		</ParentView>
 	);
 }
 const styles = StyleSheet.create({

@@ -46,6 +46,7 @@ export default function StackLayout() {
 					title: 'Image Info',
 					headerShown: false,
 					presentation: 'transparentModal',
+					animation: 'fade',
 					contentStyle: { backgroundColor: 'transparent' },
 				}}
 			/>

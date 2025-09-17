@@ -3,9 +3,23 @@ import CustomIcon from '../UI/CustomIcon';
 import { socialMediaList } from '@/src/constants/socialMediaList';
 import { useColors } from '@/src/hooks/useColors';
 import { LinkedAccountListItemStyles } from './LinkedAccountsStyles';
-import { LinkedAccountListItemProps } from './LinkedAccountsTypes';
+import {
+	LinkedAccountListItemProps,
+	ParentViewProps,
+} from './LinkedAccountsTypes';
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 
+const styles = LinkedAccountListItemStyles;
+const ParentView = ({ children, onPress, data }: ParentViewProps) => {
+	if (data.isPersonal) {
+		return <View style={styles.outerContainer}>{children}</View>;
+	}
+	return (
+		<Pressable onPress={() => onPress(data.url)} style={styles.outerContainer}>
+			{children}
+		</Pressable>
+	);
+};
 export default function LinkedAccountListItem({
 	data,
 }: LinkedAccountListItemProps) {
@@ -17,9 +31,16 @@ export default function LinkedAccountListItem({
 	const onDeletePressed = () => {
 		userInfoStore.deleteSocialAccount({ social: data.social });
 	};
-	const styles = LinkedAccountListItemStyles;
-	const innerContent = (
-		<>
+	const onLinkPress = async (url: string) => {
+		const supported = await Linking.canOpenURL(url);
+		if (supported) {
+			await Linking.openURL(url);
+		} else {
+			alert("Don't know how to open URL: " + url);
+		}
+	};
+	return (
+		<ParentView onPress={onLinkPress} data={data}>
 			<CustomIcon size={40} svg={icon} />
 			<Text style={[styles.text, { color: colors.tint }]}>
 				@{data.username}
@@ -34,25 +55,6 @@ export default function LinkedAccountListItem({
 					/>
 				</Pressable>
 			)}
-		</>
-	);
-	const onLinkPress = async (url: string) => {
-		const supported = await Linking.canOpenURL(url);
-		if (supported) {
-			await Linking.openURL(url);
-		} else {
-			alert("Don't know how to open URL: " + url);
-		}
-	};
-
-	return data.isPersonal ? (
-		<View style={styles.outerContainer}>{innerContent}</View>
-	) : (
-		<Pressable
-			onPress={() => onLinkPress(data.url)}
-			style={styles.outerContainer}
-		>
-			{innerContent}
-		</Pressable>
+		</ParentView>
 	);
 }

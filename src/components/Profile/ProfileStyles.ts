@@ -34,7 +34,7 @@ export const GalleryGridItemStyles = StyleSheet.create({
 		height: ((windowWidth - 2) * 4) / 9,
 		margin: 'auto',
 	},
-	image: { resizeMode: 'cover', flex: 1 },
+	image: { flex: 1 },
 });
 
 export const ProfileStatisticsStyles = StyleSheet.create({

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import InputArea from '../UI/InputArea';
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
@@ -18,6 +18,11 @@ export default function LinkAccountBlock() {
 		url: '',
 	});
 	const userInfoStore = useUserInfoStore();
+	useEffect(() => {
+		if (selectedSocial) {
+			onInputChange(selectedSocial, 'social');
+		}
+	}, [selectedSocial]);
 	const notAddedSocialsList = socialMediaList.filter((account) => {
 		const userSocials = userInfoStore.social.socialMedia;
 		return !userSocials.find((social) => social.social === account.social);
@@ -71,7 +76,6 @@ export default function LinkAccountBlock() {
 						)
 					}
 					onPress={() => {
-						if (!socialFormData.social) return;
 						userInfoStore.addSocialAccount(
 							socialFormData as {
 								social: Social;
