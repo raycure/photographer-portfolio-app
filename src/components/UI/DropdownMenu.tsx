@@ -1,11 +1,22 @@
-import { useColors } from '@/src/hooks/useColors';
-import { useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { DropdownMenuProps } from './UITypes';
 import { DropdownMenuStyles } from './UIStyles';
+import { useState } from 'react';
+import { useColors } from '@/src/hooks/useColors';
 import CustomIcon from './CustomIcon';
 
-export default function DropdownMenu<T>({
+interface DropdownMenuProps<T, V = T> {
+	backgroundColor?: string;
+	borderColor?: string;
+	setSelectedOption: (option: V) => void;
+	selectedOption?: string;
+	list: T[];
+	getOptionValue: (item: T) => V;
+	getOptionLabel: (item: T) => string;
+	width?: number;
+	title: string;
+}
+
+export default function DropdownMenu<T, V = T>({
 	backgroundColor,
 	borderColor,
 	setSelectedOption,
@@ -13,12 +24,15 @@ export default function DropdownMenu<T>({
 	list,
 	getOptionValue,
 	getOptionLabel,
-}: DropdownMenuProps<T>) {
+	width,
+	title,
+}: DropdownMenuProps<T, V>) {
 	const colors = useColors();
 	const [listOpen, setListOpen] = useState(false);
 	const styles = DropdownMenuStyles;
+
 	return (
-		<View style={styles.outerContainer}>
+		<View style={[styles.outerContainer, width ? { width: width } : undefined]}>
 			<TouchableOpacity
 				style={[
 					styles.input,
@@ -27,7 +41,7 @@ export default function DropdownMenu<T>({
 				onPress={() => setListOpen(!listOpen)}
 			>
 				<Text style={[styles.inputText, { color: colors.tint }]}>
-					{selectedOption || 'Account'}
+					{selectedOption || title}
 				</Text>
 				<CustomIcon
 					size={24}

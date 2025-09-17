@@ -1,6 +1,6 @@
 import { useForm } from '@/src/hooks/useForm';
 import { useState } from 'react';
-import { Pressable, StyleSheet } from 'react-native';
+import { Pressable } from 'react-native';
 import InputArea from '../UI/InputArea';
 import { Text, View } from '../Themed';
 import CustomIcon from '../UI/CustomIcon';

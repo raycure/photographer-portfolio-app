@@ -124,13 +124,3 @@ export type SubtitleTitlePairProps = {
 };
 export type PhotoSize = GenericSizes | ExtraSizes | undefined;
 export type CircularPhotoProps = { size?: PhotoSize; source?: string };
-
-export type DropdownMenuProps<T> = {
-	backgroundColor?: string;
-	borderColor?: string;
-	setSelectedOption: React.Dispatch<React.SetStateAction<Social | undefined>>;
-	selectedOption?: string;
-	list: T[];
-	getOptionLabel: (item: T) => string;
-	getOptionValue: (item: T) => string;
-};

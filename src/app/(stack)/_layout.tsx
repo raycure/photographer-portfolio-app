@@ -58,6 +58,12 @@ export default function StackLayout() {
 					),
 				}}
 			/>
+			<Stack.Screen
+				name='editAccount'
+				options={{
+					title: 'Edit Account',
+				}}
+			/>
 		</Stack>
 	);
 }

@@ -62,8 +62,13 @@ export const LinkAccountBlockStyles = StyleSheet.create({
 		justifyContent: 'center',
 		flexDirection: 'row',
 		gap: 12,
-		bottom: -20,
+		margin: 6,
 	},
 	usernameInput: { width: 0, flexGrow: 1 },
 	text: { fontSize: 16 },
+});
+
+export const LinkedAccountsBlockStyles = StyleSheet.create({
+	lineSeperator: { marginVertical: 0 },
+	outerContainer: { width: '100%' },
 });

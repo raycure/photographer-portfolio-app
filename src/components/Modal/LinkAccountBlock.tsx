@@ -35,6 +35,7 @@ export default function LinkAccountBlock() {
 					setSelectedOption={setSelectedSocial}
 					getOptionValue={(item) => item.social}
 					getOptionLabel={(item) => item.title}
+					title='Account'
 				/>
 				<InputArea
 					placeholder='username'

@@ -5,6 +5,7 @@ import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import UserContext from '@/src/context/UserContext';
 import { useContext } from 'react';
 import { useRouter } from 'expo-router';
+import ReportAccount from '../Modal/ReportAccount';
 type FloatingAction = {
 	key: string;
 	icon: CustomIconProps;
@@ -33,19 +34,10 @@ export const FloatingActionsConfig: () => Record<
 					name: 'pencil',
 					size: 26,
 				},
-				onPress: () => console.log('test'),
+				onPress: () => router.push('/(stack)/editAccount'),
 			},
 		],
 		other: [
-			{
-				key: 'block',
-				icon: {
-					collectionKey: 'fa6',
-					name: 'exclamation',
-					size: 26,
-				},
-				onPress: () => console.log('test'),
-			},
 			{
 				key: 'follow',
 				icon: {
@@ -54,7 +46,20 @@ export const FloatingActionsConfig: () => Record<
 					size: 26,
 					style: { right: -2 },
 				},
-				onPress: () => console.log('test'),
+				onPress: () => userInfoStore.followUser(data.personalInfo.id!),
+			},
+			{
+				key: 'report',
+				icon: {
+					collectionKey: 'fa6',
+					name: 'exclamation',
+					size: 26,
+				},
+				onPress: () =>
+					openModal({
+						title: 'Report Account',
+						extra: <ReportAccount userId={data.personalInfo.id ?? ''} />,
+					}),
 			},
 		],
 		general: [
@@ -65,7 +70,7 @@ export const FloatingActionsConfig: () => Record<
 					name: 'share-social-outline',
 					style: { left: -2 },
 				},
-				onPress: () => console.log('test'),
+				onPress: () => console.log(data.personalInfo.id),
 			},
 			...(isPersonal || data.social.socialMedia.length > 0
 				? [
