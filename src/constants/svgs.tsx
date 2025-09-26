@@ -6,6 +6,7 @@ import Svg, {
 	G,
 	Path,
 	RadialGradient,
+	Rect,
 	Stop,
 	SvgProps,
 } from 'react-native-svg';
@@ -23,6 +24,7 @@ export const StarSVG = (props: SvgProps) => (
 		/>
 	</Svg>
 );
+
 export const TrophySVG = (props: SvgProps) => (
 	<Svg
 		//xmlns="http://www.w3.org/2000/svg"
@@ -154,6 +156,7 @@ export const Badge3SVG = (props: SvgProps) => (
 		/>
 	</Svg>
 );
+
 export const HomeSVG = (props: SvgProps) => (
 	<Svg className='icon glyph' viewBox='0 0 24 24' {...props}>
 		<Path d='M21.71 12.71a1 1 0 0 1-1.42 0l-.29-.29v7.88a1.77 1.77 0 0 1-1.83 1.7H16a1 1 0 0 1-1-1v-5.9a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1V21a1 1 0 0 1-1 1H5.83A1.77 1.77 0 0 1 4 20.3v-7.88l-.29.29a1 1 0 0 1-1.42 0 1 1 0 0 1 0-1.42l9-9a1 1 0 0 1 1.42 0l9 9a1 1 0 0 1 0 1.42Z' />
@@ -244,6 +247,7 @@ export const UserSVG = (props: SvgProps) => (
 		</G>
 	</Svg>
 );
+
 export const BellSVG = (props: SvgProps) => (
 	<Svg viewBox='0 0 632 696' fill='none' {...props}>
 		<Path
@@ -267,6 +271,7 @@ export const BellOSVG = ({
 		/>
 	</Svg>
 );
+
 export const BellNSVG = (props: SvgProps) => (
 	<Svg viewBox='0 0 632 692' fill='none' {...props}>
 		<Path
@@ -314,6 +319,7 @@ export const LeaderboardOSVG = ({
 		/>
 	</Svg>
 );
+
 export const LeaderboardSVG = (props: SvgProps) => (
 	<Svg viewBox='0 0 650 642' stroke='black' fill='none' {...props}>
 		<Path
@@ -487,6 +493,66 @@ export const TwitterSVG = (props: SvgProps) => (
 		<Path
 			fill='#fff'
 			d='m313 331.7 230.07 307.62-231.52 250.11h52.11l202.7-218.98 163.77 218.98h177.32l-243.02-324.92 215.5-232.81h-52.11l-186.67 201.67-150.83-201.67H313zm76.63 38.38h81.46l359.72 480.97h-81.46l-359.72-480.97z'
+		/>
+	</Svg>
+);
+
+export const TurkeySVG = ({ width = 32, height = 32, ...props }: SvgProps) => (
+	<Svg width={width} height={height} viewBox='0 0 32 32' fill='none' {...props}>
+		<Rect width='30' height='24' x='1' y='4' fill='#d12d24' rx='4' ry='4' />
+		<Path
+			d='M27 4H5a4 4 0 0 0-4 4v16a4 4 0 0 0 4 4h22a4 4 0 0 0 4-4V8a4 4 0 0 0-4-4Zm3 20c0 1.654-1.346 3-3 3H5c-1.654 0-3-1.346-3-3V8c0-1.654 1.346-3 3-3h22c1.654 0 3 1.346 3 3v16Z'
+			opacity={0.15}
+		/>
+		<Path
+			fill='#fff'
+			d='M27 5H5a3 3 0 0 0-3 3v1a3 3 0 0 1 3-3h22a3 3 0 0 1 3 3V8a3 3 0 0 0-3-3Z'
+			opacity={0.2}
+		/>
+		<Path
+			fill='#fff'
+			d='M19.807 16 21 14.358l-1.931.627-1.193-1.643v2.031L15.945 16l1.931.627v2.031l1.193-1.643 1.931.627L19.807 16z'
+		/>
+		<Path
+			fill='#fff'
+			d='M15.953 19.325a4.471 4.471 0 1 1 .337-6.314 5.59 5.59 0 1 0 0 5.977 4.465 4.465 0 0 1-.337.337Z'
+		/>
+	</Svg>
+);
+export const UnitedKingdomSVG = ({
+	width = 32,
+	height = 32,
+	...props
+}: SvgProps) => (
+	<Svg width={width} height={height} viewBox='0 0 32 32' fill='none' {...props}>
+		<Rect width={30} height={24} x={1} y={4} fill='#071b65' rx={4} ry={4} />
+		<Path
+			fill='#fff'
+			d='M5.101 4H5a3.992 3.992 0 0 0-3.933 3.334L26.899 28H27a3.992 3.992 0 0 0 3.933-3.334L5.101 4Z'
+		/>
+		<Path
+			fill='#b92932'
+			d='M22.25 19h-2.5l9.934 7.947c.387-.353.704-.777.929-1.257l-8.363-6.691ZM1.387 6.309 9.75 13h2.5L2.316 5.053a3.996 3.996 0 0 0-.929 1.257Z'
+		/>
+		<Path
+			fill='#fff'
+			d='M5 28h.101L30.933 7.334A3.991 3.991 0 0 0 27 4h-.101L1.067 24.666A3.991 3.991 0 0 0 5 28Z'
+		/>
+		<Path fill='#fff' d='M13 4h6v24h-6z' />
+		<Path fill='#fff' d='M1 13h30v6H1z' />
+		<Path fill='#b92932' d='M14 4h4v24h-4z' />
+		<Path
+			fill='#b92932'
+			d='M31 14v4H1v-4zM28.222 4.21 19 11.586V13h.75l9.943-7.94a3.98 3.98 0 0 0-1.471-.85ZM2.328 26.957a3.98 3.98 0 0 0 1.447.832L13 20.409v-1.408h-.75l-9.922 7.956Z'
+		/>
+		<Path
+			d='M27 4H5a4 4 0 0 0-4 4v16a4 4 0 0 0 4 4h22a4 4 0 0 0 4-4V8a4 4 0 0 0-4-4Zm3 20c0 1.654-1.346 3-3 3H5c-1.654 0-3-1.346-3-3V8c0-1.654 1.346-3 3-3h22c1.654 0 3 1.346 3 3v16Z'
+			opacity={0.15}
+		/>
+		<Path
+			fill='#fff'
+			d='M27 5H5a3 3 0 0 0-3 3v1a3 3 0 0 1 3-3h22a3 3 0 0 1 3 3V8a3 3 0 0 0-3-3Z'
+			opacity={0.2}
 		/>
 	</Svg>
 );

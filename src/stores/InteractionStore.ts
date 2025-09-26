@@ -4,7 +4,10 @@ import { createJSONStorage, persist } from 'zustand/middleware';
 import { InteractionActions, InteractionState } from './StoreTypes';
 
 const initialState: InteractionState = {
-	modalsInteracted: { challengeExplanation: false },
+	modalsInteracted: {
+		challengeExplanation: { seen: false, open: false },
+		languages: { seen: false, open: false },
+	},
 	challengeInteractions: {
 		challengeId: undefined,
 		challengeDates: { start: undefined, end: undefined },
@@ -22,7 +25,20 @@ export const useInteractionStore = create<
 				set((state) => ({
 					modalsInteracted: {
 						...state.modalsInteracted,
-						[modal]: true,
+						[modal]: {
+							...state.modalsInteracted[modal],
+							seen: true,
+						},
+					},
+				})),
+			setModalOpen: (modal, open) =>
+				set((state) => ({
+					modalsInteracted: {
+						...state.modalsInteracted,
+						[modal]: {
+							...state.modalsInteracted[modal],
+							open,
+						},
 					},
 				})),
 			addLike: (entryId) =>
@@ -52,7 +68,7 @@ export const useInteractionStore = create<
 				})),
 		}),
 		{
-			name: 'storage',
+			name: 'interaction-storage',
 			storage: createJSONStorage(() => AsyncStorage),
 		}
 	)

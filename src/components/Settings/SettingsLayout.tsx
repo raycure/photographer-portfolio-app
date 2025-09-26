@@ -3,6 +3,7 @@ import SettingsItem from './SettingsItem';
 import { SettingsBlocksConfig } from './SettingsConfig';
 import { SettingsBlocksStyles } from './SettingsStyles';
 import { useColors } from '@/src/hooks/useColors';
+import LanguagesModal from '../Modal/LanguagesModal';
 
 export default function SettingsLayout() {
 	const data = SettingsBlocksConfig();
@@ -10,6 +11,7 @@ export default function SettingsLayout() {
 	const styles = SettingsBlocksStyles;
 	return (
 		<View style={styles.outerContainer}>
+			<LanguagesModal />
 			{Object.entries(data).map(([sectionTitle, items]) => (
 				<View style={styles.innerContainer} key={sectionTitle}>
 					<Text style={[{ color: colors.gray300 }, styles.title]}>

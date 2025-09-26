@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-
+import { Dimensions, StyleSheet } from 'react-native';
+const screenWidth = Dimensions.get('screen').width;
 export const CustomModalStyles = StyleSheet.create({
 	buttonContainer: {
 		backgroundColor: 'transparent',
@@ -75,4 +75,34 @@ export const LinkedAccountsBlockStyles = StyleSheet.create({
 
 export const ReportAccountStyles = StyleSheet.create({
 	buttonContainer: { flexDirection: 'row', justifyContent: 'center', gap: 16 },
+});
+
+export const LanguagesModalStyles = StyleSheet.create({
+	container: {
+		width: screenWidth,
+		minHeight: 220,
+		borderTopRightRadius: 28,
+		borderTopLeftRadius: 28,
+		padding: 16,
+	},
+	outerContainer: {
+		flex: 1,
+		height: '100%',
+		zIndex: 100,
+		justifyContent: 'flex-end',
+		position: 'absolute',
+		bottom: 0,
+	},
+});
+
+export const LanguagesModalItemStyles = StyleSheet.create({
+	outerContainer: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		paddingVertical: 4,
+		paddingHorizontal: 8,
+		gap: 12,
+		borderRadius: 8,
+	},
+	text: { fontSize: 18, fontWeight: '500' },
 });

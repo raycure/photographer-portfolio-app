@@ -4,6 +4,7 @@ import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import ReportIssueBlock from '../Modal/ReportIssueBlock';
 import { useModalStore } from '@/src/stores/ModalStore';
 import ChangePasswordBlock from '../Modal/ChangePasswordBlock';
+import { useInteractionStore } from '@/src/stores/InteractionStore';
 
 export const SettingsBlocksConfig: () => Record<
 	string,
@@ -12,6 +13,7 @@ export const SettingsBlocksConfig: () => Record<
 	const colors = useColors();
 	const userInfoStore = useUserInfoStore();
 	const openModal = useModalStore((state) => state.openModal);
+	const interactionStore = useInteractionStore();
 	return {
 		'Content & Preferences': [
 			{
@@ -21,7 +23,7 @@ export const SettingsBlocksConfig: () => Record<
 					button: true,
 					title: userInfoStore.preferences.language,
 				},
-				onPress: () => console.log('test'),
+				onPress: () => interactionStore.setModalOpen('languages', true),
 			},
 			{
 				title: 'Dark Theme',

@@ -85,6 +85,13 @@ export const useUserInfoStore = create<UserActions & UserState>()(
 						darkTheme: !state.preferences.darkTheme,
 					},
 				})),
+			setLanguage: (key) =>
+				set((state) => ({
+					preferences: {
+						...state.preferences,
+						language: key,
+					},
+				})),
 			addSocialAccount: (account) =>
 				set((state) => ({
 					social: {
@@ -103,7 +110,7 @@ export const useUserInfoStore = create<UserActions & UserState>()(
 				})),
 		}),
 		{
-			name: 'storage',
+			name: 'user-storage',
 			storage: createJSONStorage(() => AsyncStorage),
 		}
 	)

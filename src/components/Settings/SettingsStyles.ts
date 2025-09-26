@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 export const SettingsBlocksStyles = StyleSheet.create({
-	outerContainer: { flex: 1, padding: 16 },
+	outerContainer: { flex: 1, paddingHorizontal: 16 },
 	innerContainer: {
 		marginBlock: 8,
 	},

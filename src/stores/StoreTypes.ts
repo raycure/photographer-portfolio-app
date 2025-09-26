@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import { CustomButtonProps } from '../components/UI/UITypes';
 import { Social } from '../constants/socialMediaList';
+import { LanguageKeys } from '../constants/languages';
 
 type ModalListItem = {
 	icon?: React.ReactNode;
@@ -99,6 +100,7 @@ export type UserActions = {
 	followUser: (id: UserID) => void;
 	unfollowUser: (id: UserID) => void;
 	changeTheme: () => void;
+	setLanguage: (key: LanguageKeys) => void;
 	addSocialAccount: (account: {
 		social: Social;
 		url: string;
@@ -107,7 +109,11 @@ export type UserActions = {
 	deleteSocialAccount: (account: { social: Social }) => void;
 };
 
-type ModalKeys = 'challengeExplanation';
+type ModalKeys = 'challengeExplanation' | 'languages';
+type InteractionModalState = {
+	seen: boolean;
+	open: boolean;
+};
 
 type ChallengeInteractions = {
 	challengeId?: string;
@@ -116,11 +122,12 @@ type ChallengeInteractions = {
 	dislikedEntries: string[];
 };
 export type InteractionState = {
-	modalsInteracted: Record<ModalKeys, boolean>;
+	modalsInteracted: Record<ModalKeys, InteractionModalState>;
 	challengeInteractions: ChallengeInteractions;
 };
 export type InteractionActions = {
 	setModalSeen: (modal: ModalKeys) => void;
+	setModalOpen: (modal: ModalKeys, open: boolean) => void;
 	addLike: (entryId: string) => void;
 	addDislike: (entryId: string) => void;
 };
