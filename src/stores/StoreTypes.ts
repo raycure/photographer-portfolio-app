@@ -109,10 +109,11 @@ export type UserActions = {
 	deleteSocialAccount: (account: { social: Social }) => void;
 };
 
-type ModalKeys = 'challengeExplanation' | 'languages';
-type InteractionModalState = {
+type ModalKeys = 'challengeExplanation' | 'languages' | 'imageInfo';
+type InteractionModalState<T = any> = {
 	seen: boolean;
 	open: boolean;
+	props?: T;
 };
 
 type ChallengeInteractions = {
@@ -127,7 +128,7 @@ export type InteractionState = {
 };
 export type InteractionActions = {
 	setModalSeen: (modal: ModalKeys) => void;
-	setModalOpen: (modal: ModalKeys, open: boolean) => void;
+	setModalOpen: (modal: ModalKeys, open: boolean, props?: any) => void;
 	addLike: (entryId: string) => void;
 	addDislike: (entryId: string) => void;
 };

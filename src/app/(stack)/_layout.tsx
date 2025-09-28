@@ -41,16 +41,6 @@ export default function StackLayout() {
 				}}
 			/>
 			<Stack.Screen
-				name='imageInfo'
-				options={{
-					title: 'Image Info',
-					headerShown: false,
-					presentation: 'transparentModal',
-					animation: 'fade',
-					contentStyle: { backgroundColor: 'transparent' },
-				}}
-			/>
-			<Stack.Screen
 				name='linkedAccounts'
 				options={{
 					title: 'Linked Accounts',

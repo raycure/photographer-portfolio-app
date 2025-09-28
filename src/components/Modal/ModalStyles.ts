@@ -106,3 +106,29 @@ export const LanguagesModalItemStyles = StyleSheet.create({
 	},
 	text: { fontSize: 18, fontWeight: '500' },
 });
+
+export const ImageInfoModalStyles = StyleSheet.create({
+	outerContainer: {
+		height: '100%',
+		alignItems: 'center',
+		justifyContent: 'center',
+		gap: 16,
+		padding: 16,
+		position: 'absolute',
+		zIndex: 100,
+	},
+	innerContainer: {
+		flexDirection: 'row',
+		alignSelf: 'stretch',
+		alignItems: 'center',
+		justifyContent: 'space-between',
+	},
+	statsContainer: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		marginVertical: 1,
+		gap: 4,
+	},
+	image: { width: screenWidth - 32 },
+	text: { fontSize: 16, fontWeight: '600' },
+});

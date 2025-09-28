@@ -55,11 +55,11 @@ function RootLayoutNav() {
 	const bgColor = Colors[colorScheme ?? 'dark'].background;
 	return (
 		<ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DarkTheme}>
-			<CustomModal />
 			<SafeAreaView
 				style={{ flex: 1, backgroundColor: bgColor }}
 				edges={['top']}
 			>
+				<CustomModal />
 				<Stack initialRouteName='(tabs)'>
 					<Stack.Screen name='(tabs)' options={{ headerShown: false }} />
 					<Stack.Screen name='(stack)' options={{ headerShown: false }} />

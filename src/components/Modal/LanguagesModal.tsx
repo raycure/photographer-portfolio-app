@@ -12,9 +12,9 @@ export default function LanguagesModal() {
 	const colors = useColors();
 	const interactionStore = useInteractionStore();
 	const userInfoStore = useUserInfoStore();
-	if (!interactionStore.modalsInteracted.languages.open) {
-		return null;
-	}
+	const { open } = interactionStore.modalsInteracted.languages;
+	if (!open) return null;
+
 	const closeModal = () => {
 		interactionStore.setModalOpen('languages', false);
 	};

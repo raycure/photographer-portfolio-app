@@ -6,6 +6,7 @@ import { useColors } from '@/src/hooks/useColors';
 import { GalleryGridItemStyles } from './ProfileStyles';
 import { useRouter } from 'expo-router';
 import { Image } from 'expo-image';
+import { useInteractionStore } from '@/src/stores/InteractionStore';
 
 export default function GalleryGridItem({
 	data,
@@ -14,6 +15,7 @@ export default function GalleryGridItem({
 }) {
 	const colors = useColors();
 	const router = useRouter();
+	const interactionStore = useInteractionStore();
 
 	const onAddButtonPress = () => {};
 	const styles = GalleryGridItemStyles;
@@ -41,10 +43,7 @@ export default function GalleryGridItem({
 		return image.imageId === data?.imageId;
 	})?.link;
 	const onImagePress = () => {
-		router.navigate({
-			pathname: '/(stack)/imageInfo',
-			params: { entryId: data.entryId },
-		});
+		interactionStore.setModalOpen('imageInfo', true, { entryId: data.entryId });
 	};
 	return (
 		<Pressable
