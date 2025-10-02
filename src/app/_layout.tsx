@@ -13,6 +13,7 @@ import { useColorScheme } from '@/src/components/useColorScheme';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Colors from '../constants/Colors';
 import CustomModal from '../components/Modal/CustomModal';
+import { useUserInfoStore } from '../stores/UserInfoStore';
 
 export {
 	// Catch any errors thrown by the Layout component.
@@ -51,10 +52,12 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-	const colorScheme = useColorScheme();
+	const userInfoStore = useUserInfoStore();
+	const isDarkColorScheme = userInfoStore.preferences.darkTheme;
+	const colorScheme = isDarkColorScheme ? 'dark' : 'light';
 	const bgColor = Colors[colorScheme ?? 'dark'].background;
 	return (
-		<ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DarkTheme}>
+		<ThemeProvider value={isDarkColorScheme ? DarkTheme : DefaultTheme}>
 			<SafeAreaView
 				style={{ flex: 1, backgroundColor: bgColor }}
 				edges={['top']}

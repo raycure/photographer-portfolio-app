@@ -1,7 +1,9 @@
-import { useColorScheme } from 'react-native';
 import Colors from '../constants/Colors';
+import { useUserInfoStore } from '../stores/UserInfoStore';
 
 export function useColors() {
-	const scheme = useColorScheme() ?? 'dark';
-	return Colors[scheme];
+	const userInfoStore = useUserInfoStore();
+	const isDarkColorScheme = userInfoStore.preferences.darkTheme;
+	const colorScheme = isDarkColorScheme ? 'dark' : 'light';
+	return Colors[colorScheme];
 }

@@ -4,11 +4,10 @@ import { Switch } from 'react-native';
 
 export default function ThemeSwitch() {
 	const userInfoStore = useUserInfoStore();
-	const [isDarkEnabled, setIsDarkEnabled] = useState(
-		userInfoStore.preferences.darkTheme
-	);
-	const toggleSwitch = () =>
-		setIsDarkEnabled((previousState) => !previousState);
+	const isDarkEnabled = userInfoStore.preferences.darkTheme;
+	const toggleSwitch = () => {
+		userInfoStore.changeTheme();
+	};
 	return (
 		<Switch
 			trackColor={{ true: '#767577', false: '#81b0ff' }}
