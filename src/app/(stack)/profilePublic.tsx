@@ -1,12 +1,14 @@
 import UserContext from '@/src/context/UserContext';
 import ProfileLayout from '@/src/components/Profile/ProfileLayout';
 import { useLocalSearchParams } from 'expo-router';
-import { dummyUser } from '@/src/constants/dummyUser';
+import { dummyUsers } from '@/src/constants/dummyUsers';
 export default function ProfilePublicScreen() {
-	const { id } = useLocalSearchParams<{ id: string }>();
-	const user = id;
+	const { userId } = useLocalSearchParams<{ userId: string }>();
+	const user = dummyUsers.find((user) => {
+		return user.personalInfo.id === userId;
+	});
 	return (
-		<UserContext.Provider value={dummyUser}>
+		<UserContext.Provider value={user!}>
 			<ProfileLayout />
 		</UserContext.Provider>
 	);

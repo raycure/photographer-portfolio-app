@@ -7,6 +7,8 @@ import FollowersButton from '../UI/FollowersButton';
 import { BlurView } from 'expo-blur';
 import { useColors } from '@/src/hooks/useColors';
 import { PropsWithChildren } from 'react';
+import { useUserInfoStore } from '@/src/stores/UserInfoStore';
+import { useRouter } from 'expo-router';
 
 const ParentView = ({
 	blur,
@@ -42,12 +44,27 @@ export default function ProfileInfo({
 	const profilePic = images.find((image) => {
 		return image.imageId === user?.personalInfo?.imageId;
 	})?.link;
-
+	const userInfoStore = useUserInfoStore();
+	const router = useRouter();
+	const isPersonal = userId === userInfoStore.personalInfo.id;
+	const onUserPress = () => {
+		if (isPersonal) {
+			router.navigate('/(tabs)/profile');
+		} else {
+			router.push({
+				pathname: '/(stack)/profilePublic',
+				params: { userId: userId },
+			});
+		}
+	};
 	return (
 		<ParentView blur={blur} style={style}>
 			<CircularPhoto size='xs' source={profilePic} />
 			<View style={styles.innerConatiner}>
-				<Text style={[styles.title, { color: colors.tint }]}>
+				<Text
+					onPress={onUserPress}
+					style={[styles.title, { color: colors.tint }]}
+				>
 					{user?.personalInfo?.name}
 				</Text>
 				<View style={styles.buttonContainer}>

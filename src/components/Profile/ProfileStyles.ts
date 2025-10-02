@@ -74,7 +74,7 @@ export const ProfileStatisticsStyles = StyleSheet.create({
 
 export const GalleryGridStyles = StyleSheet.create({
 	outerContainer: { flex: 1, alignSelf: 'stretch' },
-	columnStyle: { gap: 1, justifyContent: 'space-between' },
+	columnStyle: { gap: 1 },
 });
 
 export const ProfileLayoutStyles = StyleSheet.create({

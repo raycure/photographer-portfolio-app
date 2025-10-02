@@ -6,14 +6,16 @@ import { CameraSVG, StarSVG, TrophySVG } from '@/src/constants/svgs';
 import TintedBackground from '../UI/TintedBackground';
 import FillingBar from '../UI/FillingBar';
 import { getLevelInfo } from '@/src/utils/getLevel';
-import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import { ProfileStatisticsStyles } from './ProfileStyles';
 import SubtitleTitlePair from '../UI/SubtitleTitlePair';
+import { useContext } from 'react';
+import UserContext from '@/src/context/UserContext';
 
 export default function ProfileStatistics() {
 	const colors = useColors();
-	const levelInfo = getLevelInfo();
-	const attendedChallenges = useUserInfoStore().stats.attendedChallenges;
+	const user = useContext(UserContext);
+	const levelInfo = getLevelInfo(user.stats.experiencePoints!);
+	const attendedChallenges = user.stats.attendedChallenges;
 	const wins = attendedChallenges?.filter((challenge) => {
 		return challenge.rank <= 3;
 	});

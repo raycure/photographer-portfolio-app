@@ -1,7 +1,4 @@
-import { useUserInfoStore } from '../stores/UserInfoStore';
-
-export const getLevelInfo = () => {
-	const totalExp = useUserInfoStore.getState().stats.experiencePoints ?? 0;
+export const getLevelInfo = (totalExp: number) => {
 	let exp = totalExp;
 	let level = 1;
 	let baseRequirement = 4;

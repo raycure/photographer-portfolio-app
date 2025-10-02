@@ -49,7 +49,6 @@ type UserPreferences = {
 type UserStats = {
 	experiencePoints?: number;
 	attendedChallenges?: AttendedChallenges[];
-	favorites: ChallengeInfo[];
 };
 
 type UserQuotas = {

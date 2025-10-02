@@ -6,6 +6,7 @@ import { useColors } from '@/src/hooks/useColors';
 import { ConnectionsListItemStyles } from './ConnectionsStyles';
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import { images } from '@/src/constants/dummyImages';
+import { useRef, useState } from 'react';
 
 export default function ConnectionsListItem({
 	userpresonalInfo,
@@ -14,6 +15,8 @@ export default function ConnectionsListItem({
 }) {
 	const colors = useColors();
 	const userInfoStore = useUserInfoStore();
+	const [pendingUnfollow, setPendingUnfollow] = useState(false);
+	const timerRef = useRef<NodeJS.Timeout | null>(null);
 	const followingIds = userInfoStore.social.followingAccounts;
 	const following = followingIds.includes(userpresonalInfo.id!);
 	const styles = ConnectionsListItemStyles;
@@ -22,7 +25,17 @@ export default function ConnectionsListItem({
 	})?.link;
 	const onButtonPress = () => {
 		if (following) {
-			userInfoStore.unfollowUser(userpresonalInfo.id!);
+			if (pendingUnfollow) {
+				clearTimeout(timerRef.current!);
+				timerRef.current = null;
+				setPendingUnfollow(false);
+			} else {
+				setPendingUnfollow(true);
+				timerRef.current = setTimeout(() => {
+					userInfoStore.unfollowUser(userpresonalInfo.id!);
+					setPendingUnfollow(false);
+				}, 2000);
+			}
 		} else {
 			userInfoStore.followUser(userpresonalInfo.id!);
 		}
@@ -43,7 +56,7 @@ export default function ConnectionsListItem({
 				textStyle={styles.customButtonText}
 				style={styles.customButton}
 				onPress={onButtonPress}
-				content={following ? 'Following' : 'Follow'}
+				content={!pendingUnfollow && following ? 'Unfollow' : 'Follow'}
 				backgroundColor={following ? colors.primary400 : colors.accentBlue}
 			/>
 		</View>
