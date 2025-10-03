@@ -20,8 +20,7 @@ export default function ConnectionsLayout() {
 		return user.personalInfo.id === userId;
 	});
 	const followerIds = userData?.social.followerAccounts ?? [];
-	const followingIds =
-		useUserInfoStore((state) => state.social.followingAccounts) ?? [];
+	const followingIds = userData?.social.followingAccounts ?? [];
 	const intersection = (a: string[], b: string[]) =>
 		a.filter((id) => b.includes(id));
 

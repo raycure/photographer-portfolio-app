@@ -18,13 +18,13 @@ export default function ConnectionsListItem({
 	const [pendingUnfollow, setPendingUnfollow] = useState(false);
 	const timerRef = useRef<NodeJS.Timeout | null>(null);
 	const followingIds = userInfoStore.social.followingAccounts;
-	const following = followingIds.includes(userpresonalInfo.id!);
+	const isFollowing = followingIds.includes(userpresonalInfo.id!);
 	const styles = ConnectionsListItemStyles;
 	const image = images.find((image) => {
 		return image.imageId === userpresonalInfo.imageId;
 	})?.link;
 	const onButtonPress = () => {
-		if (following) {
+		if (isFollowing) {
 			if (pendingUnfollow) {
 				clearTimeout(timerRef.current!);
 				timerRef.current = null;
@@ -42,7 +42,11 @@ export default function ConnectionsListItem({
 	};
 	return (
 		<View style={styles.outerContainer}>
-			<CircularPhoto source={image} size='small' />
+			<CircularPhoto
+				userId={userInfoStore.personalInfo.id!}
+				source={image}
+				size='small'
+			/>
 			<View style={styles.textContainer}>
 				<Text style={[styles.title, { color: colors.tint }]}>
 					{userpresonalInfo.name}
@@ -56,8 +60,8 @@ export default function ConnectionsListItem({
 				textStyle={styles.customButtonText}
 				style={styles.customButton}
 				onPress={onButtonPress}
-				content={!pendingUnfollow && following ? 'Unfollow' : 'Follow'}
-				backgroundColor={following ? colors.primary400 : colors.accentBlue}
+				content={!pendingUnfollow && isFollowing ? 'Unfollow' : 'Follow'}
+				backgroundColor={isFollowing ? colors.primary400 : colors.accentBlue}
 			/>
 		</View>
 	);

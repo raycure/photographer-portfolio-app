@@ -190,3 +190,23 @@ export const DropdownMenuStyles = StyleSheet.create({
 		borderBottomWidth: 1,
 	},
 });
+
+export const FollowButtonStyles = StyleSheet.create({
+	circularContainer: {
+		position: 'absolute',
+		right: -1,
+		bottom: -1,
+		padding: 3,
+		borderRadius: 100,
+	},
+	circularContainerSmall: { padding: 2, right: -2, bottom: -2 },
+	container: {
+		borderRadius: 4,
+		borderWidth: 1,
+		paddingInline: 8,
+		width: 75,
+		alignItems: 'center',
+	},
+	icon: { right: -1 },
+	followingIcon: { right: -1, bottom: -1 },
+});

@@ -32,7 +32,7 @@ export const dummyUsers: UserState[] = [
 			followerAccounts: ['user_006', 'user_004'],
 		},
 		preferences: {
-			language: 'english',
+			language: 'en',
 			darkTheme: false,
 		},
 		stats: {
@@ -90,7 +90,7 @@ export const dummyUsers: UserState[] = [
 					challengeId: 'challenge_23',
 					entryId: 'entry_002',
 					userId: 'user_002',
-					imageId: 'image_233',
+					imageId: 'image_243',
 					rank: 20,
 					likes: ['user_001', 'user_006'],
 					saved: true,
@@ -128,7 +128,7 @@ export const dummyUsers: UserState[] = [
 			followerAccounts: ['user_001', 'user_006'],
 		},
 		preferences: {
-			language: 'english',
+			language: 'en',
 			darkTheme: true,
 		},
 		stats: {
@@ -176,7 +176,7 @@ export const dummyUsers: UserState[] = [
 			followerAccounts: ['user_002', 'user_006'],
 		},
 		preferences: {
-			language: 'english',
+			language: 'en',
 			darkTheme: false,
 		},
 		stats: {
@@ -204,7 +204,7 @@ export const dummyUsers: UserState[] = [
 			name: 'Ethan Brown',
 			username: 'ethanb',
 			email: 'ethan.brown@example.com',
-			imageId: 'image_233',
+			imageId: 'image_243',
 			verified: false,
 			premium: true,
 		},
@@ -224,7 +224,7 @@ export const dummyUsers: UserState[] = [
 			followerAccounts: ['user_002', 'user_004'],
 		},
 		preferences: {
-			language: 'english',
+			language: 'en',
 			darkTheme: true,
 		},
 		stats: {
@@ -277,7 +277,7 @@ export const dummyUsers: UserState[] = [
 			followerAccounts: ['user_001', 'user_003', 'user_004', 'user_005'],
 		},
 		preferences: {
-			language: 'english',
+			language: 'en',
 			darkTheme: true,
 		},
 		stats: {
@@ -363,7 +363,7 @@ export const dummyUsers: UserState[] = [
 					challengeId: 'challenge_25',
 					entryId: 'entry_010',
 					userId: 'user_006',
-					imageId: 'image_233',
+					imageId: 'image_243',
 					rank: 64,
 					likes: [
 						'user_002',
@@ -503,7 +503,7 @@ export const dummyUsers: UserState[] = [
 			followingAccounts: ['user_002', 'user_005'],
 			followerAccounts: ['user_006', 'user_007'],
 		},
-		preferences: { language: 'english', darkTheme: true },
+		preferences: { language: 'en', darkTheme: true },
 		stats: {
 			experiencePoints: 10,
 			attendedChallenges: [],
@@ -561,7 +561,7 @@ export const dummyUsers: UserState[] = [
 			followingAccounts: ['user_001', 'user_002'],
 			followerAccounts: ['user_006'],
 		},
-		preferences: { language: 'english', darkTheme: true },
+		preferences: { language: 'en', darkTheme: true },
 		stats: {
 			experiencePoints: 19,
 			attendedChallenges: [],
@@ -590,7 +590,7 @@ export const dummyUsers: UserState[] = [
 			followingAccounts: ['user_006'],
 			followerAccounts: ['user_005'],
 		},
-		preferences: { language: 'english', darkTheme: false },
+		preferences: { language: 'en', darkTheme: false },
 		stats: { experiencePoints: 25, attendedChallenges: [] },
 		auth: { authToken: 'token_011', refreshToken: 'refresh_011' },
 	},
@@ -616,7 +616,7 @@ export const dummyUsers: UserState[] = [
 			followingAccounts: ['user_002', 'user_006'],
 			followerAccounts: ['user_004'],
 		},
-		preferences: { language: 'english', darkTheme: true },
+		preferences: { language: 'en', darkTheme: true },
 		stats: { experiencePoints: 30, attendedChallenges: [] },
 		auth: { authToken: 'token_012', refreshToken: 'refresh_012' },
 	},
@@ -642,7 +642,7 @@ export const dummyUsers: UserState[] = [
 			followingAccounts: ['user_006'],
 			followerAccounts: ['user_001'],
 		},
-		preferences: { language: 'english', darkTheme: false },
+		preferences: { language: 'en', darkTheme: false },
 		stats: { experiencePoints: 12, attendedChallenges: [] },
 		auth: { authToken: 'token_013', refreshToken: 'refresh_013' },
 	},
@@ -652,7 +652,7 @@ export const dummyUsers: UserState[] = [
 			name: 'Mia Chen',
 			username: 'miachen',
 			email: 'mia.chen@example.com',
-			imageId: 'image_233',
+			imageId: 'image_243',
 			verified: false,
 			premium: false,
 		},
@@ -694,7 +694,7 @@ export const dummyUsers: UserState[] = [
 			followingAccounts: ['user_002'],
 			followerAccounts: ['user_006', 'user_005'],
 		},
-		preferences: { language: 'english', darkTheme: false },
+		preferences: { language: 'en', darkTheme: false },
 		stats: { experiencePoints: 40, attendedChallenges: [] },
 		auth: { authToken: 'token_015', refreshToken: 'refresh_015' },
 	},

@@ -45,7 +45,7 @@ export default function NotificationItem({
 			]}
 		>
 			{imageLink ? (
-				<CircularPhoto source={imageLink} />
+				<CircularPhoto userId={userId!} source={imageLink} size='xs' />
 			) : (
 				<View
 					style={[

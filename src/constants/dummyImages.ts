@@ -16,10 +16,6 @@ export const images: { imageId: string; link: string }[] = [
 		link: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
 	},
 	{
-		imageId: 'image_233',
-		link: 'https://images.unsplash.com/photo-1486308510493-cb48f79d8c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-	},
-	{
 		imageId: 'image_265',
 		link: 'https://images.unsplash.com/photo-1468071174046-657d9d351a40?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
 	},

@@ -59,7 +59,7 @@ export default function ProfileInfo({
 	};
 	return (
 		<ParentView blur={blur} style={style}>
-			<CircularPhoto size='xs' source={profilePic} />
+			<CircularPhoto userId={userId!} size='xs' source={profilePic} />
 			<View style={styles.innerConatiner}>
 				<Text
 					onPress={onUserPress}

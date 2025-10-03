@@ -519,6 +519,7 @@ export const TurkeySVG = ({ width = 32, height = 32, ...props }: SvgProps) => (
 		/>
 	</Svg>
 );
+
 export const UnitedKingdomSVG = ({
 	width = 32,
 	height = 32,
@@ -553,6 +554,21 @@ export const UnitedKingdomSVG = ({
 			fill='#fff'
 			d='M27 5H5a3 3 0 0 0-3 3v1a3 3 0 0 1 3-3h22a3 3 0 0 1 3 3V8a3 3 0 0 0-3-3Z'
 			opacity={0.2}
+		/>
+	</Svg>
+);
+
+export const CameraOSVG = ({
+	props,
+	color,
+}: {
+	props?: SvgProps;
+	color: ColorValue;
+}) => (
+	<Svg viewBox='0 -2 32 32' fill={color} {...props}>
+		<Path
+			fillRule='evenodd'
+			d='M16 22a6 6 0 0 1 0-12 6 6 0 0 1 0 12Zm0-14a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm14 16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l1-2c.707-1.163.896-2 2-2h10c1.104 0 1.293.837 2 2l1 2h4a2 2 0 0 1 2 2v16ZM28 4h-3l-1-2c-.589-1.163-.896-2-2-2H10C8.896 0 8.53.954 8 2L7 4H4a4 4 0 0 0-4 4v16a4 4 0 0 0 4 4h24a4 4 0 0 0 4-4V8a4 4 0 0 0-4-4Z'
 		/>
 	</Svg>
 );

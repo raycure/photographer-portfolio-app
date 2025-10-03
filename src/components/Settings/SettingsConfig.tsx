@@ -5,6 +5,7 @@ import ReportIssueBlock from '../Modal/ReportIssueBlock';
 import { useModalStore } from '@/src/stores/ModalStore';
 import ChangePasswordBlock from '../Modal/ChangePasswordBlock';
 import { useInteractionStore } from '@/src/stores/InteractionStore';
+import { languages } from '@/src/constants/languages';
 
 export const SettingsBlocksConfig: () => Record<
 	string,
@@ -21,7 +22,9 @@ export const SettingsBlocksConfig: () => Record<
 				icon: { collectionKey: 'ion', name: 'language-outline' },
 				rightContent: {
 					button: true,
-					title: userInfoStore.preferences.language,
+					title: languages.find(
+						(item) => userInfoStore.preferences.language === item.language
+					)?.title,
 				},
 				onPress: () => interactionStore.setModalOpen('languages', true),
 			},

@@ -3,8 +3,13 @@ import { Dimensions, Image, View } from 'react-native';
 import { CircularPhotoStyles } from './UIStyles';
 import { CircularPhotoProps } from './UITypes';
 import CustomIcon from './CustomIcon';
+import FollowButton from './FollowButton';
 const windowWidth = Dimensions.get('screen').width;
-export default function CircularPhoto({ size, source }: CircularPhotoProps) {
+export default function CircularPhoto({
+	size,
+	source,
+	userId,
+}: CircularPhotoProps) {
 	const colors = useColors();
 	const styles = CircularPhotoStyles;
 	const sizeBasedStyle =
@@ -21,41 +26,47 @@ export default function CircularPhoto({ size, source }: CircularPhotoProps) {
 	const isValidSource = typeof source === 'string' && source.trim().length > 0;
 	if (isValidSource) {
 		return (
-			<Image
-				source={{ uri: source }}
-				style={[
-					sizeBasedStyle,
-					styles.image,
-					{ borderColor: colors.primary600 },
-				]}
-			/>
+			<View>
+				<Image
+					source={{ uri: source }}
+					style={[
+						sizeBasedStyle,
+						styles.image,
+						{ borderColor: colors.primary600 },
+					]}
+				/>
+				<FollowButton userId={userId} size={size} />
+			</View>
 		);
 	}
 	return (
-		<View
-			style={[
-				sizeBasedStyle,
-				styles.image,
-				styles.fakeUser,
-				{ borderColor: colors.primary600, backgroundColor: colors.gray600 },
-			]}
-		>
-			<CustomIcon
-				size={
-					size === 'big'
-						? (windowWidth * 3) / 9
-						: size === 'medium'
-						? 68
-						: size === 'small'
-						? 58
-						: size === 'xl'
-						? (windowWidth * 4) / 9
-						: 48
-				}
-				name='user-circle'
-				collectionKey='fa'
-				color={colors.gray300}
-			/>
+		<View>
+			<View
+				style={[
+					sizeBasedStyle,
+					styles.image,
+					styles.fakeUser,
+					{ borderColor: colors.primary600, backgroundColor: colors.gray600 },
+				]}
+			>
+				<CustomIcon
+					size={
+						size === 'big'
+							? (windowWidth * 3) / 9
+							: size === 'medium'
+							? 68
+							: size === 'small'
+							? 58
+							: size === 'xl'
+							? (windowWidth * 4) / 9
+							: 48
+					}
+					name='user-circle'
+					collectionKey='fa'
+					color={colors.gray300}
+				/>
+			</View>
+			<FollowButton userId={userId} size={size} />
 		</View>
 	);
 }

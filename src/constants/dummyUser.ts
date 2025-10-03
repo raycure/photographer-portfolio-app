@@ -72,7 +72,7 @@ export const dummyUser: UserState = {
 		],
 	},
 	preferences: {
-		language: 'english',
+		language: 'en',
 		darkTheme: true,
 	},
 	stats: {
@@ -158,7 +158,7 @@ export const dummyUser: UserState = {
 				challengeId: 'challenge_25',
 				entryId: 'entry_010',
 				userId: 'user_006',
-				imageId: 'image_233',
+				imageId: 'image_243',
 				rank: 64,
 				likes: [
 					'user_002',

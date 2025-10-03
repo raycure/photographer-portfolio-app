@@ -8,9 +8,7 @@ import {
 	ViewStyle,
 } from 'react-native';
 import { IconCollectionKey, IconNameTypes } from '@/src/constants/iconRegistry';
-import { StyleProps } from 'react-native-reanimated';
 import { UserID } from '@/src/stores/StoreTypes';
-import { Social } from '@/src/constants/socialMediaList';
 import { ReactNode } from 'react';
 export type GenericSizes = 'big' | 'medium' | 'small';
 export type ExtraSizes = 'xl' | 'xs';
@@ -124,5 +122,15 @@ export type SubtitleTitlePairProps = {
 	subtitleStyle?: TextStyle;
 };
 export type PhotoSize = GenericSizes | ExtraSizes | undefined;
-export type CircularPhotoProps = { size?: PhotoSize; source?: string };
+export type CircularPhotoProps = {
+	size?: PhotoSize;
+	source?: string;
+	userId: UserID;
+};
 export type InputAreaParentProps = { children: ReactNode; title: string };
+
+export type FollowButtonProps = {
+	circular?: boolean;
+	userId: UserID;
+	size?: PhotoSize;
+};

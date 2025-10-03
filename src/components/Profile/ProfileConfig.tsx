@@ -20,6 +20,9 @@ export const FloatingActionsConfig: () => Record<
 	const data = useContext(UserContext);
 	const router = useRouter();
 	const isPersonal = data.personalInfo.id === userInfoStore.personalInfo.id;
+	const isFollowing = userInfoStore.social.followingAccounts.includes(
+		data.personalInfo.id!
+	);
 	return {
 		personal: [
 			// {
@@ -42,11 +45,14 @@ export const FloatingActionsConfig: () => Record<
 				key: 'follow',
 				icon: {
 					collectionKey: 'fe',
-					name: 'user-plus',
+					name: isFollowing ? 'user-check' : 'user-plus',
 					size: 26,
 					style: { right: -2 },
 				},
-				onPress: () => userInfoStore.followUser(data.personalInfo.id!),
+				onPress: () =>
+					isFollowing
+						? userInfoStore.unfollowUser(data.personalInfo.id!)
+						: userInfoStore.followUser(data.personalInfo.id!),
 			},
 			{
 				key: 'report',

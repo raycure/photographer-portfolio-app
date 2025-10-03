@@ -1,11 +1,12 @@
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import { FlatList } from 'react-native';
-import { View } from '../Themed';
+import { Text, View } from '../Themed';
 import GalleryGridItem from './GalleryGridItem';
 import { useContext } from 'react';
 import UserContext from '@/src/context/UserContext';
 import { GalleryGridStyles } from './ProfileStyles';
 import { AttendedChallenges } from '@/src/stores/StoreTypes';
+import GalleryNoPosts from './GalleryNoPosts';
 
 export default function GalleryGrid() {
 	const userInfoStore = useUserInfoStore();
@@ -21,15 +22,19 @@ export default function GalleryGrid() {
 	const styles = GalleryGridStyles;
 	return (
 		<View style={styles.outerContainer}>
-			<FlatList
-				data={data}
-				renderItem={({ item, index }) => <GalleryGridItem data={item} />}
-				keyExtractor={(item, index) => index.toString()}
-				numColumns={3}
-				columnWrapperStyle={styles.columnStyle}
-				contentContainerStyle={styles.columnStyle}
-				style={styles.outerContainer}
-			/>
+			{data.length == 0 && !isPersonal ? (
+				<GalleryNoPosts />
+			) : (
+				<FlatList
+					data={data}
+					renderItem={({ item, index }) => <GalleryGridItem data={item} />}
+					keyExtractor={(item, index) => index.toString()}
+					numColumns={3}
+					columnWrapperStyle={styles.columnStyle}
+					contentContainerStyle={styles.columnStyle}
+					style={styles.outerContainer}
+				/>
+			)}
 		</View>
 	);
 }

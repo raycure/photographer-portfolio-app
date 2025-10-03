@@ -2,15 +2,19 @@ import { StyleSheet } from 'react-native';
 
 export const ConnectionsHeaderStyles = StyleSheet.create({
 	title: {
-		flexGrow: 1,
 		marginLeft: 8,
 		bottom: 2,
 		fontSize: 20,
 		fontWeight: 'bold',
 		textAlignVertical: 'center',
 	},
+	outerContainer: {
+		flexGrow: 1,
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+	},
 });
-export const Styles = StyleSheet.create({});
 
 export const ConnectionsBarStyles = StyleSheet.create({
 	outerContainer: {

@@ -19,6 +19,7 @@ export const AuthFormStyles = StyleSheet.create({
 		letterSpacing: 4,
 	},
 	innerContainer: { paddingVertical: 10 },
+	flexContainer: { width: '100%' },
 });
 
 export const InlineLinkTextStyles = StyleSheet.create({

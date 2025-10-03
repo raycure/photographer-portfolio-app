@@ -27,7 +27,11 @@ export default function ProfileHeader() {
 						color={colors.accentOrange}
 					/>
 				)}
-				<CircularPhoto source={imageLink} size='medium' />
+				<CircularPhoto
+					source={imageLink}
+					userId={data.personalInfo.id!}
+					size='medium'
+				/>
 			</View>
 			<View style={styles.infoContainer}>
 				<Text style={styles.title}>{data.personalInfo.name}</Text>

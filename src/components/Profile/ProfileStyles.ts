@@ -111,3 +111,15 @@ export const FloatingActionsContainerStyles = StyleSheet.create({
 		padding: 8,
 	},
 });
+
+export const GalleryNoPostsStyles = StyleSheet.create({
+	title: { fontSize: 24, fontWeight: '600' },
+	outerContainer: {
+		alignItems: 'center',
+		justifyContent: 'center',
+		opacity: 0.9,
+		marginBlock: 140,
+		gap: 8,
+	},
+	innerContainer: { padding: 24, borderRadius: 500, borderWidth: 3 },
+});

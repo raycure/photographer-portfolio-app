@@ -13,7 +13,11 @@ export default function EditProfileHeader() {
 	const imageLink = images.find((image) => image.imageId === imageId)?.link;
 	return (
 		<View>
-			<CircularPhoto size='big' source={imageLink} />
+			<CircularPhoto
+				userId={userInfoStore.personalInfo.id!}
+				size='big'
+				source={imageLink}
+			/>
 			<CustomButton
 				type='icon'
 				icon={({ color }) => (

@@ -42,7 +42,7 @@ export default function AuthForm({ elements, type }: FormProps) {
 	const styles = AuthFormStyles;
 	return (
 		<View style={styles.container}>
-			<View>
+			<View style={styles.flexContainer}>
 				<Text style={[{ color: colors.tint }, styles.title]}>
 					{type === 'register' ? 'Create an account' : 'Log in to your account'}
 				</Text>
