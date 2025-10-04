@@ -2,6 +2,8 @@ import { ReactNode } from 'react';
 import { CustomButtonProps } from '../components/UI/UITypes';
 import { Social } from '../constants/socialMediaList';
 import { LanguageKeys } from '../constants/languages';
+import { NotificationTypes } from '../components/Notifications/NotificationsTypes';
+import { Href } from 'expo-router';
 
 type ModalListItem = {
 	icon?: React.ReactNode;
@@ -128,4 +130,20 @@ export type InteractionActions = {
 	setModalOpen: (modal: ModalKeys, open: boolean, props?: any) => void;
 	addLike: (entryId: string) => void;
 	addDislike: (entryId: string) => void;
+};
+export type Notification = {
+	type: NotificationTypes;
+	content?: string;
+	userId?: UserID;
+	date: Date | string | number;
+	extra?: any;
+	seen: boolean;
+	navigate?: { path: Href; params?: Record<string, string> };
+	notificationId: NotificationID;
+};
+export type NotificationState = { notifications: Notification[] };
+
+export type NotificationActions = {
+	setNotifSeen: (notif: NotificationID) => void;
+	addNotification: (notification: Notification) => void;
 };

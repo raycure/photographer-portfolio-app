@@ -1,13 +1,15 @@
-import { Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import CircularPhoto from '../UI/CircularPhoto';
 import { images } from '@/src/constants/dummyImages';
 import CustomIcon from '../UI/CustomIcon';
 import { getTimeAgo } from '@/src/utils/getTimeAgo';
 import { useColors } from '@/src/hooks/useColors';
-import { NotificationItemProps } from './NotificationsTypes';
 import { notificationTemplates } from './NotificationTemplates';
 import { dummyUsers } from '@/src/constants/dummyUsers';
 import { NotificationItemStyles } from './NotificationsStyles';
+import { useRouter } from 'expo-router';
+import { Notification } from '@/src/stores/StoreTypes';
+import { useNotificationStore } from '@/src/stores/NotificationStore';
 
 export default function NotificationItem({
 	type,
@@ -16,8 +18,12 @@ export default function NotificationItem({
 	date,
 	extra,
 	seen,
-}: NotificationItemProps) {
+	navigate,
+	notificationId,
+}: Notification) {
 	const colors = useColors();
+	const router = useRouter();
+	const notificationStore = useNotificationStore();
 	const user = dummyUsers.find((user) => {
 		return user.personalInfo.id === userId;
 	})?.personalInfo;
@@ -35,9 +41,16 @@ export default function NotificationItem({
 	} else {
 		displayContent = '';
 	}
+	const onNotificationPress = () => {
+		notificationStore.setNotifSeen(notificationId);
+		if (navigate) {
+			router.push({ pathname: navigate.path as any, params: navigate.params });
+		}
+	};
 	const styles = NotificationItemStyles;
 	return (
-		<View
+		<Pressable
+			onPress={onNotificationPress}
 			style={[
 				styles.outerContainer,
 				{ borderColor: colors.primary700 },
@@ -61,6 +74,6 @@ export default function NotificationItem({
 				{displayContent}{' '}
 				<Text style={{ color: colors.primary200 }}>{dateString}</Text>
 			</Text>
-		</View>
+		</Pressable>
 	);
 }

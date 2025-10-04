@@ -1,5 +1,3 @@
-import { UserID } from '@/src/stores/StoreTypes';
-
 export type NotificationTemplates =
 	| 'LIKE_PICTURE'
 	| 'FOLLOW'
@@ -9,12 +7,3 @@ export type NotificationTemplates =
 	| 'NEW_CHALLENGE';
 
 export type NotificationTypes = 'CUSTOM' | NotificationTemplates;
-
-export type NotificationItemProps = {
-	type: NotificationTypes;
-	content?: string;
-	userId?: UserID;
-	date: Date | string | number;
-	extra?: any;
-	seen: boolean;
-};
