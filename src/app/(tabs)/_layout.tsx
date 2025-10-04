@@ -30,31 +30,31 @@ export default function TabLayout() {
 			name: 'leaderboard',
 			title: 'Leaderboard',
 			icon: { svg: <LeaderboardOSVG color={colors.tint} /> },
-			focusedIcon: { svg: <LeaderboardSVG /> },
+			focusedIcon: { svg: <LeaderboardSVG color={colors.negativeTint} /> },
 		},
 		{
 			name: 'notifications',
 			title: 'Notifications',
 			icon: { svg: <BellOSVG color={colors.tint} /> },
-			focusedIcon: { svg: <BellSVG /> },
+			focusedIcon: { svg: <BellSVG color={colors.negativeTint} /> },
 		},
 		{
 			name: 'index',
 			title: 'Home',
 			icon: { svg: <HomeOSVG color={colors.tint} /> },
-			focusedIcon: { svg: <HomeSVG /> },
+			focusedIcon: { svg: <HomeSVG color={colors.negativeTint} /> },
 		},
 		{
 			name: 'profile',
 			title: 'Profile',
 			icon: { svg: <UserOSVG color={colors.tint} /> },
-			focusedIcon: { svg: <UserSVG /> },
+			focusedIcon: { svg: <UserSVG color={colors.negativeTint} /> },
 		},
 		{
 			name: 'settings',
 			title: 'Settings',
 			icon: { svg: <SettingsOSVG color={colors.tint} /> },
-			focusedIcon: { svg: <SettingsSVG /> },
+			focusedIcon: { svg: <SettingsSVG color={colors.negativeTint} /> },
 		},
 	];
 

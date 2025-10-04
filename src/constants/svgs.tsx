@@ -157,8 +157,14 @@ export const Badge3SVG = (props: SvgProps) => (
 	</Svg>
 );
 
-export const HomeSVG = (props: SvgProps) => (
-	<Svg className='icon glyph' viewBox='0 0 24 24' {...props}>
+export const HomeSVG = ({
+	props,
+	color,
+}: {
+	props?: SvgProps;
+	color: ColorValue;
+}) => (
+	<Svg className='icon glyph' fill={color} viewBox='0 0 24 24' {...props}>
 		<Path d='M21.71 12.71a1 1 0 0 1-1.42 0l-.29-.29v7.88a1.77 1.77 0 0 1-1.83 1.7H16a1 1 0 0 1-1-1v-5.9a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1V21a1 1 0 0 1-1 1H5.83A1.77 1.77 0 0 1 4 20.3v-7.88l-.29.29a1 1 0 0 1-1.42 0 1 1 0 0 1 0-1.42l9-9a1 1 0 0 1 1.42 0l9 9a1 1 0 0 1 0 1.42Z' />
 	</Svg>
 );
@@ -209,12 +215,18 @@ export const SettingsOSVG = ({
 	</Svg>
 );
 
-export const SettingsSVG = (props: SvgProps) => (
+export const SettingsSVG = ({
+	props,
+	color,
+}: {
+	props?: SvgProps;
+	color: ColorValue;
+}) => (
 	<Svg viewBox='0 0 24 24' {...props}>
 		<G fill='none' fillRule='nonzero'>
 			<Path d='M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z' />
 			<Path
-				fill='#000'
+				fill={color}
 				d='M10.75 2.567a2.5 2.5 0 0 1 2.5 0L19.544 6.2a2.5 2.5 0 0 1 1.25 2.165v7.268a2.5 2.5 0 0 1-1.25 2.165l-6.294 3.634a2.5 2.5 0 0 1-2.5 0l-6.294-3.634a2.5 2.5 0 0 1-1.25-2.165V8.366A2.5 2.5 0 0 1 4.456 6.2l6.294-3.634ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z'
 			/>
 		</G>
@@ -240,19 +252,31 @@ export const UserOSVG = ({
 	</Svg>
 );
 
-export const UserSVG = (props: SvgProps) => (
+export const UserSVG = ({
+	props,
+	color,
+}: {
+	props?: SvgProps;
+	color: ColorValue;
+}) => (
 	<Svg fill='none' viewBox='0 0 24 24' {...props}>
-		<G fill='#000' fillRule='evenodd' clipRule='evenodd'>
+		<G fill={color} fillRule='evenodd' clipRule='evenodd'>
 			<Path d='M6.75 6.5a5.25 5.25 0 1 1 10.5 0 5.25 5.25 0 0 1-10.5 0ZM4.25 18.571a5.321 5.321 0 0 1 5.321-5.321h4.858a5.321 5.321 0 0 1 5.321 5.321 4.179 4.179 0 0 1-4.179 4.179H8.43a4.179 4.179 0 0 1-4.179-4.179Z' />
 		</G>
 	</Svg>
 );
 
-export const BellSVG = (props: SvgProps) => (
+export const BellSVG = ({
+	props,
+	color,
+}: {
+	props?: SvgProps;
+	color: ColorValue;
+}) => (
 	<Svg viewBox='0 0 632 696' fill='none' {...props}>
 		<Path
 			d='M50.5725 576.418H581.426C613.24 576.418 632 559.853 632 535.512C632 501.703 598.171 471.276 569.034 441.188C546.928 417.861 540.899 369.854 538.556 330.976C535.877 201.155 502.049 111.564 412.625 79.1086C400.233 35.1584 365.401 0 316.167 0C266.598 0 232.102 35.1584 219.374 79.1086C130.285 111.564 96.122 201.155 93.7784 330.976C91.099 369.854 85.4044 417.861 62.9648 441.188C34.1618 471.276 0 501.703 0 535.512C0 559.853 19.0901 576.418 50.5725 576.418ZM219.374 605C223.393 654.359 264.589 695.604 321.526 695.604C378.127 695.604 419.323 654.359 423.677 605H219.374Z'
-			fill='#000000'
+			fill={color}
 		/>
 	</Svg>
 );
@@ -320,32 +344,38 @@ export const LeaderboardOSVG = ({
 	</Svg>
 );
 
-export const LeaderboardSVG = (props: SvgProps) => (
-	<Svg viewBox='0 0 650 642' stroke='black' fill='none' {...props}>
+export const LeaderboardSVG = ({
+	props,
+	color,
+}: {
+	props?: SvgProps;
+	color: ColorValue;
+}) => (
+	<Svg viewBox='0 0 650 642' stroke={color} fill='none' {...props}>
 		<Path
 			d='M406 617H244V337C244 325.953 251.253 317 260.2 317H389.8C398.748 317 406 325.953 406 337V617Z'
-			fill='black'
+			fill={color}
 			strokeWidth={50}
 			strokeLinecap='round'
 			strokeLinejoin='round'
 		/>
 		<Path
 			d='M610.7 617H482V520.057C482 508.979 488.402 500 496.3 500H610.7C618.598 500 625 508.979 625 520.057V596.943C625 608.021 618.598 617 610.7 617Z'
-			fill='black'
+			fill={color}
 			strokeWidth={50}
 			strokeLinecap='round'
 			strokeLinejoin='round'
 		/>
 		<Path
 			d='M168 617V453.964C168 442.937 161.598 434 153.7 434H39.3C31.4023 434 25 442.937 25 453.964V597.036C25 608.063 31.4023 617 39.3 617H168Z'
-			fill='black'
+			fill={color}
 			strokeWidth={50}
 			strokeLinecap='round'
 			strokeLinejoin='round'
 		/>
 		<Path
 			d='M285.187 87.4417L315.49 23.1867C319.38 14.9377 330.62 14.9377 334.51 23.1867L364.813 87.4417L432.583 97.8091C441.28 99.1394 444.743 110.326 438.45 116.743L389.42 166.723L400.99 237.333C402.477 246.401 393.383 253.317 385.603 249.033L325 215.677L264.397 249.033C256.617 253.317 247.523 246.401 249.009 237.333L260.58 166.723L211.55 116.743C205.255 110.326 208.721 99.1394 217.416 97.8091L285.187 87.4417Z'
-			fill='black'
+			fill={color}
 			strokeWidth={33}
 			strokeLinecap='round'
 			strokeLinejoin='round'

@@ -11,7 +11,7 @@ export const NotificationItemStyles = StyleSheet.create({
 		paddingHorizontal: 12,
 		gap: 8,
 		alignItems: 'center',
-		borderTopWidth: 1,
+		marginTop: 1,
 	},
 	text: { fontSize: 16 },
 	username: { fontWeight: '700' },
@@ -22,4 +22,17 @@ export const NotificationItemStyles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
+});
+
+export const NotificationsHeaderStyles = StyleSheet.create({
+	outerContainer: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'space-between',
+		paddingVertical: 6,
+		paddingHorizontal: 16,
+	},
+	title: { fontSize: 24 },
+	button: { paddingInline: 16, borderRadius: 8 },
+	buttonText: { fontSize: 16 },
 });

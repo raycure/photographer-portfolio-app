@@ -53,7 +53,6 @@ export default function NotificationItem({
 			onPress={onNotificationPress}
 			style={[
 				styles.outerContainer,
-				{ borderColor: colors.primary700 },
 				!seen && { backgroundColor: colors.primary600 },
 			]}
 		>

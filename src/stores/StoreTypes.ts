@@ -146,4 +146,5 @@ export type NotificationState = { notifications: Notification[] };
 export type NotificationActions = {
 	setNotifSeen: (notif: NotificationID) => void;
 	addNotification: (notification: Notification) => void;
+	setAllSeen: () => void;
 };

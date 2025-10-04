@@ -72,6 +72,12 @@ export const useNotificationStore = create<
 			set((state) => ({
 				notifications: [notification, ...state.notifications],
 			})),
+		setAllSeen: () =>
+			set((state) => ({
+				notifications: state.notifications.map((notif) => {
+					return { ...notif, seen: true };
+				}),
+			})),
 	})
 	// 	{
 	// 		name: 'notification-storage',
