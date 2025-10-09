@@ -1,8 +1,9 @@
-import { Animated, Pressable, StyleSheet } from 'react-native';
+import { Animated, Pressable } from 'react-native';
 import CustomIcon from '../UI/CustomIcon';
 import { getColorWithOpacity } from '@/src/utils/color';
 import { useColors } from '@/src/hooks/useColors';
 import { useRef } from 'react';
+import { SwiperButtonsStyles } from './HomeStyles';
 export default function SwiperButtons({
 	likeButton = true,
 	onPress,
@@ -41,6 +42,7 @@ export default function SwiperButtons({
 	const animatedStyle = {
 		transform: [{ scale: Animated.multiply(popAnim, swipeScale) }],
 	};
+	const styles = SwiperButtonsStyles;
 	return (
 		<Animated.View style={[animatedStyle]}>
 			<Pressable
@@ -58,13 +60,3 @@ export default function SwiperButtons({
 		</Animated.View>
 	);
 }
-const styles = StyleSheet.create({
-	outerContainer: {
-		justifyContent: 'center',
-		alignItems: 'center',
-		borderRadius: 100,
-		width: 56,
-		height: 56,
-	},
-	likeIcon: { bottom: -2 },
-});

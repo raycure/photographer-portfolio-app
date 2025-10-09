@@ -17,24 +17,14 @@ export default function ProfileHeader() {
 	)?.link;
 	return (
 		<View style={styles.outerContainer}>
-			<View>
-				{data.personalInfo.premium && (
-					<CustomIcon
-						style={styles.premiumIcon}
-						collectionKey='fa6'
-						name='crown'
-						size={18}
-						color={colors.accentOrange}
-					/>
-				)}
-				<CircularPhoto
-					source={imageLink}
-					userId={data.personalInfo.id!}
-					size='medium'
-				/>
-			</View>
+			<CircularPhoto
+				source={imageLink}
+				userId={data.personalInfo.id!}
+				size='medium'
+			/>
 			<View style={styles.infoContainer}>
 				<Text style={styles.title}>{data.personalInfo.name}</Text>
+
 				<View style={styles.lowerContainer}>
 					<Text style={[styles.text, { color: colors.gray200 }]}>
 						@{data.personalInfo.username}

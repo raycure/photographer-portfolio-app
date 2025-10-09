@@ -80,10 +80,12 @@ export const ReportAccountStyles = StyleSheet.create({
 export const LanguagesModalStyles = StyleSheet.create({
 	container: {
 		width: screenWidth,
-		minHeight: 220,
+		minHeight: 240,
 		borderTopRightRadius: 28,
 		borderTopLeftRadius: 28,
 		padding: 16,
+		paddingBottom: 36,
+		bottom: -20,
 	},
 	outerContainer: {
 		flex: 1,

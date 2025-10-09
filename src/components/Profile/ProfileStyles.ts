@@ -8,15 +8,13 @@ export const headerStyles = StyleSheet.create({
 		gap: 10,
 		paddingVertical: 4,
 	},
-	premiumIcon: { position: 'absolute', top: 2, left: -2, zIndex: 1 },
-	title: { fontWeight: 'bold', fontSize: 23 },
+	title: { fontWeight: '600', fontSize: 22 },
 	text: { fontSize: 16, fontStyle: 'italic' },
 	infoContainer: { flex: 1 },
 	levelText: { fontStyle: 'italic', fontSize: 16 },
 	lowerContainer: {
 		flexDirection: 'row',
 		alignItems: 'center',
-		top: -4,
 		gap: 18,
 	},
 });
@@ -122,4 +120,20 @@ export const GalleryNoPostsStyles = StyleSheet.create({
 		gap: 8,
 	},
 	innerContainer: { padding: 24, borderRadius: 500, borderWidth: 3 },
+});
+
+export const ProfilePublicHeaderStyles = StyleSheet.create({
+	title: {
+		marginLeft: 4,
+		fontSize: 20,
+		fontWeight: '500',
+		textAlignVertical: 'center',
+	},
+	outerContainer: {
+		flex: 1,
+		flexDirection: 'row',
+		alignItems: 'center',
+		bottom: 2,
+		gap: 8,
+	},
 });

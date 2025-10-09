@@ -13,3 +13,14 @@ export const HomeSwiperStyles = StyleSheet.create({
 	activeCard: { zIndex: 2 },
 	nextCard: { zIndex: 1 },
 });
+
+export const SwiperButtonsStyles = StyleSheet.create({
+	outerContainer: {
+		justifyContent: 'center',
+		alignItems: 'center',
+		borderRadius: 100,
+		width: 56,
+		height: 56,
+	},
+	likeIcon: { bottom: -2 },
+});

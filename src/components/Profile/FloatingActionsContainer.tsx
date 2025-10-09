@@ -1,6 +1,6 @@
-import { View } from 'react-native';
+import { Animated, View } from 'react-native';
 import FloatingButton from './FloatingButton';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import UserContext from '@/src/context/UserContext';
 import { FloatingActionsConfig } from './ProfileConfig';
@@ -12,9 +12,38 @@ export default function FloatingActionsContainer() {
 	const data = useContext(UserContext);
 	const isPersonal = data.personalInfo.id === userInfoStore.personalInfo.id;
 	const floatingActionsConfig = FloatingActionsConfig();
-	const currentButtons = isPersonal
+	const buttons = isPersonal
 		? [...floatingActionsConfig.general, ...floatingActionsConfig.personal]
 		: [...floatingActionsConfig.general, ...floatingActionsConfig.other];
+
+	const animations = useRef(buttons.map(() => new Animated.Value(0))).current;
+
+	useEffect(() => {
+		if (floatingActionsActive) {
+			Animated.stagger(
+				50,
+				animations.map((anim) =>
+					Animated.spring(anim, {
+						toValue: 1,
+						useNativeDriver: true,
+						friction: 4,
+					})
+				)
+			).start();
+		} else {
+			Animated.stagger(
+				40,
+				animations.map((anim) =>
+					Animated.timing(anim, {
+						toValue: 0,
+						duration: 100,
+						useNativeDriver: true,
+					})
+				)
+			).start();
+		}
+	}, [floatingActionsActive]);
+
 	const styles = FloatingActionsContainerStyles;
 	return (
 		<View style={styles.outerContainer}>
@@ -24,13 +53,20 @@ export default function FloatingActionsContainer() {
 				icon={{ collectionKey: 'fe', name: 'plus', size: 28 }}
 			/>
 			{floatingActionsActive &&
-				currentButtons.map((button, index) => {
+				buttons.map((button, index) => {
+					const scale = animations[index];
+					const animatedStyle = {
+						transform: [{ scale }],
+						opacity: scale,
+					};
 					return (
-						<FloatingButton
-							key={index}
-							onPress={button.onPress}
-							icon={button.icon}
-						/>
+						<Animated.View key={index} style={animatedStyle}>
+							<FloatingButton
+								onPress={button.onPress}
+								icon={button.icon}
+								size='medium'
+							/>
+						</Animated.View>
 					);
 				})}
 		</View>

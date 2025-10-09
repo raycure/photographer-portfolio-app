@@ -14,7 +14,7 @@ export default function LinkedAccountsLayout() {
 		<View style={styles.outerContainer}>
 			{socialsList.map((item, index) => {
 				return (
-					<View key={index}>
+					<View key={item.social}>
 						{index > 0 && (
 							<LineSeperator
 								style={styles.lineSeperator}

@@ -1,6 +1,6 @@
-import { Pressable, Text } from 'react-native';
+import { Animated, Pressable, Text } from 'react-native';
 import { View } from '../Themed';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import GradientBackground from './GradientBackground';
 import { CustomButtonProps } from './UITypes';
 import TintedBackground from './TintedBackground';
@@ -24,8 +24,21 @@ export default function CustomButton({
 }: CustomButtonProps) {
 	const [active, setActive] = useState<boolean>(false);
 	const colors = useColors();
+	const scale = useRef(new Animated.Value(1)).current;
 	const disabledButtonStyle: StyleProps = {
 		backgroundColor: colors.gray400,
+	};
+
+	const handlePressIn = () => {
+		setActive(true);
+		Animated.spring(scale, { toValue: 0.98, useNativeDriver: true }).start();
+	};
+	const handlePressOut = () => {
+		setActive(false);
+		Animated.spring(scale, { toValue: 1, useNativeDriver: true }).start();
+	};
+	const animatedStyle = {
+		transform: [{ scale }],
 	};
 	const styles = CustomButtonStyles;
 	const innerGeneralButtonContent = (
@@ -92,34 +105,36 @@ export default function CustomButton({
 		type == 'icon' ? innerIconButtonContent : innerGeneralButtonContent;
 
 	return (
-		<Pressable
-			onPress={!disabled ? onPress : () => {}}
-			onPressIn={() => setActive(true)}
-			onPressOut={() => setActive(false)}
-			style={[
-				type === 'stretched' ? styles.stretched : undefined,
-				outerContainerStyle,
-			]}
-		>
-			{gradientBackground ? (
-				<GradientBackground
-					style={
-						type == 'icon'
-							? styles.gradientIconContainer
-							: styles.innerContainer
-					}
-					colors={
-						!disabled
-							? gradientBackground.colors
-							: [colors.gray400, colors.gray500]
-					}
-					orientation={gradientBackground.orientation}
-				>
-					{buttonContent}
-				</GradientBackground>
-			) : (
-				buttonContent
-			)}
-		</Pressable>
+		<Animated.View style={[animatedStyle]}>
+			<Pressable
+				onPress={!disabled ? onPress : () => {}}
+				onPressIn={handlePressIn}
+				onPressOut={handlePressOut}
+				style={[
+					type === 'stretched' ? styles.stretched : undefined,
+					outerContainerStyle,
+				]}
+			>
+				{gradientBackground ? (
+					<GradientBackground
+						style={
+							type == 'icon'
+								? styles.gradientIconContainer
+								: styles.innerContainer
+						}
+						colors={
+							!disabled
+								? gradientBackground.colors
+								: [colors.gray400, colors.gray500]
+						}
+						orientation={gradientBackground.orientation}
+					>
+						{buttonContent}
+					</GradientBackground>
+				) : (
+					buttonContent
+				)}
+			</Pressable>
+		</Animated.View>
 	);
 }

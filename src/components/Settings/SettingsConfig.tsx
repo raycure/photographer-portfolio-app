@@ -30,7 +30,7 @@ export const SettingsBlocksConfig: () => Record<
 			},
 			{
 				title: 'Dark Theme',
-				icon: { collectionKey: 'fe', name: 'sun' },
+				icon: { collectionKey: 'fa', name: 'moon-o', size: 28 },
 				rightContent: { button: false, switch: true, title: '' },
 				onPress: () => userInfoStore.changeTheme(),
 			},
