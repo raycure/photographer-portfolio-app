@@ -29,7 +29,7 @@ export const dummyChallengeData: Challenge = {
 				'user_014',
 				'user_015',
 			],
-			imageId: 'image_333',
+			imageId: 'image_666',
 			rank: [1, 5], // [newRank, oldRank]
 		},
 		{
@@ -50,7 +50,7 @@ export const dummyChallengeData: Challenge = {
 				'user_015',
 				'user_016',
 			],
-			imageId: 'image_333',
+			imageId: 'image_666',
 			rank: [2, 6],
 		},
 		{
@@ -70,7 +70,7 @@ export const dummyChallengeData: Challenge = {
 				'user_014',
 				'user_015',
 			],
-			imageId: 'image_333',
+			imageId: 'image_666',
 			rank: [3, 13],
 		},
 		{
@@ -89,7 +89,7 @@ export const dummyChallengeData: Challenge = {
 				'user_010',
 				'user_012',
 			],
-			imageId: 'image_333',
+			imageId: 'image_666',
 			rank: [4, 4],
 		},
 		{
@@ -107,7 +107,7 @@ export const dummyChallengeData: Challenge = {
 				'user_009',
 				'user_010',
 			],
-			imageId: 'image_333',
+			imageId: 'image_666',
 			rank: [5, 14],
 		},
 		{
@@ -124,7 +124,7 @@ export const dummyChallengeData: Challenge = {
 				'user_008',
 				'user_010',
 			],
-			imageId: 'image_333',
+			imageId: 'image_666',
 			rank: [6, 2],
 		},
 		{
@@ -140,7 +140,7 @@ export const dummyChallengeData: Challenge = {
 				'user_008',
 				'user_009',
 			],
-			imageId: 'image_333',
+			imageId: 'image_666',
 			rank: [7, 12],
 		},
 		{
@@ -156,7 +156,7 @@ export const dummyChallengeData: Challenge = {
 				'user_007',
 				'user_009',
 			],
-			imageId: 'image_333',
+			imageId: 'image_666',
 			rank: [8, 8],
 		},
 		{
@@ -165,7 +165,7 @@ export const dummyChallengeData: Challenge = {
 			username: 'forestfan',
 			name: 'Sophia Smith',
 			likes: ['user_001', 'user_002', 'user_005', 'user_007', 'user_009'],
-			imageId: 'image_333',
+			imageId: 'image_666',
 			rank: [9, 3],
 		},
 		{
@@ -174,7 +174,7 @@ export const dummyChallengeData: Challenge = {
 			username: 'countryside',
 			name: 'Amelia Allen',
 			likes: ['user_001', 'user_002', 'user_004', 'user_006'],
-			imageId: 'image_333',
+			imageId: 'image_666',
 			rank: [10, 15],
 		},
 		{
@@ -183,7 +183,7 @@ export const dummyChallengeData: Challenge = {
 			username: 'travelbug',
 			name: 'Olivia Taylor',
 			likes: ['user_002', 'user_005', 'user_006', 'user_009'],
-			imageId: 'image_333',
+			imageId: 'image_666',
 			rank: [11, 7],
 		},
 		{
@@ -192,7 +192,7 @@ export const dummyChallengeData: Challenge = {
 			username: 'desertcolors',
 			name: 'Michael Thomas',
 			likes: ['user_003', 'user_004', 'user_005', 'user_007'],
-			imageId: 'image_333',
+			imageId: 'image_666',
 			rank: [12, 10],
 		},
 		{
@@ -201,7 +201,7 @@ export const dummyChallengeData: Challenge = {
 			username: 'pathfinder',
 			name: 'Ethan Young',
 			likes: ['user_002', 'user_004', 'user_006'],
-			imageId: 'image_333',
+			imageId: 'image_666',
 			rank: [13, 16],
 		},
 		{
@@ -210,7 +210,7 @@ export const dummyChallengeData: Challenge = {
 			username: 'flowerchild',
 			name: 'Isabella Rodriguez',
 			likes: ['user_001', 'user_002', 'user_005'],
-			imageId: 'image_333',
+			imageId: 'image_666',
 			rank: [14, 11],
 		},
 		{
@@ -219,7 +219,7 @@ export const dummyChallengeData: Challenge = {
 			username: 'riverdreams',
 			name: 'Ava Garcia',
 			likes: ['user_003', 'user_005'],
-			imageId: 'image_333',
+			imageId: 'image_666',
 			rank: [15, 9],
 		},
 		{
@@ -228,7 +228,7 @@ export const dummyChallengeData: Challenge = {
 			username: 'naturelover',
 			name: 'Alice Johnson',
 			likes: ['user_004'],
-			imageId: 'image_333',
+			imageId: 'image_666',
 			rank: [16, 1],
 		},
 	],

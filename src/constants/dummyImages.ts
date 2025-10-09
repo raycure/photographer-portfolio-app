@@ -27,4 +27,8 @@ export const images: { imageId: string; link: string }[] = [
 		imageId: 'image_243',
 		link: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
 	},
+	{
+		imageId: 'image_666',
+		link: 'https://cdn.britannica.com/87/2087-050-8B2A01CD/Mona-Lisa-oil-wood-panel-Leonardo-da.jpg',
+	},
 ];
