@@ -1,16 +1,11 @@
-import {
-	Animated,
-	Dimensions,
-	PanResponder,
-	StyleSheet,
-	View,
-} from 'react-native';
+import { Animated, Dimensions, PanResponder, View } from 'react-native';
 import HomeCard from './HomeCard';
 import SwiperButtons from './SwiperButtons';
 import { dummyChallengeData } from '@/src/constants/dummyChallengeData';
 import { useCallback, useRef, useState } from 'react';
 import { useInteractionStore } from '@/src/stores/InteractionStore';
 import { clamp } from 'react-native-reanimated';
+import { HomeSwiperStyles } from './HomeStyles';
 export default function HomeSwiper() {
 	const [data, setData] = useState(dummyChallengeData.entries);
 	const interactionStore = useInteractionStore();
@@ -63,11 +58,20 @@ export default function HomeSwiper() {
 
 	const rotate = Animated.multiply(swipe.x, 1).interpolate({
 		inputRange: [-100, 0, 100],
-		outputRange: ['6deg', '0deg', '-6deg'],
+		outputRange: ['-6deg', '0deg', '6deg'],
 	});
 
 	const animatedCardStyle = {
 		transform: [...swipe.getTranslateTransform(), { rotate }],
+	};
+	const nextCardScale = swipe.x.interpolate({
+		inputRange: [-300, 0, 300],
+		outputRange: [1, 0.9, 1],
+		extrapolate: 'clamp',
+	});
+
+	const animatedNextCardStyle = {
+		transform: [{ scale: nextCardScale }],
 	};
 
 	const handleChoice = useCallback(
@@ -80,7 +84,7 @@ export default function HomeSwiper() {
 		},
 		[removeTopCard, swipe.x]
 	);
-
+	const styles = HomeSwiperStyles;
 	return (
 		<View style={styles.outerContainer}>
 			<Animated.View
@@ -89,26 +93,19 @@ export default function HomeSwiper() {
 			>
 				<HomeCard userId={activeCard.userId} imageId={activeCard.imageId} />
 			</Animated.View>
-			<View style={[styles.card, styles.nextCard]}>
+			<Animated.View
+				style={[styles.card, styles.nextCard, animatedNextCardStyle]}
+			>
 				<HomeCard userId={nextCard.userId} imageId={nextCard.imageId} />
-			</View>
+			</Animated.View>
 			<View style={styles.buttonsContainer}>
-				<SwiperButtons onPress={() => handleChoice(-1)} likeButton={false} />
-				<SwiperButtons onPress={() => handleChoice(1)} />
+				<SwiperButtons
+					onPress={() => handleChoice(-1)}
+					likeButton={false}
+					swipeX={swipe.x}
+				/>
+				<SwiperButtons onPress={() => handleChoice(1)} swipeX={swipe.x} />
 			</View>
 		</View>
 	);
 }
-const styles = StyleSheet.create({
-	outerContainer: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-	buttonsContainer: {
-		flexDirection: 'row',
-		gap: 14,
-		position: 'absolute',
-		bottom: 18,
-		zIndex: 5,
-	},
-	card: { position: 'absolute' },
-	activeCard: { zIndex: 2 },
-	nextCard: { zIndex: 1 },
-});
