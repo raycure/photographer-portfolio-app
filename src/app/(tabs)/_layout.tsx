@@ -17,6 +17,7 @@ import {
 	UserOSVG,
 	UserSVG,
 } from '@/src/constants/svgs';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function TabLayout() {
 	const colors = useColors();
@@ -59,75 +60,80 @@ export default function TabLayout() {
 	];
 
 	return (
-		<Tabs
-			initialRouteName='index'
-			screenOptions={{
-				tabBarActiveTintColor: colors.tint,
-				headerShown: useClientOnlyValue(false, false),
-				tabBarButton: ({ onPress, children, style, accessibilityState }) => {
-					const scale = useRef(new Animated.Value(1)).current;
-
-					const handlePressIn = () => {
-						Animated.spring(scale, {
-							toValue: 0.8,
-							useNativeDriver: true,
-						}).start();
-					};
-					const handlePressOut = () => {
-						Animated.spring(scale, {
-							toValue: 1,
-							useNativeDriver: true,
-						}).start();
-					};
-					const animatedStyle = {
-						transform: [{ scale }],
-					};
-					return (
-						<Animated.View style={[animatedStyle]}>
-							<Pressable
-								onPressIn={handlePressIn}
-								onPressOut={handlePressOut}
-								onPress={onPress}
-								android_ripple={undefined}
-								style={style}
-								accessibilityState={accessibilityState}
-							>
-								{children}
-							</Pressable>
-						</Animated.View>
-					);
-				},
-			}}
+		<SafeAreaView
+			style={{ flex: 1, backgroundColor: colors.background }}
+			edges={['top']}
 		>
-			{tabsContent.map((tab, index) => {
-				return (
-					<Tabs.Screen
-						key={index}
-						name={tab.name}
-						options={{
-							title: tab.title,
-							tabBarShowLabel: false,
-							tabBarIcon: ({ color, focused }) => {
-								const iconProps = focused ? tab.focusedIcon : tab.icon;
-								return (
-									<View
-										style={[
-											styles.unfocusedButton,
-											focused && {
-												backgroundColor: colors.tint,
-												...styles.focusedButton,
-											},
-										]}
-									>
-										<CustomIcon size={30} {...iconProps} color={color} />
-									</View>
-								);
-							},
-						}}
-					/>
-				);
-			})}
-		</Tabs>
+			<Tabs
+				initialRouteName='index'
+				screenOptions={{
+					tabBarActiveTintColor: colors.tint,
+					headerShown: useClientOnlyValue(false, false),
+					tabBarButton: ({ onPress, children, style, accessibilityState }) => {
+						const scale = useRef(new Animated.Value(1)).current;
+
+						const handlePressIn = () => {
+							Animated.spring(scale, {
+								toValue: 0.8,
+								useNativeDriver: true,
+							}).start();
+						};
+						const handlePressOut = () => {
+							Animated.spring(scale, {
+								toValue: 1,
+								useNativeDriver: true,
+							}).start();
+						};
+						const animatedStyle = {
+							transform: [{ scale }],
+						};
+						return (
+							<Animated.View style={[animatedStyle]}>
+								<Pressable
+									onPressIn={handlePressIn}
+									onPressOut={handlePressOut}
+									onPress={onPress}
+									android_ripple={undefined}
+									style={style}
+									accessibilityState={accessibilityState}
+								>
+									{children}
+								</Pressable>
+							</Animated.View>
+						);
+					},
+				}}
+			>
+				{tabsContent.map((tab, index) => {
+					return (
+						<Tabs.Screen
+							key={index}
+							name={tab.name}
+							options={{
+								title: tab.title,
+								tabBarShowLabel: false,
+								tabBarIcon: ({ color, focused }) => {
+									const iconProps = focused ? tab.focusedIcon : tab.icon;
+									return (
+										<View
+											style={[
+												styles.unfocusedButton,
+												focused && {
+													backgroundColor: colors.tint,
+													...styles.focusedButton,
+												},
+											]}
+										>
+											<CustomIcon size={30} {...iconProps} color={color} />
+										</View>
+									);
+								},
+							}}
+						/>
+					);
+				})}
+			</Tabs>
+		</SafeAreaView>
 	);
 }
 const styles = StyleSheet.create({

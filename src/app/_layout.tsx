@@ -57,17 +57,12 @@ function RootLayoutNav() {
 	const bgColor = Colors[colorScheme ?? 'dark'].background;
 	return (
 		<ThemeProvider value={isDarkColorScheme ? DarkTheme : DefaultTheme}>
-			<SafeAreaView
-				style={{ flex: 1, backgroundColor: bgColor }}
-				edges={['top']}
-			>
-				<CustomModal />
-				<Stack initialRouteName={'(tabs)'}>
-					<Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-					<Stack.Screen name='(stack)' options={{ headerShown: false }} />
-					<Stack.Screen name='(secure)' options={{ headerShown: false }} />
-				</Stack>
-			</SafeAreaView>
+			<CustomModal />
+			<Stack initialRouteName={'(tabs)'}>
+				<Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+				<Stack.Screen name='(stack)' options={{ headerShown: false }} />
+				<Stack.Screen name='(secure)' options={{ headerShown: false }} />
+			</Stack>
 		</ThemeProvider>
 	);
 }

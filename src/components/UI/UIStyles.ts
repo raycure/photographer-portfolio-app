@@ -210,3 +210,16 @@ export const FollowButtonStyles = StyleSheet.create({
 	icon: { right: -1 },
 	followingIcon: { right: -1, bottom: -1 },
 });
+
+export const DottedPaginationStyles = StyleSheet.create({
+	container: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		gap: 8,
+	},
+});
+export const NumberedPaginationStyles = StyleSheet.create({
+	outerContainer: { flexDirection: 'row', alignItems: 'center' },
+	innerContainer: { flexDirection: 'row' },
+	number: { marginInline: 6 },
+});

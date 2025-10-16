@@ -134,3 +134,20 @@ export type FollowButtonProps = {
 	userId: UserID;
 	size?: PhotoSize;
 };
+
+export type DottedPaginationProps = {
+	length: number;
+	activeIndex: number;
+	color?: string;
+	size?: GenericSizes;
+	style?: ViewStyle;
+};
+
+export type NumberedPaginationProps = {
+	activeIndex: number;
+	setPaginationNumber: React.Dispatch<React.SetStateAction<number>>;
+	length: number;
+	color?: ColorValue;
+	activeColor?: ColorValue;
+	size?: GenericSizes;
+};
