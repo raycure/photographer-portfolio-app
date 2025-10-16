@@ -1,14 +1,13 @@
 import { useColors } from '@/src/hooks/useColors';
 import { Text } from '../Themed';
 import { ProfilePublicHeaderStyles } from './ProfileStyles';
-import { useLocalSearchParams } from 'expo-router';
 import { dummyUsers } from '@/src/constants/dummyUsers';
 import CustomIcon from '../UI/CustomIcon';
 import { View } from 'react-native';
+import { UserID } from '@/src/stores/StoreTypes';
 
-export default function ProfilePublicHeader() {
+export default function ProfilePublicHeader({ userId }: { userId?: UserID }) {
 	const colors = useColors();
-	const { userId } = useLocalSearchParams();
 	const styles = ProfilePublicHeaderStyles;
 	const user = dummyUsers.find((item) => item.personalInfo.id === userId);
 	return (

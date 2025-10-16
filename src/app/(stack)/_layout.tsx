@@ -5,6 +5,7 @@ import ChallengeHistoryButton from '@/src/components/ChallengeHistory/ChallengeH
 import { ConnectionsHeader } from '@/src/components/Connections/ConnectionsHeader';
 import LinkedAccountsHeader from '@/src/components/LinkedAccounts/LinkedAccountsHeader';
 import ProfilePublicHeader from '@/src/components/Profile/ProfilePublicHeader';
+import { UserID } from '@/src/stores/StoreTypes';
 
 export default function StackLayout() {
 	return (
@@ -17,6 +18,7 @@ export default function StackLayout() {
 				name='index'
 				options={{
 					title: 'Onboarding',
+					header: () => null,
 				}}
 			/>
 			<Stack.Screen
@@ -30,10 +32,16 @@ export default function StackLayout() {
 			/>
 			<Stack.Screen
 				name='profilePublic'
-				options={{
+				options={({ route }: { route: { params?: { userId?: UserID } } }) => ({
 					title: 'Profile Public',
-					header: () => <CustomHeader rightElement={<ProfilePublicHeader />} />,
-				}}
+					header: () => (
+						<CustomHeader
+							rightElement={
+								<ProfilePublicHeader userId={route.params?.userId} />
+							}
+						/>
+					),
+				})}
 			/>
 			<Stack.Screen
 				name='connections'

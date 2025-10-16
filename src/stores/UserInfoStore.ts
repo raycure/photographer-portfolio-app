@@ -8,8 +8,7 @@ const initialState = UserStoreInitialState;
 export const useUserInfoStore = create<UserActions & UserState>()(
 	persist(
 		(set) => ({
-			//...initialState,
-			...dummyUser,
+			...initialState,
 			//setUserData: (data) => set(() => ({ ...data })),
 			setUserData: () => set(() => ({ ...dummyUser })),
 			updateUserData: (data) =>

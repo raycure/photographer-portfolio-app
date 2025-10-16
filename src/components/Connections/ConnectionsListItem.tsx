@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import CircularPhoto from '../UI/CircularPhoto';
 import CustomButton from '../UI/CustomButton';
 import { UserPersonalInfo } from '@/src/stores/StoreTypes';
@@ -7,6 +7,7 @@ import { ConnectionsListItemStyles } from './ConnectionsStyles';
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import { images } from '@/src/constants/dummyImages';
 import { useRef, useState } from 'react';
+import { useRouter } from 'expo-router';
 
 export default function ConnectionsListItem({
 	userpresonalInfo,
@@ -15,6 +16,7 @@ export default function ConnectionsListItem({
 }) {
 	const colors = useColors();
 	const userInfoStore = useUserInfoStore();
+	const router = useRouter();
 	const [pendingUnfollow, setPendingUnfollow] = useState(false);
 	const timerRef = useRef<NodeJS.Timeout | null>(null);
 	const followingIds = userInfoStore.social.followingAccounts;
@@ -40,10 +42,15 @@ export default function ConnectionsListItem({
 			userInfoStore.followUser(userpresonalInfo.id!);
 		}
 	};
+	const onElementPress = () =>
+		router.push({
+			pathname: '/(stack)/profilePublic',
+			params: { userId: userpresonalInfo.id },
+		});
 	return (
-		<View style={styles.outerContainer}>
+		<Pressable onPress={onElementPress} style={styles.outerContainer}>
 			<CircularPhoto
-				userId={userInfoStore.personalInfo.id!}
+				userId={userpresonalInfo.id!}
 				source={image}
 				size='small'
 			/>
@@ -63,6 +70,6 @@ export default function ConnectionsListItem({
 				content={!pendingUnfollow && isFollowing ? 'Unfollow' : 'Follow'}
 				backgroundColor={isFollowing ? colors.primary400 : colors.accentBlue}
 			/>
-		</View>
+		</Pressable>
 	);
 }

@@ -1,5 +1,4 @@
 import { Text, View } from '../Themed';
-import CustomIcon from '../UI/CustomIcon';
 import FollowersButton from '../UI/FollowersButton';
 import { headerStyles } from './ProfileStyles';
 import { useColors } from '@/src/hooks/useColors';
@@ -24,7 +23,6 @@ export default function ProfileHeader() {
 			/>
 			<View style={styles.infoContainer}>
 				<Text style={styles.title}>{data.personalInfo.name}</Text>
-
 				<View style={styles.lowerContainer}>
 					<Text style={[styles.text, { color: colors.gray200 }]}>
 						@{data.personalInfo.username}

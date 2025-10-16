@@ -105,15 +105,17 @@ export default function CustomButton({
 		type == 'icon' ? innerIconButtonContent : innerGeneralButtonContent;
 
 	return (
-		<Animated.View style={[animatedStyle]}>
+		<Animated.View
+			style={[
+				animatedStyle,
+				type === 'stretched' ? styles.stretched : undefined,
+				outerContainerStyle,
+			]}
+		>
 			<Pressable
 				onPress={!disabled ? onPress : () => {}}
 				onPressIn={handlePressIn}
 				onPressOut={handlePressOut}
-				style={[
-					type === 'stretched' ? styles.stretched : undefined,
-					outerContainerStyle,
-				]}
 			>
 				{gradientBackground ? (
 					<GradientBackground

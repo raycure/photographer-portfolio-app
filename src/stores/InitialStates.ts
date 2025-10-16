@@ -26,7 +26,6 @@ export const UserStoreInitialState: UserState = {
 	stats: {
 		experiencePoints: 0,
 		attendedChallenges: [],
-		favorites: [],
 	},
 	auth: {
 		authToken: undefined,

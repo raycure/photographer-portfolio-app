@@ -9,7 +9,6 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
-import { useColorScheme } from '@/src/components/useColorScheme';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Colors from '../constants/Colors';
 import CustomModal from '../components/Modal/CustomModal';
@@ -63,7 +62,7 @@ function RootLayoutNav() {
 				edges={['top']}
 			>
 				<CustomModal />
-				<Stack initialRouteName='(tabs)'>
+				<Stack initialRouteName={'(tabs)'}>
 					<Stack.Screen name='(tabs)' options={{ headerShown: false }} />
 					<Stack.Screen name='(stack)' options={{ headerShown: false }} />
 					<Stack.Screen name='(secure)' options={{ headerShown: false }} />

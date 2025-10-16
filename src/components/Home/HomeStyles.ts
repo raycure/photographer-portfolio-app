@@ -24,3 +24,19 @@ export const SwiperButtonsStyles = StyleSheet.create({
 	},
 	likeIcon: { bottom: -2 },
 });
+
+export const NoEntriesStyles = StyleSheet.create({
+	title: { fontSize: 24, fontWeight: '600' },
+	outerContainer: {
+		alignItems: 'center',
+		justifyContent: 'center',
+		opacity: 0.9,
+		flex: 1,
+		gap: 8,
+	},
+	innerContainer: { padding: 24, borderRadius: 500, borderWidth: 3 },
+});
+
+export const HomeLayoutStyles = StyleSheet.create({
+	outerContainer: { flex: 1, alignItems: 'center', padding: 16 },
+});

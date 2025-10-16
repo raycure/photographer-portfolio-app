@@ -2,10 +2,12 @@ import { Animated, Dimensions, PanResponder, View } from 'react-native';
 import HomeCard from './HomeCard';
 import SwiperButtons from './SwiperButtons';
 import { dummyChallengeData } from '@/src/constants/dummyChallengeData';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useInteractionStore } from '@/src/stores/InteractionStore';
 import { clamp } from 'react-native-reanimated';
 import { HomeSwiperStyles } from './HomeStyles';
+import NoEntries from './NoEntries';
+import { useModalStore } from '@/src/stores/ModalStore';
 export default function HomeSwiper() {
 	const [data, setData] = useState(dummyChallengeData.entries);
 	const interactionStore = useInteractionStore();
@@ -14,7 +16,7 @@ export default function HomeSwiper() {
 	const height = Dimensions.get('screen').height;
 	const swipe = useRef(new Animated.ValueXY()).current;
 	const tiltSign = useRef(new Animated.Value(1)).current;
-
+	const openModal = useModalStore((state) => state.openModal);
 	const removeTopCard = useCallback(
 		(direction: 'left' | 'right') => {
 			if (direction === 'right') {
@@ -85,6 +87,29 @@ export default function HomeSwiper() {
 		[removeTopCard, swipe.x]
 	);
 	const styles = HomeSwiperStyles;
+	useEffect(() => {
+		if (!activeCard) {
+			openModal({
+				title: "You've Seen Everything!",
+				content:
+					"That's all for now. Come back later to discover more great submissions.",
+				buttons: {
+					configuration: 'row',
+					list: [
+						{
+							type: 'general',
+							content: 'Continue',
+							onPress: () => useModalStore.getState().closeModal(),
+						},
+					],
+				},
+			});
+		}
+	}, [activeCard]);
+
+	if (!activeCard) {
+		return <NoEntries />;
+	}
 	return (
 		<View style={styles.outerContainer}>
 			<Animated.View
@@ -93,11 +118,13 @@ export default function HomeSwiper() {
 			>
 				<HomeCard userId={activeCard.userId} imageId={activeCard.imageId} />
 			</Animated.View>
-			<Animated.View
-				style={[styles.card, styles.nextCard, animatedNextCardStyle]}
-			>
-				<HomeCard userId={nextCard.userId} imageId={nextCard.imageId} />
-			</Animated.View>
+			{nextCard && (
+				<Animated.View
+					style={[styles.card, styles.nextCard, animatedNextCardStyle]}
+				>
+					<HomeCard userId={nextCard.userId} imageId={nextCard.imageId} />
+				</Animated.View>
+			)}
 			<View style={styles.buttonsContainer}>
 				<SwiperButtons
 					onPress={() => handleChoice(-1)}

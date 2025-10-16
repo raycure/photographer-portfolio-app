@@ -6,6 +6,7 @@ import { InteractionActions, InteractionState } from './StoreTypes';
 const initialState: InteractionState = {
 	modalsInteracted: {
 		challengeExplanation: { seen: false, open: false },
+		onboarding: { seen: false, open: false },
 		languages: { seen: false, open: false },
 		imageInfo: { seen: false, open: false },
 	},
@@ -55,7 +56,6 @@ export const useInteractionStore = create<
 					),
 				},
 			})),
-
 		addDislike: (entryId) =>
 			set((state) => ({
 				challengeInteractions: {
@@ -68,6 +68,7 @@ export const useInteractionStore = create<
 					),
 				},
 			})),
+		resetStore: () => set(() => initialState),
 	})
 	// 	{
 	// 		name: 'interaction-storage',

@@ -1,5 +1,6 @@
 import { Dimensions, StyleSheet } from 'react-native';
 const screenWidth = Dimensions.get('screen').width;
+const screenHeight = Dimensions.get('screen').height;
 export const CustomModalStyles = StyleSheet.create({
 	buttonContainer: {
 		backgroundColor: 'transparent',
@@ -34,9 +35,10 @@ export const CustomModalStyles = StyleSheet.create({
 	},
 	blurContainer: {
 		position: 'absolute',
+		top: -5,
 		flex: 1,
 		width: '100%',
-		height: '100%',
+		height: screenHeight,
 		zIndex: 300,
 		justifyContent: 'center',
 		alignItems: 'center',
@@ -48,8 +50,6 @@ export const CustomModalStyles = StyleSheet.create({
 	},
 	stretchedButton: { flex: 1 },
 });
-
-export const ModalWrapperStyles = StyleSheet.create({});
 
 export const LinkAccountBlockStyles = StyleSheet.create({
 	innerContainer: {
