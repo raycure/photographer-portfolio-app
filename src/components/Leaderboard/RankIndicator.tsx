@@ -1,55 +1,47 @@
-import { View } from 'react-native';
-import { Text } from '../Themed';
-import TintedBackground from '../UI/TintedBackground';
-import CustomIcon from '../UI/CustomIcon';
 import { useColors } from '@/src/hooks/useColors';
-import { RankIndicatorStyles } from './LeaderboardStyles';
+import { getColorWithOpacity } from '@/src/utils/color';
+import { Text, View } from 'react-native';
+import CustomIcon from '../UI/CustomIcon';
 import { RankIndicatorProps } from './LeaderboardTypes';
+import { RankIndicatorStyles } from './LeaderboardStyles';
 
 export default function RankIndicator({
-	arrowDirection = 'neutral',
-	row = true,
 	rank,
-	tint,
+	size = 'medium',
 }: RankIndicatorProps) {
 	const colors = useColors();
+	const rankState =
+		rank[0] > rank[1] ? false : rank[0] == rank[1] ? null : true;
+	const bg =
+		rank[0] > 9
+			? '#151515'
+			: rankState === true
+			? colors.accentGreen400
+			: rankState === false
+			? colors.accentRed
+			: '#151515';
+	const iconName = rankState
+		? 'triangle-up'
+		: rankState === false
+		? 'triangle-down'
+		: 'dash';
 	const styles = RankIndicatorStyles;
-	const innerContent = (
-		<CustomIcon
-			name={arrowDirection !== 'neutral' ? 'triangle' : 'minus'}
-			collectionKey={arrowDirection !== 'neutral' ? 'ion' : 'fa6'}
-			style={[
-				arrowDirection === 'up'
-					? styles.iconUpRow
-					: arrowDirection !== 'neutral' && row
-					? styles.iconDownRow
-					: styles.iconDown,
-			]}
-			size={row ? 13 : 15}
-			color={arrowDirection === 'up' ? colors.accentGreen400 : colors.gray200}
-		/>
-	);
 	return (
-		<View style={row ? styles.outerContainerRow : styles.outerContainerColumn}>
-			<Text
+		<View style={styles.outerContainer}>
+			<View
 				style={[
-					styles.number,
-					{ color: colors.gray200 },
-					row ? undefined : styles.numberColumn,
+					styles.innerContainer,
+					{ backgroundColor: getColorWithOpacity(bg, 0.4) },
 				]}
 			>
-				{rank}
-			</Text>
-			{row ? (
-				<TintedBackground
-					opacity={0.3}
-					color={tint ? tint : colors.primary200}
-					style={styles.tintedBackgound}
-				>
-					{innerContent}
-				</TintedBackground>
-			) : (
-				innerContent
+				<Text style={styles.rank}>{rank[0]}</Text>
+			</View>
+			{rank[0] > 9 && (
+				<CustomIcon
+					collectionKey='oct'
+					name={iconName}
+					size={rankState === null ? 17 : 22}
+				/>
 			)}
 		</View>
 	);

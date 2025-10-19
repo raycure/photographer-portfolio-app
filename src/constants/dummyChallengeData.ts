@@ -229,7 +229,7 @@ export const dummyChallengeData: Challenge = {
 			name: 'Alice Johnson',
 			likes: ['user_004'],
 			imageId: 'image_666',
-			rank: [16, 1],
+			rank: [16, 16],
 		},
 	],
 };

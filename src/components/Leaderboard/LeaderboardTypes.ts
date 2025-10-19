@@ -1,27 +1,8 @@
-import { ArrowDirection } from '@/src/utils/getArrowDirection';
-import { ReactNode } from 'react';
-import { ColorValue, StyleProp, ViewStyle } from 'react-native';
-import { PhotoSize } from '../UI/UITypes';
-import { Entry } from '@/src/constants/dataTypes';
+import { EntryID } from '@/src/stores/StoreTypes';
+import { GenericSizes } from '../UI/UITypes';
 
-export type LeaderboardToggleProps = {
-	levelToggle: boolean;
-	setLevelToggle: React.Dispatch<React.SetStateAction<boolean>>;
-};
-
-export type LeaderboardWinerConfig = {
-	style: StyleProp<ViewStyle> | StyleProp<ViewStyle>[];
-	rank: number;
-	photoSize: PhotoSize;
-	icon?: ReactNode;
-};
+export type LeaderBoardListItemProps = { entryId: EntryID };
 export type RankIndicatorProps = {
-	arrowDirection?: ArrowDirection;
-	row?: boolean;
-	rank: number;
-	tint?: ColorValue;
+	rank: [number, number];
+	size?: GenericSizes;
 };
-
-export type LeaderboardListItemProps = { entry: Entry };
-
-export type LeaderboardPersonalButtonWrapper = { children: React.ReactNode };

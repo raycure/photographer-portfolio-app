@@ -15,7 +15,7 @@ export default function HomeLayout() {
 			<Pressable onPress={() => interactionStore.resetStore()}>
 				<Text>test</Text>
 			</Pressable>
-			<Pressable onPress={() => router.push('/(secure)/login')}>
+			<Pressable onPress={() => router.push('/(secure)')}>
 				<Text>test</Text>
 			</Pressable>
 			<Pressable onPress={() => router.push('/(stack)')}>

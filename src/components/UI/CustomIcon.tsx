@@ -1,8 +1,10 @@
 import { iconCollectionMap } from '@/src/constants/iconRegistry';
 import { CustomIconProps } from './UITypes';
 import { View } from 'react-native';
+import { useColors } from '@/src/hooks/useColors';
 
 export default function CustomIcon(props: CustomIconProps) {
+	const colors = useColors();
 	if ('svg' in props) {
 		const { svg, style, size } = props;
 		return (
@@ -19,7 +21,7 @@ export default function CustomIcon(props: CustomIconProps) {
 	} else {
 		const {
 			name,
-			color = 'white',
+			color = colors.tint,
 			style,
 			size = 28,
 			collectionKey,
