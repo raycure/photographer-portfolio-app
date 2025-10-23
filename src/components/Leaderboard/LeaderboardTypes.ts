@@ -1,8 +1,13 @@
 import { EntryID } from '@/src/stores/StoreTypes';
+import { ViewStyle } from 'react-native';
 import { GenericSizes } from '../UI/UITypes';
 
-export type LeaderBoardListItemProps = { entryId: EntryID };
+export type LeaderBoardListItemProps = { entryId: EntryID; topNine?: boolean };
 export type RankIndicatorProps = {
-	rank: [number, number];
+	rank: [number, number] | number;
+	style?: ViewStyle;
+};
+export type LeaderboardLikeButtonProps = {
+	entryId: EntryID;
 	size?: GenericSizes;
 };

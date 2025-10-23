@@ -1,6 +1,6 @@
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import { FlatList } from 'react-native';
-import { Text, View } from '../Themed';
+import { View } from '../Themed';
 import GalleryGridItem from './GalleryGridItem';
 import { useContext } from 'react';
 import UserContext from '@/src/context/UserContext';

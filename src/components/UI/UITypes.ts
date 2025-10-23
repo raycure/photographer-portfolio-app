@@ -125,6 +125,8 @@ export type PhotoSize = GenericSizes | ExtraSizes | undefined;
 export type CircularPhotoProps = {
 	size?: PhotoSize;
 	source?: string;
+	customSize?: number;
+	followActive?: boolean;
 	userId: UserID;
 };
 export type InputAreaParentProps = { children: ReactNode; title: string };

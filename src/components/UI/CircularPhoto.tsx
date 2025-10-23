@@ -7,6 +7,8 @@ import FollowButton from './FollowButton';
 const windowWidth = Dimensions.get('screen').width;
 export default function CircularPhoto({
 	size,
+	customSize,
+	followActive = true,
 	source,
 	userId,
 }: CircularPhotoProps) {
@@ -33,9 +35,10 @@ export default function CircularPhoto({
 						sizeBasedStyle,
 						styles.image,
 						{ borderColor: colors.primary600 },
+						customSize ? { width: customSize, height: customSize } : undefined,
 					]}
 				/>
-				<FollowButton userId={userId} size={size} />
+				{followActive && <FollowButton userId={userId} size={size} />}
 			</View>
 		);
 	}
@@ -47,6 +50,7 @@ export default function CircularPhoto({
 					styles.image,
 					styles.fakeUser,
 					{ borderColor: colors.primary600, backgroundColor: colors.gray600 },
+					customSize ? { width: customSize, height: customSize } : undefined,
 				]}
 			>
 				<CustomIcon
@@ -66,7 +70,7 @@ export default function CircularPhoto({
 					color={colors.gray300}
 				/>
 			</View>
-			<FollowButton userId={userId} size={size} />
+			{followActive && <FollowButton userId={userId} size={size} />}
 		</View>
 	);
 }

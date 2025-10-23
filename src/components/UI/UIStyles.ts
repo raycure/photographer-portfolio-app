@@ -153,6 +153,7 @@ export const CircularPhotoStyles = StyleSheet.create({
 	},
 	imageXL: { width: (windowWidth * 4) / 9, height: (windowWidth * 4) / 9 },
 	imageXS: { width: 48, height: 48 },
+	imageXXS: { width: 40, height: 40 },
 	image: {
 		borderRadius: 1000,
 		overflow: 'hidden',
