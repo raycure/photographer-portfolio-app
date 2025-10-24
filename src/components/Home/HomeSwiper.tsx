@@ -24,8 +24,10 @@ export default function HomeSwiper() {
 			} else {
 				interactionStore.addDislike(activeCard.entryId);
 			}
-			swipe.setValue({ x: 0, y: 0 });
 			setData((prev) => prev.slice(1));
+			setTimeout(() => {
+				swipe.setValue({ x: 0, y: 0 });
+			}, 0);
 		},
 		[swipe, interactionStore, activeCard]
 	);

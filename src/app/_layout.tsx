@@ -13,6 +13,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Colors from '../constants/Colors';
 import CustomModal from '../components/Modal/CustomModal';
 import { useUserInfoStore } from '../stores/UserInfoStore';
+import { useInteractionStore } from '../stores/InteractionStore';
 
 export {
 	// Catch any errors thrown by the Layout component.
@@ -52,16 +53,28 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
 	const userInfoStore = useUserInfoStore();
+	const interactionsStore = useInteractionStore();
 	const isDarkColorScheme = userInfoStore.preferences.darkTheme;
-	const colorScheme = isDarkColorScheme ? 'dark' : 'light';
-	const bgColor = Colors[colorScheme ?? 'dark'].background;
+	const isLoggedIn = !!userInfoStore.personalInfo.id;
+	const hasSeenOnboarding = interactionsStore.modalsInteracted.onboarding.seen;
+	const getInitialRoute = () => {
+		if (!hasSeenOnboarding) return '(stack)';
+		if (!isLoggedIn) return '(secure)';
+		return '(tabs)';
+	};
 	return (
 		<ThemeProvider value={isDarkColorScheme ? DarkTheme : DefaultTheme}>
 			<CustomModal />
-			<Stack initialRouteName={'(tabs)'}>
-				<Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-				<Stack.Screen name='(stack)' options={{ headerShown: false }} />
-				<Stack.Screen name='(secure)' options={{ headerShown: false }} />
+			<Stack initialRouteName={getInitialRoute()}>
+				<Stack.Protected guard={isLoggedIn}>
+					<Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+				</Stack.Protected>
+				<Stack.Protected guard={!hasSeenOnboarding}>
+					<Stack.Screen name='(stack)' options={{ headerShown: false }} />
+				</Stack.Protected>
+				<Stack.Protected guard={!isLoggedIn}>
+					<Stack.Screen name='(secure)' options={{ headerShown: false }} />
+				</Stack.Protected>
 			</Stack>
 		</ThemeProvider>
 	);

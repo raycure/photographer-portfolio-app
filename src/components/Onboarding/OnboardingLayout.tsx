@@ -11,11 +11,13 @@ import DottedPagination from '../UI/DottedPagination';
 import CustomButton from '../UI/CustomButton';
 import { Link, useRouter } from 'expo-router';
 import { OnboardingLayoutStyles } from './OnboardingStyles';
+import { useInteractionStore } from '@/src/stores/InteractionStore';
 const width = Dimensions.get('screen').width;
 export default function OnboardingLayout() {
 	const scrollX = useRef(new Animated.Value(0)).current;
 	const [activeIndex, setActiveIndex] = useState(0);
 	const router = useRouter();
+	const interactionStore = useInteractionStore();
 	const handleScroll = Animated.event(
 		[{ nativeEvent: { contentOffset: { x: scrollX } } }],
 		{
@@ -32,8 +34,12 @@ export default function OnboardingLayout() {
 		outputRange: onboardingConfig.map((item) => item.backgroundColor),
 		extrapolate: 'clamp',
 	});
+	const setSeen = () => {
+		interactionStore.setModalSeen('onboarding');
+	};
 	const onRegisterPress = () => {
 		router.navigate('/(secure)');
+		setSeen();
 	};
 	const styles = OnboardingLayoutStyles;
 	return (
@@ -60,7 +66,7 @@ export default function OnboardingLayout() {
 				length={5}
 				activeIndex={activeIndex}
 			/>
-			<Link style={styles.link} href={'/(secure)/login'}>
+			<Link onPress={setSeen} style={styles.link} href={'/(secure)/login'}>
 				Login
 			</Link>
 			<CustomButton

@@ -14,9 +14,11 @@ import ForgotPasswordButton from './ForgotPasswordButton';
 import { useColors } from '@/src/hooks/useColors';
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import { AuthFormStyles } from './AuthStyles';
+import { useRouter } from 'expo-router';
 
 export default function AuthForm({ elements, type }: FormProps) {
 	const colors = useColors();
+	const router = useRouter();
 	const [passwordSecure, setPasswordSecure] = useState<boolean>(true);
 	const { formData: authFormData, onInputChange } = useForm({
 		name: '',
@@ -38,6 +40,7 @@ export default function AuthForm({ elements, type }: FormProps) {
 	const onRegisterPressed = () => {};
 	const onLoginPressed = () => {
 		userInfoStore.setUserData();
+		router.navigate('/(tabs)');
 	};
 	const styles = AuthFormStyles;
 	return (
