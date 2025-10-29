@@ -5,11 +5,11 @@ import { InputAreaParentProps, InputAreaProps } from './UITypes';
 import { useColors } from '@/src/hooks/useColors';
 import { InputAreaStyles } from './UIStyles';
 const styles = InputAreaStyles;
-const ParentView = ({ children, title }: InputAreaParentProps) => {
+const ParentView = ({ children, title, style }: InputAreaParentProps) => {
 	const colors = useColors();
 	if (title) {
 		return (
-			<View style={styles.outerContainer}>
+			<View style={[styles.outerContainer, style]}>
 				<Text style={[styles.title, { color: colors.gray200 }]}>{title}</Text>
 				{children}
 			</View>
@@ -28,12 +28,24 @@ export default function InputArea({
 	textStyle,
 	textContentType,
 	onChange,
+	letterCount,
+	maxLength,
 	...props
 }: InputAreaProps) {
 	const [active, setActive] = useState<boolean>(false);
 	const colors = useColors();
 	return (
-		<ParentView title={title!}>
+		<ParentView style={maxLength ? styles.parent : {}} title={title!}>
+			{maxLength && (
+				<Text
+					style={[
+						styles.letterCountText,
+						letterCount == maxLength && { color: colors.accentRed },
+					]}
+				>
+					{letterCount}/{maxLength}
+				</Text>
+			)}
 			<View
 				style={[
 					{
@@ -64,6 +76,7 @@ export default function InputArea({
 					textContentType={textContentType}
 					onFocus={() => setActive(true)}
 					onBlur={() => setActive(false)}
+					maxLength={maxLength}
 				/>
 				{rightElement && (
 					<View style={styles.rightElementWrapper}>

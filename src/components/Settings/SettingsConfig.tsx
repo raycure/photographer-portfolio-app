@@ -79,21 +79,6 @@ export const SettingsBlocksConfig: () => Record<
 						content:
 							'Tell us your issue and you will be contacted by our team via email.',
 						extra: <ReportIssueBlock />,
-						buttons: {
-							configuration: 'row',
-							list: [
-								{
-									type: 'stretched',
-									content: 'Cancel',
-									onPress: () => useModalStore.getState().closeModal(),
-								},
-								{
-									type: 'stretched',
-									content: 'Send',
-									onPress: () => useModalStore.getState().closeModal(),
-								},
-							],
-						},
 					}),
 			},
 			{

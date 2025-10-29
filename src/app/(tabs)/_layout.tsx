@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import { Tabs } from 'expo-router';
-import { useClientOnlyValue } from '@/src/components/useClientOnlyValue';
 import CustomIcon from '@/src/components/UI/CustomIcon';
 import { useColors } from '@/src/hooks/useColors';
 import { Animated, Pressable, StyleSheet, View } from 'react-native';
@@ -18,6 +17,7 @@ import {
 	UserSVG,
 } from '@/src/constants/svgs';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNotificationStore } from '@/src/stores/NotificationStore';
 
 export default function TabLayout() {
 	const colors = useColors();
@@ -68,7 +68,7 @@ export default function TabLayout() {
 				initialRouteName='index'
 				screenOptions={{
 					tabBarActiveTintColor: colors.tint,
-					headerShown: useClientOnlyValue(false, false),
+					headerShown: false,
 					tabBarButton: ({ onPress, children, style, accessibilityState }) => {
 						const scale = useRef(new Animated.Value(1)).current;
 
@@ -114,6 +114,9 @@ export default function TabLayout() {
 								tabBarShowLabel: false,
 								tabBarIcon: ({ color, focused }) => {
 									const iconProps = focused ? tab.focusedIcon : tab.icon;
+									const hasUnread =
+										tab.name === 'notifications' &&
+										useNotificationStore((s) => s.hasUnread());
 									return (
 										<View
 											style={[
@@ -124,7 +127,17 @@ export default function TabLayout() {
 												},
 											]}
 										>
-											<CustomIcon size={30} {...iconProps} color={color} />
+											<View>
+												<CustomIcon size={30} {...iconProps} />
+												{hasUnread && (
+													<View
+														style={[
+															styles.dot,
+															{ backgroundColor: colors.gray200 },
+														]}
+													/>
+												)}
+											</View>
 										</View>
 									);
 								},
@@ -146,5 +159,13 @@ const styles = StyleSheet.create({
 	unfocusedButton: {
 		justifyContent: 'center',
 		alignItems: 'center',
+	},
+	dot: {
+		position: 'absolute',
+		top: 3,
+		right: 3,
+		width: 9,
+		height: 9,
+		borderRadius: 10,
 	},
 });

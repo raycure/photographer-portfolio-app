@@ -30,7 +30,7 @@ export default function LeaderboardListItem({
 	const aspectRatio = useAspectRatio(imageLink);
 	const onProfilePress = () => {
 		router.push({
-			pathname: '/(stack)/profilePublic',
+			pathname: '/(stack)',
 			params: { userId: entry?.userId },
 		});
 	};
@@ -46,12 +46,14 @@ export default function LeaderboardListItem({
 		return (
 			<Pressable style={styles.outerContainer} onPress={onPhotoPress}>
 				<RankIndicator style={styles.rank} rank={entry?.rank[0]!} />
-				<Image
-					source={{
-						uri: imageLink,
-					}}
-					style={[{ aspectRatio }, styles.image]}
-				/>
+				<Pressable onPress={onPhotoPress}>
+					<Image
+						source={{
+							uri: imageLink,
+						}}
+						style={[{ aspectRatio }, styles.image]}
+					/>
+				</Pressable>
 				<View style={styles.innerContainer}>
 					<Pressable onPress={onProfilePress}>
 						<CircularPhoto

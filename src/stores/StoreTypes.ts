@@ -152,4 +152,5 @@ export type NotificationActions = {
 	setNotifSeen: (notif: NotificationID) => void;
 	addNotification: (notification: Notification) => void;
 	setAllSeen: () => void;
+	hasUnread: () => boolean;
 };

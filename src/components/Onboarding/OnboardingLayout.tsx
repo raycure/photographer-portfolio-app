@@ -38,8 +38,8 @@ export default function OnboardingLayout() {
 		interactionStore.setModalSeen('onboarding');
 	};
 	const onRegisterPress = () => {
-		router.navigate('/(secure)');
 		setSeen();
+		router.replace('/(secure)');
 	};
 	const styles = OnboardingLayoutStyles;
 	return (

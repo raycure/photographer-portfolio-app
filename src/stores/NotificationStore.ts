@@ -58,7 +58,7 @@ export const useNotificationStore = create<
 	NotificationState & NotificationActions
 >()(
 	//persist(
-	(set) => ({
+	(set, get) => ({
 		...initialState,
 		setNotifSeen: (notificationId) =>
 			set((state) => ({
@@ -78,6 +78,7 @@ export const useNotificationStore = create<
 					return { ...notif, seen: true };
 				}),
 			})),
+		hasUnread: () => get().notifications.some((n) => !n.seen),
 	})
 	// 	{
 	// 		name: 'notification-storage',

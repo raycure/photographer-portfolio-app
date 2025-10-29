@@ -81,6 +81,8 @@ export type InputAreaProps = {
 	containerStyle?: ViewStyle;
 	textStyle?: TextStyle;
 	textContentType?: TextInputProps['textContentType'];
+	letterCount?: number;
+	maxLength?: number;
 	onChange?:
 		| ((e: NativeSyntheticEvent<TextInputChangeEventData>) => void)
 		| undefined;
@@ -129,7 +131,11 @@ export type CircularPhotoProps = {
 	followActive?: boolean;
 	userId: UserID;
 };
-export type InputAreaParentProps = { children: ReactNode; title: string };
+export type InputAreaParentProps = {
+	children: ReactNode;
+	title: string;
+	style?: ViewStyle;
+};
 
 export type FollowButtonProps = {
 	circular?: boolean;

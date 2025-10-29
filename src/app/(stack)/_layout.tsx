@@ -16,22 +16,6 @@ export default function StackLayout() {
 		>
 			<Stack.Screen
 				name='index'
-				options={{
-					title: 'Onboarding',
-					header: () => null,
-				}}
-			/>
-			<Stack.Screen
-				name='challengeHistory'
-				options={{
-					title: 'Challenge History',
-					header: () => (
-						<CustomHeader rightElement={<ChallengeHistoryButton />} />
-					),
-				}}
-			/>
-			<Stack.Screen
-				name='profilePublic'
 				options={({ route }: { route: { params?: { userId?: UserID } } }) => ({
 					title: 'Profile Public',
 					header: () => (
@@ -42,6 +26,15 @@ export default function StackLayout() {
 						/>
 					),
 				})}
+			/>
+			<Stack.Screen
+				name='challengeHistory'
+				options={{
+					title: 'Challenge History',
+					header: () => (
+						<CustomHeader rightElement={<ChallengeHistoryButton />} />
+					),
+				}}
 			/>
 			<Stack.Screen
 				name='connections'

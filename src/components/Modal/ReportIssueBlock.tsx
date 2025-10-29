@@ -2,6 +2,9 @@ import { View } from 'react-native';
 import InputArea from '../UI/InputArea';
 import { useState } from 'react';
 import { useColors } from '@/src/hooks/useColors';
+import { ReportIssueModalStyles } from './ModalStyles';
+import CustomButton from '../UI/CustomButton';
+import { useModalStore } from '@/src/stores/ModalStore';
 type Issue = {
 	title?: string;
 	content?: string;
@@ -12,6 +15,7 @@ export default function ReportIssueBlock() {
 		content: undefined,
 	});
 	const color = useColors();
+	const styles = ReportIssueModalStyles;
 	return (
 		<View>
 			<InputArea
@@ -29,9 +33,27 @@ export default function ReportIssueBlock() {
 					setIssue((prev) => ({ ...prev, content: text }))
 				}
 				multiline={true}
-				numberOfLines={5}
+				numberOfLines={6}
 				containerStyle={{ backgroundColor: color.primary600 }}
+				maxLength={250}
+				letterCount={issue.content?.length || 0}
 			/>
+			<View style={styles.buttonContainer}>
+				<CustomButton
+					type='stretched'
+					content='Cancel'
+					onPress={() => useModalStore.getState().closeModal()}
+				/>
+				<CustomButton
+					type='stretched'
+					content='Report'
+					disabled={!issue.content}
+					onPress={() => {
+						if (!issue) return;
+						console.log(issue);
+					}}
+				/>
+			</View>
 		</View>
 	);
 }

@@ -36,6 +36,13 @@ export const InputAreaStyles = StyleSheet.create({
 		borderWidth: 2,
 		width: '100%',
 	},
+	letterCountText: {
+		position: 'absolute',
+		bottom: -12,
+		right: 0,
+		fontSize: 12,
+	},
+	parent: { marginBottom: 10 },
 	inputArea: {
 		flex: 1,
 		paddingInline: 16,

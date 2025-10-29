@@ -1,6 +1,5 @@
 import React from 'react';
 import { Stack } from 'expo-router';
-import { useClientOnlyValue } from '@/src/components/useClientOnlyValue';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useColors } from '@/src/hooks/useColors';
 
@@ -13,7 +12,7 @@ export default function SecureLayout() {
 		>
 			<Stack
 				screenOptions={{
-					headerShown: useClientOnlyValue(false, false),
+					headerShown: false,
 				}}
 			>
 				<Stack.Screen

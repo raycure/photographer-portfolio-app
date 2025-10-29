@@ -19,7 +19,7 @@ export default function LeaderboardLikeButton({
 	const liked = entry?.likes.includes(userInfoStore.personalInfo.id!);
 	const onPressLike = () => {
 		if (liked) {
-		} else {
+		} else if (entry?.userId !== userInfoStore.personalInfo.id) {
 		}
 	};
 	const styles = LeaderboardLikeButtonStyles;

@@ -74,7 +74,20 @@ export const LinkedAccountsBlockStyles = StyleSheet.create({
 });
 
 export const ReportAccountStyles = StyleSheet.create({
-	buttonContainer: { flexDirection: 'row', justifyContent: 'center', gap: 16 },
+	buttonContainer: {
+		flexDirection: 'row',
+		justifyContent: 'center',
+		gap: 16,
+		paddingTop: 20,
+	},
+});
+export const ReportIssueModalStyles = StyleSheet.create({
+	buttonContainer: {
+		flexDirection: 'row',
+		justifyContent: 'center',
+		gap: 16,
+		paddingTop: 20,
+	},
 });
 
 export const LanguagesModalStyles = StyleSheet.create({

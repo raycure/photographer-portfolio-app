@@ -44,7 +44,7 @@ export default function ConnectionsListItem({
 	};
 	const onElementPress = () =>
 		router.push({
-			pathname: '/(stack)/profilePublic',
+			pathname: '/(stack)',
 			params: { userId: userpresonalInfo.id },
 		});
 	return (

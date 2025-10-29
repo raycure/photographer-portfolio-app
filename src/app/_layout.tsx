@@ -58,7 +58,7 @@ function RootLayoutNav() {
 	const isLoggedIn = !!userInfoStore.personalInfo.id;
 	const hasSeenOnboarding = interactionsStore.modalsInteracted.onboarding.seen;
 	const getInitialRoute = () => {
-		if (!hasSeenOnboarding) return '(stack)';
+		if (!hasSeenOnboarding) return '(onboarding)';
 		if (!isLoggedIn) return '(secure)';
 		return '(tabs)';
 	};
@@ -68,9 +68,10 @@ function RootLayoutNav() {
 			<Stack initialRouteName={getInitialRoute()}>
 				<Stack.Protected guard={isLoggedIn}>
 					<Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+					<Stack.Screen name='(stack)' options={{ headerShown: false }} />
 				</Stack.Protected>
 				<Stack.Protected guard={!hasSeenOnboarding}>
-					<Stack.Screen name='(stack)' options={{ headerShown: false }} />
+					<Stack.Screen name='(onboarding)' options={{ headerShown: false }} />
 				</Stack.Protected>
 				<Stack.Protected guard={!isLoggedIn}>
 					<Stack.Screen name='(secure)' options={{ headerShown: false }} />

@@ -52,7 +52,7 @@ export default function ProfileInfo({
 			router.navigate('/(tabs)/profile');
 		} else {
 			router.push({
-				pathname: '/(stack)/profilePublic',
+				pathname: '/(stack)',
 				params: { userId: userId },
 			});
 		}
