@@ -1,8 +1,9 @@
 import { images } from '@/src/constants/dummyImages';
 import { ImageID, UserID } from '@/src/stores/StoreTypes';
 import useAspectRatio from '@/src/hooks/useAspectRatio';
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, View } from 'react-native';
 import ProfileInfo from './ProfileInfo';
+import { HomeCardStyles } from './HomeStyles';
 
 export default function HomeCard({
 	imageId,
@@ -15,6 +16,7 @@ export default function HomeCard({
 		return image.imageId === imageId;
 	})?.link;
 	const aspectRatio = useAspectRatio(imageLink);
+	const styles = HomeCardStyles;
 	return (
 		<View>
 			<Image
@@ -31,7 +33,3 @@ export default function HomeCard({
 		</View>
 	);
 }
-const styles = StyleSheet.create({
-	image: { width: '100%' },
-	profileInfoBlock: { position: 'absolute', bottom: 0 },
-});

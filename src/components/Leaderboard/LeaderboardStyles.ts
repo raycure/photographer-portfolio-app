@@ -92,3 +92,12 @@ export const LeaderboardLikeButtonStyles = StyleSheet.create({
 	textBig: { fontSize: 18, fontWeight: '600' },
 	textMedium: { fontSize: 16 },
 });
+
+export const LeaderboardHeaderStyles = StyleSheet.create({
+	outerContainer: {
+		flexGrow: 1,
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'flex-start',
+	},
+});

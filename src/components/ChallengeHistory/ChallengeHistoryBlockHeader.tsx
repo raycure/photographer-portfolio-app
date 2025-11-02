@@ -25,7 +25,7 @@ export default function ChallengeHistoryBlockHeader({
 					<Text style={[styles.usersText, { color: colors.tint }]}>
 						{entries}
 					</Text>
-					<CustomIcon collectionKey='oct' name='person' size={22} />
+					<CustomIcon collectionKey='oct' name='person' size={18} />
 				</View>
 			</View>
 		</View>

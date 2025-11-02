@@ -133,7 +133,11 @@ export default function TabLayout() {
 													<View
 														style={[
 															styles.dot,
-															{ backgroundColor: colors.gray200 },
+															{
+																backgroundColor: !focused
+																	? colors.tint
+																	: colors.gray200,
+															},
 														]}
 													/>
 												)}

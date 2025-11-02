@@ -40,3 +40,8 @@ export const NoEntriesStyles = StyleSheet.create({
 export const HomeLayoutStyles = StyleSheet.create({
 	outerContainer: { flex: 1, alignItems: 'center', padding: 16 },
 });
+
+export const HomeCardStyles = StyleSheet.create({
+	image: { width: '100%' },
+	profileInfoBlock: { position: 'absolute', bottom: 0 },
+});

@@ -14,6 +14,7 @@ import Colors from '../constants/Colors';
 import CustomModal from '../components/Modal/CustomModal';
 import { useUserInfoStore } from '../stores/UserInfoStore';
 import { useInteractionStore } from '../stores/InteractionStore';
+import ImageInfoModal from '../components/Modal/ImageInfoModal';
 
 export {
 	// Catch any errors thrown by the Layout component.
@@ -65,6 +66,7 @@ function RootLayoutNav() {
 	return (
 		<ThemeProvider value={isDarkColorScheme ? DarkTheme : DefaultTheme}>
 			<CustomModal />
+			<ImageInfoModal />
 			<Stack initialRouteName={getInitialRoute()}>
 				<Stack.Protected guard={isLoggedIn}>
 					<Stack.Screen name='(tabs)' options={{ headerShown: false }} />

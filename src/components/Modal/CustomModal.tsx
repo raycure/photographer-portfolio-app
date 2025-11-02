@@ -51,7 +51,8 @@ export default function CustomModal() {
 								key={index}
 								style={[styles.listItem, { color: colors.gray200 }]}
 							>
-								{listItem.icon ? listItem.icon : '●  '}
+								{listItem.icon ? listItem.icon : '●'}
+								{'  '}
 								{listItem.content}
 							</Text>
 						))}

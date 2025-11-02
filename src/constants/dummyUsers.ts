@@ -698,4 +698,30 @@ export const dummyUsers: UserState[] = [
 		stats: { experiencePoints: 40, attendedChallenges: [] },
 		auth: { authToken: 'token_015', refreshToken: 'refresh_015' },
 	},
+	{
+		personalInfo: {
+			id: 'user_016',
+			name: 'Nathan Brown',
+			username: 'nabrwn',
+			email: 'noah.d@example.com',
+			imageId: 'image_265',
+			verified: true,
+			premium: true,
+		},
+		quotas: { leftAdQuota: 5, leftFreeImageQuota: 1 },
+		social: {
+			socialMedia: [
+				{
+					social: 'facebook',
+					url: 'https://facebook.com/noahd',
+					username: 'noah',
+				},
+			],
+			followingAccounts: ['user_002'],
+			followerAccounts: ['user_006', 'user_005'],
+		},
+		preferences: { language: 'en', darkTheme: false },
+		stats: { experiencePoints: 40, attendedChallenges: [] },
+		auth: { authToken: 'token_015', refreshToken: 'refresh_015' },
+	},
 ];

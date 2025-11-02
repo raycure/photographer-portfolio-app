@@ -8,7 +8,7 @@ export const ChallengeHistoryBlockHeaderStyles = StyleSheet.create({
 		alignItems: 'baseline',
 	},
 	date: { textAlign: 'right' },
-	usersText: { fontSize: 22 },
+	usersText: { fontSize: 18 },
 	usersContainer: { flexDirection: 'row', gap: 6, alignItems: 'baseline' },
 	sideContainer: { alignItems: 'flex-end' },
 });

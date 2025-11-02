@@ -12,8 +12,6 @@ export const dummyChallengeData: Challenge = {
 		{
 			entryId: 'entry_005',
 			userId: 'user_005',
-			username: 'wildadventure',
-			name: 'Emily Brown',
 			likes: [
 				'user_002',
 				'user_003',
@@ -35,8 +33,6 @@ export const dummyChallengeData: Challenge = {
 		{
 			entryId: 'entry_006',
 			userId: 'user_006',
-			username: 'oceanspirit',
-			name: 'Daniel Wilson',
 			likes: [
 				'user_001',
 				'user_003',
@@ -56,8 +52,6 @@ export const dummyChallengeData: Challenge = {
 		{
 			entryId: 'entry_013',
 			userId: 'user_013',
-			username: 'wildflowers',
-			name: 'Mia Lewis',
 			likes: [
 				'user_002',
 				'user_004',
@@ -76,8 +70,6 @@ export const dummyChallengeData: Challenge = {
 		{
 			entryId: 'entry_004',
 			userId: 'user_004',
-			username: 'urbanlens',
-			name: 'James Anderson',
 			likes: [
 				'user_001',
 				'user_002',
@@ -95,8 +87,6 @@ export const dummyChallengeData: Challenge = {
 		{
 			entryId: 'entry_014',
 			userId: 'user_014',
-			username: 'skylinechaser',
-			name: 'Benjamin Hall',
 			likes: [
 				'user_001',
 				'user_002',
@@ -113,8 +103,6 @@ export const dummyChallengeData: Challenge = {
 		{
 			entryId: 'entry_002',
 			userId: 'user_002',
-			username: 'sunsetseeker',
-			name: 'Mark Lee',
 			likes: [
 				'user_001',
 				'user_003',
@@ -130,8 +118,6 @@ export const dummyChallengeData: Challenge = {
 		{
 			entryId: 'entry_012',
 			userId: 'user_012',
-			username: 'coastlineviews',
-			name: 'Lucas White',
 			likes: [
 				'user_002',
 				'user_004',
@@ -146,8 +132,6 @@ export const dummyChallengeData: Challenge = {
 		{
 			entryId: 'entry_008',
 			userId: 'user_008',
-			username: 'mountainhiker',
-			name: 'William Martinez',
 			likes: [
 				'user_001',
 				'user_002',
@@ -162,8 +146,6 @@ export const dummyChallengeData: Challenge = {
 		{
 			entryId: 'entry_003',
 			userId: 'user_003',
-			username: 'forestfan',
-			name: 'Sophia Smith',
 			likes: ['user_001', 'user_002', 'user_005', 'user_007', 'user_009'],
 			imageId: 'image_666',
 			rank: [9, 3],
@@ -171,8 +153,6 @@ export const dummyChallengeData: Challenge = {
 		{
 			entryId: 'entry_015',
 			userId: 'user_015',
-			username: 'countryside',
-			name: 'Amelia Allen',
 			likes: ['user_001', 'user_002', 'user_004', 'user_006'],
 			imageId: 'image_666',
 			rank: [10, 15],
@@ -180,8 +160,6 @@ export const dummyChallengeData: Challenge = {
 		{
 			entryId: 'entry_007',
 			userId: 'user_007',
-			username: 'travelbug',
-			name: 'Olivia Taylor',
 			likes: ['user_002', 'user_005', 'user_006', 'user_009'],
 			imageId: 'image_666',
 			rank: [11, 7],
@@ -189,8 +167,6 @@ export const dummyChallengeData: Challenge = {
 		{
 			entryId: 'entry_010',
 			userId: 'user_010',
-			username: 'desertcolors',
-			name: 'Michael Thomas',
 			likes: ['user_003', 'user_004', 'user_005', 'user_007'],
 			imageId: 'image_666',
 			rank: [12, 10],
@@ -198,8 +174,6 @@ export const dummyChallengeData: Challenge = {
 		{
 			entryId: 'entry_016',
 			userId: 'user_016',
-			username: 'pathfinder',
-			name: 'Ethan Young',
 			likes: ['user_002', 'user_004', 'user_006'],
 			imageId: 'image_666',
 			rank: [13, 16],
@@ -207,8 +181,6 @@ export const dummyChallengeData: Challenge = {
 		{
 			entryId: 'entry_011',
 			userId: 'user_011',
-			username: 'flowerchild',
-			name: 'Isabella Rodriguez',
 			likes: ['user_001', 'user_002', 'user_005'],
 			imageId: 'image_666',
 			rank: [14, 11],
@@ -216,8 +188,6 @@ export const dummyChallengeData: Challenge = {
 		{
 			entryId: 'entry_009',
 			userId: 'user_009',
-			username: 'riverdreams',
-			name: 'Ava Garcia',
 			likes: ['user_003', 'user_005'],
 			imageId: 'image_666',
 			rank: [15, 9],
@@ -225,8 +195,6 @@ export const dummyChallengeData: Challenge = {
 		{
 			entryId: 'entry_001',
 			userId: 'user_001',
-			username: 'naturelover',
-			name: 'Alice Johnson',
 			likes: ['user_004'],
 			imageId: 'image_666',
 			rank: [16, 16],

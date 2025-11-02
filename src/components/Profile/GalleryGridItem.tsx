@@ -14,7 +14,6 @@ export default function GalleryGridItem({
 	data: AttendedChallenges | 'add';
 }) {
 	const colors = useColors();
-	const router = useRouter();
 	const interactionStore = useInteractionStore();
 
 	const onAddButtonPress = () => {};

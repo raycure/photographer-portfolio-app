@@ -33,7 +33,7 @@ export default function ChallengeHistoryBlock({
 					const Badge = badges[index];
 					return (
 						<View key={index}>
-							<CustomIcon style={styles.badgeIcon} size={34} svg={<Badge />} />
+							<CustomIcon style={styles.badgeIcon} size={30} svg={<Badge />} />
 							<ChallengeHistoryBlockItem entry={entry} />
 						</View>
 					);

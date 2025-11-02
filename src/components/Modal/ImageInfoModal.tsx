@@ -63,7 +63,7 @@ export default function ImageInfoModal() {
 						/>
 					</View>
 					<View style={styles.statsContainer}>
-						<Text style={styles.text}>{data?.rank}</Text>
+						<Text style={styles.text}>{data?.rank[0]}</Text>
 						<CustomIcon size={19} svg={<TrophySVG />} />
 					</View>
 				</View>

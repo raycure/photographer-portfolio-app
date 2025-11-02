@@ -14,8 +14,6 @@ export const dummyChallengeHistory: ChallengeHistory[] = [
 			{
 				entryId: 'entry_005',
 				userId: 'user_005',
-				username: 'wildadventure',
-				name: 'Emily Brown',
 				likes: [
 					'user_002',
 					'user_003',
@@ -37,8 +35,6 @@ export const dummyChallengeHistory: ChallengeHistory[] = [
 			{
 				entryId: 'entry_006',
 				userId: 'user_006',
-				username: 'oceanspirit',
-				name: 'Daniel Wilson',
 				likes: [
 					'user_002',
 					'user_003',
@@ -56,8 +52,6 @@ export const dummyChallengeHistory: ChallengeHistory[] = [
 			{
 				entryId: 'entry_013',
 				userId: 'user_013',
-				username: 'wildflowers',
-				name: 'Mia Lewis',
 				likes: [
 					'user_002',
 					'user_010',
@@ -85,8 +79,6 @@ export const dummyChallengeHistory: ChallengeHistory[] = [
 			{
 				entryId: 'entry_005',
 				userId: 'user_005',
-				username: 'wildadventure',
-				name: 'Emily Brown',
 				likes: [
 					'user_002',
 					'user_003',
@@ -108,8 +100,6 @@ export const dummyChallengeHistory: ChallengeHistory[] = [
 			{
 				entryId: 'entry_006',
 				userId: 'user_006',
-				username: 'oceanspirit',
-				name: 'Daniel Wilson',
 				likes: [
 					'user_002',
 					'user_003',
@@ -127,8 +117,6 @@ export const dummyChallengeHistory: ChallengeHistory[] = [
 			{
 				entryId: 'entry_013',
 				userId: 'user_013',
-				username: 'wildflowers',
-				name: 'Mia Lewis',
 				likes: ['user_002', 'user_003', 'user_013', 'user_014', 'user_015'],
 				imageId: 'image_365',
 				rank: [3, 13],

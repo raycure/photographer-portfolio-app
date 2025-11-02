@@ -6,6 +6,7 @@ import { EntryID } from '@/src/stores/StoreTypes';
 import { LeaderboardLayoutStyles } from './LeaderboardStyles';
 import LeaderboardPersonalButton from './LeaderboardPersonalButton';
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
+import LeaderboardHeader from './LeaderboardHeader';
 
 export default function LeaderboardLayout() {
 	const userInfoStore = useUserInfoStore();
@@ -25,6 +26,7 @@ export default function LeaderboardLayout() {
 	return (
 		<View style={styles.outerContainer}>
 			<ScrollView contentContainerStyle={styles.list}>
+				<LeaderboardHeader />
 				<FlatList
 					data={group1}
 					renderItem={topNine}

@@ -21,6 +21,7 @@ export default function LeaderboardListItem({
 }: LeaderBoardListItemProps) {
 	const colors = useColors();
 	const router = useRouter();
+
 	const entry = dummyChallengeData.entries.find((entry) => {
 		return entry.entryId === entryId;
 	});
@@ -34,7 +35,15 @@ export default function LeaderboardListItem({
 			params: { userId: entry?.userId },
 		});
 	};
-	const onPhotoPress = () => {};
+	const onPhotoPress = () => {
+		router.push({
+			pathname: '/(tabs)',
+			params: { entryId: entryId },
+		});
+	};
+	const user = dummyUsers.find(
+		(user) => user.personalInfo.id === entry?.userId
+	);
 	if (topNine) {
 		const styles = LeaderBoardGridItemStyles;
 		const profilePicId = dummyUsers.find(
@@ -89,10 +98,10 @@ export default function LeaderboardListItem({
 			<View style={styles.innerContainer}>
 				<Pressable style={styles.textContainer} onPress={onProfilePress}>
 					<Text style={[styles.title, { color: colors.tint }]}>
-						{entry?.name}
+						{user?.personalInfo.name}
 					</Text>
 					<Text style={[styles.text, { color: colors.primary100 }]}>
-						@{entry?.username}
+						@{user?.personalInfo.username}
 					</Text>
 				</Pressable>
 				<LeaderboardLikeButton size='big' entryId={entryId} />

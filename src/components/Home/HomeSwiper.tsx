@@ -8,8 +8,23 @@ import { clamp } from 'react-native-reanimated';
 import { HomeSwiperStyles } from './HomeStyles';
 import NoEntries from './NoEntries';
 import { useModalStore } from '@/src/stores/ModalStore';
+import { useLocalSearchParams } from 'expo-router';
 export default function HomeSwiper() {
+	const { entryId } = useLocalSearchParams();
 	const [data, setData] = useState(dummyChallengeData.entries);
+	useEffect(() => {
+		if (entryId) {
+			setData((prev) => {
+				const existing = [...prev];
+				const foundIndex = existing.findIndex((e) => e.entryId === entryId);
+				if (foundIndex > -1) {
+					const [entry] = existing.splice(foundIndex, 1);
+					return [entry, ...existing];
+				}
+				return prev;
+			});
+		}
+	}, [entryId]);
 	const interactionStore = useInteractionStore();
 	const activeCard = data[0];
 	const nextCard = data[1];
