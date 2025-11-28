@@ -71,7 +71,7 @@ export type GradientProps = {
 	style?: StyleProp<ViewStyle>;
 };
 
-export type InputAreaProps = {
+export type InputAreaProps<K extends string = string> = {
 	inputType?: 'number' | 'string';
 	placeholder?: string;
 	title?: string;
@@ -86,6 +86,12 @@ export type InputAreaProps = {
 	onChange?:
 		| ((e: NativeSyntheticEvent<TextInputChangeEventData>) => void)
 		| undefined;
+	validationRegex?: RegExp;
+	fieldKey?: K;
+	ruleFollowed?: Record<K, boolean | null>;
+	setRuleFollowed?: React.Dispatch<
+		React.SetStateAction<Record<K, boolean | null>>
+	>;
 } & TextInputProps;
 
 export type FollowersButtonProps = {

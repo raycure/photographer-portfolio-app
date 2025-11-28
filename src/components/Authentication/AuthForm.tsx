@@ -29,6 +29,14 @@ export default function AuthForm({ elements, type }: FormProps) {
 		password: '',
 	});
 	type AuthFormKeys = keyof typeof authFormData;
+	const [ruleFollowed, setRuleFollowed] = useState<
+		Record<AuthFormKeys, boolean | null>
+	>({
+		name: null,
+		username: null,
+		email: null,
+		password: null,
+	});
 	const userInfoStore = useUserInfoStore();
 	const passwordEyeIcon = ({ color }: { color: any }) => (
 		<Pressable onPress={() => setPasswordSecure(!passwordSecure)}>
@@ -72,6 +80,10 @@ export default function AuthForm({ elements, type }: FormProps) {
 									placeholder={item.placeholder}
 									textContentType={item.textContentType}
 									onChangeText={(text) => onInputChange(text, key)}
+									fieldKey={key}
+									validationRegex={item.validationRegex}
+									ruleFollowed={ruleFollowed}
+									setRuleFollowed={setRuleFollowed}
 									leftElement={({ color }) => (
 										<CustomIcon
 											collectionKey={item.leftIcon.collectionKey}
@@ -96,7 +108,20 @@ export default function AuthForm({ elements, type }: FormProps) {
 						}
 					)}
 					{type === 'register' ? (
-						<InputHighlightBar level='low' />
+						(() => {
+							const passwordValue = authFormData.password;
+							let highlightLevel: 'low' | 'medium' | 'high' = 'low';
+							const passwordItem = authFormInputData.password;
+
+							if (passwordItem.secHighRegex?.test(passwordValue)) {
+								highlightLevel = 'high';
+							} else if (passwordItem.secMedRegex?.test(passwordValue)) {
+								highlightLevel = 'medium';
+							} else if (!passwordItem.validationRegex?.test(passwordValue)) {
+								highlightLevel = 'low';
+							}
+							return <InputHighlightBar level={highlightLevel} />;
+						})()
 					) : (
 						<ForgotPasswordButton />
 					)}

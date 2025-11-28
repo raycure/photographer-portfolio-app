@@ -17,6 +17,7 @@ export const useAuthFormInputData = (): AuthInputDataTypes => {
 			placeholder: placeholders[0],
 			title: titles[0],
 			textContentType: 'name',
+			validationRegex: /^[A-Za-z\s]{3,28}$/,
 		},
 		username: {
 			leftIcon: {
@@ -26,6 +27,7 @@ export const useAuthFormInputData = (): AuthInputDataTypes => {
 			placeholder: placeholders[1],
 			title: titles[1],
 			textContentType: 'nickname',
+			validationRegex: /^[A-Za-z0-9_]{1,16}$/,
 		},
 		email: {
 			leftIcon: {
@@ -35,6 +37,7 @@ export const useAuthFormInputData = (): AuthInputDataTypes => {
 			placeholder: placeholders[2],
 			title: titles[2],
 			textContentType: 'emailAddress',
+			validationRegex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
 		},
 		password: {
 			leftIcon: {
@@ -44,6 +47,10 @@ export const useAuthFormInputData = (): AuthInputDataTypes => {
 			placeholder: placeholders[3],
 			title: titles[3],
 			textContentType: 'password',
+			validationRegex: /^.{6,}$/,
+			secMedRegex: /^(?=.*[A-Za-z])(?=.*\d).{8,}$/,
+			secHighRegex:
+				/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,}$/,
 		},
 	};
 };

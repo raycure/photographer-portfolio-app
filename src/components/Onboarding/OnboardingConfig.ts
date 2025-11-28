@@ -12,7 +12,7 @@ export const onboardingConfig: () => OnboardingConfig[] = () => {
 	return [
 		{
 			icons: ['📸', '🏆', '✨'],
-			title: titles[0] + ' ' + 'XXXXX',
+			title: titles[0],
 			content: contents[0],
 			backgroundColor: '#d24d4dff',
 			buttonColor: '#992929ff',

@@ -30,6 +30,10 @@ export default function InputArea({
 	onChange,
 	letterCount,
 	maxLength,
+	validationRegex,
+	fieldKey,
+	ruleFollowed,
+	setRuleFollowed,
 	...props
 }: InputAreaProps) {
 	const [active, setActive] = useState<boolean>(false);
@@ -49,7 +53,12 @@ export default function InputArea({
 			<View
 				style={[
 					{
-						borderColor: colors.primary400,
+						borderColor: (() => {
+							if (!fieldKey) return colors.primary400; // default
+							const valid = ruleFollowed?.[fieldKey];
+							if (valid === null) return colors.primary400; // no input yet
+							return valid ? colors.primary400 : colors.accentRed; // valid vs invalid
+						})(),
 					},
 					styles.innerContainer,
 					active && { borderColor: colors.gray200 },
@@ -70,7 +79,21 @@ export default function InputArea({
 					style={[{ color: colors.gray200 }, styles.inputArea, textStyle]}
 					selectionColor={colors.tint}
 					{...props}
-					onChange={onChange}
+					onChange={(e) => {
+						const value = e.nativeEvent.text;
+						if (validationRegex) {
+							// regex validation
+							const valid = validationRegex.test(value);
+							if (validationRegex && fieldKey && setRuleFollowed) {
+								const valid = validationRegex.test(value);
+								setRuleFollowed((prev) => ({
+									...prev,
+									[fieldKey]: valid,
+								}));
+							}
+						}
+						onChange?.(e);
+					}}
 					contextMenuHidden={true}
 					placeholderTextColor={colors.primary300}
 					textContentType={textContentType}

@@ -15,6 +15,9 @@ type InputItem = {
 	textStyle?: {
 		letterSpacing: number;
 	};
+	validationRegex?: RegExp; // general validation
+	secMedRegex?: RegExp; // optional medium-level regex
+	secHighRegex?: RegExp; // optional high-level regex
 };
 type FormKeys = 'name' | 'username' | 'password' | 'email';
 export type FormProps = {
