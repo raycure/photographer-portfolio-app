@@ -10,6 +10,7 @@ import CustomButton from '../UI/CustomButton';
 import { ReportReason } from './ModalTypes';
 import { reportReasons } from '@/src/constants/reportReasons';
 import { ReportAccountStyles } from './ModalStyles';
+import { useTranslation } from 'react-i18next';
 
 export default function ReportAccount({ userId }: { userId: UserID }) {
 	const [selectedOption, setSelectedOption] = useState<
@@ -24,6 +25,7 @@ export default function ReportAccount({ userId }: { userId: UserID }) {
 		id: '',
 		issue: '',
 	});
+	const { t } = useTranslation();
 	useEffect(() => {
 		if (selectedOption) {
 			setFormData((prev) => ({ ...prev, id: selectedOption.id }));
@@ -35,18 +37,18 @@ export default function ReportAccount({ userId }: { userId: UserID }) {
 	return (
 		<View>
 			<DropdownMenu<ReportReason>
-				list={reportReasons}
+				list={reportReasons()}
 				selectedOption={selectedOption?.topic}
 				setSelectedOption={setSelectedOption}
 				getOptionValue={(item) => item}
 				getOptionLabel={(item) => item.topic}
-				title='Topic'
+				title={t('Modals.ReportAccount.Topics.title')}
 				width={260}
 			/>
 			<InputArea
-				title='Tell us more'
+				title={t('Modals.ReportAccount.subtitle')}
 				value={reportData.issue}
-				placeholder='Tell us more...'
+				placeholder={t('Modals.ReportAccount.placeholder')}
 				onChangeText={(text) => onInputChange(text, 'issue')}
 				multiline={true}
 				numberOfLines={6}
@@ -57,12 +59,12 @@ export default function ReportAccount({ userId }: { userId: UserID }) {
 			<View style={styles.buttonContainer}>
 				<CustomButton
 					type='stretched'
-					content='Cancel'
+					content={t('UI.Buttons.Cancel')}
 					onPress={() => useModalStore.getState().closeModal()}
 				/>
 				<CustomButton
 					type='stretched'
-					content='Report'
+					content={t('UI.Buttons.Report')}
 					disabled={!selectedOption}
 					onPress={() => {
 						if (!reportData.id) return;

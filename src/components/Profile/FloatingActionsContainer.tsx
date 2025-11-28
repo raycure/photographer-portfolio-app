@@ -34,9 +34,10 @@ export default function FloatingActionsContainer() {
 			Animated.stagger(
 				40,
 				animations.map((anim) =>
-					Animated.timing(anim, {
+					Animated.spring(anim, {
 						toValue: 0,
-						duration: 100,
+						//duration: 1000,
+						friction: 4,
 						useNativeDriver: true,
 					})
 				)
@@ -52,23 +53,22 @@ export default function FloatingActionsContainer() {
 				size='big'
 				icon={{ collectionKey: 'fe', name: 'plus', size: 28 }}
 			/>
-			{floatingActionsActive &&
-				buttons.map((button, index) => {
-					const scale = animations[index];
-					const animatedStyle = {
-						transform: [{ scale }],
-						opacity: scale,
-					};
-					return (
-						<Animated.View key={index} style={animatedStyle}>
-							<FloatingButton
-								onPress={button.onPress}
-								icon={button.icon}
-								size='medium'
-							/>
-						</Animated.View>
-					);
-				})}
+			{buttons.map((button, index) => {
+				const scale = animations[index];
+				const animatedStyle = {
+					transform: [{ scale }],
+					opacity: scale,
+				};
+				return (
+					<Animated.View key={index} style={animatedStyle}>
+						<FloatingButton
+							onPress={button.onPress}
+							icon={button.icon}
+							size='medium'
+						/>
+					</Animated.View>
+				);
+			})}
 		</View>
 	);
 }

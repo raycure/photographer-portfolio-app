@@ -5,9 +5,11 @@ import SubtitleTitlePair from '../UI/SubtitleTitlePair';
 import { dummyChallengeData } from '@/src/constants/dummyChallengeData';
 import { useRouter } from 'expo-router';
 import { LeaderboardHeaderStyles } from './LeaderboardStyles';
+import { useTranslation } from 'react-i18next';
 
 export default function LeaderboardHeader() {
 	const router = useRouter();
+	const { t } = useTranslation();
 	const challengeTheme = dummyChallengeData.challengeTheme;
 	const onHistoryButtonPress = () => {
 		router.push('/(stack)/challengeHistory');
@@ -15,16 +17,19 @@ export default function LeaderboardHeader() {
 	const styles = LeaderboardHeaderStyles;
 	return (
 		<View style={styles.outerContainer}>
-			<SubtitleTitlePair subtitle='Theme' title={challengeTheme} />
+			<SubtitleTitlePair
+				subtitle={t('ChallengeHistory.theme')}
+				title={challengeTheme}
+			/>
 			<CustomButton
 				type='icon'
 				onPress={onHistoryButtonPress}
 				icon={({ color }) => (
 					<CustomIcon
-						collectionKey='ion'
-						name='information-circle-outline'
+						collectionKey='oct'
+						name='history'
 						color={color}
-						size={28}
+						size={22}
 					/>
 				)}
 			/>

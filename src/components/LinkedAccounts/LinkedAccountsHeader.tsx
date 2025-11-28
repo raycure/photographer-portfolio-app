@@ -5,21 +5,22 @@ import CustomIcon from '../UI/CustomIcon';
 import { LinkedAccountsHeaderStyles } from './LinkedAccountsStyles';
 import { useModalStore } from '@/src/stores/ModalStore';
 import LinkAccountBlock from '../Modal/LinkAccountBlock';
+import { useTranslation } from 'react-i18next';
 
 export default function LinkedAccountsHeader() {
 	const openModal = useModalStore((state) => state.openModal);
+	const { t } = useTranslation();
 	const styles = LinkedAccountsHeaderStyles;
 	const onAddPress = () =>
 		openModal({
-			title: 'Add a social account',
-			content:
-				"Add your social accounts below. Make sure not to include '@' in the username.",
+			title: t('Modals.AddLinkedAccount.title'),
+			content: t('Modals.AddLinkedAccount.text'),
 			extra: <LinkAccountBlock />,
 		});
 
 	return (
 		<View style={styles.outerContainer}>
-			<Text style={styles.text}>Accounts</Text>
+			<Text style={styles.text}>{t('LinkedAccounts.title')}</Text>
 			<CustomButton
 				type='icon'
 				onPress={onAddPress}

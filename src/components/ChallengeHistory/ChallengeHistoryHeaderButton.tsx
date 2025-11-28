@@ -1,23 +1,27 @@
 import { useModalStore } from '@/src/stores/ModalStore';
 import CustomButton from '../UI/CustomButton';
 import CustomIcon from '../UI/CustomIcon';
+import { useTranslation } from 'react-i18next';
 
 export default function ChallengeHistoryHeaderButton() {
+	const { t } = useTranslation();
 	const openModal = useModalStore((state) => state.openModal);
+	const list = t('Modals.ChallengeHistoryInfo.list', {
+		returnObjects: true,
+	}) as string[];
 	const onInfoButtonPressed = () =>
 		openModal({
-			title: 'About Challenge History',
-			content:
-				'This page showcases past photography challenges, their winning photos, and key details about each event.',
+			title: t('Modals.ChallengeHistoryInfo.title'),
+			content: t('Modals.ChallengeHistoryInfo.text'),
 			list: [
-				{ icon: '🥇', content: 'View the winners from completed challenges.' },
+				{ icon: '🥇', content: list[0] },
 				{
 					icon: '📈',
-					content: 'Learn about the challenge themes and participation stats.',
+					content: list[1],
 				},
 				{
 					icon: '🖼️',
-					content: 'Get inspiration for future contests and photo ideas.',
+					content: list[2],
 				},
 			],
 			buttons: {
@@ -25,7 +29,7 @@ export default function ChallengeHistoryHeaderButton() {
 				list: [
 					{
 						type: 'general',
-						content: 'Understood',
+						content: t('UI.Buttons.Understood'),
 						onPress: () => useModalStore.getState().closeModal(),
 					},
 				],

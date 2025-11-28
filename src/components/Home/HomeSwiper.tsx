@@ -9,8 +9,10 @@ import { HomeSwiperStyles } from './HomeStyles';
 import NoEntries from './NoEntries';
 import { useModalStore } from '@/src/stores/ModalStore';
 import { useLocalSearchParams } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 export default function HomeSwiper() {
 	const { entryId } = useLocalSearchParams();
+	const { t } = useTranslation();
 	const [data, setData] = useState(dummyChallengeData.entries);
 	useEffect(() => {
 		if (entryId) {
@@ -107,15 +109,14 @@ export default function HomeSwiper() {
 	useEffect(() => {
 		if (!activeCard) {
 			openModal({
-				title: "You've Seen Everything!",
-				content:
-					"That's all for now. Come back later to discover more great submissions.",
+				title: t('Modals.YouveSeenEverything.title'),
+				content: t('Modals.YouveSeenEverything.text'),
 				buttons: {
 					configuration: 'row',
 					list: [
 						{
 							type: 'general',
-							content: 'Continue',
+							content: t('UI.Buttons.Continue'),
 							onPress: () => useModalStore.getState().closeModal(),
 						},
 					],

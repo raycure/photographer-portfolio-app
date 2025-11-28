@@ -1,3 +1,4 @@
+import '../i18n/index';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import {
 	DarkTheme,
@@ -9,12 +10,11 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import Colors from '../constants/Colors';
 import CustomModal from '../components/Modal/CustomModal';
 import { useUserInfoStore } from '../stores/UserInfoStore';
 import { useInteractionStore } from '../stores/InteractionStore';
 import ImageInfoModal from '../components/Modal/ImageInfoModal';
+import i18n from '../i18n/index';
 
 export {
 	// Catch any errors thrown by the Layout component.
@@ -63,6 +63,12 @@ function RootLayoutNav() {
 		if (!isLoggedIn) return '(secure)';
 		return '(tabs)';
 	};
+	const language = userInfoStore.preferences.language;
+	useEffect(() => {
+		if (language) {
+			i18n.changeLanguage(language);
+		}
+	}, [language]);
 	return (
 		<ThemeProvider value={isDarkColorScheme ? DarkTheme : DefaultTheme}>
 			<CustomModal />

@@ -4,9 +4,11 @@ import CustomIcon from '../UI/CustomIcon';
 import { useState } from 'react';
 import { useForm } from '@/src/hooks/useForm';
 import { useColors } from '@/src/hooks/useColors';
+import { useTranslation } from 'react-i18next';
 
 export default function ChangePasswordBlock() {
 	const [passwordSecure, setPasswordSecure] = useState<boolean>(true);
+	const { t } = useTranslation();
 	const { formData: changePasswordData, onInputChange } = useForm({
 		oldPassword: '',
 		newPassword: '',
@@ -15,9 +17,9 @@ export default function ChangePasswordBlock() {
 	return (
 		<View>
 			<InputArea
-				title='Old password'
+				title={t('Modals.ChangePassword.OldPassword.title')}
 				value={changePasswordData.oldPassword}
-				placeholder='Your old password'
+				placeholder={t('Modals.ChangePassword.OldPassword.placeholder')}
 				textContentType='password'
 				onChangeText={(text) => onInputChange(text, 'oldPassword')}
 				containerStyle={{ backgroundColor: color.primary600 }}
@@ -32,9 +34,9 @@ export default function ChangePasswordBlock() {
 				)}
 			/>
 			<InputArea
-				title='New password'
+				title={t('Modals.ChangePassword.NewPassword.title')}
 				value={changePasswordData.newPassword}
-				placeholder='Your new password'
+				placeholder={t('Modals.ChangePassword.NewPassword.placeholder')}
 				textContentType='password'
 				containerStyle={{ backgroundColor: color.primary600 }}
 				onChangeText={(text) => onInputChange(text, 'newPassword')}

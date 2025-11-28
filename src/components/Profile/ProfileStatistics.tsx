@@ -10,9 +10,11 @@ import { ProfileStatisticsStyles } from './ProfileStyles';
 import SubtitleTitlePair from '../UI/SubtitleTitlePair';
 import { useContext } from 'react';
 import UserContext from '@/src/context/UserContext';
+import { useTranslation } from 'react-i18next';
 
 export default function ProfileStatistics() {
 	const colors = useColors();
+	const { t } = useTranslation();
 	const user = useContext(UserContext);
 	const levelInfo = getLevelInfo(user.stats.experiencePoints!);
 	const attendedChallenges = user.stats.attendedChallenges;
@@ -23,14 +25,14 @@ export default function ProfileStatistics() {
 		{
 			icon: <TrophySVG width={26} height={26} />,
 			iconWrapperColor: colors.iconBackgroundOrange,
-			title3: 'Zaferler',
-			title2: `${wins?.length} yarışma`,
+			title3: t('Profile.titleOne'),
+			title2: wins?.length + ' ' + t('Profile.subtitleOne'),
 		},
 		{
 			icon: <CameraSVG width={28} height={28} />,
 			iconWrapperColor: colors.iconBackgroundBlue,
-			title3: 'Yarışmalar',
-			title2: `${attendedChallenges?.length} katılım`,
+			title3: t('Profile.titleTwo'),
+			title2: attendedChallenges?.length + ' ' + t('Profile.subtitleTwo'),
 		},
 	];
 	const styles = ProfileStatisticsStyles;
@@ -50,7 +52,7 @@ export default function ProfileStatistics() {
 				>
 					<CustomIcon svg={<StarSVG width={34} height={34} />} />
 				</TintedBackground>
-				<Text style={styles.title1}>Level</Text>
+				<Text style={styles.title1}>{t('Profile.mainTitle')}</Text>
 				<View style={{ alignSelf: 'stretch' }}>
 					<View style={styles.levelInfoContainer}>
 						<Text style={styles.title1}>{levelInfo.level}</Text>

@@ -1,0 +1,158 @@
+{
+	"Authentication": {
+		"FormInputData": {
+			"titles": ["Name", "Username", "Email", "Password"],
+			"placeholders": [
+				"Enter your name",
+				"Enter your username",
+				"Enter your email",
+				"Enter your password"
+			]
+		},
+		"Register": {
+			"title": "Create an account",
+			"text": "Welcome! Please enter your details.",
+			"navigatorText": "Already have an account?",
+			"navigatorTitle": "Login"
+		},
+		"Login": {
+			"title": "Log in to your account",
+			"text": "Welcome back! Please enter your details.",
+			"forgotPasswordButton": "Forgot password",
+			"navigatorText": "Don't have an account?",
+			"navigatorTitle": "Register",
+			"externalServices": "Or log in with"
+		}
+	},
+	"ChallengeHistory": {
+		"dateSuffix": "days",
+		"theme": "Theme"
+	},
+	"Connections": {
+		"BarTitles": {
+			"Followers": "Followers",
+			"Following": "Following",
+			"Friends": "Friends",
+			"Mutuals": "Mutuals"
+		}
+	},
+	"Home": {
+		"NoEntries": "No Posts Left"
+	},
+	"LinkedAccounts": {
+		"title": "Accounts"
+	},
+	"Notifications": {
+		"title": "Notifications"
+	},
+	"Onboarding": {
+		"titles": [
+			"Welcome to",
+			"Compete in Themed Challenges",
+			"Earn Rewards and Recognition",
+			"Free Users Can Still Play",
+			"Go Premium, Unlock Everything"
+		],
+		"contents": [
+			"Show off your photography skills, join fun challenges, and build a profile you're proud of.",
+			"Enter daily and weekly challenges. Winning photos stay on your profile forever - win and shine!",
+			"Win challenges to earn rewards, and grow your reputation in the community.",
+			"Wait 3-5 minutes or watch a couple of ads to enter challenges for free.",
+			"Save all your photos and enter instantly with a premium account."
+		]
+	},
+	"Profile": {
+		"mainTitle": "Level",
+		"titleOne": "Wins",
+		"titleTwo": "Challenges",
+		"subtitleOne": "wins",
+		"subtitleTwo": "entries"
+	},
+	"Settings": {
+		"Preferences": {
+			"title": "Content & Preferences",
+			"subtitleOne": "Language",
+			"subtitleTwo": "Dark Theme"
+		},
+		"Settings": {
+			"title": "Settings",
+			"subtitleOne": "Get premium",
+			"subtitleTwo": "Change password",
+			"subtitleThree": "Report an issue",
+			"subtitleFour": "Logout from your account",
+			"subtitleFive": "Delete account"
+		}
+	},
+	"UI": {
+		"Buttons": {
+			"Cancel": "Cancel",
+			"Continue": "Continue",
+			"Save": "Save",
+			"Report": "Report",
+			"Change": "Change",
+			"Understood": "Understood",
+			"Signup": "Sign Up",
+			"Login": "Login",
+			"Register": "Register",
+			"Unfollow": "Unfollow",
+			"Follow": "Follow",
+			"MarkAllRead": "Mark all as read"
+		}
+	},
+	"Modals": {
+		"ChallengeHistoryInfo": {
+			"title": "About Challenge History",
+			"text": "This page showcases past photography challenges, their winning photos, and key details about each event.",
+			"list": [
+				"View the winners from completed challenges.",
+				"Learn about the challenge themes and participation stats.",
+				"Get inspiration for future contests and photo ideas."
+			]
+		},
+		"YouveSeenEverything": {
+			"title": "You've Seen Everything!",
+			"text": "That's all for now. Come back later to discover more great submissions."
+		},
+		"AddLinkedAccount": {
+			"title": "Add a social account",
+			"text": "Add your social accounts below.",
+			"dropdownTitle": "Account",
+			"placeholder": "Username"
+		},
+		"ChangePassword": {
+			"title": "Change your password",
+			"OldPassword": {
+				"title": "Old password",
+				"placeholder": "Your old password"
+			},
+			"NewPassword": {
+				"title": "New password",
+				"placeholder": "Your new password"
+			}
+		},
+		"ReportAccount": {
+			"title": "Report Account",
+			"subtitle": "Tell us more",
+			"placeholder": "Give us more information here...",
+			"Topics": {
+				"title": "Topic",
+				"issue_1": "Inappropriate Content",
+				"issue_2": "Harassment or Bullying",
+				"issue_3": "Hate Speech or Discrimination",
+				"issue_4": "Spam or Fake Account",
+				"issue_5": "Cheating or Unfair Advantage",
+				"issue_6": "Copyright Violation",
+				"issue_7": "Scam or Fraud",
+				"issue_8": "Other"
+			}
+		},
+		"ReportIssue": {
+			"title": "Having a problem?",
+			"text": "Tell us your issue and you will be contacted by our team via email.",
+			"subtitleOne": "Topic",
+			"subtitleTwo": "Issue",
+			"placeholderOne": "Topic of your issue",
+			"placeholderTwo": "The issue you are facing"
+		}
+	}
+}

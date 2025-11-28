@@ -9,9 +9,11 @@ import CustomButton from '../UI/CustomButton';
 import { useModalStore } from '@/src/stores/ModalStore';
 import { isValidUrl } from '@/src/utils/isValidUrl';
 import { LinkAccountBlockStyles } from './ModalStyles';
+import { useTranslation } from 'react-i18next';
 
 export default function LinkAccountBlock() {
 	const [selectedSocial, setSelectedSocial] = useState<Social | undefined>();
+	const { t } = useTranslation();
 	const { formData: socialFormData, onInputChange } = useForm({
 		username: '',
 		social: selectedSocial,
@@ -40,10 +42,10 @@ export default function LinkAccountBlock() {
 					setSelectedOption={setSelectedSocial}
 					getOptionValue={(item) => item.social}
 					getOptionLabel={(item) => item.title}
-					title='Account'
+					title={t('Modals.AddLinkedAccount.dropdownTitle')}
 				/>
 				<InputArea
-					placeholder='username'
+					placeholder={t('Modals.AddLinkedAccount.placeholder')}
 					textStyle={styles.text}
 					onChangeText={(text) => {
 						const clippedText = text.replace(/@/g, '');
@@ -62,12 +64,12 @@ export default function LinkAccountBlock() {
 			<View style={styles.buttonContainer}>
 				<CustomButton
 					type='stretched'
-					content='Cancel'
+					content={t('UI.Buttons.Cancel')}
 					onPress={() => useModalStore.getState().closeModal()}
 				/>
 				<CustomButton
 					type='stretched'
-					content='Save'
+					content={t('UI.Buttons.Save')}
 					disabled={
 						!(
 							selectedSocial &&

@@ -4,31 +4,36 @@ import CustomIcon from '../UI/CustomIcon';
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import { useColors } from '@/src/hooks/useColors';
 import { EditProfileField, EditProfileFormProps } from './EditProfileTypes';
+import { useTranslation } from 'react-i18next';
 
 export default function EditProfileForm({
 	editProfileData,
 	onInputChange,
 }: EditProfileFormProps) {
 	const userInfoStore = useUserInfoStore();
+	const { t } = useTranslation();
 	const colors = useColors();
 	const user = userInfoStore.personalInfo;
+	const titles = t('Authentication.FormInputData.titles', {
+		returnObjects: true,
+	}) as string[];
 	const editProfileConfig: EditProfileField[] = [
 		{
-			title: 'Name',
+			title: titles[0],
 			placeholder: user.name,
 			textContentType: undefined,
 			key: 'name',
 			leftIcon: { collectionKey: 'fa6', name: 'user-large' },
 		},
 		{
-			title: 'Username',
+			title: titles[1],
 			placeholder: user.username,
 			textContentType: undefined,
 			key: 'username',
 			leftIcon: { collectionKey: 'fe', name: 'at-sign' },
 		},
 		{
-			title: 'Email',
+			title: titles[2],
 			placeholder: user.email,
 			textContentType: undefined,
 			key: 'email',

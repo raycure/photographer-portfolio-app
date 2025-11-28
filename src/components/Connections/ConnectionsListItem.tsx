@@ -8,6 +8,7 @@ import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import { images } from '@/src/constants/dummyImages';
 import { useRef, useState } from 'react';
 import { useRouter } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 
 export default function ConnectionsListItem({
 	userpresonalInfo,
@@ -17,6 +18,7 @@ export default function ConnectionsListItem({
 	const colors = useColors();
 	const userInfoStore = useUserInfoStore();
 	const router = useRouter();
+	const { t } = useTranslation();
 	const [pendingUnfollow, setPendingUnfollow] = useState(false);
 	const timerRef = useRef<NodeJS.Timeout | null>(null);
 	const followingIds = userInfoStore.social.followingAccounts;
@@ -67,7 +69,11 @@ export default function ConnectionsListItem({
 				textStyle={styles.customButtonText}
 				style={styles.customButton}
 				onPress={onButtonPress}
-				content={!pendingUnfollow && isFollowing ? 'Unfollow' : 'Follow'}
+				content={
+					!pendingUnfollow && isFollowing
+						? t('UI.Buttons.Unfollow')
+						: t('UI.Buttons.Follow')
+				}
 				backgroundColor={isFollowing ? colors.primary400 : colors.accentBlue}
 			/>
 		</Pressable>

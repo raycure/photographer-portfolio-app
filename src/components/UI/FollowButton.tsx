@@ -5,6 +5,7 @@ import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import { useColors } from '@/src/hooks/useColors';
 import { FollowButtonProps } from './UITypes';
 import { FollowButtonStyles } from './UIStyles';
+import { useTranslation } from 'react-i18next';
 
 export default function FollowButton({
 	circular = true,
@@ -12,6 +13,7 @@ export default function FollowButton({
 	size = 'medium',
 }: FollowButtonProps) {
 	const userInfoStore = useUserInfoStore();
+	const { t } = useTranslation();
 	const colors = useColors();
 	const userpresonalInfo = userInfoStore.personalInfo;
 	const userFollowingIds = userInfoStore.social.followingAccounts;
@@ -59,7 +61,9 @@ export default function FollowButton({
 					style={!isFollowing ? styles.icon : styles.followingIcon}
 				/>
 			) : (
-				<Text>{isFollowing ? 'Unfollow' : 'Follow'}</Text>
+				<Text>
+					{isFollowing ? t('UI.Buttons.Unfollow') : t('UI.Buttons.Follow')}
+				</Text>
 			)}
 		</Pressable>
 	);

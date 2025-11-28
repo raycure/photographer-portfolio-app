@@ -4,7 +4,6 @@ import CustomIcon from '../UI/CustomIcon';
 import { images } from '@/src/constants/dummyImages';
 import { useColors } from '@/src/hooks/useColors';
 import { GalleryGridItemStyles } from './ProfileStyles';
-import { useRouter } from 'expo-router';
 import { Image } from 'expo-image';
 import { useInteractionStore } from '@/src/stores/InteractionStore';
 

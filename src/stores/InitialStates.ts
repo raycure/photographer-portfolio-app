@@ -20,7 +20,7 @@ export const UserStoreInitialState: UserState = {
 		followerAccounts: [],
 	},
 	preferences: {
-		language: 'english',
+		language: 'en',
 		darkTheme: true,
 	},
 	stats: {

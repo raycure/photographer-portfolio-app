@@ -6,19 +6,21 @@ import { useModalStore } from '@/src/stores/ModalStore';
 import ChangePasswordBlock from '../Modal/ChangePasswordBlock';
 import { useInteractionStore } from '@/src/stores/InteractionStore';
 import { languages } from '@/src/constants/languages';
+import { useTranslation } from 'react-i18next';
 
 export const SettingsBlocksConfig: () => Record<
 	string,
 	SettingsItemConfig[]
 > = () => {
 	const colors = useColors();
+	const { t } = useTranslation();
 	const userInfoStore = useUserInfoStore();
 	const openModal = useModalStore((state) => state.openModal);
 	const interactionStore = useInteractionStore();
 	return {
-		'Content & Preferences': [
+		[t('Settings.Preferences.title')]: [
 			{
-				title: 'Language',
+				title: t('Settings.Preferences.subtitleOne'),
 				icon: { collectionKey: 'ion', name: 'language-outline' },
 				rightContent: {
 					button: true,
@@ -29,15 +31,15 @@ export const SettingsBlocksConfig: () => Record<
 				onPress: () => interactionStore.setModalOpen('languages', true),
 			},
 			{
-				title: 'Dark Theme',
+				title: t('Settings.Preferences.subtitleTwo'),
 				icon: { collectionKey: 'fa', name: 'moon-o', size: 28 },
 				rightContent: { button: false, switch: true, title: '' },
 				onPress: () => userInfoStore.changeTheme(),
 			},
 		],
-		Settings: [
+		[t('Settings.Settings.title')]: [
 			{
-				title: 'Get premium ✨',
+				title: t('Settings.Settings.subtitleOne'),
 				icon: {
 					collectionKey: 'fa6',
 					name: 'crown',
@@ -47,23 +49,23 @@ export const SettingsBlocksConfig: () => Record<
 				tintColor: colors.iconBackgroundYellow,
 			},
 			{
-				title: 'Change password',
+				title: t('Settings.Settings.subtitleTwo'),
 				icon: { collectionKey: 'ion', name: 'key' },
 				onPress: () =>
 					openModal({
-						title: 'Change your password',
+						title: t('Modals.ChangePassword.title'),
 						extra: <ChangePasswordBlock />,
 						buttons: {
 							configuration: 'row',
 							list: [
 								{
 									type: 'stretched',
-									content: 'Cancel',
+									content: t('UI.Buttons.Cancel'),
 									onPress: () => useModalStore.getState().closeModal(),
 								},
 								{
 									type: 'stretched',
-									content: 'Change',
+									content: t('UI.Buttons.Change'),
 									onPress: () => useModalStore.getState().closeModal(),
 								},
 							],
@@ -71,18 +73,17 @@ export const SettingsBlocksConfig: () => Record<
 					}),
 			},
 			{
-				title: 'Report an issue',
+				title: t('Settings.Settings.subtitleThree'),
 				icon: { collectionKey: 'fa6', name: 'exclamation' },
 				onPress: () =>
 					openModal({
-						title: 'Having a problem?',
-						content:
-							'Tell us your issue and you will be contacted by our team via email.',
+						title: t('Modals.ReportIssue.title'),
+						content: t('Modals.ReportIssue.text'),
 						extra: <ReportIssueBlock />,
 					}),
 			},
 			{
-				title: 'Logout from your account',
+				title: t('Settings.Settings.subtitleFour'),
 				icon: {
 					collectionKey: 'ion',
 					name: 'log-out-outline',
@@ -92,7 +93,7 @@ export const SettingsBlocksConfig: () => Record<
 				onPress: () => userInfoStore.logout(),
 			},
 			{
-				title: 'Delete account',
+				title: t('Settings.Settings.subtitleFive'),
 				icon: { collectionKey: 'oct', name: 'trash', color: colors.accentRed },
 				onPress: () => console.log(userInfoStore.personalInfo.id),
 				titleColor: colors.accentRed,

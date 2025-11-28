@@ -9,7 +9,7 @@ export const CustomModalStyles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'flex-start',
 	},
-	listContainer: { backgroundColor: 'transparent' },
+	listContainer: { backgroundColor: 'transparent', gap: 6 },
 	listItem: {
 		backgroundColor: 'transparent',
 		flexDirection: 'row',

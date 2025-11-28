@@ -12,8 +12,11 @@ import CustomButton from '../UI/CustomButton';
 import { Link, useRouter } from 'expo-router';
 import { OnboardingLayoutStyles } from './OnboardingStyles';
 import { useInteractionStore } from '@/src/stores/InteractionStore';
+import { useTranslation } from 'react-i18next';
 const width = Dimensions.get('screen').width;
 export default function OnboardingLayout() {
+	const { t } = useTranslation();
+	const OnboardingConfig = onboardingConfig();
 	const scrollX = useRef(new Animated.Value(0)).current;
 	const [activeIndex, setActiveIndex] = useState(0);
 	const router = useRouter();
@@ -30,8 +33,8 @@ export default function OnboardingLayout() {
 		}
 	);
 	const backgroundColor = scrollX.interpolate({
-		inputRange: onboardingConfig.map((_, i) => i * width),
-		outputRange: onboardingConfig.map((item) => item.backgroundColor),
+		inputRange: OnboardingConfig.map((_, i) => i * width),
+		outputRange: OnboardingConfig.map((item) => item.backgroundColor),
 		extrapolate: 'clamp',
 	});
 	const setSeen = () => {
@@ -52,7 +55,7 @@ export default function OnboardingLayout() {
 				onScroll={handleScroll}
 				style={styles.carouselContainer}
 			>
-				{onboardingConfig.map((item, index) => (
+				{OnboardingConfig.map((item, index) => (
 					<OnboardingCarouselItem
 						key={index}
 						index={index}
@@ -67,14 +70,14 @@ export default function OnboardingLayout() {
 				activeIndex={activeIndex}
 			/>
 			<Link onPress={setSeen} style={styles.link} href={'/(secure)/login'}>
-				Login
+				{t('UI.Buttons.Login')}
 			</Link>
 			<CustomButton
 				type='stretched'
 				outerContainerStyle={styles.button}
-				content='Register'
+				content={t('UI.Buttons.Register')}
 				onPress={onRegisterPress}
-				backgroundColor={onboardingConfig[activeIndex].buttonColor}
+				backgroundColor={OnboardingConfig[activeIndex].buttonColor}
 			/>
 		</Animated.View>
 	);

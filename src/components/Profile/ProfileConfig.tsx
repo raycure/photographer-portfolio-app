@@ -6,6 +6,7 @@ import UserContext from '@/src/context/UserContext';
 import { useContext } from 'react';
 import { useRouter } from 'expo-router';
 import ReportAccount from '../Modal/ReportAccount';
+import { useTranslation } from 'react-i18next';
 type FloatingAction = {
 	key: string;
 	icon: CustomIconProps;
@@ -16,6 +17,7 @@ export const FloatingActionsConfig: () => Record<
 	FloatingAction[]
 > = () => {
 	const openModal = useModalStore((state) => state.openModal);
+	const { t } = useTranslation();
 	const userInfoStore = useUserInfoStore();
 	const data = useContext(UserContext);
 	const router = useRouter();
@@ -63,7 +65,7 @@ export const FloatingActionsConfig: () => Record<
 				},
 				onPress: () =>
 					openModal({
-						title: 'Report Account',
+						title: t('Modals.ReportAccount.title'),
 						extra: <ReportAccount userId={data.personalInfo.id ?? ''} />,
 					}),
 			},

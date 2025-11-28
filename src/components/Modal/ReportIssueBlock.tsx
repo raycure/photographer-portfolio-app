@@ -5,6 +5,7 @@ import { useColors } from '@/src/hooks/useColors';
 import { ReportIssueModalStyles } from './ModalStyles';
 import CustomButton from '../UI/CustomButton';
 import { useModalStore } from '@/src/stores/ModalStore';
+import { useTranslation } from 'react-i18next';
 type Issue = {
 	title?: string;
 	content?: string;
@@ -15,20 +16,21 @@ export default function ReportIssueBlock() {
 		content: undefined,
 	});
 	const color = useColors();
+	const { t } = useTranslation();
 	const styles = ReportIssueModalStyles;
 	return (
 		<View>
 			<InputArea
-				title='Topic'
+				title={t('Modals.ReportIssue.subtitleOne')}
 				value={issue.title}
-				placeholder='Topic of your issue'
+				placeholder={t('Modals.ReportIssue.placeholderOne')}
 				onChangeText={(text) => setIssue((prev) => ({ ...prev, title: text }))}
 				containerStyle={{ backgroundColor: color.primary600 }}
 			/>
 			<InputArea
-				title='Issue'
+				title={t('Modals.ReportIssue.subtitleTwo')}
 				value={issue.content}
-				placeholder='The issue you are facing'
+				placeholder={t('Modals.ReportIssue.placeholderTwo')}
 				onChangeText={(text) =>
 					setIssue((prev) => ({ ...prev, content: text }))
 				}
@@ -41,12 +43,12 @@ export default function ReportIssueBlock() {
 			<View style={styles.buttonContainer}>
 				<CustomButton
 					type='stretched'
-					content='Cancel'
+					content={t('UI.Buttons.Cancel')}
 					onPress={() => useModalStore.getState().closeModal()}
 				/>
 				<CustomButton
 					type='stretched'
-					content='Report'
+					content={t('UI.Buttons.Report')}
 					disabled={!issue.content}
 					onPress={() => {
 						if (!issue) return;

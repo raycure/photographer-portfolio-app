@@ -6,7 +6,7 @@ import { Text, View } from '../Themed';
 import CustomIcon from '../UI/CustomIcon';
 import InputHighlightBar from '../UI/InputHighlightBar';
 import CustomButton from '../UI/CustomButton';
-import { authFormInputData } from './AuthData';
+import { useAuthFormInputData } from './AuthData';
 import { FormProps } from './AuthTypes';
 import LoginExternalServices from './LoginExternalServices';
 import InlineLinkText from './InlineLinkText';
@@ -15,10 +15,12 @@ import { useColors } from '@/src/hooks/useColors';
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import { AuthFormStyles } from './AuthStyles';
 import { useRouter } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 
 export default function AuthForm({ elements, type }: FormProps) {
 	const colors = useColors();
 	const router = useRouter();
+	const { t } = useTranslation();
 	const [passwordSecure, setPasswordSecure] = useState<boolean>(true);
 	const { formData: authFormData, onInputChange } = useForm({
 		name: '',
@@ -43,16 +45,19 @@ export default function AuthForm({ elements, type }: FormProps) {
 		router.navigate('/(tabs)');
 	};
 	const styles = AuthFormStyles;
+	const authFormInputData = useAuthFormInputData();
 	return (
 		<View style={styles.container}>
 			<View style={styles.flexContainer}>
 				<Text style={[{ color: colors.tint }, styles.title]}>
-					{type === 'register' ? 'Create an account' : 'Log in to your account'}
+					{type === 'register'
+						? t('Authentication.Register.title')
+						: t('Authentication.Login.title')}
 				</Text>
 				<Text style={[{ color: colors.primary150 }, styles.text]}>
 					{type === 'register'
-						? 'Welcome! Please enter your details.'
-						: 'Welcome back! Please enter your details.'}
+						? t('Authentication.Register.text')
+						: t('Authentication.Login.text')}
 				</Text>
 				<View style={styles.innerContainer}>
 					{(Object.keys(authFormInputData) as AuthFormKeys[]).map(
@@ -98,7 +103,11 @@ export default function AuthForm({ elements, type }: FormProps) {
 					<CustomButton
 						onPress={type === 'register' ? onRegisterPressed : onLoginPressed}
 						type='stretched'
-						content={type === 'register' ? 'Sign Up' : 'Login'}
+						content={
+							type === 'register'
+								? t('UI.Buttons.Signup')
+								: t('UI.Buttons.Login')
+						}
 						style={styles.customButton}
 					/>
 					{type === 'login' && <LoginExternalServices />}

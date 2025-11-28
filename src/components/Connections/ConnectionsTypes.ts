@@ -1,5 +1,3 @@
-import { selectionBarConfig } from './ConnectionsConfig';
-
 export type SelectionKey = 'followers' | 'following' | 'friends';
 
 export type SelectionBarConfig = {
@@ -10,4 +8,5 @@ export type SelectionBarConfig = {
 export type ConnectionsBarProps = {
 	selection: SelectionKey;
 	setSelection: React.Dispatch<React.SetStateAction<SelectionKey>>;
+	isPersonal?: boolean;
 };

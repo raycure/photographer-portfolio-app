@@ -37,7 +37,7 @@ export default function NotificationItem({
 	if (type === 'CUSTOM' && content) {
 		displayContent = content;
 	} else if (type !== 'CUSTOM') {
-		displayContent = notificationTemplates[type](extra);
+		displayContent = notificationTemplates()[type](extra);
 	} else {
 		displayContent = '';
 	}

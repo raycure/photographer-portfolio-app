@@ -1,0 +1,158 @@
+{
+	"Authentication": {
+		"FormInputData": {
+			"titles": ["İsim", "Kullanıcı adı", "Email", "Şifre"],
+			"placeholders": [
+				"İsminizi giriniz",
+				"Kullanıcı adınızı giriniz",
+				"Email adresinizi giriniz",
+				"Şifrenizi giriniz"
+			]
+		},
+		"Register": {
+			"title": "Hesap oluşturun",
+			"text": "Hoş geldiniz! Lütfen bilgilerinizi doldurunuz.",
+			"navigatorText": "Bir hesabınız mı var?",
+			"navigatorTitle": "Giriş yapın"
+		},
+		"Login": {
+			"title": "Hesabınıza giriniz",
+			"text": "Hoş geldiniz! Lütfen bilgilerinizi doldurunuz.",
+			"forgotPasswordButton": "Şifremi unuttum",
+			"navigatorText": "Hesabınız yok mu?",
+			"navigatorTitle": "Kaydolun",
+			"externalServices": "Ya da"
+		}
+	},
+	"ChallengeHistory": {
+		"dateSuffix": "gün",
+		"theme": "Tema"
+	},
+	"Connections": {
+		"BarTitles": {
+			"Followers": "Takipçiler",
+			"Following": "Takip edilenler",
+			"Friends": "Arkadaşlar",
+			"Mutuals": "Ortak takip edilenler"
+		}
+	},
+	"Home": {
+		"NoEntries": "Paylaşım kalmadı"
+	},
+	"LinkedAccounts": {
+		"title": "Hesaplar"
+	},
+	"Notifications": {
+		"title": "Bildirimler"
+	},
+	"Onboarding": {
+		"titles": [
+			"XXXX'e Hoş Geldiniz",
+			"Temalı Yarışmalara Katıl",
+			"Ödüller Kazan ve Öne Çık",
+			"Ücretsiz Kullanıma Müsait",
+			"Premium'a Geç, Her Şeyin Kilidini Aç"
+		],
+		"contents": [
+			"Fotoğrafçılık yeteneklerini göster, eğlenceli yarışmalara katıl ve gurur duyacağın bir profil oluştur.",
+			"Günlük ve haftalık yarışmalara katıl. Kazanan fotoğraflar profilinde kalıcı olur – kazan ve parılda!",
+			"Yarışmaları kazan, ödüller elde et ve itibarını artır.",
+			"Ücretsiz katılım için 3–5 dakika bekle veya birkaç reklam izle.",
+			"Premium hesapla tüm fotoğraflarını kaydet ve anındayarışmalara katıl!"
+		]
+	},
+	"Profile": {
+		"mainTitle": "Level",
+		"titleOne": "Zaferler",
+		"titleTwo": "Yarışmalar",
+		"subtitleOne": "zafer",
+		"subtitleTwo": "katılım"
+	},
+	"Settings": {
+		"Preferences": {
+			"title": "İçerik ve Tercihler",
+			"subtitleOne": "Dil",
+			"subtitleTwo": "Karanlık Tema"
+		},
+		"Settings": {
+			"title": "Ayarlar",
+			"subtitleOne": "Premium'a geç",
+			"subtitleTwo": "Şifreni değiştir",
+			"subtitleThree": "Sorun bildir",
+			"subtitleFour": "Hesaptan çıkış yap",
+			"subtitleFive": "Hesabı sil"
+		}
+	},
+	"UI": {
+		"Buttons": {
+			"Cancel": "İptal",
+			"Continue": "Devam et",
+			"Save": "Kaydet",
+			"Report": "Bildir",
+			"Change": "Değiştir",
+			"Understood": "Anladım",
+			"Signup": "Kayıt ol",
+			"Login": "Giriş yap",
+			"Register": "Kaydol",
+			"Unfollow": "Takibi bırak",
+			"Follow": "Takip et",
+			"MarkAllRead": "Tümünü okundu olarak işaretle"
+		}
+	},
+	"Modals": {
+		"ChallengeHistoryInfo": {
+			"title": "Yarışma Geçmişi Hakkında",
+			"text": "Bu sayfa geçmiş fotoğraf yarışmalarını, kazanan fotoğrafları ve her etkinlikle ilgili önemli detayları gösterir.",
+			"list": [
+				"Tamamlanan yarışmaların kazananlarını görüntüle.",
+				"Yarışma temaları ve katılım istatistikleri hakkında bilgi edin.",
+				"Gelecekteki yarışmalar ve fotoğraf fikirleri için ilham al."
+			]
+		},
+		"YouveSeenEverything": {
+			"title": "Hepsini Gördün!",
+			"text": "Şimdilik bu kadar. Daha fazla harika paylaşımı görmek için sonra tekrar gel."
+		},
+		"AddLinkedAccount": {
+			"title": "Sosyal hesap ekle",
+			"text": "Aşağıdan sosyal medya hesaplarını ekle.",
+			"dropdownTitle": "Hesap",
+			"placeholder": "Kullanıcı adı"
+		},
+		"ChangePassword": {
+			"title": "Şifreni değiştir",
+			"OldPassword": {
+				"title": "Eski şifre",
+				"placeholder": "Eski şifren"
+			},
+			"NewPassword": {
+				"title": "Yeni şifre",
+				"placeholder": "Yeni şifren"
+			}
+		},
+		"ReportAccount": {
+			"title": "Hesabı bildir",
+			"subtitle": "Daha fazla bilgi ver",
+			"placeholder": "Burada bize sorunu anlat...",
+			"Topics": {
+				"title": "Konu",
+				"issue_1": "Uygunsuz İçerik",
+				"issue_2": "Taciz veya Zorbalık",
+				"issue_3": "Nefret Söylemi veya Ayrımcılık",
+				"issue_4": "Spam veya Sahte Hesap",
+				"issue_5": "Hile veya Haksız Avantaj",
+				"issue_6": "Telif Hakkı İhlali",
+				"issue_7": "Dolandırıcılık veya Sahtekarlık",
+				"issue_8": "Diğer"
+			}
+		},
+		"ReportIssue": {
+			"title": "Bir sorun mu var?",
+			"text": "Sorununuzu bize bildirin ve ekibimiz size e-posta ile dönüş yapacaktır.",
+			"subtitleOne": "Konu",
+			"subtitleTwo": "Sorun",
+			"placeholderOne": "Sorunun konusu",
+			"placeholderTwo": "Karşılaştığın sorun"
+		}
+	}
+}

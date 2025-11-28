@@ -7,6 +7,7 @@ import { useColors } from '@/src/hooks/useColors';
 import CustomButton from '../UI/CustomButton';
 import CustomIcon from '../UI/CustomIcon';
 import LeaderboardLikeButton from './LeaderboardLikeButton';
+import { dummyUsers } from '@/src/constants/dummyUsers';
 
 export default function LeaderboardPersonalButton() {
 	const userInfoStore = useUserInfoStore();
@@ -15,7 +16,9 @@ export default function LeaderboardPersonalButton() {
 	const entry = dummyChallengeData.entries.find(
 		(entry) => entry.userId === userId
 	);
-
+	const user = dummyUsers.find(
+		(user) => user.personalInfo.id === entry?.userId
+	);
 	const onPress = () => {};
 	const styles = LeaderboardPersonalButtonStyles;
 	return (
@@ -24,7 +27,7 @@ export default function LeaderboardPersonalButton() {
 			onPress={onPress}
 		>
 			<RankIndicator rank={entry?.rank[0]!} />
-			<Text style={styles.text}>@{entry?.username}</Text>
+			<Text style={styles.text}>@{user?.personalInfo.username}</Text>
 			<View style={styles.likeContainer}>
 				<Text style={[{ color: colors.negativeTint }, styles.likeText]}>
 					{entry?.likes.length}

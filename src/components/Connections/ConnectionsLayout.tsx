@@ -1,4 +1,3 @@
-import { StyleSheet } from 'react-native';
 import ConnectionsBar from './ConnectionsBar';
 import ConnectionsList from './ConnectionsList';
 import { View } from '../Themed';
@@ -44,7 +43,11 @@ export default function ConnectionsLayout() {
 	const styles = ConnectionsLayoutStyles;
 	return (
 		<View style={styles.outerContainer}>
-			<ConnectionsBar selection={selection} setSelection={setSelection} />
+			<ConnectionsBar
+				selection={selection}
+				setSelection={setSelection}
+				isPersonal={isPersonal}
+			/>
 			<ConnectionsList data={data} />
 		</View>
 	);

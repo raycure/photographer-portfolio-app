@@ -49,7 +49,7 @@ export default function CustomModal() {
 						{list?.map((listItem, index) => (
 							<Text
 								key={index}
-								style={[styles.listItem, { color: colors.gray200 }]}
+								style={[styles.listItem, { color: colors.primary100 }]}
 							>
 								{listItem.icon ? listItem.icon : '●'}
 								{'  '}
