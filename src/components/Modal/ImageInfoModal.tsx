@@ -18,7 +18,7 @@ export default function ImageInfoModal() {
 	const { entryId } = props || {};
 
 	const colors = useColors();
-	const backgroundColor = getColorWithOpacity(colors.primary900, 0.5);
+	const backgroundColor = getColorWithOpacity(colors.primary800, 0.7);
 	const data =
 		dummyChallengeData.entries.find((entry) => entry.entryId === entryId) ||
 		dummyChallengeHistory
@@ -36,12 +36,7 @@ export default function ImageInfoModal() {
 	if (!open) return null;
 	const styles = ImageInfoModalStyles;
 	return (
-		<BlurView
-			style={[styles.outerContainer, { backgroundColor }]}
-			tint='dark'
-			intensity={10}
-			experimentalBlurMethod='dimezisBlurView'
-		>
+		<View style={[styles.outerContainer, { backgroundColor }]}>
 			<Pressable style={StyleSheet.absoluteFill} onPress={closeModal} />
 			<Image
 				source={{
@@ -68,6 +63,6 @@ export default function ImageInfoModal() {
 					</View>
 				</View>
 			</View>
-		</BlurView>
+		</View>
 	);
 }

@@ -55,21 +55,6 @@ export const SettingsBlocksConfig: () => Record<
 					openModal({
 						title: t('Modals.ChangePassword.title'),
 						extra: <ChangePasswordBlock />,
-						buttons: {
-							configuration: 'row',
-							list: [
-								{
-									type: 'stretched',
-									content: t('UI.Buttons.Cancel'),
-									onPress: () => useModalStore.getState().closeModal(),
-								},
-								{
-									type: 'stretched',
-									content: t('UI.Buttons.Change'),
-									onPress: () => useModalStore.getState().closeModal(),
-								},
-							],
-						},
 					}),
 			},
 			{

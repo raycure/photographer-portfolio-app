@@ -1,9 +1,10 @@
 import { useColors } from '@/src/hooks/useColors';
-import { Dimensions, Image, View } from 'react-native';
+import { Dimensions, View } from 'react-native';
 import { CircularPhotoStyles } from './UIStyles';
 import { CircularPhotoProps } from './UITypes';
 import CustomIcon from './CustomIcon';
 import FollowButton from './FollowButton';
+import { Image } from 'expo-image';
 const windowWidth = Dimensions.get('screen').width;
 export default function CircularPhoto({
 	size,
@@ -38,10 +39,22 @@ export default function CircularPhoto({
 						customSize ? { width: customSize, height: customSize } : undefined,
 					]}
 				/>
-				{followActive && <FollowButton userId={userId} size={size} />}
+				{followActive && !['xs'].includes(size!) && (
+					<FollowButton userId={userId} size={size} />
+				)}
 			</View>
 		);
 	}
+	const iconSize =
+		size === 'big'
+			? (windowWidth * 3) / 9
+			: size === 'medium'
+			? 68
+			: size === 'small'
+			? 58
+			: size === 'xl'
+			? (windowWidth * 4) / 9
+			: 48;
 	return (
 		<View>
 			<View
@@ -54,23 +67,15 @@ export default function CircularPhoto({
 				]}
 			>
 				<CustomIcon
-					size={
-						size === 'big'
-							? (windowWidth * 3) / 9
-							: size === 'medium'
-							? 68
-							: size === 'small'
-							? 58
-							: size === 'xl'
-							? (windowWidth * 4) / 9
-							: 48
-					}
+					size={iconSize}
 					name='user-circle'
 					collectionKey='fa'
 					color={colors.gray300}
 				/>
 			</View>
-			{followActive && <FollowButton userId={userId} size={size} />}
+			{followActive && !['xs', 'small'].includes(size!) && (
+				<FollowButton userId={userId} size={size} />
+			)}
 		</View>
 	);
 }

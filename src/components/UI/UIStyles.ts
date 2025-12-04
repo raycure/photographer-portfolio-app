@@ -111,7 +111,7 @@ export const FillingBarStyles = StyleSheet.create({
 });
 
 export const CloseButtonStyles = StyleSheet.create({
-	outerContainer: { position: 'absolute', left: 20, top: 20, zIndex: 100 },
+	outerContainer: { position: 'absolute', right: 20, top: 22, zIndex: 100 },
 });
 
 export const CustomHeaderStyles = StyleSheet.create({

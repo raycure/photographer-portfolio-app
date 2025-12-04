@@ -96,7 +96,8 @@
 			"Register": "Register",
 			"Unfollow": "Unfollow",
 			"Follow": "Follow",
-			"MarkAllRead": "Mark all as read"
+			"MarkAllRead": "Mark all as read",
+			"Next": "Next"
 		}
 	},
 	"Modals": {

@@ -45,10 +45,11 @@ export const ProfileStatisticsStyles = StyleSheet.create({
 		gap: 8,
 	},
 	blockContainer: {
-		borderRadius: 18,
+		borderRadius: 14,
 	},
 	bigBlockContainer: {
 		padding: 12,
+		paddingBottom: 14,
 		alignItems: 'center',
 		flexDirection: 'column',
 		flex: 0.9,
@@ -64,6 +65,7 @@ export const ProfileStatisticsStyles = StyleSheet.create({
 		justifyContent: 'space-between',
 		flexDirection: 'row',
 		alignItems: 'baseline',
+		paddingHorizontal: 1,
 	},
 	title1: { fontSize: 18 },
 	title2: { maxWidth: 100 },

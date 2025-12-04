@@ -53,7 +53,6 @@ export default function EditProfileForm({
 					leftElement={({ color }) => (
 						<CustomIcon {...item.leftIcon} color={color} size={22} />
 					)}
-					containerStyle={{ backgroundColor: colors.primary800 }}
 				/>
 			))}
 		</View>

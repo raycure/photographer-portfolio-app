@@ -57,7 +57,7 @@ export default function EditProfileLayout() {
 		<View style={styles.outerContainer}>
 			<EditProfileHeader />
 			<View
-				style={[styles.innerContainer, { backgroundColor: colors.primary800 }]}
+				style={[styles.innerContainer, { backgroundColor: colors.primary600 }]}
 			>
 				<EditProfileForm
 					editProfileData={EditProfileData}
@@ -66,7 +66,7 @@ export default function EditProfileLayout() {
 				<View
 					style={[
 						styles.buttonContainer,
-						{ backgroundColor: colors.primary800 },
+						{ backgroundColor: colors.primary600 },
 					]}
 				>
 					<CustomButton

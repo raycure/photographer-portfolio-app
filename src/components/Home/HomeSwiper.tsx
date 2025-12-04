@@ -90,9 +90,14 @@ export default function HomeSwiper() {
 		outputRange: [1, 0.9, 1],
 		extrapolate: 'clamp',
 	});
-
+	const nextCardOpacity = swipe.x.interpolate({
+		inputRange: [-150, 0, 150],
+		outputRange: [1, 0.7, 1],
+		extrapolate: 'clamp',
+	});
 	const animatedNextCardStyle = {
 		transform: [{ scale: nextCardScale }],
+		opacity: nextCardOpacity,
 	};
 
 	const handleChoice = useCallback(

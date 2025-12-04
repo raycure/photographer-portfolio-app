@@ -18,6 +18,7 @@ export default function OnboardingLayout() {
 	const { t } = useTranslation();
 	const OnboardingConfig = onboardingConfig();
 	const scrollX = useRef(new Animated.Value(0)).current;
+	const scrollRef = useRef<any>(null);
 	const [activeIndex, setActiveIndex] = useState(0);
 	const router = useRouter();
 	const interactionStore = useInteractionStore();
@@ -44,10 +45,19 @@ export default function OnboardingLayout() {
 		setSeen();
 		router.replace('/(secure)');
 	};
+	const onNextPress = () => {
+		if (activeIndex < OnboardingConfig.length - 1) {
+			scrollRef.current?.scrollTo({
+				x: (activeIndex + 1) * width,
+				animated: true,
+			});
+		}
+	};
 	const styles = OnboardingLayoutStyles;
 	return (
 		<Animated.View style={[styles.outerContainer, { backgroundColor }]}>
 			<Animated.ScrollView
+				ref={scrollRef}
 				horizontal
 				pagingEnabled
 				showsHorizontalScrollIndicator={false}
@@ -69,16 +79,20 @@ export default function OnboardingLayout() {
 				length={5}
 				activeIndex={activeIndex}
 			/>
-			<Link onPress={setSeen} style={styles.link} href={'/(secure)/login'}>
-				{t('UI.Buttons.Login')}
-			</Link>
 			<CustomButton
 				type='stretched'
 				outerContainerStyle={styles.button}
-				content={t('UI.Buttons.Register')}
-				onPress={onRegisterPress}
+				content={
+					activeIndex === 4 ? t('UI.Buttons.Register') : t('UI.Buttons.Next')
+				}
+				onPress={activeIndex === 4 ? onRegisterPress : onNextPress}
 				backgroundColor={OnboardingConfig[activeIndex].buttonColor}
 			/>
+			{activeIndex === 4 && (
+				<Link onPress={setSeen} style={styles.link} href={'/(secure)/login'}>
+					{t('UI.Buttons.Login')}
+				</Link>
+			)}
 		</Animated.View>
 	);
 }

@@ -48,7 +48,8 @@ export const useAuthFormInputData = (): AuthInputDataTypes => {
 			title: titles[3],
 			textContentType: 'password',
 			validationRegex: /^.{6,}$/,
-			secMedRegex: /^(?=.*[A-Za-z])(?=.*\d).{8,}$/,
+			secMedRegex:
+				/^(?:(?=.*[A-Z])(?=.*\d)|(?=.*[A-Z])(?=.*[^A-Za-z0-9])|(?=.*\d)(?=.*[^A-Za-z0-9])).{8,}$/,
 			secHighRegex:
 				/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,}$/,
 		},
