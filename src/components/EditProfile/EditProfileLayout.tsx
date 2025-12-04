@@ -1,4 +1,3 @@
-import { StyleSheet } from 'react-native';
 import { View } from '../Themed';
 import EditProfileHeader from './EditProfileHeader';
 import EditProfileForm from './EditProfileForm';
@@ -7,7 +6,7 @@ import { useColors } from '@/src/hooks/useColors';
 import CustomButton from '../UI/CustomButton';
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import { useRouter } from 'expo-router';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { EditProfileData } from './EditProfileTypes';
 import { EditProfileLayoutStyles } from './EditProfileStyles';
 
@@ -24,6 +23,7 @@ export default function EditProfileLayout() {
 			imageId: '',
 		}
 	);
+	const [profileImage, setProfileImage] = useState<string | null>(null);
 	const initialData = {
 		name: user.name,
 		username: user.username,
@@ -55,7 +55,10 @@ export default function EditProfileLayout() {
 	const styles = EditProfileLayoutStyles;
 	return (
 		<View style={styles.outerContainer}>
-			<EditProfileHeader />
+			<EditProfileHeader
+				profileImage={profileImage}
+				setProfileImage={setProfileImage}
+			/>
 			<View
 				style={[styles.innerContainer, { backgroundColor: colors.primary600 }]}
 			>

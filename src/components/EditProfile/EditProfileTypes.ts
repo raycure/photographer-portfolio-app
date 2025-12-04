@@ -1,6 +1,7 @@
 import { ImageID } from '@/src/stores/StoreTypes';
 import { CustomIconProps } from '../UI/UITypes';
 import { TextInputProps } from 'react-native';
+import { Dispatch, SetStateAction } from 'react';
 
 export type EditProfileData = {
 	name: string;
@@ -19,4 +20,9 @@ export type EditProfileField = {
 export type EditProfileFormProps = {
 	editProfileData: EditProfileData;
 	onInputChange: (text: string, key: keyof EditProfileData) => void;
+};
+
+export type EditProfileHeaderProps = {
+	setProfileImage: Dispatch<SetStateAction<string | null>>;
+	profileImage: string | null;
 };

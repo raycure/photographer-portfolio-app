@@ -1,5 +1,6 @@
 import {
 	ColorValue,
+	ImageSourcePropType,
 	NativeSyntheticEvent,
 	StyleProp,
 	TextInputChangeEventData,
@@ -132,7 +133,7 @@ export type SubtitleTitlePairProps = {
 export type PhotoSize = GenericSizes | ExtraSizes | undefined;
 export type CircularPhotoProps = {
 	size?: PhotoSize;
-	source?: string;
+	source?: ImageSourcePropType;
 	customSize?: number;
 	followActive?: boolean;
 	userId: UserID;

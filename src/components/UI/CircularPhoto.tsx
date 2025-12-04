@@ -1,5 +1,5 @@
 import { useColors } from '@/src/hooks/useColors';
-import { Dimensions, View } from 'react-native';
+import { Dimensions, ImageSourcePropType, View } from 'react-native';
 import { CircularPhotoStyles } from './UIStyles';
 import { CircularPhotoProps } from './UITypes';
 import CustomIcon from './CustomIcon';
@@ -25,13 +25,18 @@ export default function CircularPhoto({
 			: size === 'xl'
 			? styles.imageXL
 			: styles.imageXS;
-
-	const isValidSource = typeof source === 'string' && source.trim().length > 0;
+	const isValidSource =
+		source != null &&
+		(typeof source === 'number' ||
+			(typeof source === 'object' && 'uri' in source) ||
+			typeof source === 'string');
 	if (isValidSource) {
+		const normalizedSource: ImageSourcePropType =
+			typeof source === 'string' ? { uri: source } : source;
 		return (
 			<View>
 				<Image
-					source={{ uri: source }}
+					source={normalizedSource}
 					style={[
 						sizeBasedStyle,
 						styles.image,
