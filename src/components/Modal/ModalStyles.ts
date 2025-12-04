@@ -5,7 +5,7 @@ export const CustomModalStyles = StyleSheet.create({
 	buttonContainer: {
 		backgroundColor: 'transparent',
 		gap: 16,
-		paddingVertical: 16,
+		paddingVertical: 12,
 		flexDirection: 'row',
 		justifyContent: 'flex-start',
 	},
@@ -21,11 +21,11 @@ export const CustomModalStyles = StyleSheet.create({
 		fontWeight: '600',
 		width: 240,
 	},
-	text: { fontSize: 16, textAlign: 'center' },
+	text: { fontSize: 18, textAlign: 'center' },
 	outerContainer: {
 		paddingBottom: 16,
 		paddingTop: 20,
-		paddingHorizontal: 20,
+		paddingHorizontal: 28,
 		width: '85%',
 		minHeight: 220,
 		borderRadius: 24,

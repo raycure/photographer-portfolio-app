@@ -97,7 +97,8 @@
 			"Unfollow": "Takibi bırak",
 			"Follow": "Takip et",
 			"MarkAllRead": "Tümünü okundu olarak işaretle",
-			"Next": "Sonraki"
+			"Next": "Sonraki",
+			"Purchase": "Satın al"
 		}
 	},
 	"Modals": {
@@ -154,6 +155,7 @@
 			"subtitleTwo": "Sorun",
 			"placeholderOne": "Sorunun konusu",
 			"placeholderTwo": "Karşılaştığın sorun"
-		}
+		},
+		"AddPremiumPicture": {}
 	}
 }

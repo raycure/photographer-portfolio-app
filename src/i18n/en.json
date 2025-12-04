@@ -97,7 +97,8 @@
 			"Unfollow": "Unfollow",
 			"Follow": "Follow",
 			"MarkAllRead": "Mark all as read",
-			"Next": "Next"
+			"Next": "Next",
+			"Purchase": "Purchase"
 		}
 	},
 	"Modals": {
@@ -154,6 +155,10 @@
 			"subtitleTwo": "Issue",
 			"placeholderOne": "Topic of your issue",
 			"placeholderTwo": "The issue you are facing"
+		},
+		"AddPremiumPicture": {
+			"title": "Premium Feature",
+			"content": "Uploading photos directly to your profile is a premium feature. Upgrade to Premium to add images anytime without needing to join events."
 		}
 	}
 }
