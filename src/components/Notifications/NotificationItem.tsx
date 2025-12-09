@@ -1,4 +1,4 @@
-import { Pressable, Text, View } from 'react-native';
+import { ImageSourcePropType, Pressable, Text, View } from 'react-native';
 import CircularPhoto from '../UI/CircularPhoto';
 import { images } from '@/src/constants/dummyImages';
 import CustomIcon from '../UI/CustomIcon';
@@ -57,7 +57,11 @@ export default function NotificationItem({
 			]}
 		>
 			{imageLink ? (
-				<CircularPhoto userId={userId!} source={imageLink} size='xs' />
+				<CircularPhoto
+					userId={userId!}
+					source={imageLink as ImageSourcePropType}
+					size='xs'
+				/>
 			) : (
 				<View
 					style={[

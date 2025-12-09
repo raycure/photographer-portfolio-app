@@ -23,7 +23,7 @@ export default function CloseButton({
 			style={[styles.outerContainer, style]}
 		>
 			<CustomIcon
-				color={pressed ? colors.gray600 : colors.primary200}
+				color={pressed ? colors.gray600 : colors.primary300}
 				collectionKey='ad'
 				name='close'
 				size={26}

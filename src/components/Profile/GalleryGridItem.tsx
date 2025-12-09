@@ -10,7 +10,7 @@ import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import { pickImageFromGallery } from '@/src/utils/pickImage';
 import { useState } from 'react';
 import { useModalStore } from '@/src/stores/ModalStore';
-import { useTranslation } from 'react-i18next';
+import { AddPremiumPicture } from '../Modal/modals';
 
 export default function GalleryGridItem({
 	data,
@@ -19,32 +19,17 @@ export default function GalleryGridItem({
 }) {
 	const colors = useColors();
 	const [image, setImage] = useState<string | null>(null);
-	const { t } = useTranslation();
 	const interactionStore = useInteractionStore();
 	const userInfoStore = useUserInfoStore();
-	const openModal = useModalStore((state) => state.openModal);
 	const onAddButtonPress = async () => {
 		const isPremium = userInfoStore.personalInfo.premium;
-		if (isPremium) {
+		if (!isPremium) {
 			const uri = await pickImageFromGallery({ aspect: [1, 1] });
 			if (uri) {
 				setImage(uri);
 			}
 		} else {
-			openModal({
-				title: t('Modals.AddPremiumPicture.title'),
-				content: t('Modals.AddPremiumPicture.content'),
-				buttons: {
-					configuration: 'row',
-					list: [
-						{
-							type: 'general',
-							content: t('UI.Buttons.Purchase'),
-							onPress: () => useModalStore.getState().closeModal(),
-						},
-					],
-				},
-			});
+			AddPremiumPicture();
 		}
 	};
 	const styles = GalleryGridItemStyles;

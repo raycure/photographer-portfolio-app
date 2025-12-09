@@ -52,7 +52,6 @@ export default function ReportAccount({ userId }: { userId: UserID }) {
 				onChangeText={(text) => onInputChange(text, 'issue')}
 				multiline={true}
 				numberOfLines={6}
-				containerStyle={{ backgroundColor: colors.primary600 }}
 				maxLength={250}
 				letterCount={reportData.issue.length || 0}
 			/>

@@ -4,7 +4,7 @@ import { useColors } from '@/src/hooks/useColors';
 import { CustomModalStyles } from './ModalStyles';
 import CloseButton from '../UI/CloseButton';
 import CustomButton from '../UI/CustomButton';
-import { BlurView } from 'expo-blur';
+import ModalParent from './ModalParent';
 
 export default function CustomModal() {
 	const colors = useColors();
@@ -22,14 +22,9 @@ export default function CustomModal() {
 	if (!visible) return null;
 	const styles = CustomModalStyles;
 	return (
-		<BlurView
-			intensity={8}
-			tint='dark'
-			style={styles.blurContainer}
-			experimentalBlurMethod='dimezisBlurView'
-		>
+		<ModalParent>
 			<View
-				style={[styles.outerContainer, { backgroundColor: colors.primary600 }]}
+				style={[styles.outerContainer, { backgroundColor: colors.primary800 }]}
 			>
 				<CloseButton
 					style={!closeButtonActive ? { display: 'none' } : undefined}
@@ -82,6 +77,6 @@ export default function CustomModal() {
 					</View>
 				)}
 			</View>
-		</BlurView>
+		</ModalParent>
 	);
 }

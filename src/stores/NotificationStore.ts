@@ -79,6 +79,7 @@ export const useNotificationStore = create<
 				}),
 			})),
 		hasUnread: () => get().notifications.some((n) => !n.seen),
+		resetStore: () => set(() => initialState),
 	})
 	// 	{
 	// 		name: 'notification-storage',

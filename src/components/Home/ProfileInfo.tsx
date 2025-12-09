@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, ViewStyle } from 'react-native';
+import {
+	ImageSourcePropType,
+	Pressable,
+	StyleSheet,
+	Text,
+	View,
+	ViewStyle,
+} from 'react-native';
 import CircularPhoto from '../UI/CircularPhoto';
 import { images } from '@/src/constants/dummyImages';
 import { dummyUsers } from '@/src/constants/dummyUsers';
@@ -9,6 +16,7 @@ import { useColors } from '@/src/hooks/useColors';
 import { PropsWithChildren } from 'react';
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import { useRouter } from 'expo-router';
+import { useInteractionStore } from '@/src/stores/InteractionStore';
 
 const ParentView = ({
 	blur,
@@ -38,6 +46,7 @@ export default function ProfileInfo({
 	style?: ViewStyle;
 }) {
 	const colors = useColors();
+	const interactionStore = useInteractionStore();
 	const user = dummyUsers.find((user) => {
 		return user.personalInfo.id === userId;
 	});
@@ -51,15 +60,22 @@ export default function ProfileInfo({
 		if (isPersonal) {
 			router.navigate('/(tabs)/profile');
 		} else {
-			router.push({
+			router.navigate({
 				pathname: '/(stack)',
 				params: { userId: userId },
 			});
+			interactionStore.setModalOpen('imageInfo', false);
 		}
 	};
 	return (
 		<ParentView blur={blur} style={style}>
-			<CircularPhoto userId={userId!} size='xs' source={profilePic} />
+			<Pressable onPress={onUserPress}>
+				<CircularPhoto
+					userId={userId!}
+					size='xs'
+					source={profilePic as ImageSourcePropType}
+				/>
+			</Pressable>
 			<View style={styles.innerConatiner}>
 				<Text
 					onPress={onUserPress}

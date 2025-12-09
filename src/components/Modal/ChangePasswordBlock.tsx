@@ -3,7 +3,6 @@ import InputArea from '../UI/InputArea';
 import CustomIcon from '../UI/CustomIcon';
 import { useState } from 'react';
 import { useForm } from '@/src/hooks/useForm';
-import { useColors } from '@/src/hooks/useColors';
 import { useTranslation } from 'react-i18next';
 import CustomButton from '../UI/CustomButton';
 import { useModalStore } from '@/src/stores/ModalStore';
@@ -18,7 +17,6 @@ export default function ChangePasswordBlock() {
 	const onPasswordUpdate = () => {
 		useModalStore.getState().closeModal();
 	};
-	const color = useColors();
 	return (
 		<View>
 			<InputArea
@@ -27,7 +25,6 @@ export default function ChangePasswordBlock() {
 				placeholder={t('Modals.ChangePassword.OldPassword.placeholder')}
 				textContentType='password'
 				onChangeText={(text) => onInputChange(text, 'oldPassword')}
-				containerStyle={{ backgroundColor: color.primary600 }}
 				rightElement={({ color }: { color: any }) => (
 					<Pressable onPress={() => setPasswordSecure(!passwordSecure)}>
 						<CustomIcon
@@ -43,7 +40,6 @@ export default function ChangePasswordBlock() {
 				value={changePasswordData.newPassword}
 				placeholder={t('Modals.ChangePassword.NewPassword.placeholder')}
 				textContentType='password'
-				containerStyle={{ backgroundColor: color.primary600 }}
 				onChangeText={(text) => onInputChange(text, 'newPassword')}
 				rightElement={({ color }: { color: any }) => (
 					<Pressable onPress={() => setPasswordSecure(!passwordSecure)}>

@@ -1,5 +1,5 @@
-import { TextInput } from 'react-native';
-import { Text, View } from '../Themed';
+import { TextInput, View } from 'react-native';
+import { Text } from '../Themed';
 import { useState } from 'react';
 import { InputAreaParentProps, InputAreaProps } from './UITypes';
 import { useColors } from '@/src/hooks/useColors';

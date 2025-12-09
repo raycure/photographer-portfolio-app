@@ -21,5 +21,5 @@ export const useModalStore = create<ModalState & ModalActions>((set) => ({
 			visible: true,
 		})),
 	closeModal: () => set(() => ({ visible: false })),
-	resetModal: () => set(() => initialState),
+	resetModalStore: () => set(() => initialState),
 }));

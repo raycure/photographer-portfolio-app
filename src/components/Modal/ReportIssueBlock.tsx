@@ -25,7 +25,6 @@ export default function ReportIssueBlock() {
 				value={issue.title}
 				placeholder={t('Modals.ReportIssue.placeholderOne')}
 				onChangeText={(text) => setIssue((prev) => ({ ...prev, title: text }))}
-				containerStyle={{ backgroundColor: color.primary600 }}
 			/>
 			<InputArea
 				title={t('Modals.ReportIssue.subtitleTwo')}
@@ -36,7 +35,6 @@ export default function ReportIssueBlock() {
 				}
 				multiline={true}
 				numberOfLines={6}
-				containerStyle={{ backgroundColor: color.primary600 }}
 				maxLength={250}
 				letterCount={issue.content?.length || 0}
 			/>

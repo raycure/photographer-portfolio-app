@@ -7,25 +7,31 @@ import { useInteractionStore } from '@/src/stores/InteractionStore';
 import { clamp } from 'react-native-reanimated';
 import { HomeSwiperStyles } from './HomeStyles';
 import NoEntries from './NoEntries';
-import { useModalStore } from '@/src/stores/ModalStore';
 import { useLocalSearchParams } from 'expo-router';
-import { useTranslation } from 'react-i18next';
+import { YouveSeenEverything } from '../Modal/modals';
 export default function HomeSwiper() {
 	const { entryId } = useLocalSearchParams();
-	const { t } = useTranslation();
 	const [data, setData] = useState(dummyChallengeData.entries);
 	useEffect(() => {
-		if (entryId) {
-			setData((prev) => {
-				const existing = [...prev];
-				const foundIndex = existing.findIndex((e) => e.entryId === entryId);
-				if (foundIndex > -1) {
-					const [entry] = existing.splice(foundIndex, 1);
-					return [entry, ...existing];
-				}
-				return prev;
-			});
-		}
+		if (!entryId) return;
+		setData((prev) => {
+			if (prev.length === 0) {
+				const entry = dummyChallengeData.entries.find(
+					(e) => e.entryId === entryId
+				);
+				return entry ? [entry] : prev;
+			}
+			const existing = [...prev];
+			const foundIndex = existing.findIndex((e) => e.entryId === entryId);
+			if (foundIndex > -1) {
+				const [entry] = existing.splice(foundIndex, 1);
+				return [entry, ...existing];
+			}
+			const entry = dummyChallengeData.entries.find(
+				(e) => e.entryId === entryId
+			);
+			return entry ? [entry, ...existing] : prev;
+		});
 	}, [entryId]);
 	const interactionStore = useInteractionStore();
 	const activeCard = data[0];
@@ -33,7 +39,6 @@ export default function HomeSwiper() {
 	const height = Dimensions.get('screen').height;
 	const swipe = useRef(new Animated.ValueXY()).current;
 	const tiltSign = useRef(new Animated.Value(1)).current;
-	const openModal = useModalStore((state) => state.openModal);
 	const removeTopCard = useCallback(
 		(direction: 'left' | 'right') => {
 			if (direction === 'right') {
@@ -113,20 +118,7 @@ export default function HomeSwiper() {
 	const styles = HomeSwiperStyles;
 	useEffect(() => {
 		if (!activeCard) {
-			openModal({
-				title: t('Modals.YouveSeenEverything.title'),
-				content: t('Modals.YouveSeenEverything.text'),
-				buttons: {
-					configuration: 'row',
-					list: [
-						{
-							type: 'general',
-							content: t('UI.Buttons.Continue'),
-							onPress: () => useModalStore.getState().closeModal(),
-						},
-					],
-				},
-			});
+			YouveSeenEverything();
 		}
 	}, [activeCard]);
 

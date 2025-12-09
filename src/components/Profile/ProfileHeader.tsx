@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import UserContext from '@/src/context/UserContext';
 import CircularPhoto from '../UI/CircularPhoto';
 import { images } from '@/src/constants/dummyImages';
+import { ImageSourcePropType } from 'react-native';
 
 export default function ProfileHeader() {
 	const colors = useColors();
@@ -17,7 +18,7 @@ export default function ProfileHeader() {
 	return (
 		<View style={styles.outerContainer}>
 			<CircularPhoto
-				source={imageLink}
+				source={imageLink as ImageSourcePropType}
 				userId={data.personalInfo.id!}
 				size='medium'
 			/>

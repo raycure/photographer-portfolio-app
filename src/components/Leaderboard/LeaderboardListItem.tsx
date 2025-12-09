@@ -1,5 +1,5 @@
 import { Image } from 'expo-image';
-import { Pressable, Text, View } from 'react-native';
+import { ImageSourcePropType, Pressable, Text, View } from 'react-native';
 import useAspectRatio from '@/src/hooks/useAspectRatio';
 import { images } from '@/src/constants/dummyImages';
 import { dummyChallengeData } from '@/src/constants/dummyChallengeData';
@@ -69,7 +69,7 @@ export default function LeaderboardListItem({
 							size='xs'
 							followActive={false}
 							customSize={entry?.rank[0]! > 3 ? 32 : 42}
-							source={profilePic}
+							source={profilePic as ImageSourcePropType}
 							userId={entry?.userId!}
 						/>
 					</Pressable>

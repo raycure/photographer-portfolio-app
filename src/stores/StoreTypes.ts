@@ -24,7 +24,7 @@ export type ModalState = {
 export type ModalActions = {
 	openModal: (props: Partial<ModalState>) => void;
 	closeModal: () => void;
-	resetModal: () => void;
+	resetModalStore: () => void;
 };
 
 export type UserID = string;
@@ -153,4 +153,5 @@ export type NotificationActions = {
 	addNotification: (notification: Notification) => void;
 	setAllSeen: () => void;
 	hasUnread: () => boolean;
+	resetStore: () => void;
 };

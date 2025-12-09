@@ -1,4 +1,4 @@
-import { Pressable, Text, View } from 'react-native';
+import { ImageSourcePropType, Pressable, Text, View } from 'react-native';
 import CircularPhoto from '../UI/CircularPhoto';
 import CustomButton from '../UI/CustomButton';
 import { UserPersonalInfo } from '@/src/stores/StoreTypes';
@@ -53,7 +53,7 @@ export default function ConnectionsListItem({
 		<Pressable onPress={onElementPress} style={styles.outerContainer}>
 			<CircularPhoto
 				userId={userpresonalInfo.id!}
-				source={image}
+				source={image as ImageSourcePropType}
 				size='small'
 			/>
 			<View style={styles.textContainer}>

@@ -7,6 +7,7 @@ import { useContext } from 'react';
 import { useRouter } from 'expo-router';
 import ReportAccount from '../Modal/ReportAccount';
 import { useTranslation } from 'react-i18next';
+import { AssociatedAccounts, ReportAccountModal } from '../Modal/modals';
 type FloatingAction = {
 	key: string;
 	icon: CustomIconProps;
@@ -63,11 +64,7 @@ export const FloatingActionsConfig: () => Record<
 					name: 'exclamation',
 					size: 26,
 				},
-				onPress: () =>
-					openModal({
-						title: t('Modals.ReportAccount.title'),
-						extra: <ReportAccount userId={data.personalInfo.id ?? ''} />,
-					}),
+				onPress: () => ReportAccountModal(data.personalInfo.id!),
 			},
 		],
 		general: [
@@ -92,14 +89,7 @@ export const FloatingActionsConfig: () => Record<
 							onPress: () =>
 								isPersonal
 									? router.push('/(stack)/linkedAccounts')
-									: openModal({
-											title: 'Associated Accounts',
-											extra: (
-												<LinkedAccountsBlock
-													userId={data.personalInfo.id ?? ''}
-												/>
-											),
-									  }),
+									: AssociatedAccounts(data.personalInfo.id!),
 						},
 				  ]
 				: []),

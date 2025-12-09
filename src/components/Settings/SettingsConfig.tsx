@@ -7,6 +7,8 @@ import ChangePasswordBlock from '../Modal/ChangePasswordBlock';
 import { useInteractionStore } from '@/src/stores/InteractionStore';
 import { languages } from '@/src/constants/languages';
 import { useTranslation } from 'react-i18next';
+import { useNotificationStore } from '@/src/stores/NotificationStore';
+import { ChangePassword, ReportIssue } from '../Modal/modals';
 
 export const SettingsBlocksConfig: () => Record<
 	string,
@@ -15,6 +17,8 @@ export const SettingsBlocksConfig: () => Record<
 	const colors = useColors();
 	const { t } = useTranslation();
 	const userInfoStore = useUserInfoStore();
+	const modalStore = useModalStore();
+	const notificationStore = useNotificationStore();
 	const openModal = useModalStore((state) => state.openModal);
 	const interactionStore = useInteractionStore();
 	return {
@@ -51,21 +55,12 @@ export const SettingsBlocksConfig: () => Record<
 			{
 				title: t('Settings.Settings.subtitleTwo'),
 				icon: { collectionKey: 'ion', name: 'key' },
-				onPress: () =>
-					openModal({
-						title: t('Modals.ChangePassword.title'),
-						extra: <ChangePasswordBlock />,
-					}),
+				onPress: () => ChangePassword(),
 			},
 			{
 				title: t('Settings.Settings.subtitleThree'),
 				icon: { collectionKey: 'fa6', name: 'exclamation' },
-				onPress: () =>
-					openModal({
-						title: t('Modals.ReportIssue.title'),
-						content: t('Modals.ReportIssue.text'),
-						extra: <ReportIssueBlock />,
-					}),
+				onPress: () => ReportIssue(),
 			},
 			{
 				title: t('Settings.Settings.subtitleFour'),
@@ -80,7 +75,12 @@ export const SettingsBlocksConfig: () => Record<
 			{
 				title: t('Settings.Settings.subtitleFive'),
 				icon: { collectionKey: 'oct', name: 'trash', color: colors.accentRed },
-				onPress: () => console.log(userInfoStore.personalInfo.id),
+				onPress: () => {
+					userInfoStore.resetUserData();
+					interactionStore.resetStore();
+					modalStore.resetModalStore();
+					notificationStore.resetStore();
+				},
 				titleColor: colors.accentRed,
 				tintColor: colors.iconBackgroundRed,
 			},
