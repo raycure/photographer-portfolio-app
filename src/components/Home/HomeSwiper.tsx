@@ -9,9 +9,10 @@ import { HomeSwiperStyles } from './HomeStyles';
 import NoEntries from './NoEntries';
 import { useLocalSearchParams } from 'expo-router';
 import { YouveSeenEverything } from '../Modal/modals';
-export default function HomeSwiper() {
+import { Entry } from '@/src/constants/dataTypes';
+export default function HomeSwiper({ entries }: { entries: Entry[] }) {
 	const { entryId } = useLocalSearchParams();
-	const [data, setData] = useState(dummyChallengeData.entries);
+	const [data, setData] = useState(entries);
 	useEffect(() => {
 		if (!entryId) return;
 		setData((prev) => {

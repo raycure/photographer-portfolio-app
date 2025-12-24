@@ -7,7 +7,7 @@ export const dummyChallengeData: Challenge = {
 	challengeDescription:
 		'Capture the beauty of nature in its purest form. Whether it’s a serene forest, a blooming flower, or a breathtaking sunset, show us your most inspiring nature shot.',
 	prizeInfo: '',
-	photoRatio: '5:4',
+	photoRatio: [5, 4],
 	entries: [
 		{
 			entryId: 'entry_005',

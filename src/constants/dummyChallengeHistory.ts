@@ -8,7 +8,7 @@ export const dummyChallengeHistory: ChallengeHistory[] = [
 		challengeDescription:
 			'Capture the beauty of nature in its purest form. Whether it’s a serene forest, a blooming flower, or a breathtaking sunset, show us your most inspiring nature shot.',
 		prizeInfo: '',
-		photoRatio: '5:4',
+		photoRatio: [7, 4],
 		entries: 63,
 		winners: [
 			{
@@ -73,7 +73,7 @@ export const dummyChallengeHistory: ChallengeHistory[] = [
 		challengeDescription:
 			'Capture the beauty of nature in its purest form. Whether it’s a serene forest, a blooming flower, or a breathtaking sunset, show us your most inspiring nature shot.',
 		prizeInfo: '',
-		photoRatio: '5:4',
+		photoRatio: [5, 4],
 		entries: 95,
 		winners: [
 			{

@@ -2,7 +2,6 @@ import { View } from 'react-native';
 import InputArea from '../UI/InputArea';
 import CustomIcon from '../UI/CustomIcon';
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
-import { useColors } from '@/src/hooks/useColors';
 import { EditProfileField, EditProfileFormProps } from './EditProfileTypes';
 import { useTranslation } from 'react-i18next';
 
@@ -12,7 +11,6 @@ export default function EditProfileForm({
 }: EditProfileFormProps) {
 	const userInfoStore = useUserInfoStore();
 	const { t } = useTranslation();
-	const colors = useColors();
 	const user = userInfoStore.personalInfo;
 	const titles = t('Authentication.FormInputData.titles', {
 		returnObjects: true,

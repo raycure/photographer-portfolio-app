@@ -37,7 +37,8 @@
 		}
 	},
 	"Home": {
-		"NoEntries": "No Posts Left"
+		"NoEntries": "No Posts Left",
+		"title": "Theme"
 	},
 	"LinkedAccounts": {
 		"title": "Accounts"
@@ -159,6 +160,24 @@
 		"AddPremiumPicture": {
 			"title": "Premium Feature",
 			"content": "Uploading photos directly to your profile is a premium feature. Upgrade to Premium to add images anytime without needing to join events."
+		},
+		"AttendChallenge": {
+			"title": "Join A Challenge",
+			"content": "By joining this challenge, you will be asked to upload a photo that matches the given theme and rules.",
+			"list": [
+				"Participation is free",
+				"Top ranked entries may win rewards",
+				"Winners are announced after the challenge ends"
+			]
+		},
+		"ChallengeExplanation": {
+			"title": "How Challenges Work",
+			"content": "Challenges let you showcase your photography by submitting photos to themed events. Each challenge runs for a limited time, and your submission competes with others.",
+			"list": [
+				"Join challenges for free and submit one photo per challenge",
+				"Explore, vote, and interact with other participants' entries",
+				"Top ranked photos win rewards and appear on winners' profiles"
+			]
 		}
 	}
 }

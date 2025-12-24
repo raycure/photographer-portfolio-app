@@ -37,7 +37,8 @@
 		}
 	},
 	"Home": {
-		"NoEntries": "Paylaşım kalmadı"
+		"NoEntries": "Paylaşım kalmadı",
+		"title": "Tema"
 	},
 	"LinkedAccounts": {
 		"title": "Hesaplar"
@@ -156,6 +157,27 @@
 			"placeholderOne": "Sorunun konusu",
 			"placeholderTwo": "Karşılaştığın sorun"
 		},
-		"AddPremiumPicture": {}
+		"AddPremiumPicture": {
+			"title": "Premium Özellik",
+			"content": "Fotoğrafları doğrudan profilinize yüklemek premium bir özelliktir. Etkinliklere katılmadan istediğiniz zaman fotoğraf ekleyebilmek için Premium’a yükseltin."
+		},
+		"AttendChallenge": {
+			"title": "Bir Yarışmaya Katıl",
+			"content": "Bu yarışmaya katıldığınızda, verilen tema ve kurallara uygun bir fotoğraf yüklemeniz istenir.",
+			"list": [
+				"Katılım ücretsizdir",
+				"Üst sıralardaki fotoğraflar ödül kazanabilir",
+				"Kazananlar yarışma bittikten sonra açıklanır"
+			]
+		},
+		"ChallengeExplanation": {
+			"title": "Yarışmalar Nasıl Çalışır?",
+			"content": "Yarışmalar, temalı etkinliklere fotoğraf göndererek yeteneklerinizi sergilemenizi sağlar. Her yarışma sınırlı bir süre boyunca devam eder ve gönderiniz diğer katılımcılarla yarışır.",
+			"list": [
+				"Yarışmalara ücretsiz katılabilir ve her yarışma için bir fotoğraf gönderebilirsiniz",
+				"Diğer katılımcıların fotoğraflarını keşfedebilir, oy verebilir ve etkileşimde bulunabilirsiniz",
+				"En yüksek puanı alan fotoğraflar ödül kazanır ve kazanan profillerinde yer alır"
+			]
+		}
 	}
 }

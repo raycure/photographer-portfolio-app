@@ -17,7 +17,7 @@ export type ChallengeHistory = {
 	challengeTheme: string;
 	challengeDescription: string;
 	prizeInfo: string;
-	photoRatio: string;
+	photoRatio: [number, number];
 	entries: number;
 	winners: Entry[];
 };
@@ -28,6 +28,6 @@ export type Challenge = {
 	challengeTheme: string;
 	challengeDescription: string;
 	prizeInfo: string;
-	photoRatio: string;
+	photoRatio: [number, number];
 	entries: Entry[];
 };

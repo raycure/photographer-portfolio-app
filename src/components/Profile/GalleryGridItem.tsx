@@ -9,7 +9,6 @@ import { useInteractionStore } from '@/src/stores/InteractionStore';
 import { useUserInfoStore } from '@/src/stores/UserInfoStore';
 import { pickImageFromGallery } from '@/src/utils/pickImage';
 import { useState } from 'react';
-import { useModalStore } from '@/src/stores/ModalStore';
 import { AddPremiumPicture } from '../Modal/modals';
 
 export default function GalleryGridItem({
@@ -23,7 +22,7 @@ export default function GalleryGridItem({
 	const userInfoStore = useUserInfoStore();
 	const onAddButtonPress = async () => {
 		const isPremium = userInfoStore.personalInfo.premium;
-		if (!isPremium) {
+		if (isPremium) {
 			const uri = await pickImageFromGallery({ aspect: [1, 1] });
 			if (uri) {
 				setImage(uri);

@@ -6,10 +6,10 @@ export const HomeSwiperStyles = StyleSheet.create({
 		flexDirection: 'row',
 		gap: 14,
 		position: 'absolute',
-		bottom: 18,
+		bottom: 14,
 		zIndex: 5,
 	},
-	card: { position: 'absolute' },
+	card: { position: 'absolute', top: 28 },
 	activeCard: { zIndex: 2 },
 	nextCard: { zIndex: 1 },
 });

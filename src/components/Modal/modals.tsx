@@ -1,12 +1,11 @@
 import i18n from '@/src/i18n';
 import { useModalStore } from '@/src/stores/ModalStore';
 import LinkedAccountsBlock from './LinkedAccountsBlock';
-import { useContext } from 'react';
-import UserContext from '@/src/context/UserContext';
 import LinkAccountBlock from './LinkAccountBlock';
 import ReportAccount from './ReportAccount';
 import ChangePasswordBlock from './ChangePasswordBlock';
 import ReportIssueBlock from './ReportIssueBlock';
+import { useInteractionStore } from '@/src/stores/InteractionStore';
 
 export const AddPremiumPicture = () => {
 	const { openModal, closeModal } = useModalStore.getState();
@@ -28,7 +27,7 @@ export const AddPremiumPicture = () => {
 };
 
 export const ChallengeHistoryInfo = () => {
-	const { openModal } = useModalStore.getState();
+	const { openModal, closeModal } = useModalStore.getState();
 	const t = i18n.t;
 	const list = t('Modals.ChallengeHistoryInfo.list', {
 		returnObjects: true,
@@ -53,7 +52,7 @@ export const ChallengeHistoryInfo = () => {
 				{
 					type: 'general',
 					content: t('UI.Buttons.Understood'),
-					onPress: () => useModalStore.getState().closeModal(),
+					onPress: () => closeModal(),
 				},
 			],
 		},
@@ -61,7 +60,7 @@ export const ChallengeHistoryInfo = () => {
 };
 
 export const YouveSeenEverything = () => {
-	const { openModal } = useModalStore.getState();
+	const { openModal, closeModal } = useModalStore.getState();
 	const t = i18n.t;
 	openModal({
 		title: t('Modals.YouveSeenEverything.title'),
@@ -72,7 +71,7 @@ export const YouveSeenEverything = () => {
 				{
 					type: 'general',
 					content: t('UI.Buttons.Continue'),
-					onPress: () => useModalStore.getState().closeModal(),
+					onPress: () => closeModal(),
 				},
 			],
 		},
@@ -122,5 +121,66 @@ export const ReportIssue = () => {
 		title: t('Modals.ReportIssue.title'),
 		content: t('Modals.ReportIssue.text'),
 		extra: <ReportIssueBlock />,
+	});
+};
+export const AttendChallenge = (onConfirm: () => Promise<void> | void) => {
+	const { openModal, closeModal } = useModalStore.getState();
+	const t = i18n.t;
+	const list = t('Modals.AttendChallenge.list', {
+		returnObjects: true,
+	}) as string[];
+	openModal({
+		title: t('Modals.AttendChallenge.title'),
+		content: t('Modals.AttendChallenge.content'),
+		list: [
+			{ icon: '✨', content: list[0] },
+			{ icon: '💎', content: list[1] },
+			{ icon: '🏆', content: list[2] },
+		],
+		buttons: {
+			configuration: 'row',
+			list: [
+				{
+					type: 'general',
+					content: t('UI.Buttons.Continue'),
+					onPress: async () => {
+						closeModal();
+						await onConfirm();
+					},
+				},
+			],
+		},
+	});
+};
+
+export const ChallengeExplanation = (
+	onContinue: () => Promise<void> | void
+) => {
+	const { openModal, closeModal } = useModalStore.getState();
+	const t = i18n.t;
+	const list = t('Modals.ChallengeExplanation.list', {
+		returnObjects: true,
+	}) as string[];
+	openModal({
+		title: t('Modals.ChallengeExplanation.title'),
+		content: t('Modals.ChallengeExplanation.content'),
+		list: [
+			{ icon: '🆓', content: list[0] },
+			{ icon: '👀', content: list[1] },
+			{ icon: '🏆', content: list[2] },
+		],
+		buttons: {
+			configuration: 'row',
+			list: [
+				{
+					type: 'general',
+					content: t('UI.Buttons.Understood'),
+					onPress: () => {
+						closeModal();
+						onContinue();
+					},
+				},
+			],
+		},
 	});
 };
