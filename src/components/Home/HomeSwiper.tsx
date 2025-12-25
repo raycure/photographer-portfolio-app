@@ -48,13 +48,12 @@ export default function HomeSwiper({ entries }: { entries: Entry[] }) {
 				interactionStore.addDislike(activeCard.entryId);
 			}
 			setData((prev) => prev.slice(1));
-			setTimeout(() => {
-				swipe.setValue({ x: 0, y: 0 });
-			}, 0);
 		},
 		[swipe, interactionStore, activeCard]
 	);
-
+	useEffect(() => {
+		swipe.setValue({ x: 0, y: 0 });
+	}, [swipe, interactionStore, activeCard]);
 	const panResponder = useRef(
 		PanResponder.create({
 			onMoveShouldSetPanResponder: () => true,
@@ -90,6 +89,7 @@ export default function HomeSwiper({ entries }: { entries: Entry[] }) {
 
 	const animatedCardStyle = {
 		transform: [...swipe.getTranslateTransform(), { rotate }],
+		zIndex: 2,
 	};
 	const nextCardScale = swipe.x.interpolate({
 		inputRange: [-300, 0, 300],
@@ -104,6 +104,7 @@ export default function HomeSwiper({ entries }: { entries: Entry[] }) {
 	const animatedNextCardStyle = {
 		transform: [{ scale: nextCardScale }],
 		opacity: nextCardOpacity,
+		zIndex: 1,
 	};
 
 	const handleChoice = useCallback(
@@ -129,16 +130,26 @@ export default function HomeSwiper({ entries }: { entries: Entry[] }) {
 	return (
 		<View style={styles.outerContainer}>
 			<Animated.View
+				key={activeCard.entryId}
 				style={[animatedCardStyle, styles.card, styles.activeCard]}
 				{...panResponder.panHandlers}
 			>
-				<HomeCard userId={activeCard.userId} imageId={activeCard.imageId} />
+				<HomeCard
+					ratio={dummyChallengeData.photoRatio}
+					userId={activeCard.userId}
+					imageId={activeCard.imageId}
+				/>
 			</Animated.View>
 			{nextCard && (
 				<Animated.View
 					style={[styles.card, styles.nextCard, animatedNextCardStyle]}
+					pointerEvents='none'
 				>
-					<HomeCard userId={nextCard.userId} imageId={nextCard.imageId} />
+					<HomeCard
+						ratio={dummyChallengeData.photoRatio}
+						userId={nextCard.userId}
+						imageId={nextCard.imageId}
+					/>
 				</Animated.View>
 			)}
 			<View style={styles.buttonsContainer}>

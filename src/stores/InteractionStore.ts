@@ -20,59 +20,59 @@ const initialState: InteractionState = {
 export const useInteractionStore = create<
 	InteractionState & InteractionActions
 >()(
-	//persist(
-	(set) => ({
-		...initialState,
-		setModalSeen: (modal) =>
-			set((state) => ({
-				modalsInteracted: {
-					...state.modalsInteracted,
-					[modal]: {
-						...state.modalsInteracted[modal],
-						seen: true,
+	persist(
+		(set) => ({
+			...initialState,
+			setModalSeen: (modal) =>
+				set((state) => ({
+					modalsInteracted: {
+						...state.modalsInteracted,
+						[modal]: {
+							...state.modalsInteracted[modal],
+							seen: true,
+						},
 					},
-				},
-			})),
-		setModalOpen: (modal, open, props) =>
-			set((state) => ({
-				modalsInteracted: {
-					...state.modalsInteracted,
-					[modal]: {
-						...state.modalsInteracted[modal],
-						open,
-						props,
+				})),
+			setModalOpen: (modal, open, props) =>
+				set((state) => ({
+					modalsInteracted: {
+						...state.modalsInteracted,
+						[modal]: {
+							...state.modalsInteracted[modal],
+							open,
+							props,
+						},
 					},
-				},
-			})),
-		addLike: (entryId) =>
-			set((state) => ({
-				challengeInteractions: {
-					...state.challengeInteractions,
-					likedEntries: Array.from(
-						new Set([...state.challengeInteractions.likedEntries, entryId])
-					),
-					dislikedEntries: state.challengeInteractions.dislikedEntries.filter(
-						(id) => id !== entryId
-					),
-				},
-			})),
-		addDislike: (entryId) =>
-			set((state) => ({
-				challengeInteractions: {
-					...state.challengeInteractions,
-					dislikedEntries: Array.from(
-						new Set([...state.challengeInteractions.dislikedEntries, entryId])
-					),
-					likedEntries: state.challengeInteractions.likedEntries.filter(
-						(id) => id !== entryId
-					),
-				},
-			})),
-		resetStore: () => set(() => initialState),
-	})
-	// 	{
-	// 		name: 'interaction-storage',
-	// 		storage: createJSONStorage(() => AsyncStorage),
-	// 	}
-	// )
+				})),
+			addLike: (entryId) =>
+				set((state) => ({
+					challengeInteractions: {
+						...state.challengeInteractions,
+						likedEntries: Array.from(
+							new Set([...state.challengeInteractions.likedEntries, entryId])
+						),
+						dislikedEntries: state.challengeInteractions.dislikedEntries.filter(
+							(id) => id !== entryId
+						),
+					},
+				})),
+			addDislike: (entryId) =>
+				set((state) => ({
+					challengeInteractions: {
+						...state.challengeInteractions,
+						dislikedEntries: Array.from(
+							new Set([...state.challengeInteractions.dislikedEntries, entryId])
+						),
+						likedEntries: state.challengeInteractions.likedEntries.filter(
+							(id) => id !== entryId
+						),
+					},
+				})),
+			resetStore: () => set(() => initialState),
+		}),
+		{
+			name: 'interaction-storage',
+			storage: createJSONStorage(() => AsyncStorage),
+		}
+	)
 );

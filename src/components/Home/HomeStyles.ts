@@ -9,7 +9,10 @@ export const HomeSwiperStyles = StyleSheet.create({
 		bottom: 14,
 		zIndex: 5,
 	},
-	card: { position: 'absolute', top: 28 },
+	card: {
+		position: 'absolute',
+		marginTop: -48,
+	},
 	activeCard: { zIndex: 2 },
 	nextCard: { zIndex: 1 },
 });

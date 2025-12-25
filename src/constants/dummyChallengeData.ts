@@ -7,7 +7,7 @@ export const dummyChallengeData: Challenge = {
 	challengeDescription:
 		'Capture the beauty of nature in its purest form. Whether it’s a serene forest, a blooming flower, or a breathtaking sunset, show us your most inspiring nature shot.',
 	prizeInfo: '',
-	photoRatio: [5, 4],
+	photoRatio: [4, 6],
 	entries: [
 		{
 			entryId: 'entry_005',
@@ -27,7 +27,7 @@ export const dummyChallengeData: Challenge = {
 				'user_014',
 				'user_015',
 			],
-			imageId: 'image_666',
+			imageId: 'image_943',
 			rank: [1, 5], // [newRank, oldRank]
 		},
 		{
@@ -64,7 +64,7 @@ export const dummyChallengeData: Challenge = {
 				'user_014',
 				'user_015',
 			],
-			imageId: 'image_666',
+			imageId: 'image_365',
 			rank: [3, 13],
 		},
 		{
@@ -97,7 +97,7 @@ export const dummyChallengeData: Challenge = {
 				'user_009',
 				'user_010',
 			],
-			imageId: 'image_666',
+			imageId: 'image_943',
 			rank: [5, 14],
 		},
 		{
@@ -126,7 +126,7 @@ export const dummyChallengeData: Challenge = {
 				'user_008',
 				'user_009',
 			],
-			imageId: 'image_666',
+			imageId: 'image_365',
 			rank: [7, 12],
 		},
 		{
@@ -147,21 +147,21 @@ export const dummyChallengeData: Challenge = {
 			entryId: 'entry_003',
 			userId: 'user_003',
 			likes: ['user_001', 'user_002', 'user_005', 'user_007', 'user_009'],
-			imageId: 'image_666',
+			imageId: 'image_943',
 			rank: [9, 3],
 		},
 		{
 			entryId: 'entry_015',
 			userId: 'user_015',
 			likes: ['user_001', 'user_002', 'user_004', 'user_006'],
-			imageId: 'image_666',
+			imageId: 'image_365',
 			rank: [10, 15],
 		},
 		{
 			entryId: 'entry_007',
 			userId: 'user_007',
 			likes: ['user_002', 'user_005', 'user_006', 'user_009'],
-			imageId: 'image_666',
+			imageId: 'image_943',
 			rank: [11, 7],
 		},
 		{
@@ -175,7 +175,7 @@ export const dummyChallengeData: Challenge = {
 			entryId: 'entry_016',
 			userId: 'user_016',
 			likes: ['user_002', 'user_004', 'user_006'],
-			imageId: 'image_666',
+			imageId: 'image_365',
 			rank: [13, 16],
 		},
 		{
@@ -189,7 +189,7 @@ export const dummyChallengeData: Challenge = {
 			entryId: 'entry_009',
 			userId: 'user_009',
 			likes: ['user_003', 'user_005'],
-			imageId: 'image_666',
+			imageId: 'image_365',
 			rank: [15, 9],
 		},
 		{

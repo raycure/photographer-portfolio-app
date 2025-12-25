@@ -8,14 +8,16 @@ import { HomeCardStyles } from './HomeStyles';
 export default function HomeCard({
 	imageId,
 	userId,
+	ratio,
 }: {
 	imageId: ImageID;
 	userId: UserID;
+	ratio: [number, number];
 }) {
 	const imageLink = images.find((image) => {
 		return image.imageId === imageId;
 	})?.link;
-	const aspectRatio = useAspectRatio(imageLink);
+	const aspectRatio = ratio[0] / ratio[1];
 	const styles = HomeCardStyles;
 	return (
 		<View>
