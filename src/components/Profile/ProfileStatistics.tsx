@@ -19,7 +19,7 @@ export default function ProfileStatistics() {
 	const levelInfo = getLevelInfo(user.stats.experiencePoints!);
 	const attendedChallenges = user.stats.attendedChallenges;
 	const wins = attendedChallenges?.filter((challenge) => {
-		return challenge.rank <= 3;
+		return challenge.rank! <= 3;
 	});
 	const rightSideBlocksConfig = [
 		{
