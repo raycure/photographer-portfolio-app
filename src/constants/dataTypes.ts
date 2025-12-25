@@ -7,9 +7,9 @@ type ChallengeDates = {
 export type Entry = {
 	entryId: string;
 	userId: string;
-	likes: UserID[];
+	likes?: UserID[];
 	imageId: string;
-	rank: [number, number]; // [newRank, oldRank]
+	rank?: [number, number]; // [newRank, oldRank]
 };
 export type ChallengeHistory = {
 	challengeId: string;

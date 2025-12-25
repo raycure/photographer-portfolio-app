@@ -46,18 +46,22 @@
 	"Notifications": {
 		"title": "Notifications"
 	},
+	"NotFound": {
+		"title": "This screen doesn't exist.",
+		"link": "Go to home screen!"
+	},
 	"Onboarding": {
 		"titles": [
 			"Welcome to",
 			"Compete in Themed Challenges",
-			"Earn Rewards and Recognition",
+			"Level Up as You Participate",
 			"Free Users Can Still Play",
 			"Go Premium, Unlock Everything"
 		],
 		"contents": [
 			"Show off your photography skills, join fun challenges, and build a profile you're proud of.",
 			"Enter daily and weekly challenges. Winning photos stay on your profile forever - win and shine!",
-			"Win challenges to earn rewards, and grow your reputation in the community.",
+			"Participate in challenges, get likes, and stay active to level up and stand out in the community.",
 			"Wait 3-5 minutes or watch a couple of ads to enter challenges for free.",
 			"Save all your photos and enter instantly with a premium account."
 		]
@@ -166,7 +170,7 @@
 			"content": "By joining this challenge, you will be asked to upload a photo that matches the given theme and rules.",
 			"list": [
 				"Participation is free",
-				"Top ranked entries may win rewards",
+				"Rank higher to level up and gain recognition",
 				"Winners are announced after the challenge ends"
 			]
 		},
@@ -176,7 +180,7 @@
 			"list": [
 				"Join challenges for free and submit one photo per challenge",
 				"Explore, vote, and interact with other participants' entries",
-				"Top ranked photos win rewards and appear on winners' profiles"
+				"Rank higher to level up and get featured on winners' profiles."
 			]
 		}
 	}

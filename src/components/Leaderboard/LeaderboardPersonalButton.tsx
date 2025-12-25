@@ -26,11 +26,11 @@ export default function LeaderboardPersonalButton() {
 			style={[styles.outerContainer, { backgroundColor: colors.tint }]}
 			onPress={onPress}
 		>
-			<RankIndicator rank={entry?.rank[0]!} />
+			<RankIndicator rank={entry?.rank![0]!} />
 			<Text style={styles.text}>@{user?.personalInfo.username}</Text>
 			<View style={styles.likeContainer}>
 				<Text style={[{ color: colors.negativeTint }, styles.likeText]}>
-					{entry?.likes.length}
+					{entry?.likes?.length}
 				</Text>
 				<CustomIcon
 					size={20}

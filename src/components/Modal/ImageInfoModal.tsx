@@ -15,17 +15,21 @@ import CustomButton from '../UI/CustomButton';
 import * as FileSystem from 'expo-file-system';
 import * as MediaLibrary from 'expo-media-library';
 import { Alert } from 'react-native';
+import { dummyUsers } from '@/src/constants/dummyUsers';
 export default function ImageInfoModal() {
 	const interactionStore = useInteractionStore();
 	const { open, props } = interactionStore.modalsInteracted.imageInfo;
 	const { entryId } = props || {};
 	const colors = useColors();
-	const backgroundColor = getColorWithOpacity(colors.primary800, 0.7);
+	const backgroundColor = getColorWithOpacity('#000000', 0.35);
 	const data =
 		dummyChallengeData.entries.find((entry) => entry.entryId === entryId) ||
 		dummyChallengeHistory
 			.flatMap((challenge) => challenge.winners)
-			.find((winner) => winner.entryId === entryId);
+			.find((winner) => winner.entryId === entryId) ||
+		dummyUsers
+			.flatMap((user) => user.stats.attendedChallenges)
+			.find((entry) => entry!.entryId === entryId);
 
 	const imageLink = images.find(
 		(image) => image.imageId === data?.imageId
@@ -89,21 +93,23 @@ export default function ImageInfoModal() {
 			</View>
 			<View style={styles.innerContainer}>
 				<ProfileInfo userId={data?.userId} />
-				<View style={styles.statsOuterContainer}>
-					<View style={styles.statsContainer}>
-						<Text style={styles.text}>{data?.likes.length}</Text>
-						<CustomIcon
-							size={19}
-							color={colors.accentRed}
-							collectionKey='oct'
-							name='heart-fill'
-						/>
+				{Array.isArray(data?.rank) && data.rank[0] && data.likes && (
+					<View style={styles.statsOuterContainer}>
+						<View style={styles.statsContainer}>
+							<Text style={styles.text}>{data?.likes.length}</Text>
+							<CustomIcon
+								size={19}
+								color={colors.accentRed}
+								collectionKey='oct'
+								name='heart-fill'
+							/>
+						</View>
+						<View style={styles.statsContainer}>
+							<Text style={styles.text}>{data?.rank[0]}</Text>
+							<CustomIcon size={19} svg={<TrophySVG />} />
+						</View>
 					</View>
-					<View style={styles.statsContainer}>
-						<Text style={styles.text}>{data?.rank[0]}</Text>
-						<CustomIcon size={19} svg={<TrophySVG />} />
-					</View>
-				</View>
+				)}
 			</View>
 		</View>
 	);

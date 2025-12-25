@@ -46,18 +46,22 @@
 	"Notifications": {
 		"title": "Bildirimler"
 	},
+	"NotFound": {
+		"title": "Böyle bir sayfa yok.",
+		"link": "Ana ekrana geri dönün!"
+	},
 	"Onboarding": {
 		"titles": [
 			"XXXX'e Hoş Geldiniz",
 			"Temalı Yarışmalara Katıl",
-			"Ödüller Kazan ve Öne Çık",
+			"Katıldıkça Seviye Atla",
 			"Ücretsiz Kullanıma Müsait",
 			"Premium'a Geç, Her Şeyin Kilidini Aç"
 		],
 		"contents": [
 			"Fotoğrafçılık yeteneklerini göster, eğlenceli yarışmalara katıl ve gurur duyacağın bir profil oluştur.",
 			"Günlük ve haftalık yarışmalara katıl. Kazanan fotoğraflar profilinde kalıcı olur – kazan ve parılda!",
-			"Yarışmaları kazan, ödüller elde et ve itibarını artır.",
+			"Meydan okumalara katılarak, beğeni alarak ve aktif kalarak seviye atla ve toplulukta öne çık.",
 			"Ücretsiz katılım için 3–5 dakika bekle veya birkaç reklam izle.",
 			"Premium hesapla tüm fotoğraflarını kaydet ve anındayarışmalara katıl!"
 		]
@@ -166,7 +170,7 @@
 			"content": "Bu yarışmaya katıldığınızda, verilen tema ve kurallara uygun bir fotoğraf yüklemeniz istenir.",
 			"list": [
 				"Katılım ücretsizdir",
-				"Üst sıralardaki fotoğraflar ödül kazanabilir",
+				"Yüksel, seviye atla ve tanınırlık kazan",
 				"Kazananlar yarışma bittikten sonra açıklanır"
 			]
 		},
@@ -176,7 +180,7 @@
 			"list": [
 				"Yarışmalara ücretsiz katılabilir ve her yarışma için bir fotoğraf gönderebilirsiniz",
 				"Diğer katılımcıların fotoğraflarını keşfedebilir, oy verebilir ve etkileşimde bulunabilirsiniz",
-				"En yüksek puanı alan fotoğraflar ödül kazanır ve kazanan profillerinde yer alır"
+				"Daha üst sıralara çıkarak seviye atla ve resmin profilinde sergilensin."
 			]
 		}
 	}

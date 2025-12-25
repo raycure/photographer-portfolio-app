@@ -33,13 +33,13 @@ export type ChallengeID = string;
 export type EntryID = string;
 export type NotificationID = string;
 
-type ChallengeInfo = {
+export type ChallengeInfo = {
 	challengeId: ChallengeID;
 	entryId?: EntryID;
 	userId?: UserID;
 	imageId?: ImageID;
-	rank: number;
-	likes: UserID[];
+	rank?: number;
+	likes?: UserID[];
 };
 export type AttendedChallenges = ChallengeInfo & { saved: boolean };
 

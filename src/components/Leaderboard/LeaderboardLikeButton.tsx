@@ -16,7 +16,7 @@ export default function LeaderboardLikeButton({
 	const entry = dummyChallengeData.entries.find((entry) => {
 		return entry.entryId === entryId;
 	});
-	const liked = entry?.likes.includes(userInfoStore.personalInfo.id!);
+	const liked = entry?.likes?.includes(userInfoStore.personalInfo.id!);
 	const onPressLike = () => {
 		if (liked) {
 		} else if (entry?.userId !== userInfoStore.personalInfo.id) {
@@ -31,7 +31,7 @@ export default function LeaderboardLikeButton({
 					size === 'big' ? styles.textBig : styles.textMedium,
 				]}
 			>
-				{entry?.likes.length}
+				{entry?.likes?.length}
 			</Text>
 			<CustomButton
 				type='icon'

@@ -17,12 +17,22 @@ export default function LeaderboardLayout() {
 	const group4 = data.slice(9, 25);
 
 	const topNine = ({ item }: { item: { entryId: EntryID } }) => (
-		<LeaderboardListItem entryId={item.entryId} topNine={true} />
+		<LeaderboardListItem
+			ratio={dummyChallengeData.photoRatio}
+			entryId={item.entryId}
+			topNine={true}
+		/>
 	);
 	const rest = ({ item }: { item: { entryId: EntryID } }) => (
-		<LeaderboardListItem entryId={item.entryId} />
+		<LeaderboardListItem
+			ratio={dummyChallengeData.photoRatio}
+			entryId={item.entryId}
+		/>
 	);
 	const styles = LeaderboardLayoutStyles;
+	const myEntry = data.find(
+		(entry) => entry.userId === userInfoStore.personalInfo.id
+	);
 	return (
 		<View style={styles.outerContainer}>
 			<ScrollView contentContainerStyle={styles.list}>
@@ -52,8 +62,9 @@ export default function LeaderboardLayout() {
 					columnWrapperStyle={styles.gapBig}
 					contentContainerStyle={styles.gapBig}
 				/>
-				{data.find((entry) => entry.userId === userInfoStore.personalInfo.id)
-					?.rank[0]! > 9 && <LeaderboardPersonalButton />}
+				{Array.isArray(myEntry?.rank) && myEntry.rank[0] > 9 && (
+					<LeaderboardPersonalButton />
+				)}
 				<FlatList
 					data={group4}
 					renderItem={rest}

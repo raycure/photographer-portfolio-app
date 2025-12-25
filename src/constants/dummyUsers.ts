@@ -307,18 +307,6 @@ export const dummyUsers: UserState[] = [
 					entryId: 'entry_007',
 					userId: 'user_006',
 					imageId: 'image_365',
-					rank: 4,
-					likes: [
-						'user_002',
-						'user_003',
-						'user_004',
-						'user_006',
-						'user_011',
-						'user_012',
-						'user_013',
-						'user_014',
-						'user_015',
-					],
 					saved: true,
 				},
 				{

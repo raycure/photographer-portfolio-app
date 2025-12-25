@@ -14,7 +14,7 @@ export default function GalleryGrid() {
 	const isPersonal = userData.personalInfo.id === userInfoStore.personalInfo.id;
 	const savedWins =
 		userData.stats.attendedChallenges?.filter((challenge) => {
-			return challenge.rank <= 3 || challenge.saved;
+			return challenge.rank! <= 3 || challenge.saved;
 		}) || [];
 	const data: (AttendedChallenges | 'add')[] = isPersonal
 		? ['add', ...savedWins]

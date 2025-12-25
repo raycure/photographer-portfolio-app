@@ -1,6 +1,5 @@
 import { Image } from 'expo-image';
 import { ImageSourcePropType, Pressable, Text, View } from 'react-native';
-import useAspectRatio from '@/src/hooks/useAspectRatio';
 import { images } from '@/src/constants/dummyImages';
 import { dummyChallengeData } from '@/src/constants/dummyChallengeData';
 import { useColors } from '@/src/hooks/useColors';
@@ -18,6 +17,7 @@ import LeaderboardLikeButton from './LeaderboardLikeButton';
 export default function LeaderboardListItem({
 	entryId,
 	topNine = false,
+	ratio,
 }: LeaderBoardListItemProps) {
 	const colors = useColors();
 	const router = useRouter();
@@ -28,7 +28,7 @@ export default function LeaderboardListItem({
 	const imageLink = images.find((image) => {
 		return image.imageId === entry?.imageId;
 	})?.link;
-	const aspectRatio = useAspectRatio(imageLink);
+	const aspectRatio = ratio[0] / ratio[1];
 	const onProfilePress = () => {
 		router.push({
 			pathname: '/(stack)',
@@ -54,7 +54,7 @@ export default function LeaderboardListItem({
 		)?.link;
 		return (
 			<Pressable style={styles.outerContainer} onPress={onPhotoPress}>
-				<RankIndicator style={styles.rank} rank={entry?.rank[0]!} />
+				<RankIndicator style={styles.rank} rank={entry?.rank![0]!} />
 				<Pressable onPress={onPhotoPress}>
 					<Image
 						source={{
@@ -68,13 +68,13 @@ export default function LeaderboardListItem({
 						<CircularPhoto
 							size='xs'
 							followActive={false}
-							customSize={entry?.rank[0]! > 3 ? 32 : 42}
+							customSize={entry?.rank![0]! > 3 ? 32 : 42}
 							source={profilePic as ImageSourcePropType}
 							userId={entry?.userId!}
 						/>
 					</Pressable>
 					<LeaderboardLikeButton
-						size={entry?.rank[0]! > 3 ? 'small' : 'medium'}
+						size={entry?.rank![0]! > 3 ? 'small' : 'medium'}
 						entryId={entryId}
 					/>
 				</View>
