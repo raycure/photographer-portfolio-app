@@ -76,6 +76,12 @@ export const LinkAccountBlockStyles = StyleSheet.create({
 export const LinkedAccountsBlockStyles = StyleSheet.create({
 	lineSeperator: { marginVertical: 0 },
 	outerContainer: { width: '100%' },
+	innerContainer: {
+		justifyContent: 'center',
+		alignItems: 'center',
+		paddingVertical: 10,
+		gap: 6,
+	},
 });
 
 export const ReportAccountStyles = StyleSheet.create({

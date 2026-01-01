@@ -213,13 +213,7 @@ export const dummyUsers: UserState[] = [
 			leftFreeImageQuota: 0,
 		},
 		social: {
-			socialMedia: [
-				{
-					social: 'facebook',
-					url: 'https://facebook.com/ethanb',
-					username: 'ethanb',
-				},
-			],
+			socialMedia: [],
 			followingAccounts: ['user_001', 'user_006'],
 			followerAccounts: ['user_002', 'user_004'],
 		},

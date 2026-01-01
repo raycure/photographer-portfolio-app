@@ -182,6 +182,10 @@
 				"Explore, vote, and interact with other participants' entries",
 				"Rank higher to level up and get featured on winners' profiles."
 			]
+		},
+		"LinkedAccounts": {
+			"title": "Associated Accounts",
+			"NoAccounts": "No accounts linked"
 		}
 	}
 }

@@ -80,8 +80,9 @@ export const YouveSeenEverything = () => {
 
 export const AssociatedAccounts = (userId: string) => {
 	const { openModal } = useModalStore.getState();
+	const t = i18n.t;
 	openModal({
-		title: 'Associated Accounts',
+		title: t('Modals.LinkedAccounts.title'),
 		extra: <LinkedAccountsBlock userId={userId ?? ''} />,
 	});
 };

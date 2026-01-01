@@ -182,6 +182,10 @@
 				"Diğer katılımcıların fotoğraflarını keşfedebilir, oy verebilir ve etkileşimde bulunabilirsiniz",
 				"Daha üst sıralara çıkarak seviye atla ve resmin profilinde sergilensin."
 			]
+		},
+		"LinkedAccounts": {
+			"title": "Alakalı Hesaplar",
+			"NoAccounts": "Bir hesap eklenmedi"
 		}
 	}
 }

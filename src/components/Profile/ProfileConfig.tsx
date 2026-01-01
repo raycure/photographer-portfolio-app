@@ -28,11 +28,6 @@ export const FloatingActionsConfig: () => Record<
 	);
 	return {
 		personal: [
-			// {
-			// 	key: 'bookmark',
-			// 	icon: { collectionKey: 'fa', name: 'bookmark-o', size: 28 },
-			// 	onPress: () => console.log('test'),
-			// },
 			{
 				key: 'edit',
 				icon: {

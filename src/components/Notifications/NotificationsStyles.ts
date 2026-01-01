@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-
+import { Dimensions, StyleSheet } from 'react-native';
+const screenWidth = Dimensions.get('screen').width;
 export const NotificationsLayoutStyles = StyleSheet.create({
 	outerContainer: { flex: 1 },
 });
@@ -13,7 +13,7 @@ export const NotificationItemStyles = StyleSheet.create({
 		alignItems: 'center',
 		marginTop: 1,
 	},
-	text: { fontSize: 16 },
+	text: { fontSize: 16, maxWidth: screenWidth - 60 },
 	username: { fontWeight: '700' },
 	circularContainer: {
 		width: 48,
